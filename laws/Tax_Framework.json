@@ -89,7 +89,7 @@
                                 "type": "GameValueWrapper",
                                 "value": {
                                   "type": "Eco.Gameplay.Economy.Currency",
-                                  "name": "Dollar",
+                                  "name": "Euro",
                                   "reference": true
                                 }
                               },
@@ -148,7 +148,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Economy.Currency",
-                          "name": "Dollar",
+                          "name": "Euro",
                           "reference": true
                         }
                       },
@@ -326,7 +326,7 @@
                                 "type": "GameValueWrapper",
                                 "value": {
                                   "type": "Eco.Gameplay.Economy.Currency",
-                                  "name": "Dollar",
+                                  "name": "Euro",
                                   "reference": true
                                 }
                               },
@@ -364,7 +364,7 @@
                             "type": "GameValueWrapper",
                             "value": {
                               "type": "Eco.Gameplay.Economy.Currency",
-                              "name": "Dollar",
+                              "name": "Euro",
                               "reference": true
                             }
                           },
@@ -404,7 +404,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Economy.Currency",
-                          "name": "Dollar",
+                          "name": "Euro",
                           "reference": true
                         }
                       },
@@ -415,7 +415,7 @@
                             "type": "GameValueWrapper",
                             "value": {
                               "type": "Eco.Gameplay.Economy.Currency",
-                              "name": "Dollar",
+                              "name": "Euro",
                               "reference": true
                             }
                           },

@@ -1,0 +1,1212 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Laws.Law",
+  "name": "Labor Tax",
+  "reference": false,
+  "description": "Instead of taxing sales, which can be circumvented by using vertical integration, we want use a sustainable tax model that does not punish the trading with other players, since we want to support open trade. Therefore, a labor tax is implemented. Based on the speciality, labor will be taxed more or less.",
+  "properties": {
+    "Sections": [
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "High Labor Tax",
+          "UserDescription": "Strong Labor Tax: 2,75 Euros for every 1000 Labor. Taxation only applied if total labor per day is larger than 25k. Strongly taxed specialities: tailoring, electronics, mechanics, industry, cooking, advanced cooking, baking, advanced baking, farming, logging",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.LaborWorkOrderAction"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.LaborWorkOrderAction",
+                    "propNameBacker": "LaborProfession",
+                    "propDisplayName": "Labor Profession",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Skills.Skill"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.LaborWorkOrderAction",
+                    "propNameBacker": "LaborSkill",
+                    "propDisplayName": "Labor Skill",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Skills.Skill"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "10 NotAllowedInInventories Skills",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CookingSkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LoggingSkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdvancedBakingSkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.IndustrySkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ElectronicsSkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.FarmingSkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BakingSkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.TailoringSkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MechanicsSkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdvancedCookingSkill"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.LaborWorkOrderAction",
+                    "propNameBacker": "CraftedItem",
+                    "propDisplayName": "Crafted Item",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Product",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.LaborWorkOrderAction",
+                    "propNameBacker": "WorldObjectItem",
+                    "propDisplayName": "Crafting Table",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Crafting Table",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "laborAdded",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                      },
+                      "Count": {
+                        "type": "GameValueContext",
+                        "contextName": "LaborAdded",
+                        "titleBacking": "<ecoicon item=\"LaborWorkOrderAction\">Labor Added</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"LaborWorkOrderAction\">Labor Added</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"LaborWorkOrderAction\">Labor Added</ecoicon>: The amount of labor performed.\r\n"
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                  "properties": {
+                                    "Left": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                      "properties": {
+                                        "CustomStatName": "laborAdded",
+                                        "TimeRangeInHours": {
+                                          "type": "GameValueWrapper",
+                                          "value": 24.0
+                                        },
+                                        "TimeRangeType": "CountBackFromPresentTime",
+                                        "User": {
+                                          "type": "GameValueContext",
+                                          "contextName": "Citizen",
+                                          "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                          "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                                        }
+                                      }
+                                    },
+                                    "Comparison": "GreaterThan",
+                                    "Right": {
+                                      "type": "GameValueWrapper",
+                                      "value": 25000.0
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                              "reference": false,
+                              "properties": {
+                                "StatName": "taxesOwed",
+                                "Person": {
+                                  "type": "GameValueContext",
+                                  "contextName": "Citizen",
+                                  "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                  "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                                },
+                                "Count": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                  "properties": {
+                                    "LeftNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                      "properties": {
+                                        "LeftNumber": {
+                                          "type": "GameValueWrapper",
+                                          "value": 2.75
+                                        },
+                                        "Operation": "Multiply",
+                                        "RightNumber": {
+                                          "type": "GameValueContext",
+                                          "contextName": "Labor Added",
+                                          "titleBacking": "<ecoicon item=\"LaborWorkOrderAction\">Labor Added</ecoicon>",
+                                          "tooltip": "When triggered, the <ecoicon item=\"LaborWorkOrderAction\">Labor Added</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"LaborWorkOrderAction\">Labor Added</ecoicon>: The amount of labor performed.\r\n"
+                                        }
+                                      }
+                                    },
+                                    "Operation": "Divide",
+                                    "RightNumber": {
+                                      "type": "GameValueWrapper",
+                                      "value": 1000.0
+                                    }
+                                  }
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Stop Spamming General",
+          "UserDescription": "",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ChatSent"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectString",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChatSent",
+                    "propNameBacker": "Tag",
+                    "propDisplayName": "Tag",
+                    "properties": {
+                      "String": "#General"
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectString",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChatSent",
+                    "propNameBacker": "Message",
+                    "propDisplayName": "Message",
+                    "properties": {
+                      "String": "!labor"
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.SendNotice",
+                    "reference": false,
+                    "properties": {
+                      "Message": "stop spamming #General reeee",
+                      "NotificationType": "SideBarMessage",
+                      "PeopleToSendTo": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                      },
+                      "ValueToDisplay": null,
+                      "LocationToDisplay": null,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Labor Query",
+          "UserDescription": "allows a citizen to query how many labor they already invested in the last 24 hours",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ChatSent"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectString",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChatSent",
+                    "propNameBacker": "Tag",
+                    "propDisplayName": "Tag",
+                    "properties": {
+                      "String": null
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectString",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChatSent",
+                    "propNameBacker": "Message",
+                    "propDisplayName": "Message",
+                    "properties": {
+                      "String": "!labor"
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.SendNotice",
+                    "reference": false,
+                    "properties": {
+                      "Message": "work added today:",
+                      "NotificationType": "SideBarMessage",
+                      "PeopleToSendTo": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                      },
+                      "ValueToDisplay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                        "properties": {
+                          "CustomStatName": "laborAdded",
+                          "TimeRangeInHours": {
+                            "type": "GameValueWrapper",
+                            "value": 24.0
+                          },
+                          "TimeRangeType": "CountBackFromPresentTime",
+                          "User": {
+                            "type": "GameValueContext",
+                            "contextName": "Citizen",
+                            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                          }
+                        }
+                      },
+                      "LocationToDisplay": null,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Medium Labor Tax",
+          "UserDescription": "Medium Labor Tax: 1,75 Euro for every 1000 Labor, only starting after 50k Labor. Specialities taxed: Campfire Cooking, Basic Engineering, Butchering, Smelting, Advanced Smelting, Fertilizers, Composites",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.LaborWorkOrderAction"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.LaborWorkOrderAction",
+                    "propNameBacker": "LaborProfession",
+                    "propDisplayName": "Labor Profession",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Skills.Skill"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.LaborWorkOrderAction",
+                    "propNameBacker": "LaborSkill",
+                    "propDisplayName": "Labor Skill",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Skills.Skill"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "7 NotAllowedInInventories Skills",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CampfireCookingSkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ButcherySkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.FertilizersSkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmeltingSkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BasicEngineeringSkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdvancedSmeltingSkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositesSkill"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.LaborWorkOrderAction",
+                    "propNameBacker": "CraftedItem",
+                    "propDisplayName": "Crafted Item",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Product",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.LaborWorkOrderAction",
+                    "propNameBacker": "WorldObjectItem",
+                    "propDisplayName": "Crafting Table",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Crafting Table",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "laborAdded",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                      },
+                      "Count": {
+                        "type": "GameValueContext",
+                        "contextName": "LaborAdded",
+                        "titleBacking": "<ecoicon item=\"LaborWorkOrderAction\">Labor Added</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"LaborWorkOrderAction\">Labor Added</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"LaborWorkOrderAction\">Labor Added</ecoicon>: The amount of labor performed.\r\n"
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                  "properties": {
+                                    "Left": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                      "properties": {
+                                        "CustomStatName": "laborAdded",
+                                        "TimeRangeInHours": {
+                                          "type": "GameValueWrapper",
+                                          "value": 24.0
+                                        },
+                                        "TimeRangeType": "CountBackFromPresentTime",
+                                        "User": {
+                                          "type": "GameValueContext",
+                                          "contextName": "Citizen",
+                                          "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                          "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                                        }
+                                      }
+                                    },
+                                    "Comparison": "GreaterThan",
+                                    "Right": {
+                                      "type": "GameValueWrapper",
+                                      "value": 50000.0
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                              "reference": false,
+                              "properties": {
+                                "StatName": "taxesOwed",
+                                "Person": {
+                                  "type": "GameValueContext",
+                                  "contextName": "Citizen",
+                                  "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                  "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                                },
+                                "Count": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                  "properties": {
+                                    "LeftNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                      "properties": {
+                                        "LeftNumber": {
+                                          "type": "GameValueWrapper",
+                                          "value": 1.75
+                                        },
+                                        "Operation": "Multiply",
+                                        "RightNumber": {
+                                          "type": "GameValueContext",
+                                          "contextName": "Labor Added",
+                                          "titleBacking": "<ecoicon item=\"LaborWorkOrderAction\">Labor Added</ecoicon>",
+                                          "tooltip": "When triggered, the <ecoicon item=\"LaborWorkOrderAction\">Labor Added</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"LaborWorkOrderAction\">Labor Added</ecoicon>: The amount of labor performed.\r\n"
+                                        }
+                                      }
+                                    },
+                                    "Operation": "Divide",
+                                    "RightNumber": {
+                                      "type": "GameValueWrapper",
+                                      "value": 1000.0
+                                    }
+                                  }
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Weak Labor Tax",
+          "UserDescription": "Professions that do a lot of labor will be taxed less. 0,75$ per 1000 Labor, applying after 75k labor a day. Weak tax professions: carpentry, pottery, masonry, glassworking, paper milling, oil drilling, milling, cutting edge cooking",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.LaborWorkOrderAction"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.LaborWorkOrderAction",
+                    "propNameBacker": "LaborProfession",
+                    "propDisplayName": "Labor Profession",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Skills.Skill"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.LaborWorkOrderAction",
+                    "propNameBacker": "LaborSkill",
+                    "propDisplayName": "Labor Skill",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Skills.Skill"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "8 NotAllowedInInventories Skills",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.PaperMillingSkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MillingSkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.PotterySkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CuttingEdgeCookingSkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MasonrySkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.OilDrillingSkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CarpentrySkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.GlassworkingSkill"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.LaborWorkOrderAction",
+                    "propNameBacker": "CraftedItem",
+                    "propDisplayName": "Crafted Item",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Product",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.LaborWorkOrderAction",
+                    "propNameBacker": "WorldObjectItem",
+                    "propDisplayName": "Crafting Table",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Crafting Table",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "laborAdded",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                      },
+                      "Count": {
+                        "type": "GameValueContext",
+                        "contextName": "LaborAdded",
+                        "titleBacking": "<ecoicon item=\"LaborWorkOrderAction\">Labor Added</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"LaborWorkOrderAction\">Labor Added</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"LaborWorkOrderAction\">Labor Added</ecoicon>: The amount of labor performed.\r\n"
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                  "properties": {
+                                    "Left": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                      "properties": {
+                                        "CustomStatName": "laborAdded",
+                                        "TimeRangeInHours": {
+                                          "type": "GameValueWrapper",
+                                          "value": 24.0
+                                        },
+                                        "TimeRangeType": "CountBackFromPresentTime",
+                                        "User": {
+                                          "type": "GameValueContext",
+                                          "contextName": "Citizen",
+                                          "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                          "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                                        }
+                                      }
+                                    },
+                                    "Comparison": "GreaterThan",
+                                    "Right": {
+                                      "type": "GameValueWrapper",
+                                      "value": 75000.0
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                              "reference": false,
+                              "properties": {
+                                "StatName": "taxesOwed",
+                                "Person": {
+                                  "type": "GameValueContext",
+                                  "contextName": "Citizen",
+                                  "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                  "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                                },
+                                "Count": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                  "properties": {
+                                    "LeftNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                      "properties": {
+                                        "LeftNumber": {
+                                          "type": "GameValueWrapper",
+                                          "value": 0.75
+                                        },
+                                        "Operation": "Multiply",
+                                        "RightNumber": {
+                                          "type": "GameValueContext",
+                                          "contextName": "Labor Added",
+                                          "titleBacking": "<ecoicon item=\"LaborWorkOrderAction\">Labor Added</ecoicon>",
+                                          "tooltip": "When triggered, the <ecoicon item=\"LaborWorkOrderAction\">Labor Added</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"LaborWorkOrderAction\">Labor Added</ecoicon>: The amount of labor performed.\r\n"
+                                        }
+                                      }
+                                    },
+                                    "Operation": "Divide",
+                                    "RightNumber": {
+                                      "type": "GameValueWrapper",
+                                      "value": 1000.0
+                                    }
+                                  }
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Mining Labor Tax",
+          "UserDescription": "Miners pay especially little labor tax since they have to expend a lot of labor. 0,5$ per 1000 Labor, only counting after 75k labor has been expended.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.LaborWorkOrderAction"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.LaborWorkOrderAction",
+                    "propNameBacker": "LaborProfession",
+                    "propDisplayName": "Labor Profession",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Skills.Skill"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.LaborWorkOrderAction",
+                    "propNameBacker": "LaborSkill",
+                    "propDisplayName": "Labor Skill",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Skills.Skill"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<b><link=\"TypeTooltip:137\"><b><link=\"Item:MiningSkill\"><style=\"Item\"><ecoicon item=\"Mining\">Mining</ecoicon></style></link></b></link></b>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MiningSkill"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.LaborWorkOrderAction",
+                    "propNameBacker": "CraftedItem",
+                    "propDisplayName": "Crafted Item",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Product",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.LaborWorkOrderAction",
+                    "propNameBacker": "WorldObjectItem",
+                    "propDisplayName": "Crafting Table",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Crafting Table",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "laborAdded",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                      },
+                      "Count": {
+                        "type": "GameValueContext",
+                        "contextName": "LaborAdded",
+                        "titleBacking": "<ecoicon item=\"LaborWorkOrderAction\">Labor Added</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"LaborWorkOrderAction\">Labor Added</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"LaborWorkOrderAction\">Labor Added</ecoicon>: The amount of labor performed.\r\n"
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                  "properties": {
+                                    "Left": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                      "properties": {
+                                        "CustomStatName": "laborAdded",
+                                        "TimeRangeInHours": {
+                                          "type": "GameValueWrapper",
+                                          "value": 24.0
+                                        },
+                                        "TimeRangeType": "CountBackFromPresentTime",
+                                        "User": {
+                                          "type": "GameValueContext",
+                                          "contextName": "Citizen",
+                                          "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                          "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                                        }
+                                      }
+                                    },
+                                    "Comparison": "GreaterThan",
+                                    "Right": {
+                                      "type": "GameValueWrapper",
+                                      "value": 75000.0
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                              "reference": false,
+                              "properties": {
+                                "StatName": "taxesOwed",
+                                "Person": {
+                                  "type": "GameValueContext",
+                                  "contextName": "Citizen",
+                                  "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                  "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                                },
+                                "Count": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                  "properties": {
+                                    "LeftNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                      "properties": {
+                                        "LeftNumber": {
+                                          "type": "GameValueWrapper",
+                                          "value": 0.5
+                                        },
+                                        "Operation": "Multiply",
+                                        "RightNumber": {
+                                          "type": "GameValueContext",
+                                          "contextName": "Labor Added",
+                                          "titleBacking": "<ecoicon item=\"LaborWorkOrderAction\">Labor Added</ecoicon>",
+                                          "tooltip": "When triggered, the <ecoicon item=\"LaborWorkOrderAction\">Labor Added</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"LaborWorkOrderAction\">Labor Added</ecoicon>: The amount of labor performed.\r\n"
+                                        }
+                                      }
+                                    },
+                                    "Operation": "Divide",
+                                    "RightNumber": {
+                                      "type": "GameValueWrapper",
+                                      "value": 1000.0
+                                    }
+                                  }
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

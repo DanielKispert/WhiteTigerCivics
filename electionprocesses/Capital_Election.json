@@ -1,0 +1,25 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.ElectionProcess",
+  "name": "Federal Capital Electorial Process",
+  "reference": false,
+  "description": "The Citizens of the Federal Capital vote for a Mayor of the Federal Capital, a Deputy Mayor of the Federal Capital or Capital Senators",
+  "properties": {
+    "Voters": {
+      "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+      "name": "Citizen of the Federal Capital",
+      "reference": true
+    },
+    "Vetoers": null,
+    "MaximumElectionHours": 24.0,
+    "MinimumPercentOfEligibleVotersRequired": 0.0,
+    "PercentOfAllVotersToInstantWin": 51.0,
+    "PercentOfAllVotersToInstantLose": 51.0,
+    "EndElectionEarlyWhenThisPercentHaveVoted": 95.0,
+    "MinimumDaysBetweenElectionsOfThisType": 0.0,
+    "AnonymousVoting": false
+  }
+}

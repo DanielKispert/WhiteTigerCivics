@@ -1,0 +1,83 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+  "name": "Citizens of Schleswig-Holstein",
+  "reference": false,
+  "description": null,
+  "properties": {
+    "Conditions": [
+      {
+        "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
+        "properties": {
+          "Demographics": {
+            "type": "GamePickerList",
+            "mustDeriveType": {
+              "type": "Type",
+              "value": "Eco.Gameplay.Civics.Demographics.Demographic"
+            },
+            "requiredTag": null,
+            "entries": [
+              {
+                "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                "name": "Abandoned",
+                "reference": true
+              }
+            ]
+          },
+          "Citizen": {
+            "type": "GameValueContext",
+            "contextName": "Citizen",
+            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen being checked for this demographic.\r\n"
+          },
+          "Requirements": "HasNone"
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+        "properties": {
+          "Location": {
+            "type": "Eco.Gameplay.Civics.GameValues.Values.Residence",
+            "properties": {
+              "Citizen": {
+                "type": "GameValueContext",
+                "contextName": "Citizen",
+                "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen being checked for this demographic.\r\n"
+              }
+            }
+          },
+          "Districts": {
+            "type": "GamePickerList",
+            "mustDeriveType": {
+              "type": "Type",
+              "value": "Eco.Gameplay.LegislationSystem.District"
+            },
+            "requiredTag": null,
+            "entries": [
+              {
+                "type": "Eco.Gameplay.LegislationSystem.District",
+                "name": "Schleswig-Holstein",
+                "reference": true
+              }
+            ]
+          },
+          "Requirements": "InsideOne"
+        }
+      }
+    ],
+    "Wages": {
+      "type": "Eco.Gameplay.Economy.Jobs.RecurringTransferDefinition",
+      "reference": false,
+      "properties": {
+        "Currency": null,
+        "AmountPerHour": null,
+        "PaymentType": "OnlineAndOfflineHours"
+      }
+    },
+    "WagesSourceBankAccount": null
+  }
+}

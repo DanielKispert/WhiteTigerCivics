@@ -6,7 +6,7 @@
   "type": "Eco.Gameplay.Civics.ElectionProcess",
   "name": "Federal Capital Senate Electorial Process",
   "reference": false,
-  "description": "The Citizens of the Federal Capital vote for a Capital Senators",
+  "description": "The Citizens of the Federal Capital vote for a Capital Senator",
   "properties": {
     "Voters": {
       "type": "Eco.Gameplay.Civics.Demographics.Demographic",

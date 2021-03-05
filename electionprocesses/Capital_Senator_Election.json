@@ -4,9 +4,9 @@
     0
   ],
   "type": "Eco.Gameplay.Civics.ElectionProcess",
-  "name": "Federal Capital Electorial Process",
+  "name": "Federal Capital Senate Electorial Process",
   "reference": false,
-  "description": "The Citizens of the Federal Capital vote for a Mayor of the Federal Capital or a Deputy Mayor of the Federal Capital",
+  "description": "The Citizens of the Federal Capital vote for a Capital Senators",
   "properties": {
     "Voters": {
       "type": "Eco.Gameplay.Civics.Demographics.Demographic",

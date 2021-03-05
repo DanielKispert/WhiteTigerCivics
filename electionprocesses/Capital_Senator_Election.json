@@ -10,7 +10,7 @@
   "properties": {
     "Voters": {
       "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-      "name": "Citizen of the Federal Capital",
+      "name": "Citizens of the Federal Capital",
       "reference": true
     },
     "Vetoers": null,

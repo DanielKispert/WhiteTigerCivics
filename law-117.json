@@ -1739,7 +1739,7 @@
                                   "type": "GameValueWrapper",
                                   "value": {
                                     "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                                    "name": "0 - Road Building Fund",
+                                    "name": "Federal Bank",
                                     "reference": true
                                   }
                                 },
@@ -1941,7 +1941,7 @@
                                   "type": "GameValueWrapper",
                                   "value": {
                                     "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                                    "name": "0 - Road Building Fund",
+                                    "name": "Federal Bank",
                                     "reference": true
                                   }
                                 },
@@ -2189,7 +2189,7 @@
                                   "type": "GameValueWrapper",
                                   "value": {
                                     "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                                    "name": "0 - Road Building Fund",
+                                    "name": "Federal Bank",
                                     "reference": true
                                   }
                                 },

@@ -719,7 +719,7 @@
                     "properties": {
                       "RepeatForEachUser": {
                         "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                        "name": "Capital Road Worker",
+                        "name": "Federal Civil Servant",
                         "reference": true
                       },
                       "HoursBetweenExecutions": 0.25

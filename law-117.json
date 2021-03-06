@@ -961,7 +961,7 @@
                                   "type": "GameValueWrapper",
                                   "value": {
                                     "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                                    "name": "Federal Capital Account",
+                                    "name": "Federal Capital",
                                     "reference": true
                                   }
                                 },
@@ -1163,7 +1163,7 @@
                                   "type": "GameValueWrapper",
                                   "value": {
                                     "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                                    "name": "Federal Capital Account",
+                                    "name": "Federal Capital",
                                     "reference": true
                                   }
                                 },
@@ -1411,7 +1411,7 @@
                                   "type": "GameValueWrapper",
                                   "value": {
                                     "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                                    "name": "Federal Capital Account",
+                                    "name": "Federal Capital",
                                     "reference": true
                                   }
                                 },

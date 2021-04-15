@@ -1,0 +1,97 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+  "name": "The Senate",
+  "reference": false,
+  "description": null,
+  "properties": {
+    "Conditions": [
+      {
+        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+        "properties": {
+          "Titles": {
+            "type": "GamePickerList",
+            "mustDeriveType": {
+              "type": "Type",
+              "value": "Eco.Gameplay.Civics.Titles.Title"
+            },
+            "requiredTag": null,
+            "internalDescription": "<foldout><linktext><u>10 objects</u></linktext><title>10 objects</title><b><link=\"ref:ElectedTitle:11\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Federal Capital Senator 1</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:13\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Federal Capital Senator 2</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:116\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Senator of Altaica</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:115\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Senator of Balica</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:113\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Senator of Fusca</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:119\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Senator of Kotiya</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:117\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Senator of Melas</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:121\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Senator of Onca</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:120\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Senator of Sondaica</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:118\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Senator of Virgata</style></ecoicon></link></b></foldout>",
+            "entries": [
+              {
+                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                "name": "Federal Capital Senator 1",
+                "reference": true
+              },
+              {
+                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                "name": "Senator of Onca",
+                "reference": true
+              },
+              {
+                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                "name": "Federal Capital Senator 2",
+                "reference": true
+              },
+              {
+                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                "name": "Senator of Melas",
+                "reference": true
+              },
+              {
+                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                "name": "Senator of Virgata",
+                "reference": true
+              },
+              {
+                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                "name": "Senator of Sondaica",
+                "reference": true
+              },
+              {
+                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                "name": "Senator of Altaica",
+                "reference": true
+              },
+              {
+                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                "name": "Senator of Kotiya",
+                "reference": true
+              },
+              {
+                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                "name": "Senator of Fusca",
+                "reference": true
+              },
+              {
+                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                "name": "Senator of Balica",
+                "reference": true
+              }
+            ]
+          },
+          "Citizen": {
+            "type": "GameValueContext",
+            "contextName": "Citizen",
+            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen being checked for this demographic.\r\n"
+          },
+          "Requirements": "HasAny"
+        }
+      }
+    ],
+    "Wages": {
+      "type": "Eco.Gameplay.Economy.Jobs.RecurringTransferDefinition",
+      "reference": false,
+      "properties": {
+        "Currency": null,
+        "AmountPerHour": null,
+        "PaymentType": "OnlineAndOfflineHours"
+      }
+    },
+    "WagesSourceBankAccount": null
+  }
+}

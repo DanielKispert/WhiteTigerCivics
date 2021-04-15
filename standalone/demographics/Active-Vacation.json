@@ -1,0 +1,89 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+  "name": "Active or on vacation",
+  "reference": false,
+  "description": "This demographic contains every citizen that is either active or on vacation and serves as an activity baseline for all elected government titles. They either have to be active (2h playtime in the last 48h) or excused on vacation, else they lose their office",
+  "properties": {
+    "BackupOwner": null,
+    "Conditions": [
+      {
+        "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+        "properties": {
+          "List": [
+            {
+              "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
+              "properties": {
+                "Demographics": {
+                  "type": "GamePickerList",
+                  "mustDeriveType": {
+                    "type": "Type",
+                    "value": "Eco.Gameplay.Civics.Demographics.Demographic"
+                  },
+                  "requiredTag": null,
+                  "internalDescription": "<b><link=\"ref:Demographic:3\"><ecoicon item=\"Demographic\"><style=\"Government\">Active</style></ecoicon></link></b>",
+                  "entries": [
+                    {
+                      "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                      "name": "Active",
+                      "reference": true
+                    }
+                  ]
+                },
+                "Citizen": {
+                  "type": "GameValueContext",
+                  "contextName": "Citizen",
+                  "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                  "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen being checked for this demographic.\r\n"
+                },
+                "Requirements": "HasAll"
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+              "properties": {
+                "Titles": {
+                  "type": "GamePickerList",
+                  "mustDeriveType": {
+                    "type": "Type",
+                    "value": "Eco.Gameplay.Civics.Titles.Title"
+                  },
+                  "requiredTag": null,
+                  "internalDescription": "<b><link=\"ref:AppointedTitle:130\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">On Vacation</style></ecoicon></link></b>",
+                  "entries": [
+                    {
+                      "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                      "name": "On Vacation",
+                      "reference": true
+                    }
+                  ]
+                },
+                "Citizen": {
+                  "type": "GameValueContext",
+                  "contextName": "Citizen",
+                  "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                  "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen being checked for this demographic.\r\n"
+                },
+                "Requirements": "HasAll"
+              }
+            }
+          ],
+          "Comparison": "Any"
+        }
+      }
+    ],
+    "Wages": {
+      "type": "Eco.Gameplay.Economy.Jobs.RecurringTransferDefinition",
+      "reference": false,
+      "properties": {
+        "Currency": null,
+        "AmountPerHour": null,
+        "PaymentType": "OnlineAndOfflineHours"
+      }
+    },
+    "WagesSourceBankAccount": null
+  }
+}

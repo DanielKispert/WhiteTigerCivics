@@ -1,0 +1,146 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+  "name": "Senator of Balica",
+  "reference": false,
+  "description": null,
+  "properties": {
+    "ElectionProcess": {
+      "type": "Eco.Gameplay.Civics.ElectionProcess",
+      "name": "Balica Electorial Process",
+      "reference": true
+    },
+    "EligibleCandidates": {
+      "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+      "name": "Active",
+      "reference": true
+    },
+    "RequiredOfCandidates": {
+      "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
+      "properties": {
+        "Demographics": {
+          "type": "GamePickerList",
+          "mustDeriveType": {
+            "type": "Type",
+            "value": "Eco.Gameplay.Civics.Demographics.Demographic"
+          },
+          "requiredTag": null,
+          "internalDescription": "<b><link=\"ref:Demographic:41\"><ecoicon item=\"Demographic\"><style=\"Government\">Citizens of Balica</style></ecoicon></link></b>",
+          "entries": [
+            {
+              "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+              "name": "Citizens of Balica",
+              "reference": true
+            }
+          ]
+        },
+        "Citizen": {
+          "type": "GameValueContext",
+          "contextName": "Citizen",
+          "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+          "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The candidate or office holder.\r\n"
+        },
+        "Requirements": "HasAll"
+      }
+    },
+    "MaxOccupants": 1,
+    "Successor": null,
+    "WhoCanRemoveFromOffice": {
+      "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+      "name": "Game Masters",
+      "reference": true
+    },
+    "TermLimitDays": 7.0,
+    "TotalTermsAllowed": 0,
+    "ConsecutiveTermsAllowed": 0,
+    "CanElectionsBeProposedDuringTerm": false,
+    "CanSetGlobalMarkers": false,
+    "CanSetGlobalObjective": false,
+    "CanSetTreasuryTaxes": false,
+    "CanUseTreasuryBankAccount": false,
+    "HasGovernmentBankingPrivileges": false,
+    "RequiredOfOfficeHolders": {
+      "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+      "properties": {
+        "List": [
+          {
+            "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
+            "properties": {
+              "Demographics": {
+                "type": "GamePickerList",
+                "mustDeriveType": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.Civics.Demographics.Demographic"
+                },
+                "requiredTag": null,
+                "internalDescription": "<b><link=\"ref:Demographic:42\"><ecoicon item=\"Demographic\"><style=\"Government\">Federal Judges</style></ecoicon></link></b>",
+                "entries": [
+                  {
+                    "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                    "name": "Federal Judges",
+                    "reference": true
+                  }
+                ]
+              },
+              "Citizen": {
+                "type": "GameValueContext",
+                "contextName": "Citizen",
+                "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The candidate or office holder.\r\n"
+              },
+              "Requirements": "HasNone"
+            }
+          },
+          {
+            "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
+            "properties": {
+              "Demographics": {
+                "type": "GamePickerList",
+                "mustDeriveType": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.Civics.Demographics.Demographic"
+                },
+                "requiredTag": null,
+                "internalDescription": "<foldout><linktext><u>2 objects</u></linktext><title>2 objects</title><b><link=\"ref:Demographic:43\"><ecoicon item=\"Demographic\"><style=\"Government\">Active or on vacation</style></ecoicon></link></b>\r\n<b><link=\"ref:Demographic:41\"><ecoicon item=\"Demographic\"><style=\"Government\">Citizens of Balica</style></ecoicon></link></b></foldout>",
+                "entries": [
+                  {
+                    "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                    "name": "Citizens of Balica",
+                    "reference": true
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                    "name": "Active or on vacation",
+                    "reference": true
+                  }
+                ]
+              },
+              "Citizen": {
+                "type": "GameValueContext",
+                "contextName": "Citizen",
+                "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The candidate or office holder.\r\n"
+              },
+              "Requirements": "HasAll"
+            }
+          }
+        ],
+        "Comparison": "All"
+      }
+    },
+    "BackupOwner": null,
+    "Wages": {
+      "type": "Eco.Gameplay.Economy.Jobs.RecurringTransferDefinition",
+      "reference": false,
+      "properties": {
+        "Currency": null,
+        "AmountPerHour": null,
+        "PaymentType": "OnlineAndOfflineHours"
+      }
+    },
+    "WagesSourceBankAccount": null
+  }
+}

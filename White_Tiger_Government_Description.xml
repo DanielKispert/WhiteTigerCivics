@@ -1,5 +1,76 @@
 <ecopedia priority="3" icon="CivicObjectComponent">
-<section> a TL;DR can be found at the bottom of this document</section>
+<section type="header">THE SHORT VERSION</section>
+
+ <section>
+ 
+ This part is intended as a short HowTo on what to do in these roles
+ 
+<b>Citizens</b>
+  - read server rules and Federal Law
+  - you can vote in elections and candidate for government titles
+ 
+<b>Federal President:</b>
+  - how did you get this title?
+  
+<b>Prime Minister:</b>1	^
+  -  elected by all citizens
+  -  one week terms
+  -  can only veto senate laws with 6 or fewer “yes” votes. No vetoing SC laws
+  -  full control over treasury and how to spend the tax money
+  -  responsible for government goals (meteor, infrastructure, building code)
+  -  can appoint Secretaries to help
+  
+<b>Deputy Prime Minister:</b>
+  -  elected by all citizens
+  -  one week terms
+  -  becomes Prime Minister if Prime Minister goes inactive
+  -  also control over treasury spending to help Prime Minister
+  -  assists the Prime Minister in the government business
+
+<b>Senator:</b>
+  -  one per district
+  -  elected by citizens in their district
+  -  proposes, votes and abolishes general laws (not for/against specific players)
+  -  decides wages for government
+  -  no messing with single players
+  -  one week terms
+
+<b>Federal Judge:</b>
+  -  3 in total
+  -  appointed by Prime Minister
+  -  creates “rulings” (laws ONLY for/against specific player/fix group of players)
+  -  term for life (until Abandoned/step down)
+
+
+
+
+
+
+<b>Secretary:</b>
+  -  appointed by Prime Minister
+  -  term until appointment ends
+  -  gets a budget from the Prime Minister
+  -  helps the Government in one specific task (e.g. Roads, Research, Meteor, …)
+
+<b>Mayor of the Federal Capital:</b>
+  -  has to reside in the capital
+  -  elected by citizens residing in the capital
+  -  control over Federal Capital Budget
+  -  one week terms
+  -  roads, power, water/sewage for capital city
+  -  enforce building code inside capital city
+
+<b>Director of the Federal Bank:</b>
+  -  appointed by Prime Minister
+  -  only one who can mint dollars
+  -  mints Emission Permits and distributes them to the citizens
+  -  supervises trade of Land Claim Papers to Dollars
+  -  gives out loans to citizen-led banks
+  </section>
+
+
+
+<section type="header">THE LONG VERSION</section>
 <section type="header">The Government of White Tiger</section>
 <section>
 The government system of White Tiger is set up by the Game Masters before the citizens join the server. This includes the setup of a constitution and several districts, titles and laws. These make up the framework of the server and can therefore not be changed or abolished by citizens. 
@@ -51,6 +122,7 @@ Fulfilling the duties of the government takes a lot of time and effort. To motiv
 <section>
 The following list of taxation methods is not exhaustive but can be used for ideas. The different pros and cons of these methods have to be evaluated by the government to choose the most suitable method of revenue generation.
   -  Sales Tax
+  -  Income Tax
   -  Wealth Tax
   -  Property Tax
   -  Air Pollution Tax
@@ -74,63 +146,5 @@ The wages of government members are set by the senate. They are set using the Pr
   -  Director of the Federal Bank: 50%
   -  Senator: 45%
 For example, if the Prime Minister gets 1000$ dollars per hour, then the Federal President has to receive 1150$ per hour, the Deputy Prime Minister 600$ per hour, and so on.
-  </section>
-    <section type="header">TL;DR</section>
-  <section>
-<b>Federal President:</b>
-  -  only for style
-  -  get biggest wage
-  -  not up for election, Federal President for life
-
-<b>Senator:</b>
-  -  one per district
-  -  elected by citizens in their district
-  -  proposes, votes and abolishes general laws (not for/against specific players)
-  -  decides wages for government
-  -  no messing with single players
-  -  one week terms
-
-<b>Federal Judge:</b>
-  -  3 in total
-  -  appointed by Prime Minister
-  -  creates “rulings” (laws ONLY for/against specific player/fix group of players)
-  -  term for life (until Abandoned/step down)
-
-
-<b>Prime Minister:</b>
-  -  elected by all citizens
-  -  one week terms
-  -  can only veto senate laws with 6 or fewer “yes” votes. No vetoing SC laws
-  -  full control over treasury and how to spend the tax money
-  -  responsible for government goals (meteor, infrastructure, building code)
-  -  can appoint Secretaries to help
-
-<b>Deputy Prime Minister:</b>
-  -  elected by all citizens
-  -  one week terms
-  -  becomes Prime Minister if Prime Minister goes inactive
-  -  also control over treasury spending to help Prime Minister
-  -  assists the Prime Minister in the government business
-
-<b>Secretary:</b>
-  -  appointed by Prime Minister
-  -  term until appointment ends
-  -  gets a budget from the Prime Minister
-  -  helps the Government in one specific task (e.g. Roads, Research, Meteor, …)
-
-<b>Mayor of the Federal Capital:</b>
-  -  has to reside in the capital
-  -  elected by citizens residing in the capital
-  -  control over Federal Capital Budget
-  -  one week terms
-  -  roads, power, water/sewage for capital city
-  -  enforce building code inside capital city
-
-<b>Director of the Federal Bank:</b>
-  -  appointed by Prime Minister
-  -  only one who can mint dollars
-  -  mints Emission Permits and distributes them to the citizens
-  -  supervises trade of Land Claim Papers to Dollars
-  -  gives out loans to citizen-led banks
-  </section>
+  </section> 
 </ecopedia>

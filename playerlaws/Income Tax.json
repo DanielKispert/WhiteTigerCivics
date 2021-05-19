@@ -1,0 +1,1174 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Laws.Law",
+  "name": "Income Tax",
+  "reference": false,
+  "description": "Every 24h, every citizen is taxed based on their taxable income, which is the difference between their current wealth in Euro and their weath in Euro the last tick subtracting the tax amount of last tick\u000bthe taxLastTick is also saved. The citizen pays a tax of 25% of their taxable income between 500€ and 2000€ and 45% of their taxable income above 2000€",
+  "properties": {
+    "Sections": [
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Income Tax",
+          "UserDescription": "Case 1:\u000bthe citizen has more than 2000€ taxable income. They get taxed 375€ (25% of their income between 500€ and 2000€) + 45% of their income over 2000€\nCase 2:\u000bthe citizen has less than 2000€ taxable income, but more than 500€ taxable income. They get taxed 25% of their income above 500€\nCase 3: the citizen has less than 500€ taxable income. They are not affected by the income tax.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.CitizenTimer"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.CitizenTimerTriggerConfig",
+                    "typeToConfig": null,
+                    "propNameBacker": null,
+                    "propDisplayName": null,
+                    "properties": {
+                      "RepeatForEachUser": {
+                        "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                        "name": "Everyone",
+                        "reference": true
+                      },
+                      "HoursBetweenExecutions": 24.0
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                        "properties": {
+                          "Titles": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Civics.Titles.Title"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<b><link=\"ref:AppointedTitle:9\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Utility Accounts</style></ecoicon></link></b>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                "name": "Utility Accounts",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "contextName": "Citizen",
+                            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                          },
+                          "Requirements": "HasNone"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                            "properties": {
+                              "LeftNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Values.Wealth",
+                                "properties": {
+                                  "Currency": {
+                                    "type": "GameValueWrapper",
+                                    "value": {
+                                      "type": "Eco.Gameplay.Economy.Currency",
+                                      "name": "Euro",
+                                      "reference": true
+                                    }
+                                  },
+                                  "Citizen": {
+                                    "type": "GameValueContext",
+                                    "contextName": "Citizen",
+                                    "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                    "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                  }
+                                }
+                              },
+                              "Operation": "Subtract",
+                              "RightNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                "properties": {
+                                  "CustomStatName": "wealthLastTick",
+                                  "TimeRangeInHours": {
+                                    "type": "GameValueWrapper",
+                                    "value": 0.0
+                                  },
+                                  "TimeRangeType": "CountBackFromPresentTime",
+                                  "User": {
+                                    "type": "GameValueContext",
+                                    "contextName": "Citizen",
+                                    "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                    "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "Comparison": "GreaterThan",
+                          "Right": {
+                            "type": "GameValueWrapper",
+                            "value": 2000.0
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "taxesOwed",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                      },
+                      "Count": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                        "properties": {
+                          "LeftNumber": {
+                            "type": "GameValueWrapper",
+                            "value": 375.0
+                          },
+                          "Operation": "Add",
+                          "RightNumber": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                            "properties": {
+                              "Number": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                "properties": {
+                                  "LeftNumber": {
+                                    "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                    "properties": {
+                                      "LeftNumber": {
+                                        "type": "Eco.Gameplay.Civics.GameValues.Values.Wealth",
+                                        "properties": {
+                                          "Currency": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.Currency",
+                                              "name": "Euro",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Citizen": {
+                                            "type": "GameValueContext",
+                                            "contextName": "Citizen",
+                                            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                          }
+                                        }
+                                      },
+                                      "Operation": "Subtract",
+                                      "RightNumber": {
+                                        "type": "GameValueWrapper",
+                                        "value": 2000.0
+                                      }
+                                    }
+                                  },
+                                  "Operation": "Subtract",
+                                  "RightNumber": {
+                                    "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                    "properties": {
+                                      "CustomStatName": "wealthLastTick",
+                                      "TimeRangeInHours": {
+                                        "type": "GameValueWrapper",
+                                        "value": 0.0
+                                      },
+                                      "TimeRangeType": "CountBackFromPresentTime",
+                                      "User": {
+                                        "type": "GameValueContext",
+                                        "contextName": "Citizen",
+                                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "Percent": {
+                                "type": "GameValueWrapper",
+                                "value": 45.0
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "incomeTaxPaid",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                      },
+                      "Count": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                        "properties": {
+                          "LeftNumber": {
+                            "type": "GameValueWrapper",
+                            "value": 375.0
+                          },
+                          "Operation": "Add",
+                          "RightNumber": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                            "properties": {
+                              "Number": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                "properties": {
+                                  "LeftNumber": {
+                                    "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                    "properties": {
+                                      "LeftNumber": {
+                                        "type": "Eco.Gameplay.Civics.GameValues.Values.Wealth",
+                                        "properties": {
+                                          "Currency": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.Currency",
+                                              "name": "Euro",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Citizen": {
+                                            "type": "GameValueContext",
+                                            "contextName": "Citizen",
+                                            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                          }
+                                        }
+                                      },
+                                      "Operation": "Subtract",
+                                      "RightNumber": {
+                                        "type": "GameValueWrapper",
+                                        "value": 2000.0
+                                      }
+                                    }
+                                  },
+                                  "Operation": "Subtract",
+                                  "RightNumber": {
+                                    "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                    "properties": {
+                                      "CustomStatName": "wealthLastTick",
+                                      "TimeRangeInHours": {
+                                        "type": "GameValueWrapper",
+                                        "value": 0.0
+                                      },
+                                      "TimeRangeType": "CountBackFromPresentTime",
+                                      "User": {
+                                        "type": "GameValueContext",
+                                        "contextName": "Citizen",
+                                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "Percent": {
+                                "type": "GameValueWrapper",
+                                "value": 45.0
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "wealthLastTick",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                      },
+                      "Count": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                        "properties": {
+                          "LeftNumber": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                            "properties": {
+                              "LeftNumber": {
+                                "type": "GameValueWrapper",
+                                "value": -1.0
+                              },
+                              "Operation": "Multiply",
+                              "RightNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                "properties": {
+                                  "CustomStatName": "wealthLastTick",
+                                  "TimeRangeInHours": {
+                                    "type": "GameValueWrapper",
+                                    "value": 0.0
+                                  },
+                                  "TimeRangeType": "CountBackFromPresentTime",
+                                  "User": {
+                                    "type": "GameValueContext",
+                                    "contextName": "Citizen",
+                                    "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                    "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "Operation": "Add",
+                          "RightNumber": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                            "properties": {
+                              "LeftNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Values.Wealth",
+                                "properties": {
+                                  "Currency": {
+                                    "type": "GameValueWrapper",
+                                    "value": {
+                                      "type": "Eco.Gameplay.Economy.Currency",
+                                      "name": "Euro",
+                                      "reference": true
+                                    }
+                                  },
+                                  "Citizen": {
+                                    "type": "GameValueContext",
+                                    "contextName": "Citizen",
+                                    "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                    "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                  }
+                                }
+                              },
+                              "Operation": "Subtract",
+                              "RightNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                "properties": {
+                                  "LeftNumber": {
+                                    "type": "GameValueWrapper",
+                                    "value": 375.0
+                                  },
+                                  "Operation": "Add",
+                                  "RightNumber": {
+                                    "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                    "properties": {
+                                      "Number": {
+                                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                        "properties": {
+                                          "LeftNumber": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                            "properties": {
+                                              "LeftNumber": {
+                                                "type": "Eco.Gameplay.Civics.GameValues.Values.Wealth",
+                                                "properties": {
+                                                  "Currency": {
+                                                    "type": "GameValueWrapper",
+                                                    "value": {
+                                                      "type": "Eco.Gameplay.Economy.Currency",
+                                                      "name": "Euro",
+                                                      "reference": true
+                                                    }
+                                                  },
+                                                  "Citizen": {
+                                                    "type": "GameValueContext",
+                                                    "contextName": "Citizen",
+                                                    "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                                    "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                                  }
+                                                }
+                                              },
+                                              "Operation": "Subtract",
+                                              "RightNumber": {
+                                                "type": "GameValueWrapper",
+                                                "value": 2000.0
+                                              }
+                                            }
+                                          },
+                                          "Operation": "Subtract",
+                                          "RightNumber": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                            "properties": {
+                                              "CustomStatName": "wealthLastTick",
+                                              "TimeRangeInHours": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              },
+                                              "TimeRangeType": "CountBackFromPresentTime",
+                                              "User": {
+                                                "type": "GameValueContext",
+                                                "contextName": "Citizen",
+                                                "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                                "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "Percent": {
+                                        "type": "GameValueWrapper",
+                                        "value": 45.0
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                        "properties": {
+                          "Titles": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Civics.Titles.Title"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<b><link=\"ref:AppointedTitle:9\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Utility Accounts</style></ecoicon></link></b>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                "name": "Utility Accounts",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "contextName": "Citizen",
+                            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                          },
+                          "Requirements": "HasNone"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                            "properties": {
+                              "LeftNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Values.Wealth",
+                                "properties": {
+                                  "Currency": {
+                                    "type": "GameValueWrapper",
+                                    "value": {
+                                      "type": "Eco.Gameplay.Economy.Currency",
+                                      "name": "Euro",
+                                      "reference": true
+                                    }
+                                  },
+                                  "Citizen": {
+                                    "type": "GameValueContext",
+                                    "contextName": "Citizen",
+                                    "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                    "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                  }
+                                }
+                              },
+                              "Operation": "Subtract",
+                              "RightNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                "properties": {
+                                  "CustomStatName": "wealthLastTick",
+                                  "TimeRangeInHours": {
+                                    "type": "GameValueWrapper",
+                                    "value": 0.0
+                                  },
+                                  "TimeRangeType": "CountBackFromPresentTime",
+                                  "User": {
+                                    "type": "GameValueContext",
+                                    "contextName": "Citizen",
+                                    "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                    "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "Comparison": "GreaterThan",
+                          "Right": {
+                            "type": "GameValueWrapper",
+                            "value": 500.0
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "taxesOwed",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                      },
+                      "Count": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                        "properties": {
+                          "Number": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                            "properties": {
+                              "LeftNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                "properties": {
+                                  "LeftNumber": {
+                                    "type": "Eco.Gameplay.Civics.GameValues.Values.Wealth",
+                                    "properties": {
+                                      "Currency": {
+                                        "type": "GameValueWrapper",
+                                        "value": {
+                                          "type": "Eco.Gameplay.Economy.Currency",
+                                          "name": "Euro",
+                                          "reference": true
+                                        }
+                                      },
+                                      "Citizen": {
+                                        "type": "GameValueContext",
+                                        "contextName": "Citizen",
+                                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                      }
+                                    }
+                                  },
+                                  "Operation": "Subtract",
+                                  "RightNumber": {
+                                    "type": "GameValueWrapper",
+                                    "value": 500.0
+                                  }
+                                }
+                              },
+                              "Operation": "Subtract",
+                              "RightNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                "properties": {
+                                  "CustomStatName": "wealthLastTick",
+                                  "TimeRangeInHours": {
+                                    "type": "GameValueWrapper",
+                                    "value": 0.0
+                                  },
+                                  "TimeRangeType": "CountBackFromPresentTime",
+                                  "User": {
+                                    "type": "GameValueContext",
+                                    "contextName": "Citizen",
+                                    "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                    "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "Percent": {
+                            "type": "GameValueWrapper",
+                            "value": 25.0
+                          }
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "incomeTaxPaid",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                      },
+                      "Count": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                        "properties": {
+                          "Number": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                            "properties": {
+                              "LeftNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                "properties": {
+                                  "LeftNumber": {
+                                    "type": "Eco.Gameplay.Civics.GameValues.Values.Wealth",
+                                    "properties": {
+                                      "Currency": {
+                                        "type": "GameValueWrapper",
+                                        "value": {
+                                          "type": "Eco.Gameplay.Economy.Currency",
+                                          "name": "Euro",
+                                          "reference": true
+                                        }
+                                      },
+                                      "Citizen": {
+                                        "type": "GameValueContext",
+                                        "contextName": "Citizen",
+                                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                      }
+                                    }
+                                  },
+                                  "Operation": "Subtract",
+                                  "RightNumber": {
+                                    "type": "GameValueWrapper",
+                                    "value": 500.0
+                                  }
+                                }
+                              },
+                              "Operation": "Subtract",
+                              "RightNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                "properties": {
+                                  "CustomStatName": "wealthLastTick",
+                                  "TimeRangeInHours": {
+                                    "type": "GameValueWrapper",
+                                    "value": 0.0
+                                  },
+                                  "TimeRangeType": "CountBackFromPresentTime",
+                                  "User": {
+                                    "type": "GameValueContext",
+                                    "contextName": "Citizen",
+                                    "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                    "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "Percent": {
+                            "type": "GameValueWrapper",
+                            "value": 25.0
+                          }
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "wealthLastTick",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                      },
+                      "Count": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                        "properties": {
+                          "LeftNumber": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                            "properties": {
+                              "LeftNumber": {
+                                "type": "GameValueWrapper",
+                                "value": -1.0
+                              },
+                              "Operation": "Multiply",
+                              "RightNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                "properties": {
+                                  "CustomStatName": "wealthLastTick",
+                                  "TimeRangeInHours": {
+                                    "type": "GameValueWrapper",
+                                    "value": 0.0
+                                  },
+                                  "TimeRangeType": "CountBackFromPresentTime",
+                                  "User": {
+                                    "type": "GameValueContext",
+                                    "contextName": "Citizen",
+                                    "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                    "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "Operation": "Add",
+                          "RightNumber": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                            "properties": {
+                              "LeftNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Values.Wealth",
+                                "properties": {
+                                  "Currency": {
+                                    "type": "GameValueWrapper",
+                                    "value": {
+                                      "type": "Eco.Gameplay.Economy.Currency",
+                                      "name": "Euro",
+                                      "reference": true
+                                    }
+                                  },
+                                  "Citizen": {
+                                    "type": "GameValueContext",
+                                    "contextName": "Citizen",
+                                    "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                    "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                  }
+                                }
+                              },
+                              "Operation": "Subtract",
+                              "RightNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                "properties": {
+                                  "Number": {
+                                    "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                    "properties": {
+                                      "LeftNumber": {
+                                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                        "properties": {
+                                          "LeftNumber": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Values.Wealth",
+                                            "properties": {
+                                              "Currency": {
+                                                "type": "GameValueWrapper",
+                                                "value": {
+                                                  "type": "Eco.Gameplay.Economy.Currency",
+                                                  "name": "Euro",
+                                                  "reference": true
+                                                }
+                                              },
+                                              "Citizen": {
+                                                "type": "GameValueContext",
+                                                "contextName": "Citizen",
+                                                "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                                "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                              }
+                                            }
+                                          },
+                                          "Operation": "Subtract",
+                                          "RightNumber": {
+                                            "type": "GameValueWrapper",
+                                            "value": 500.0
+                                          }
+                                        }
+                                      },
+                                      "Operation": "Subtract",
+                                      "RightNumber": {
+                                        "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                        "properties": {
+                                          "CustomStatName": "wealthLastTick",
+                                          "TimeRangeInHours": {
+                                            "type": "GameValueWrapper",
+                                            "value": 0.0
+                                          },
+                                          "TimeRangeType": "CountBackFromPresentTime",
+                                          "User": {
+                                            "type": "GameValueContext",
+                                            "contextName": "Citizen",
+                                            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "Percent": {
+                                    "type": "GameValueWrapper",
+                                    "value": 25.0
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                        "properties": {
+                          "Titles": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Civics.Titles.Title"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<b><link=\"ref:AppointedTitle:9\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Utility Accounts</style></ecoicon></link></b>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                "name": "Utility Accounts",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "contextName": "Citizen",
+                            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                          },
+                          "Requirements": "HasNone"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "wealthLastTick",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                      },
+                      "Count": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                        "properties": {
+                          "LeftNumber": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                            "properties": {
+                              "LeftNumber": {
+                                "type": "GameValueWrapper",
+                                "value": -1.0
+                              },
+                              "Operation": "Multiply",
+                              "RightNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                "properties": {
+                                  "CustomStatName": "wealthLastTick",
+                                  "TimeRangeInHours": {
+                                    "type": "GameValueWrapper",
+                                    "value": 0.0
+                                  },
+                                  "TimeRangeType": "CountBackFromPresentTime",
+                                  "User": {
+                                    "type": "GameValueContext",
+                                    "contextName": "Citizen",
+                                    "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                    "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "Operation": "Add",
+                          "RightNumber": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Wealth",
+                            "properties": {
+                              "Currency": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.Currency",
+                                  "name": "Euro",
+                                  "reference": true
+                                }
+                              },
+                              "Citizen": {
+                                "type": "GameValueContext",
+                                "contextName": "Citizen",
+                                "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Income Tax Query",
+          "UserDescription": "",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ChatSent"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectString",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChatSent",
+                    "propNameBacker": "Tag",
+                    "propDisplayName": "Tag",
+                    "properties": {
+                      "String": null
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectString",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChatSent",
+                    "propNameBacker": "Message",
+                    "propDisplayName": "Message",
+                    "properties": {
+                      "String": "!incometax"
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.SendNotice",
+                    "reference": false,
+                    "properties": {
+                      "Message": "income tax charged (last 24h)",
+                      "NotificationType": "SideBarMessage",
+                      "PeopleToSendTo": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                      },
+                      "ValueToDisplay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                        "properties": {
+                          "CustomStatName": "incomeTaxPaid",
+                          "TimeRangeInHours": {
+                            "type": "GameValueWrapper",
+                            "value": 24.0
+                          },
+                          "TimeRangeType": "CountBackFromPresentTime",
+                          "User": {
+                            "type": "GameValueContext",
+                            "contextName": "Citizen",
+                            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                          }
+                        }
+                      },
+                      "LocationToDisplay": null,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.SendNotice",
+                    "reference": false,
+                    "properties": {
+                      "Message": "income tax charged (total)",
+                      "NotificationType": "SideBarMessage",
+                      "PeopleToSendTo": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                      },
+                      "ValueToDisplay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                        "properties": {
+                          "CustomStatName": "incomeTaxPaid",
+                          "TimeRangeInHours": {
+                            "type": "GameValueWrapper",
+                            "value": 0.0
+                          },
+                          "TimeRangeType": "CountBackFromPresentTime",
+                          "User": {
+                            "type": "GameValueContext",
+                            "contextName": "Citizen",
+                            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                          }
+                        }
+                      },
+                      "LocationToDisplay": null,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.SendNotice",
+                    "reference": false,
+                    "properties": {
+                      "Message": "wealth last tick:",
+                      "NotificationType": "SideBarMessage",
+                      "PeopleToSendTo": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                      },
+                      "ValueToDisplay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                        "properties": {
+                          "CustomStatName": "wealthLastTick",
+                          "TimeRangeInHours": {
+                            "type": "GameValueWrapper",
+                            "value": 0.0
+                          },
+                          "TimeRangeType": "CountBackFromPresentTime",
+                          "User": {
+                            "type": "GameValueContext",
+                            "contextName": "Citizen",
+                            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                          }
+                        }
+                      },
+                      "LocationToDisplay": null,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.SendNotice",
+                    "reference": false,
+                    "properties": {
+                      "Message": "wealth right now:",
+                      "NotificationType": "SideBarMessage",
+                      "PeopleToSendTo": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                      },
+                      "ValueToDisplay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.Wealth",
+                        "properties": {
+                          "Currency": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Economy.Currency",
+                              "name": "Euro",
+                              "reference": true
+                            }
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "contextName": "Citizen",
+                            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                          }
+                        }
+                      },
+                      "LocationToDisplay": null,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

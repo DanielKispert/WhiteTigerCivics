@@ -1,0 +1,626 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Laws.Law",
+  "name": "Election Process Regulations",
+  "reference": false,
+  "description": null,
+  "properties": {
+    "Sections": [
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Checking InElection to permit entering",
+          "UserDescription": "",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.JoinOrLeaveElection"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.JoinOrLeaveElection",
+                    "propNameBacker": "ElectionProcess",
+                    "propDisplayName": "Election Process",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Civics.ElectionProcess"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<foldout><linktext><u>9 objects</u></linktext><title>9 objects</title><b><link=\"ref:ElectionProcess:2\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Altaica Electorial Process</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:7\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Appointment by Federal President</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:12\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Appointment by Prime Minister</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:3\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Balica Electorial Process</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:1\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Basic Election</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:6\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Federal Election</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:15\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Sondaica Electorial Process</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:21\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Unica Electorial Process</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:16\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Virgata Electorial Process</style></ecoicon></link></b></foldout>",
+                        "entries": [
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Appointment by Federal President",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Appointment by Prime Minister",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Virgata Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Unica Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Altaica Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Federal Election",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Sondaica Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Basic Election",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Balica Electorial Process",
+                            "reference": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "contextName": "EnteringElection",
+                        "titleBacking": "<ecoicon item=\"JoinOrLeaveElection\">Entering Election</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"JoinOrLeaveElection\">Entering Election</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"JoinOrLeaveElection\">Entering Election</ecoicon>: Did the citizen enter or leave the election?\r\n"
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                            "properties": {
+                              "CustomStatName": "inElection",
+                              "TimeRangeInHours": {
+                                "type": "GameValueWrapper",
+                                "value": 0.0
+                              },
+                              "TimeRangeType": "CountBackFromPresentTime",
+                              "User": {
+                                "type": "GameValueContext",
+                                "contextName": "Citizen",
+                                "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the action.\r\n"
+                              }
+                            }
+                          },
+                          "Comparison": "GreaterThan",
+                          "Right": {
+                            "type": "GameValueWrapper",
+                            "value": 0.0
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.Prevent_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "contextName": "EnteringElection",
+                        "titleBacking": "<ecoicon item=\"JoinOrLeaveElection\">Entering Election</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"JoinOrLeaveElection\">Entering Election</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"JoinOrLeaveElection\">Entering Election</ecoicon>: Did the citizen enter or leave the election?\r\n"
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "inElection",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the action.\r\n"
+                      },
+                      "Count": {
+                        "type": "GameValueWrapper",
+                        "value": 1.0
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "contextName": "LeavingElection",
+                        "titleBacking": "<ecoicon item=\"JoinOrLeaveElection\">Leaving Election</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"JoinOrLeaveElection\">Leaving Election</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"JoinOrLeaveElection\">Leaving Election</ecoicon>: Did the citizen enter or leave the election?\r\n"
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "inElection",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the action.\r\n"
+                      },
+                      "Count": {
+                        "type": "GameValueWrapper",
+                        "value": -1.0
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Winning/Losing an Election",
+          "UserDescription": "",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.WonElection"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.WonElection",
+                    "propNameBacker": "ElectionProcess",
+                    "propDisplayName": "Election Process",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Civics.ElectionProcess"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<foldout><linktext><u>9 objects</u></linktext><title>9 objects</title><b><link=\"ref:ElectionProcess:2\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Altaica Electorial Process</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:7\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Appointment by Federal President</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:12\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Appointment by Prime Minister</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:3\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Balica Electorial Process</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:1\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Basic Election</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:6\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Federal Election</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:15\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Sondaica Electorial Process</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:21\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Unica Electorial Process</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:16\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Virgata Electorial Process</style></ecoicon></link></b></foldout>",
+                        "entries": [
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Appointment by Federal President",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Appointment by Prime Minister",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Virgata Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Unica Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Altaica Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Federal Election",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Sondaica Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Basic Election",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Balica Electorial Process",
+                            "reference": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.LostElection"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.LostElection",
+                    "propNameBacker": "ElectionProcess",
+                    "propDisplayName": "Election Process",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Civics.ElectionProcess"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<foldout><linktext><u>9 objects</u></linktext><title>9 objects</title><b><link=\"ref:ElectionProcess:2\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Altaica Electorial Process</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:7\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Appointment by Federal President</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:12\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Appointment by Prime Minister</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:3\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Balica Electorial Process</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:1\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Basic Election</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:6\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Federal Election</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:15\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Sondaica Electorial Process</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:21\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Unica Electorial Process</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:16\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Virgata Electorial Process</style></ecoicon></link></b></foldout>",
+                        "entries": [
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Appointment by Federal President",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Appointment by Prime Minister",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Virgata Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Unica Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Altaica Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Federal Election",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Sondaica Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Basic Election",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Balica Electorial Process",
+                            "reference": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "inElection",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the action.\r\n"
+                      },
+                      "Count": {
+                        "type": "GameValueWrapper",
+                        "value": -1.0
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Starting Election Regulations",
+          "UserDescription": "Elections may only be started on day 1, 8, 15, 22 and 29. In case an office is vacant, Game Masters may start an election immediately. The term of that official will end on the next regular election day.\nThis means, in code, that elections may only be started if the world age in days modulo 7 is less than 1. Example: on the middle of world day 15, the world is 14.5 days old. 14.5 mod 7 is 0.5 and therefore less than 1.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.StartElection"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.StartElection",
+                    "propNameBacker": "ElectedTitle",
+                    "propDisplayName": "Elected Title",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Civics.Titles.ElectedTitle"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.StartElection",
+                    "propNameBacker": "ElectionProcess",
+                    "propDisplayName": "Election Process",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Civics.ElectionProcess"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<foldout><linktext><u>8 objects</u></linktext><title>8 objects</title><b><link=\"ref:ElectionProcess:2\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Altaica Electorial Process</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:12\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Appointment by Prime Minister</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:3\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Balica Electorial Process</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:1\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Basic Election</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:6\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Federal Election</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:15\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Sondaica Electorial Process</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:21\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Unica Electorial Process</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectionProcess:16\"><ecoicon item=\"ElectionProcess\"><style=\"Government\">Virgata Electorial Process</style></ecoicon></link></b></foldout>",
+                        "entries": [
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Appointment by Prime Minister",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Virgata Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Unica Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Altaica Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Federal Election",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Sondaica Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Basic Election",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Balica Electorial Process",
+                            "reference": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                        "properties": {
+                          "Titles": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Civics.Titles.Title"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<b><link=\"ref:AppointedTitle:1\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                "name": "Game Masters",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "contextName": "Elected Title",
+                            "titleBacking": "<ecoicon item=\"StartElection\">Elected Title</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"StartElection\">Elected Title</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"StartElection\">Elected Title</ecoicon>: If it's an election for a title, this is the title.\r\n"
+                          },
+                          "Requirements": "HasNone"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                            "properties": {
+                              "LeftNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Values.WorldAgeInDays",
+                                "properties": {}
+                              },
+                              "Operation": "Modulus",
+                              "RightNumber": {
+                                "type": "GameValueWrapper",
+                                "value": 7.0
+                              }
+                            }
+                          },
+                          "Comparison": "GreaterThanOrEqualTo",
+                          "Right": {
+                            "type": "GameValueWrapper",
+                            "value": 1.0
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.Prevent_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+  "name": "Federal President",
+  "reference": false,
+  "description": "The Federal President is the head of the Federal Republic of White Tiger.",
+  "properties": {
+    "ElectionProcess": {
+      "type": "Eco.Gameplay.Civics.ElectionProcess",
+      "name": "Federal Election",
+      "reference": true
+    },
+    "EligibleCandidates": {
+      "type": "Eco.Gameplay.Players.User",
+      "name": "-=GoW=-Dennis",
+      "reference": true
+    },
+    "RequiredOfCandidates": null,
+    "MaxOccupants": 1,
+    "Successor": null,
+    "WhoCanRemoveFromOffice": null,
+    "TermLimitDays": 60.0,
+    "TotalTermsAllowed": 0,
+    "ConsecutiveTermsAllowed": 0,
+    "CanElectionsBeProposedDuringTerm": false,
+    "CanSetGlobalMarkers": true,
+    "CanSetGlobalObjective": true,
+    "CanSetTreasuryTaxes": false,
+    "CanUseTreasuryBankAccount": true,
+    "HasGovernmentBankingPrivileges": true,
+    "RequiredOfOfficeHolders": null,
+    "BackupOwner": {
+      "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+      "name": "Everyone",
+      "reference": true
+    },
+    "Wages": {
+      "type": "Eco.Gameplay.Economy.Jobs.RecurringTransferDefinition",
+      "reference": false,
+      "properties": {
+        "Currency": null,
+        "AmountPerHour": null,
+        "PaymentType": "OnlineAndOfflineHours"
+      }
+    },
+    "WagesSourceBankAccount": null
+  }
+}

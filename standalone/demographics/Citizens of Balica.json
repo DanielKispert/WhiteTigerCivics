@@ -4,9 +4,9 @@
     0
   ],
   "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-  "name": "Non-Abandoned",
+  "name": "Citizens of Balica",
   "reference": false,
-  "description": "This demographic encompasses every citizen that has not abandoned the server.",
+  "description": "This demographic contains every Citizen of the Federal Republic currently residing in the voting district of Balica.",
   "properties": {
     "BackupOwner": {
       "type": "Eco.Gameplay.Civics.Demographics.Demographic",
@@ -40,6 +40,39 @@
             "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen being checked for this demographic.\r\n"
           },
           "Requirements": "HasNone"
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+        "properties": {
+          "Location": {
+            "type": "Eco.Gameplay.Civics.GameValues.Values.Residence",
+            "properties": {
+              "Citizen": {
+                "type": "GameValueContext",
+                "contextName": "Citizen",
+                "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen being checked for this demographic.\r\n"
+              }
+            }
+          },
+          "Districts": {
+            "type": "GamePickerList",
+            "mustDeriveType": {
+              "type": "Type",
+              "value": "Eco.Gameplay.LegislationSystem.District"
+            },
+            "requiredTag": null,
+            "internalDescription": "<b><link=\"ref:District:50\"><ecoicon item=\"District\"><color=#72546BFF>Balica</color></ecoicon></link></b>",
+            "entries": [
+              {
+                "type": "Eco.Gameplay.LegislationSystem.District",
+                "name": "Balica",
+                "reference": true
+              }
+            ]
+          },
+          "Requirements": "InsideOne"
         }
       }
     ],

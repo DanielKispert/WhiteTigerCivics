@@ -1,18 +1,21 @@
 <ecopedia priority="3" icon="CivicObjectComponent">
-<section type="header">THE SHORT VERSION</section>
+<section type="header">Government Guide - short version</section>
 
  <section>
  
  This part is intended as a short HowTo on what to do in these roles
  
 <b>Citizens</b>
-  - read server rules and Federal Law
+  - read Server Rules and Federal Law
   - you can vote in elections and candidate for government titles
  
 <b>Federal President:</b>
   - how did you get this title?
   
-<b>Prime Minister:</b>1	^
+  
+<section type="header">executive</section>
+  
+<b>Prime Minister:</b>
   -  elected by all citizens
   -  one week terms
   -  can only veto senate laws with 6 or fewer “yes” votes. No vetoing SC laws
@@ -21,13 +24,50 @@
   -  can appoint Secretaries to help
   
 <b>Deputy Prime Minister:</b>
-  -  elected by all citizens
+  -  appointed by the Prime Minister
   -  one week terms
   -  becomes Prime Minister if Prime Minister goes inactive
   -  also control over treasury spending to help Prime Minister
   -  assists the Prime Minister in the government business
+  
+<b>Chancellor of the Federal University:</b>
+  -  appointed by the Prime Minister
+  -  
+  
+<b>Director of the Federal Bank:</b>
+  -  appointed by Prime Minister
+  -  term alongside the Prime Minister
+  -  no other offices
+  -  only one who can mint currencies
+  -  no minting Euro into government funds, the Federal Bank has its own, independent budget
+  -  always ensure enough Euros are in stock for trading Land Claim Papers
+  -  give out loans to citizen-led banks or citizens, if noone wants to bank
+  -  mint Donation Receipts for the rest of the government to use
+  -  mint shares for companies and oversee the stock market for these shares
+  
 
-<b>Senator:</b>
+<b>Federal Secretary:</b>
+  -  appointed by Prime Minister
+  -  term until appointment ends
+  -  usually gets a budget from the Prime Minister
+  -  helps the Government in one specific task (e.g. Roads, Property, Meteor, …)
+  
+
+<section type="header">legislative/state officials</section>
+
+<b>Mayor of Unica:</b>
+  -  elected by the citizens of Unica
+  -  one week terms
+
+<b>Governor/Mayor:</b>
+  -  one per district
+  -  elected by citizens in their district
+  -  proposes, votes and abolishes general laws (not for/against specific players)
+  -  decides wages for government
+  -  no messing with single players
+  -  one week terms
+  
+<b>Lieutenant Governor/Deputy Mayor:</b>
   -  one per district
   -  elected by citizens in their district
   -  proposes, votes and abolishes general laws (not for/against specific players)
@@ -35,52 +75,38 @@
   -  no messing with single players
   -  one week terms
 
+<section type="header">judiciary</section>
+
 <b>Federal Judge:</b>
   -  3 in total
   -  appointed by Prime Minister
   -  creates “rulings” (laws ONLY for/against specific player/fix group of players)
   -  term for life (until Abandoned/step down)
 
-
-
-
-
-
-<b>Secretary:</b>
+<b>Attorney General:</b>
+  -  3 in total
   -  appointed by Prime Minister
-  -  term until appointment ends
-  -  gets a budget from the Prime Minister
-  -  helps the Government in one specific task (e.g. Roads, Research, Meteor, …)
+  -  creates “rulings” (laws ONLY for/against specific player/fix group of players)
+  -  term for life (until Abandoned/step down)
 
-<b>Mayor of the Federal Capital:</b>
-  -  has to reside in the capital
-  -  elected by citizens residing in the capital
-  -  control over Federal Capital Budget
-  -  one week terms
-  -  roads, power, water/sewage for capital city
-  -  enforce building code inside capital city
 
-<b>Director of the Federal Bank:</b>
-  -  appointed by Prime Minister
-  -  only one who can mint dollars
-  -  mints Emission Permits and distributes them to the citizens
-  -  supervises trade of Land Claim Papers to Dollars
-  -  gives out loans to citizen-led banks
   </section>
 
 
 
-<section type="header">THE LONG VERSION</section>
+<section type="header">Government Guide - the long version</section>
 <section type="header">The Government of White Tiger</section>
 <section>
 The government system of White Tiger is set up by the Game Masters before the citizens join the server. This includes the setup of a constitution and several districts, titles and laws. These make up the framework of the server and can therefore not be changed or abolished by citizens. 
 The government powers are divided between different roles. These roles can be broadly split into a legislative and an executive branch.
 </section>
-<section type="header">The legislative branch</section>
+<section type="header">The legislative</section>
 <section>
-The legislative branch consists of the senate and the supreme court.
-Each district of the world elects one of its citizens to become their senator and to represent them before the senate. Senators have the power to propose and vote on general laws, which are discussed and decided upon in the senate.
-These laws are not restricted to the possibilities of Eco’s law system, but they are valid according to their intention conveyed by the law’s text. Senators are therefore only limited by their imagination when writing laws and as long as the laws don’t break server rules, every general law is allowed. In essence, the senate decides how the citizens should act, what to allow and what to forbid, which actions to subsidy and which to tax. Please refer to the lists below to see the limits of the senate’s powers regarding laws.
+The legislative branch on the federal level is represented by the Senate.
+Each state of the world elects two of its citizens to become their Governor and Lieutenant Governor and to represent them in the senate. For Unica, these positions are called Mayor and Deputy Mayor instead, as it's a city state.
+Senators have the power to propose and vote on general laws, which are discussed and decided upon in the senate. These laws are not restricted to the possibilities of Eco’s law system, but they are valid according to their intention conveyed by the law’s text.
+Senators are therefore only limited by their imagination when writing laws and as long as the laws do not violate the constitution, every general law is allowed. In essence, the senate decides how the citizens should act, what to allow and what to forbid, which actions to subsidy and which to tax.
+They can also alter 
 The supreme court consists of the Chief Judge and two other Judges. They oversee the senate and have the power to repeal any law. The Federal Judge candidates are first appointed by the Prime Minister, which enables them to candidate in a Supreme Court Election. The senate then votes on this election and confirms the candidates into the supreme court.
 The Federal Judges hold this power until they step down voluntarily or join the Abandoned demographic.
 The Federal Judges are allowed to abolish laws that the senate passed, as well as executing laws that are considered “rulings”, meaning they decide exactly one case or help/punish exactly one player or fixed player group.
@@ -108,11 +134,17 @@ The Director of the Federal Bank also mints Emission Permits. One Emission Permi
 To handle their tasks better, the Prime Minister can appoint various Secretaries and assign tasks and budgets for them. These are paid out of the treasury.
 All these roles require a lot of dedication and time to fulfill, which leads to citizens in government roles often being unable to do their professions to earn money. Thus, government members get a guaranteed wage, even if retired. As a special boon, the Prime Minister also gets an Ecko Statue to boost their room value.
 </section>
+<section type="header">The judiciary</section>
+<section>
+
+
+
+</section>
 <section type="header">Government duties</section>
 <section>
-The government as a whole has a lot of duties that have to be fulfilled. These are not-negotiable and duties being neglected or officials not faithfully executing their offices can lead to removal from office by the Game Masters (§6.1). Some of these duties are:
+The government as a whole has a lot of duties that have to be fulfilled. These are not-negotiable and duties being neglected or officials not faithfully executing their offices can lead to removal from office by the Game Masters. Some of these duties are:
 <b>(1)</b> Ensure the survival of the citizens and the planet by preventing any disasters from happening.
-<b>(2)</b> Build an aesthetic Capital and Monument
+<b>(2)</b> Build an aesthetic Capital and Monument. If there is no monument this cycle, monumental government buildings replace it.
 <b>(3)</b> Build Federal Highways to connect the world. Give clear directives in terms of building layout and materials.
 <b>(4)</b> Enforce the building code as defined in <b>§3</b>
 <b>(5)</b> Pay every government member their wage 
@@ -133,18 +165,4 @@ The following list of taxation methods is not exhaustive but can be used for ide
   -  Tax for providing utilities such as power and water/sewage collection
   -  Tax on abandonment/seizing and resale of abandoned property
 </section>
-<section type="header">Wages</section>
-<section>
-The wages of government members are set by the senate. They are set using the Prime Minister’s wage as an index, and every other wage is a percentage of their wage. The wages are paid for both online and offline hours.
-  -  Federal President: 110%
-  -  Prime Minister: 100%
-  -  Federal Judge: 62%
-  -  Deputy Prime Minister: 60%
-  -  Mayor of the Federal Capital: 55%
-  -  Deputy Mayor of the Federal Capital: 52%
-  -  Federal Secretary: 52%
-  -  Director of the Federal Bank: 50%
-  -  Senator: 45%
-For example, if the Prime Minister gets 1000$ dollars per hour, then the Federal President has to receive 1150$ per hour, the Deputy Prime Minister 600$ per hour, and so on.
-  </section> 
 </ecopedia>

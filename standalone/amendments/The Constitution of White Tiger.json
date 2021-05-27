@@ -1,0 +1,294 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Constitutional.ConstitutionalAmendment",
+  "name": "The Constitution of White Tiger",
+  "reference": false,
+  "description": null,
+  "properties": {
+    "RemoveExistingArticles": [
+      {
+        "type": "Eco.Gameplay.Civics.CivicArticle",
+        "name": "Demographic Changes By Game Masters",
+        "reference": true
+      },
+      {
+        "type": "Eco.Gameplay.Civics.CivicArticle",
+        "name": "District Map Changes By Game Masters",
+        "reference": true
+      },
+      {
+        "type": "Eco.Gameplay.Civics.CivicArticle",
+        "name": "Elected Title Changes By Game Masters",
+        "reference": true
+      },
+      {
+        "type": "Eco.Gameplay.Civics.CivicArticle",
+        "name": "Election Process Changes By Game Masters",
+        "reference": true
+      },
+      {
+        "type": "Eco.Gameplay.Civics.CivicArticle",
+        "name": "Law Changes By Game Masters",
+        "reference": true
+      }
+    ],
+    "NewArticles": [
+      {
+        "type": "Eco.Gameplay.Civics.CivicArticle",
+        "name": "Civic Article 23",
+        "reference": false,
+        "description": null,
+        "properties": {
+          "AppliesTo": {
+            "type": "Eco.Gameplay.Civics.Constitutional.CivicCondition_Law",
+            "reference": false,
+            "properties": {
+              "TypesOfLaws": "AnyLaw",
+              "CausedByActions": {
+                "type": "GamePickerList",
+                "mustDeriveType": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.GameAction"
+                },
+                "requiredTag": null,
+                "internalDescription": "Any",
+                "entries": []
+              }
+            }
+          },
+          "Executors": {
+            "type": "GameValueWrapper",
+            "value": {
+              "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+              "name": "Game Masters",
+              "reference": true
+            }
+          },
+          "Proposers": {
+            "type": "GameValueWrapper",
+            "value": {
+              "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+              "name": "The Senate",
+              "reference": true
+            }
+          },
+          "ElectionProcess": {
+            "type": "Eco.Gameplay.Civics.ElectionProcess",
+            "name": "Senate Vote",
+            "reference": true
+          },
+          "Priority": 0.0
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.CivicArticle",
+        "name": "Civic Article 24",
+        "reference": false,
+        "description": null,
+        "properties": {
+          "AppliesTo": {
+            "type": "Eco.Gameplay.Civics.Constitutional.CivicCondition_Law",
+            "reference": false,
+            "properties": {
+              "TypesOfLaws": "AnyLaw",
+              "CausedByActions": {
+                "type": "GamePickerList",
+                "mustDeriveType": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.GameAction"
+                },
+                "requiredTag": null,
+                "internalDescription": "Any",
+                "entries": []
+              }
+            }
+          },
+          "Executors": null,
+          "Proposers": {
+            "type": "GameValueWrapper",
+            "value": {
+              "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+              "name": "Federal President",
+              "reference": true
+            }
+          },
+          "ElectionProcess": {
+            "type": "Eco.Gameplay.Civics.ElectionProcess",
+            "name": "Referendum",
+            "reference": true
+          },
+          "Priority": 0.0
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.CivicArticle",
+        "name": "Civic Article 25",
+        "reference": false,
+        "description": null,
+        "properties": {
+          "AppliesTo": {
+            "type": "Eco.Gameplay.Civics.Constitutional.CivicCondition_ExecutiveActions",
+            "reference": false,
+            "properties": {
+              "TypesOfExecutiveActions": "AnyExecutiveAction"
+            }
+          },
+          "Executors": {
+            "type": "GameValueWrapper",
+            "value": {
+              "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+              "name": "Authorized for Executive Actions",
+              "reference": true
+            }
+          },
+          "Proposers": null,
+          "ElectionProcess": null,
+          "Priority": 0.0
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.CivicArticle",
+        "name": "Civic Article 26",
+        "reference": false,
+        "description": null,
+        "properties": {
+          "AppliesTo": {
+            "type": "Eco.Gameplay.Civics.Constitutional.CivicCondition_ElectionProcess",
+            "reference": false,
+            "properties": {}
+          },
+          "Executors": {
+            "type": "GameValueWrapper",
+            "value": {
+              "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+              "name": "Game Masters",
+              "reference": true
+            }
+          },
+          "Proposers": {
+            "type": "GameValueWrapper",
+            "value": {
+              "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+              "name": "The Senate",
+              "reference": true
+            }
+          },
+          "ElectionProcess": {
+            "type": "Eco.Gameplay.Civics.ElectionProcess",
+            "name": "Senate Vote",
+            "reference": true
+          },
+          "Priority": 0.0
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.CivicArticle",
+        "name": "Civic Article 27",
+        "reference": false,
+        "description": null,
+        "properties": {
+          "AppliesTo": {
+            "type": "Eco.Gameplay.Civics.Constitutional.CivicCondition_Demographic",
+            "reference": false,
+            "properties": {}
+          },
+          "Executors": {
+            "type": "GameValueWrapper",
+            "value": {
+              "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+              "name": "Game Masters",
+              "reference": true
+            }
+          },
+          "Proposers": {
+            "type": "GameValueWrapper",
+            "value": {
+              "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+              "name": "The Senate",
+              "reference": true
+            }
+          },
+          "ElectionProcess": {
+            "type": "Eco.Gameplay.Civics.ElectionProcess",
+            "name": "Senate Vote",
+            "reference": true
+          },
+          "Priority": 0.0
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.CivicArticle",
+        "name": "Civic Article 28",
+        "reference": false,
+        "description": null,
+        "properties": {
+          "AppliesTo": {
+            "type": "Eco.Gameplay.Civics.Constitutional.CivicCondition_ElectedTitle",
+            "reference": false,
+            "properties": {}
+          },
+          "Executors": {
+            "type": "GameValueWrapper",
+            "value": {
+              "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+              "name": "Game Masters",
+              "reference": true
+            }
+          },
+          "Proposers": {
+            "type": "GameValueWrapper",
+            "value": {
+              "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+              "name": "The Senate",
+              "reference": true
+            }
+          },
+          "ElectionProcess": {
+            "type": "Eco.Gameplay.Civics.ElectionProcess",
+            "name": "Senate Vote",
+            "reference": true
+          },
+          "Priority": 0.0
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.CivicArticle",
+        "name": "Civic Article 29",
+        "reference": false,
+        "description": null,
+        "properties": {
+          "AppliesTo": {
+            "type": "Eco.Gameplay.Civics.Constitutional.CivicCondition_District",
+            "reference": false,
+            "properties": {}
+          },
+          "Executors": {
+            "type": "GameValueWrapper",
+            "value": {
+              "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+              "name": "Game Masters",
+              "reference": true
+            }
+          },
+          "Proposers": {
+            "type": "GameValueWrapper",
+            "value": {
+              "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+              "name": "The Senate",
+              "reference": true
+            }
+          },
+          "ElectionProcess": {
+            "type": "Eco.Gameplay.Civics.ElectionProcess",
+            "name": "Senate Vote",
+            "reference": true
+          },
+          "Priority": 0.0
+        }
+      }
+    ]
+  }
+}

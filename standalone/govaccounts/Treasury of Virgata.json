@@ -27,5 +27,14 @@
     }
   ],
   "properties": {},
-  "holdings": []
+  "holdings": [
+   {
+      "currency": {
+        "type": "Eco.Gameplay.Economy.Currency",
+        "name": "Donation Receipt",
+        "reference": true
+      },
+      "amount": 1000000.0
+    }  
+  ]
 }

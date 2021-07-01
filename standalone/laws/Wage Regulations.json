@@ -436,63 +436,117 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "type": "Eco.Gameplay.Civics.Conditional_LegalAction",
                     "reference": false,
                     "properties": {
-                      "StatName": "miliPensionPerHour",
-                      "Person": {
-                        "type": "GameValueContext",
-                        "contextName": "Citizen",
-                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
-                      },
-                      "Count": {
-                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
                         "properties": {
-                          "LeftNumber": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
                             "properties": {
-                              "LeftNumber": {
-                                "type": "GameValueWrapper",
-                                "value": 75.0
-                              },
-                              "Operation": "Multiply",
-                              "RightNumber": {
-                                "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
-                                "properties": {
-                                  "LeftNumber": {
-                                    "type": "GameValueWrapper",
-                                    "value": 1.0
-                                  },
-                                  "Operation": "Multiply",
-                                  "RightNumber": {
-                                    "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
-                                    "properties": {
-                                      "CustomStatName": "indexWage",
-                                      "TimeRangeInHours": {
-                                        "type": "GameValueWrapper",
-                                        "value": 0.0
-                                      },
-                                      "TimeRangeType": "CountBackFromPresentTime",
-                                      "User": {
-                                        "type": "GameValueWrapper",
-                                        "value": {
-                                          "type": "Eco.Gameplay.Players.User",
-                                          "name": "White-Tiger",
-                                          "reference": true
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                  "properties": {
+                                    "Left": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                      "properties": {
+                                        "CustomStatName": "receivedPMPension",
+                                        "TimeRangeInHours": {
+                                          "type": "GameValueWrapper",
+                                          "value": 0.0
+                                        },
+                                        "TimeRangeType": "CountBackFromPresentTime",
+                                        "User": {
+                                          "type": "GameValueContext",
+                                          "contextName": "Citizen",
+                                          "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                          "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                        }
+                                      }
+                                    },
+                                    "Comparison": "EqualTo",
+                                    "Right": {
+                                      "type": "GameValueWrapper",
+                                      "value": 0.0
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                              "reference": false,
+                              "properties": {
+                                "StatName": "receivedPMPension",
+                                "Person": {
+                                  "type": "GameValueContext",
+                                  "contextName": "Citizen",
+                                  "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                  "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                },
+                                "Count": {
+                                  "type": "GameValueWrapper",
+                                  "value": 1.0
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                              "reference": false,
+                              "properties": {
+                                "StatName": "miliPensionPerHour",
+                                "Person": {
+                                  "type": "GameValueContext",
+                                  "contextName": "Citizen",
+                                  "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                  "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                },
+                                "Count": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                  "properties": {
+                                    "LeftNumber": {
+                                      "type": "GameValueWrapper",
+                                      "value": 52.0
+                                    },
+                                    "Operation": "Multiply",
+                                    "RightNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                      "properties": {
+                                        "CustomStatName": "indexWage",
+                                        "TimeRangeInHours": {
+                                          "type": "GameValueWrapper",
+                                          "value": 0.0
+                                        },
+                                        "TimeRangeType": "CountBackFromPresentTime",
+                                        "User": {
+                                          "type": "GameValueWrapper",
+                                          "value": {
+                                            "type": "Eco.Gameplay.Players.User",
+                                            "name": "White-Tiger",
+                                            "reference": true
+                                          }
                                         }
                                       }
                                     }
                                   }
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
                                 }
                               }
                             }
-                          },
-                          "Operation": "Divide",
-                          "RightNumber": {
-                            "type": "GameValueWrapper",
-                            "value": 24.0
-                          }
+                          ]
                         }
                       },
                       "InfoboxOnSuccess": {
@@ -629,117 +683,62 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.Conditional_LegalAction",
+                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
                     "reference": false,
                     "properties": {
-                      "IfThenBlock": {
-                        "type": "Eco.Gameplay.Civics.IfThenBlock",
-                        "reference": false,
+                      "StatName": "miliPensionPerHour",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                      },
+                      "Count": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
                         "properties": {
-                          "If": {
-                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                          "LeftNumber": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
                             "properties": {
-                              "List": [
-                                {
-                                  "type": "Eco.Gameplay.Civics.GameValues.Compare",
-                                  "properties": {
-                                    "Left": {
-                                      "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
-                                      "properties": {
-                                        "CustomStatName": "receivedPMPension",
-                                        "TimeRangeInHours": {
-                                          "type": "GameValueWrapper",
-                                          "value": 0.0
-                                        },
-                                        "TimeRangeType": "CountBackFromPresentTime",
-                                        "User": {
-                                          "type": "GameValueContext",
-                                          "contextName": "Citizen",
-                                          "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                                          "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                              "LeftNumber": {
+                                "type": "GameValueWrapper",
+                                "value": 17.5
+                              },
+                              "Operation": "Multiply",
+                              "RightNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                "properties": {
+                                  "Number": {
+                                    "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                    "properties": {
+                                      "CustomStatName": "indexWage",
+                                      "TimeRangeInHours": {
+                                        "type": "GameValueWrapper",
+                                        "value": 0.0
+                                      },
+                                      "TimeRangeType": "CountBackFromPresentTime",
+                                      "User": {
+                                        "type": "GameValueWrapper",
+                                        "value": {
+                                          "type": "Eco.Gameplay.Players.User",
+                                          "name": "White-Tiger",
+                                          "reference": true
                                         }
                                       }
-                                    },
-                                    "Comparison": "EqualTo",
-                                    "Right": {
-                                      "type": "GameValueWrapper",
-                                      "value": 0.0
                                     }
+                                  },
+                                  "Percent": {
+                                    "type": "GameValueWrapper",
+                                    "value": 62.0
                                   }
                                 }
-                              ],
-                              "Comparison": "All"
+                              }
                             }
                           },
-                          "Then": [
-                            {
-                              "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
-                              "reference": false,
-                              "properties": {
-                                "StatName": "receivedPMPension",
-                                "Person": {
-                                  "type": "GameValueContext",
-                                  "contextName": "Citizen",
-                                  "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                                  "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
-                                },
-                                "Count": {
-                                  "type": "GameValueWrapper",
-                                  "value": 1.0
-                                },
-                                "InfoboxOnSuccess": {
-                                  "type": "Eco.Gameplay.Civics.GameValues.No",
-                                  "properties": {}
-                                }
-                              }
-                            },
-                            {
-                              "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
-                              "reference": false,
-                              "properties": {
-                                "StatName": "miliPensionPerHour",
-                                "Person": {
-                                  "type": "GameValueContext",
-                                  "contextName": "Citizen",
-                                  "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                                  "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
-                                },
-                                "Count": {
-                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
-                                  "properties": {
-                                    "LeftNumber": {
-                                      "type": "GameValueWrapper",
-                                      "value": 52.0
-                                    },
-                                    "Operation": "Multiply",
-                                    "RightNumber": {
-                                      "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
-                                      "properties": {
-                                        "CustomStatName": "indexWage",
-                                        "TimeRangeInHours": {
-                                          "type": "GameValueWrapper",
-                                          "value": 0.0
-                                        },
-                                        "TimeRangeType": "CountBackFromPresentTime",
-                                        "User": {
-                                          "type": "GameValueWrapper",
-                                          "value": {
-                                            "type": "Eco.Gameplay.Players.User",
-                                            "name": "White-Tiger",
-                                            "reference": true
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
-                                "InfoboxOnSuccess": {
-                                  "type": "Eco.Gameplay.Civics.GameValues.No",
-                                  "properties": {}
-                                }
-                              }
-                            }
-                          ]
+                          "Operation": "Divide",
+                          "RightNumber": {
+                            "type": "GameValueWrapper",
+                            "value": 24.0
+                          }
                         }
                       },
                       "InfoboxOnSuccess": {
@@ -1623,16 +1622,16 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<foldout><linktext><u>2 objects</u></linktext><title>2 objects</title><b><link=\"ref:ElectedTitle:327\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Deputy Mayor of Unica</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:329\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Mayor of Unica</style></ecoicon></link></b></foldout>",
+                            "internalDescription": "<foldout><linktext><u>2 objects</u></linktext><title>2 objects</title><b><link=\"ref:ElectedTitle:69\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Deputy Mayor of Unica</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:87\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Mayor of Unica</style></ecoicon></link></b></foldout>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                                "name": "Deputy Mayor of Unica",
+                                "name": "Mayor of Unica",
                                 "reference": true
                               },
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                                "name": "Mayor of Unica",
+                                "name": "Deputy Mayor of Unica",
                                 "reference": true
                               }
                             ]
@@ -1832,8 +1831,21 @@
                             "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
                             "properties": {
                               "LeftNumber": {
-                                "type": "GameValueWrapper",
-                                "value": 0.0
+                                "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                "properties": {
+                                  "CustomStatName": "miliPensionPerHour",
+                                  "TimeRangeInHours": {
+                                    "type": "GameValueWrapper",
+                                    "value": 0.0
+                                  },
+                                  "TimeRangeType": "CountBackFromPresentTime",
+                                  "User": {
+                                    "type": "GameValueContext",
+                                    "contextName": "Citizen",
+                                    "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                    "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                  }
+                                }
                               },
                               "Operation": "Divide",
                               "RightNumber": {

@@ -60,87 +60,15 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.ElectronicsSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.ButcherySkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.FertilizersSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdvancedSmeltingSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MechanicsSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MasonrySkillBook"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdvancedCookingSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CuttingEdgeCookingSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdvancedMasonrySkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.BakingSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CookingSkillBook"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositesSkillBook"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.OilDrillingSkillBook"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmeltingSkillScroll"
+                            "value": "Eco.Mods.TechTree.TailoringSkillBook"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.ButcherySkillBook"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdvancedBakingSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmeltingSkillBook"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.FertilizersSkillBook"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositesSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.GlassworkingSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CuttingEdgeCookingSkillBook"
+                            "value": "Eco.Mods.TechTree.MechanicsSkillBook"
                           },
                           {
                             "type": "Type",
@@ -152,39 +80,7 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdvancedSmeltingSkillBook"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MillingSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.BasicEngineeringSkillBook"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.BasicEngineeringSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.TailoringSkillBook"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.BakingSkillBook"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.PotterySkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MillingSkillBook"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.FarmingSkillBook"
+                            "value": "Eco.Mods.TechTree.SmeltingSkillScroll"
                           },
                           {
                             "type": "Type",
@@ -192,43 +88,7 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.MechanicsSkillBook"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.TailoringSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.FarmingSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.IndustrySkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CarpentrySkillBook"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CarpentrySkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MasonrySkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdvancedMasonrySkillBook"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.GlassworkingSkillBook"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.PotterySkillBook"
+                            "value": "Eco.Mods.TechTree.MechanicsSkillScroll"
                           },
                           {
                             "type": "Type",
@@ -236,11 +96,151 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdvancedCookingSkillBook"
+                            "value": "Eco.Mods.TechTree.ButcherySkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.PotterySkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BasicEngineeringSkillBook"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MasonrySkillBook"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MillingSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CarpentrySkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CookingSkillBook"
                           },
                           {
                             "type": "Type",
                             "value": "Eco.Mods.TechTree.ElectronicsSkillBook"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.FarmingSkillBook"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdvancedMasonrySkillBook"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdvancedSmeltingSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ButcherySkillBook"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdvancedCookingSkillBook"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MasonrySkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdvancedCookingSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CarpentrySkillBook"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.TailoringSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MillingSkillBook"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmeltingSkillBook"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.PotterySkillBook"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BakingSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CuttingEdgeCookingSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositesSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositesSkillBook"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.IndustrySkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.GlassworkingSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BakingSkillBook"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CuttingEdgeCookingSkillBook"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.FarmingSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdvancedSmeltingSkillBook"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.FertilizersSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.FertilizersSkillBook"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.GlassworkingSkillBook"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BasicEngineeringSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdvancedMasonrySkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdvancedBakingSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ElectronicsSkillScroll"
                           }
                         ]
                       }
@@ -305,7 +305,7 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<foldout><linktext><u>2 objects</u></linktext><title>2 objects</title><b><link=\"ref:ElectedTitle:324\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Chancellor of the Federal University</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:1\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b></foldout>",
+                            "internalDescription": "<foldout><linktext><u>2 objects</u></linktext><title>2 objects</title><b><link=\"ref:ElectedTitle:85\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Chancellor of the Federal University</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:61\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b></foldout>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
@@ -344,7 +344,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:District:117\"><ecoicon item=\"District\"><color=#FCFF00FF>Federal University</color></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:District:59\"><ecoicon item=\"District\"><color=#FCFF00FF>Federal University</color></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -428,67 +428,7 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.ElectronicsSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.ButcherySkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.FertilizersSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdvancedSmeltingSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MechanicsSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdvancedCookingSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CuttingEdgeCookingSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdvancedMasonrySkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.BakingSkillScroll"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.SmeltingSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdvancedBakingSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositesSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.GlassworkingSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MillingSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.BasicEngineeringSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.PotterySkillScroll"
                           },
                           {
                             "type": "Type",
@@ -496,15 +436,23 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.TailoringSkillScroll"
+                            "value": "Eco.Mods.TechTree.MechanicsSkillScroll"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.FarmingSkillScroll"
+                            "value": "Eco.Mods.TechTree.CookingSkillScroll"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.IndustrySkillScroll"
+                            "value": "Eco.Mods.TechTree.ButcherySkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.PotterySkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MillingSkillScroll"
                           },
                           {
                             "type": "Type",
@@ -512,11 +460,63 @@
                           },
                           {
                             "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdvancedSmeltingSkillScroll"
+                          },
+                          {
+                            "type": "Type",
                             "value": "Eco.Mods.TechTree.MasonrySkillScroll"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.CookingSkillScroll"
+                            "value": "Eco.Mods.TechTree.AdvancedCookingSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.TailoringSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BakingSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CuttingEdgeCookingSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositesSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.IndustrySkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.GlassworkingSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.FarmingSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.FertilizersSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BasicEngineeringSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdvancedMasonrySkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdvancedBakingSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ElectronicsSkillScroll"
                           }
                         ]
                       }
@@ -551,7 +551,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:District:117\"><ecoicon item=\"District\"><color=#FCFF00FF>Federal University</color></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:District:59\"><ecoicon item=\"District\"><color=#FCFF00FF>Federal University</color></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -573,7 +573,7 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:AppointedTitle:1\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:AppointedTitle:61\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
@@ -663,35 +663,15 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.MasonrySkillBook"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CookingSkillBook"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositesSkillBook"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.OilDrillingSkillBook"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.ButcherySkillBook"
+                            "value": "Eco.Mods.TechTree.TailoringSkillBook"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmeltingSkillBook"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.FertilizersSkillBook"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CuttingEdgeCookingSkillBook"
+                            "value": "Eco.Mods.TechTree.MechanicsSkillBook"
                           },
                           {
                             "type": "Type",
@@ -703,23 +683,19 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdvancedSmeltingSkillBook"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.BasicEngineeringSkillBook"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.TailoringSkillBook"
+                            "value": "Eco.Mods.TechTree.MasonrySkillBook"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.BakingSkillBook"
+                            "value": "Eco.Mods.TechTree.CookingSkillBook"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.MillingSkillBook"
+                            "value": "Eco.Mods.TechTree.ElectronicsSkillBook"
                           },
                           {
                             "type": "Type",
@@ -727,27 +703,11 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.MechanicsSkillBook"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CarpentrySkillBook"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.PaperMillingSkillBook"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.AdvancedMasonrySkillBook"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.GlassworkingSkillBook"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.PotterySkillBook"
+                            "value": "Eco.Mods.TechTree.ButcherySkillBook"
                           },
                           {
                             "type": "Type",
@@ -755,7 +715,47 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.ElectronicsSkillBook"
+                            "value": "Eco.Mods.TechTree.CarpentrySkillBook"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MillingSkillBook"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmeltingSkillBook"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.PotterySkillBook"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositesSkillBook"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BakingSkillBook"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CuttingEdgeCookingSkillBook"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.PaperMillingSkillBook"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdvancedSmeltingSkillBook"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.FertilizersSkillBook"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.GlassworkingSkillBook"
                           }
                         ]
                       }
@@ -784,7 +784,7 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:AppointedTitle:1\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:AppointedTitle:61\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",

@@ -63,7 +63,7 @@
     },
     {
       "type": "Eco.Gameplay.LegislationSystem.District",
-      "name": "Meteor Facility",
+      "name": "Presidents Mansion",
       "reference": false,
       "description": null,
       "properties": {},
@@ -115,7 +115,7 @@
     },
     {
       "type": "Eco.Gameplay.LegislationSystem.District",
-      "name": "Presidents Mansion",
+      "name": "Meteor Facility",
       "reference": false,
       "description": null,
       "properties": {},

@@ -178,11 +178,11 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.TreasuryItem"
+                            "value": "Eco.Mods.TechTree.MintItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.MintItem"
+                            "value": "Eco.Mods.TechTree.TreasuryItem"
                           }
                         ]
                       }
@@ -221,16 +221,16 @@
                                     "value": "Eco.Gameplay.Civics.Titles.Title"
                                   },
                                   "requiredTag": null,
-                                  "internalDescription": "<foldout><linktext><u>2 objects</u></linktext><title>2 objects</title><b><link=\"ref:ElectedTitle:335\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Director of the Federal Bank</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:1\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b></foldout>",
+                                  "internalDescription": "<foldout><linktext><u>2 objects</u></linktext><title>2 objects</title><b><link=\"ref:ElectedTitle:100\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Director of the Federal Bank</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:61\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b></foldout>",
                                   "entries": [
-                                    {
-                                      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                                      "name": "Director of the Federal Bank",
-                                      "reference": true
-                                    },
                                     {
                                       "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
                                       "name": "Game Masters",
+                                      "reference": true
+                                    },
+                                    {
+                                      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                                      "name": "Director of the Federal Bank",
                                       "reference": true
                                     }
                                   ]
@@ -260,7 +260,7 @@
                                     "value": "Eco.Gameplay.LegislationSystem.District"
                                   },
                                   "requiredTag": null,
-                                  "internalDescription": "<b><link=\"ref:District:109\"><ecoicon item=\"District\"><color=#004CC6FF>Federal Bank</color></ecoicon></link></b>",
+                                  "internalDescription": "<b><link=\"ref:District:51\"><ecoicon item=\"District\"><color=#004CC6FF>Federal Bank</color></ecoicon></link></b>",
                                   "entries": [
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
@@ -372,16 +372,16 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<foldout><linktext><u>2 objects</u></linktext><title>2 objects</title><b><link=\"ref:ElectedTitle:335\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Director of the Federal Bank</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:1\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b></foldout>",
+                            "internalDescription": "<foldout><linktext><u>2 objects</u></linktext><title>2 objects</title><b><link=\"ref:ElectedTitle:100\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Director of the Federal Bank</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:61\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b></foldout>",
                             "entries": [
-                              {
-                                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                                "name": "Director of the Federal Bank",
-                                "reference": true
-                              },
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
                                 "name": "Game Masters",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                                "name": "Director of the Federal Bank",
                                 "reference": true
                               }
                             ]
@@ -596,7 +596,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:District:109\"><ecoicon item=\"District\"><color=#004CC6FF>Federal Bank</color></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:District:51\"><ecoicon item=\"District\"><color=#004CC6FF>Federal Bank</color></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -673,7 +673,7 @@
                                         "value": "Eco.Gameplay.LegislationSystem.District"
                                       },
                                       "requiredTag": null,
-                                      "internalDescription": "<b><link=\"ref:District:117\"><ecoicon item=\"District\"><color=#FCFF00FF>Federal University</color></ecoicon></link></b>",
+                                      "internalDescription": "<b><link=\"ref:District:59\"><ecoicon item=\"District\"><color=#FCFF00FF>Federal University</color></ecoicon></link></b>",
                                       "entries": [
                                         {
                                           "type": "Eco.Gameplay.LegislationSystem.District",
@@ -801,7 +801,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:District:109\"><ecoicon item=\"District\"><color=#004CC6FF>Federal Bank</color></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:District:51\"><ecoicon item=\"District\"><color=#004CC6FF>Federal Bank</color></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -885,39 +885,15 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.MortaredGraniteFireplaceItem"
+                            "value": "Eco.Mods.TechTree.OilRefineryItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.StoneBrazierItem"
+                            "value": "Eco.Mods.TechTree.BloomeryItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.StockpileItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CampfireItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.TallowCandleItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LumberStockpileItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SteamEngineItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.BrickFireplaceItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MortaredSandstoneFireplaceItem"
+                            "value": "Eco.Mods.TechTree.BookshelfItem"
                           },
                           {
                             "type": "Type",
@@ -933,19 +909,59 @@
                           },
                           {
                             "type": "Type",
+                            "value": "Eco.Mods.TechTree.CampfireItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteamEngineItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.IceboxItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MortaredStoneFireplaceItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.DistributionStationItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.StoneBrazierItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CandleStandItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LumberStockpileItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MortaredSandstoneFireplaceItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.TallowCandleItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.StorageSiloItem"
+                          },
+                          {
+                            "type": "Type",
                             "value": "Eco.Mods.TechTree.CementKilnItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStockpileItem"
+                            "value": "Eco.Mods.TechTree.TallowLampItem"
                           },
                           {
                             "type": "Type",
                             "value": "Eco.Mods.TechTree.TorchStandItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.TallowWallLampItem"
                           },
                           {
                             "type": "Type",
@@ -957,43 +973,11 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.CandleStandItem"
+                            "value": "Eco.Mods.TechTree.CastIronStoveItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.MortaredLimestoneFireplaceItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.TinyStockpileItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.WallCandleItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.OilRefineryItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.BloomeryItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.DistributionStationItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.IceboxItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.BlastFurnaceItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.TallowLampItem"
+                            "value": "Eco.Mods.TechTree.TallowWallLampItem"
                           },
                           {
                             "type": "Type",
@@ -1001,15 +985,35 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.MortaredStoneFireplaceItem"
+                            "value": "Eco.Mods.TechTree.StockpileItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.CastIronStoveItem"
+                            "value": "Eco.Mods.TechTree.WallCandleItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.StorageSiloItem"
+                            "value": "Eco.Mods.TechTree.TinyStockpileItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BlastFurnaceItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ShelfCabinetItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BrickFireplaceItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MortaredLimestoneFireplaceItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MortaredGraniteFireplaceItem"
                           },
                           {
                             "type": "Type",
@@ -1017,11 +1021,7 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.BookshelfItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.ShelfCabinetItem"
+                            "value": "Eco.Mods.TechTree.SmallStockpileItem"
                           }
                         ]
                       }
@@ -1062,7 +1062,7 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:AppointedTitle:29\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Registered Company</style></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:AppointedTitle:64\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Registered Company</style></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
@@ -1103,6 +1103,33 @@
                           },
                           "AuthorizedOrNot": "NotResident"
                         }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                            "properties": {
+                              "CustomStatName": "companyWarning",
+                              "TimeRangeInHours": {
+                                "type": "GameValueWrapper",
+                                "value": 0.25
+                              },
+                              "TimeRangeType": "CountBackFromPresentTime",
+                              "User": {
+                                "type": "GameValueContext",
+                                "contextName": "Citizen",
+                                "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                              }
+                            }
+                          },
+                          "Comparison": "LessThanOrEqualTo",
+                          "Right": {
+                            "type": "GameValueWrapper",
+                            "value": 0.0
+                          }
+                        }
                       }
                     ],
                     "Comparison": "All"
@@ -1138,8 +1165,8 @@
                       "PeopleToSendTo": {
                         "type": "GameValueWrapper",
                         "value": {
-                          "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                          "name": "Game Masters",
+                          "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                          "name": "Admins",
                           "reference": true
                         }
                       },
@@ -1159,6 +1186,27 @@
                         "contextName": "Action Location",
                         "titleBacking": "<ecoicon item=\"InventoryAction\">Action Location</ecoicon>",
                         "tooltip": "When triggered, the <ecoicon item=\"InventoryAction\">Action Location</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"InventoryAction\">Action Location</ecoicon>: The position where the interaction took place.\r\n"
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "companyWarning",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                      },
+                      "Count": {
+                        "type": "GameValueWrapper",
+                        "value": 1.0
                       },
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
@@ -1229,16 +1277,16 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<foldout><linktext><u>2 objects</u></linktext><title>2 objects</title><b><link=\"ref:ElectedTitle:335\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Director of the Federal Bank</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:1\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b></foldout>",
+                            "internalDescription": "<foldout><linktext><u>2 objects</u></linktext><title>2 objects</title><b><link=\"ref:ElectedTitle:100\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Director of the Federal Bank</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:61\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b></foldout>",
                             "entries": [
-                              {
-                                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                                "name": "Director of the Federal Bank",
-                                "reference": true
-                              },
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
                                 "name": "Game Masters",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                                "name": "Director of the Federal Bank",
                                 "reference": true
                               }
                             ]

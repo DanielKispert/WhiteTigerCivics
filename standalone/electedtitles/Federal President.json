@@ -14,8 +14,8 @@
       "reference": true
     },
     "EligibleCandidates": {
-      "type": "Eco.Gameplay.Players.User",
-      "name": "-=GoW=-Dennis",
+      "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+      "name": "Community Manager",
       "reference": true
     },
     "RequiredOfCandidates": null,

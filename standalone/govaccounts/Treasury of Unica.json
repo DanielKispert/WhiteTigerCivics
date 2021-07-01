@@ -17,7 +17,7 @@
   "users": [
     {
       "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-      "name": "Unica Management",
+      "name": "Government of Unica",
       "reference": true
     }
   ],

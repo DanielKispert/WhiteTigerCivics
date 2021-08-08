@@ -1270,7 +1270,7 @@
                               "RightNumber": {
                                 "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
                                 "properties": {
-                                  "CustomStatName": "furnitureSubsidy",
+                                  "CustomStatName": "livingSubsidy",
                                   "TimeRangeInHours": {
                                     "type": "GameValueWrapper",
                                     "value": 0.0
@@ -1344,7 +1344,7 @@
                     "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
                     "reference": false,
                     "properties": {
-                      "StatName": "furnitureSubsidy",
+                      "StatName": "livingSubsidy",
                       "Person": {
                         "type": "GameValueContext",
                         "contextName": "Buyer",
@@ -1367,7 +1367,7 @@
                     "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
                     "reference": false,
                     "properties": {
-                      "StatName": "globalFurnitureSubsidyPaid",
+                      "StatName": "globallivingSubsidyPaid",
                       "Person": {
                         "type": "GameValueWrapper",
                         "value": {
@@ -1493,7 +1493,7 @@
                               "RightNumber": {
                                 "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
                                 "properties": {
-                                  "CustomStatName": "furnitureSubsidy",
+                                  "CustomStatName": "livingSubsidy",
                                   "TimeRangeInHours": {
                                     "type": "GameValueWrapper",
                                     "value": 0.0
@@ -1566,7 +1566,7 @@
                           "RightNumber": {
                             "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
                             "properties": {
-                              "CustomStatName": "furnitureSubsidy",
+                              "CustomStatName": "livingSubsidy",
                               "TimeRangeInHours": {
                                 "type": "GameValueWrapper",
                                 "value": 0.0
@@ -1596,7 +1596,7 @@
                     "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
                     "reference": false,
                     "properties": {
-                      "StatName": "furnitureSubsidy",
+                      "StatName": "livingSubsidy",
                       "Person": {
                         "type": "GameValueContext",
                         "contextName": "Buyer",
@@ -1624,7 +1624,7 @@
                           "RightNumber": {
                             "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
                             "properties": {
-                              "CustomStatName": "furnitureSubsidy",
+                              "CustomStatName": "livingSubsidy",
                               "TimeRangeInHours": {
                                 "type": "GameValueWrapper",
                                 "value": 0.0
@@ -1650,7 +1650,7 @@
                     "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
                     "reference": false,
                     "properties": {
-                      "StatName": "globalFurnitureSubsidyPaid",
+                      "StatName": "globallivingSubsidyPaid",
                       "Person": {
                         "type": "GameValueWrapper",
                         "value": {
@@ -1680,7 +1680,7 @@
                           "RightNumber": {
                             "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
                             "properties": {
-                              "CustomStatName": "furnitureSubsidy",
+                              "CustomStatName": "livingSubsidy",
                               "TimeRangeInHours": {
                                 "type": "GameValueWrapper",
                                 "value": 0.0
@@ -1735,7 +1735,7 @@
                           "RightNumber": {
                             "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
                             "properties": {
-                              "CustomStatName": "furnitureSubsidy",
+                              "CustomStatName": "livingSubsidy",
                               "TimeRangeInHours": {
                                 "type": "GameValueWrapper",
                                 "value": 0.0
@@ -1795,7 +1795,7 @@
                     "propNameBacker": "Message",
                     "propDisplayName": "Message",
                     "properties": {
-                      "String": "!globalfurnituresubsidy"
+                      "String": "!globallivingSubsidy"
                     }
                   }
                 ]
@@ -1830,7 +1830,7 @@
                       "ValueToDisplay": {
                         "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
                         "properties": {
-                          "CustomStatName": "globalFurnitureSubsidyPaid",
+                          "CustomStatName": "globallivingSubsidyPaid",
                           "TimeRangeInHours": {
                             "type": "GameValueWrapper",
                             "value": 0.0
@@ -1868,7 +1868,7 @@
                       "ValueToDisplay": {
                         "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
                         "properties": {
-                          "CustomStatName": "globalFurnitureSubsidyPaid",
+                          "CustomStatName": "globallivingSubsidyPaid",
                           "TimeRangeInHours": {
                             "type": "GameValueWrapper",
                             "value": 24.0
@@ -2111,7 +2111,7 @@
                               "RightNumber": {
                                 "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
                                 "properties": {
-                                  "CustomStatName": "furnitureSubsidy",
+                                  "CustomStatName": "livingSubsidy",
                                   "TimeRangeInHours": {
                                     "type": "GameValueWrapper",
                                     "value": 0.0
@@ -2185,7 +2185,7 @@
                     "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
                     "reference": false,
                     "properties": {
-                      "StatName": "furnitureSubsidy",
+                      "StatName": "livingSubsidy",
                       "Person": {
                         "type": "GameValueContext",
                         "contextName": "Citizen",
@@ -2208,7 +2208,7 @@
                     "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
                     "reference": false,
                     "properties": {
-                      "StatName": "globalFurnitureSubsidyPaid",
+                      "StatName": "globallivingSubsidyPaid",
                       "Person": {
                         "type": "GameValueWrapper",
                         "value": {
@@ -2372,7 +2372,7 @@
                               "RightNumber": {
                                 "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
                                 "properties": {
-                                  "CustomStatName": "furnitureSubsidy",
+                                  "CustomStatName": "livingSubsidy",
                                   "TimeRangeInHours": {
                                     "type": "GameValueWrapper",
                                     "value": 0.0
@@ -2445,7 +2445,7 @@
                           "RightNumber": {
                             "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
                             "properties": {
-                              "CustomStatName": "furnitureSubsidy",
+                              "CustomStatName": "livingSubsidy",
                               "TimeRangeInHours": {
                                 "type": "GameValueWrapper",
                                 "value": 0.0
@@ -2475,7 +2475,7 @@
                     "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
                     "reference": false,
                     "properties": {
-                      "StatName": "furnitureSubsidy",
+                      "StatName": "livingSubsidy",
                       "Person": {
                         "type": "GameValueContext",
                         "contextName": "Citizen",
@@ -2503,7 +2503,7 @@
                           "RightNumber": {
                             "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
                             "properties": {
-                              "CustomStatName": "furnitureSubsidy",
+                              "CustomStatName": "livingSubsidy",
                               "TimeRangeInHours": {
                                 "type": "GameValueWrapper",
                                 "value": 0.0
@@ -2529,7 +2529,7 @@
                     "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
                     "reference": false,
                     "properties": {
-                      "StatName": "globalFurnitureSubsidyPaid",
+                      "StatName": "globallivingSubsidyPaid",
                       "Person": {
                         "type": "GameValueWrapper",
                         "value": {
@@ -2559,7 +2559,7 @@
                           "RightNumber": {
                             "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
                             "properties": {
-                              "CustomStatName": "furnitureSubsidy",
+                              "CustomStatName": "livingSubsidy",
                               "TimeRangeInHours": {
                                 "type": "GameValueWrapper",
                                 "value": 0.0
@@ -2614,7 +2614,7 @@
                           "RightNumber": {
                             "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
                             "properties": {
-                              "CustomStatName": "furnitureSubsidy",
+                              "CustomStatName": "livingSubsidy",
                               "TimeRangeInHours": {
                                 "type": "GameValueWrapper",
                                 "value": 0.0

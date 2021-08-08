@@ -42,7 +42,7 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.LimestoneItem"
+                            "value": "Eco.Mods.TechTree.IronOreItem"
                           },
                           {
                             "type": "Type",
@@ -50,7 +50,7 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.CopperOreItem"
+                            "value": "Eco.Mods.TechTree.LimestoneItem"
                           },
                           {
                             "type": "Type",
@@ -58,7 +58,7 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.IronOreItem"
+                            "value": "Eco.Mods.TechTree.CopperOreItem"
                           }
                         ]
                       }
@@ -100,19 +100,39 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "type": "Eco.Mods.SmartTax.SmartRebate_LegalAction",
                     "reference": false,
                     "properties": {
-                      "StatName": "taxesOwed",
-                      "Person": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
+                          "name": "Treasury Bank Account",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "GameValueWrapper",
+                        "value": 0.25
+                      },
+                      "Target": {
                         "type": "GameValueContext",
                         "contextName": "Citizen",
                         "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
                         "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
                       },
-                      "Count": {
-                        "type": "GameValueWrapper",
-                        "value": -0.25
+                      "RebateCode": "Raw Metal Subsidy",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
                       },
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
@@ -303,7 +323,7 @@
         "type": "Eco.Gameplay.Civics.Laws.LawSection",
         "reference": false,
         "properties": {
-          "Title": "Section 3",
+          "Title": "Government Stats",
           "UserDescription": "",
           "Triggers": [
             {

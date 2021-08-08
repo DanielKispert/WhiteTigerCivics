@@ -95,21 +95,21 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<foldout><linktext><u>3 objects</u></linktext><title>3 objects</title><b><link=\"ref:District:50\"><ecoicon item=\"District\"><color=#C16237FF>Capital Roads</color></ecoicon></link></b>\r\n<b><link=\"ref:District:43\"><ecoicon item=\"District\"><color=#7F7F7FFF>Federal Highways</color></ecoicon></link></b>\r\n<b><link=\"ref:District:49\"><ecoicon item=\"District\"><color=#FFFFFFFF>State Routes</color></ecoicon></link></b></foldout>",
+                            "internalDescription": "<foldout><linktext><u>3 Districts</u></linktext><title>3 Districts</title><b><link=\"ref:District:148\"><ecoicon item=\"District\"><color=#C16237FF>Capital Roads 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:165\"><ecoicon item=\"District\"><color=#7F7F7FFF>Federal Highways 2</color></ecoicon></link></b>\r\n<b><link=\"ref:District:171\"><ecoicon item=\"District\"><color=#FFFFFFFF>State Routes 2</color></ecoicon></link></b></foldout>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
-                                "name": "Capital Roads",
+                                "name": "Capital Roads 3",
                                 "reference": true
                               },
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
-                                "name": "State Routes",
+                                "name": "State Routes 2",
                                 "reference": true
                               },
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
-                                "name": "Federal Highways",
+                                "name": "Federal Highways 2",
                                 "reference": true
                               }
                             ]
@@ -231,19 +231,39 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
                     "reference": false,
                     "properties": {
-                      "StatName": "taxesOwed",
-                      "Person": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
+                          "name": "Treasury Bank Account",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "GameValueWrapper",
+                        "value": 3.0
+                      },
+                      "Target": {
                         "type": "GameValueContext",
                         "contextName": "Citizen",
                         "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
                         "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
                       },
-                      "Count": {
-                        "type": "GameValueWrapper",
-                        "value": 3.25
+                      "TaxCode": "Tree Felling Tax",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
                       },
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
@@ -255,7 +275,7 @@
                     "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
                     "reference": false,
                     "properties": {
-                      "StatName": "TreeTax",
+                      "StatName": "treeTax",
                       "Person": {
                         "type": "GameValueContext",
                         "contextName": "Citizen",
@@ -264,7 +284,7 @@
                       },
                       "Count": {
                         "type": "GameValueWrapper",
-                        "value": 3.25
+                        "value": 3.0
                       },
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
@@ -287,28 +307,7 @@
                       },
                       "Count": {
                         "type": "GameValueWrapper",
-                        "value": 3.25
-                      },
-                      "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
-                        "properties": {}
-                      }
-                    }
-                  },
-                  {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
-                    "reference": false,
-                    "properties": {
-                      "StatName": "TreesFelled",
-                      "Person": {
-                        "type": "GameValueContext",
-                        "contextName": "Citizen",
-                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
-                      },
-                      "Count": {
-                        "type": "GameValueWrapper",
-                        "value": 1.0
+                        "value": 3.0
                       },
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
@@ -392,18 +391,6 @@
                         "contextName": "Destroyed",
                         "titleBacking": "<ecoicon item=\"ChopStump\">Destroyed</ecoicon>",
                         "tooltip": "When triggered, the <ecoicon item=\"ChopStump\">Destroyed</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"ChopStump\">Destroyed</ecoicon>: Was the stump destroyed?\r\n"
-                      },
-                      {
-                        "type": "Eco.Gameplay.Civics.GameValues.Values.PropertyRequirements",
-                        "properties": {
-                          "Citizen": {
-                            "type": "GameValueContext",
-                            "contextName": "Citizen",
-                            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
-                          },
-                          "AuthorizedOrNot": "UnauthorizedOnProperty"
-                        }
                       }
                     ],
                     "Comparison": "All"
@@ -411,19 +398,39 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
                     "reference": false,
                     "properties": {
-                      "StatName": "taxesOwed",
-                      "Person": {
+                      "SourceBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
+                          "name": "Treasury Bank Account",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "GameValueWrapper",
+                        "value": 3.0
+                      },
+                      "Target": {
                         "type": "GameValueContext",
                         "contextName": "Citizen",
                         "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
                         "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
                       },
-                      "Count": {
-                        "type": "GameValueWrapper",
-                        "value": -3.0
+                      "PaymentCode": "Stump Clearing",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
                       },
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
@@ -435,7 +442,7 @@
                     "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
                     "reference": false,
                     "properties": {
-                      "StatName": "TreeTax",
+                      "StatName": "treeTax",
                       "Person": {
                         "type": "GameValueContext",
                         "contextName": "Citizen",
@@ -497,9 +504,47 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.IgnoreAuth_LegalAction",
+                    "type": "Eco.Gameplay.Civics.Conditional_LegalAction",
                     "reference": false,
                     "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Values.PropertyRequirements",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "contextName": "Citizen",
+                                      "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                      "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                                    },
+                                    "AuthorizedOrNot": "UnauthorizedOnProperty"
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.IgnoreAuth_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -538,114 +583,6 @@
                     "type": "Eco.Gameplay.Civics.IgnoreAuth_LegalAction",
                     "reference": false,
                     "properties": {
-                      "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
-                        "properties": {}
-                      }
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "type": "Eco.Gameplay.Civics.IfThenBlock",
-              "reference": false,
-              "properties": {
-                "If": {
-                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
-                  "properties": {
-                    "List": [
-                      {
-                        "type": "GameValueContext",
-                        "contextName": "Destroyed",
-                        "titleBacking": "<ecoicon item=\"ChopStump\">Destroyed</ecoicon>",
-                        "tooltip": "When triggered, the <ecoicon item=\"ChopStump\">Destroyed</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"ChopStump\">Destroyed</ecoicon>: Was the stump destroyed?\r\n"
-                      }
-                    ],
-                    "Comparison": "All"
-                  }
-                },
-                "Then": [
-                  {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
-                    "reference": false,
-                    "properties": {
-                      "StatName": "taxesOwed",
-                      "Person": {
-                        "type": "GameValueContext",
-                        "contextName": "Citizen",
-                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
-                      },
-                      "Count": {
-                        "type": "GameValueWrapper",
-                        "value": -3.0
-                      },
-                      "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
-                        "properties": {}
-                      }
-                    }
-                  },
-                  {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
-                    "reference": false,
-                    "properties": {
-                      "StatName": "TreeTax",
-                      "Person": {
-                        "type": "GameValueContext",
-                        "contextName": "Citizen",
-                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
-                      },
-                      "Count": {
-                        "type": "GameValueWrapper",
-                        "value": -3.0
-                      },
-                      "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
-                        "properties": {}
-                      }
-                    }
-                  },
-                  {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
-                    "reference": false,
-                    "properties": {
-                      "StatName": "globalTreeTax",
-                      "Person": {
-                        "type": "GameValueWrapper",
-                        "value": {
-                          "type": "Eco.Gameplay.Players.User",
-                          "name": "White-Tiger",
-                          "reference": true
-                        }
-                      },
-                      "Count": {
-                        "type": "GameValueWrapper",
-                        "value": -3.0
-                      },
-                      "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
-                        "properties": {}
-                      }
-                    }
-                  },
-                  {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
-                    "reference": false,
-                    "properties": {
-                      "StatName": "StumpsRemoved",
-                      "Person": {
-                        "type": "GameValueContext",
-                        "contextName": "Citizen",
-                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
-                      },
-                      "Count": {
-                        "type": "GameValueWrapper",
-                        "value": 1.0
-                      },
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -704,149 +641,45 @@
                 "If": {
                   "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
                   "properties": {
-                    "List": [
-                      {
-                        "type": "Eco.Gameplay.Civics.GameValues.Values.PropertyRequirements",
-                        "properties": {
-                          "Citizen": {
-                            "type": "GameValueContext",
-                            "contextName": "Citizen",
-                            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
-                          },
-                          "AuthorizedOrNot": "UnauthorizedOnProperty"
-                        }
-                      }
-                    ],
-                    "Comparison": "All"
-                  }
-                },
-                "Then": [
-                  {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
-                    "reference": false,
-                    "properties": {
-                      "StatName": "taxesOwed",
-                      "Person": {
-                        "type": "GameValueContext",
-                        "contextName": "Citizen",
-                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
-                      },
-                      "Count": {
-                        "type": "GameValueWrapper",
-                        "value": -0.05
-                      },
-                      "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
-                        "properties": {}
-                      }
-                    }
-                  },
-                  {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
-                    "reference": false,
-                    "properties": {
-                      "StatName": "TreeTax",
-                      "Person": {
-                        "type": "GameValueContext",
-                        "contextName": "Citizen",
-                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
-                      },
-                      "Count": {
-                        "type": "GameValueWrapper",
-                        "value": -0.05
-                      },
-                      "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
-                        "properties": {}
-                      }
-                    }
-                  },
-                  {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
-                    "reference": false,
-                    "properties": {
-                      "StatName": "globalTreeTax",
-                      "Person": {
-                        "type": "GameValueWrapper",
-                        "value": {
-                          "type": "Eco.Gameplay.Players.User",
-                          "name": "White-Tiger",
-                          "reference": true
-                        }
-                      },
-                      "Count": {
-                        "type": "GameValueWrapper",
-                        "value": -0.05
-                      },
-                      "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
-                        "properties": {}
-                      }
-                    }
-                  },
-                  {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
-                    "reference": false,
-                    "properties": {
-                      "StatName": "DebrisRemoved",
-                      "Person": {
-                        "type": "GameValueContext",
-                        "contextName": "Citizen",
-                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
-                      },
-                      "Count": {
-                        "type": "GameValueWrapper",
-                        "value": 1.0
-                      },
-                      "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
-                        "properties": {}
-                      }
-                    }
-                  },
-                  {
-                    "type": "Eco.Gameplay.Civics.IgnoreAuth_LegalAction",
-                    "reference": false,
-                    "properties": {
-                      "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
-                        "properties": {}
-                      }
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "type": "Eco.Gameplay.Civics.IfThenBlock",
-              "reference": false,
-              "properties": {
-                "If": {
-                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
-                  "properties": {
                     "List": [],
                     "Comparison": "All"
                   }
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
                     "reference": false,
                     "properties": {
-                      "StatName": "taxesOwed",
-                      "Person": {
+                      "SourceBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
+                          "name": "Treasury Bank Account",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "GameValueWrapper",
+                        "value": 0.1
+                      },
+                      "Target": {
                         "type": "GameValueContext",
                         "contextName": "Citizen",
                         "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
                         "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
                       },
-                      "Count": {
-                        "type": "GameValueWrapper",
-                        "value": -0.05
+                      "PaymentCode": "Cleanup Tree Debris",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
                       },
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
@@ -858,7 +691,7 @@
                     "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
                     "reference": false,
                     "properties": {
-                      "StatName": "TreeTax",
+                      "StatName": "treeTax",
                       "Person": {
                         "type": "GameValueContext",
                         "contextName": "Citizen",
@@ -867,7 +700,7 @@
                       },
                       "Count": {
                         "type": "GameValueWrapper",
-                        "value": -0.05
+                        "value": -0.1
                       },
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
@@ -890,7 +723,7 @@
                       },
                       "Count": {
                         "type": "GameValueWrapper",
-                        "value": -0.05
+                        "value": -0.1
                       },
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
@@ -912,6 +745,54 @@
                       "Count": {
                         "type": "GameValueWrapper",
                         "value": 1.0
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Values.PropertyRequirements",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "contextName": "Citizen",
+                                      "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                      "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                                    },
+                                    "AuthorizedOrNot": "UnauthorizedOnProperty"
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.IgnoreAuth_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
                       },
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
@@ -976,42 +857,6 @@
                   }
                 },
                 "Then": [
-                  {
-                    "type": "Eco.Gameplay.Civics.SendNotice",
-                    "reference": false,
-                    "properties": {
-                      "Message": "Trees felled (lifetime)",
-                      "NotificationType": "SideBarMessage",
-                      "PeopleToSendTo": {
-                        "type": "GameValueContext",
-                        "contextName": "Citizen",
-                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
-                      },
-                      "ValueToDisplay": {
-                        "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
-                        "properties": {
-                          "CustomStatName": "TreesFelled",
-                          "TimeRangeInHours": {
-                            "type": "GameValueWrapper",
-                            "value": 0.0
-                          },
-                          "TimeRangeType": "CountBackFromPresentTime",
-                          "User": {
-                            "type": "GameValueContext",
-                            "contextName": "Citizen",
-                            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
-                          }
-                        }
-                      },
-                      "LocationToDisplay": null,
-                      "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
-                        "properties": {}
-                      }
-                    }
-                  },
                   {
                     "type": "Eco.Gameplay.Civics.SendNotice",
                     "reference": false,
@@ -1099,7 +944,7 @@
                       "ValueToDisplay": {
                         "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
                         "properties": {
-                          "CustomStatName": "TreeTax",
+                          "CustomStatName": "treeTax",
                           "TimeRangeInHours": {
                             "type": "GameValueWrapper",
                             "value": 24.0
@@ -1135,7 +980,7 @@
                       "ValueToDisplay": {
                         "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
                         "properties": {
-                          "CustomStatName": "TreeTax",
+                          "CustomStatName": "treeTax",
                           "TimeRangeInHours": {
                             "type": "GameValueWrapper",
                             "value": 0.0
@@ -1283,6 +1128,85 @@
                         }
                       },
                       "LocationToDisplay": null,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Tax for Creating Tree Debris",
+          "UserDescription": "",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.CreateTreeDebris"
+                },
+                "Configs": []
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
+                          "name": "Treasury Bank Account",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "GameValueWrapper",
+                        "value": 0.1
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who chopped down the tree that is generating debris.\r\n"
+                      },
+                      "TaxCode": "Tree Debris Creation",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}

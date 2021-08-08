@@ -6,7 +6,7 @@
   "type": "Eco.Gameplay.Civics.Laws.Law",
   "name": "Sales Tax",
   "reference": false,
-  "description": "All citizen pay a sales tax of 10% on selling goods.",
+  "description": "All citizen pay a sales tax of 15% on selling goods.",
   "properties": {
     "Sections": [
       {
@@ -38,7 +38,7 @@
                           "value": "Eco.Gameplay.Economy.Currency"
                         },
                         "requiredTag": null,
-                        "internalDescription": "<b><link=\"ref:Currency:2\"><ecoicon item=\"CurrencySymbol\"><style=\"Government\">Euro</style></ecoicon></link></b>",
+                        "internalDescription": "<b><link=\"ref:Currency:2\"><ecoicon item=\"CurrencySymbol\"><style=\"Currency\">Euro</style></ecoicon></link></b>",
                         "entries": [
                           {
                             "type": "Eco.Gameplay.Economy.Currency",
@@ -100,51 +100,51 @@
                                     "value": "Eco.Gameplay.LegislationSystem.District"
                                   },
                                   "requiredTag": null,
-                                  "internalDescription": "<foldout><linktext><u>9 objects</u></linktext><title>9 objects</title><b><link=\"ref:District:63\"><ecoicon item=\"District\"><color=#613000FF>Court Building</color></ecoicon></link></b>\r\n<b><link=\"ref:District:51\"><ecoicon item=\"District\"><color=#004CC6FF>Federal Bank</color></ecoicon></link></b>\r\n<b><link=\"ref:District:59\"><ecoicon item=\"District\"><color=#FCFF00FF>Federal University</color></ecoicon></link></b>\r\n<b><link=\"ref:District:61\"><ecoicon item=\"District\"><color=#FF6200FF>Mayors Office</color></ecoicon></link></b>\r\n<b><link=\"ref:District:58\"><ecoicon item=\"District\"><color=#004DFFFF>Meteor Facility</color></ecoicon></link></b>\r\n<b><link=\"ref:District:52\"><ecoicon item=\"District\"><color=#ED00FFFF>Player Spawn</color></ecoicon></link></b>\r\n<b><link=\"ref:District:54\"><ecoicon item=\"District\"><color=#273F24FF>Presidents Mansion</color></ecoicon></link></b>\r\n<b><link=\"ref:District:60\"><ecoicon item=\"District\"><color=#FF0000FF>Prime Ministers Office</color></ecoicon></link></b>\r\n<b><link=\"ref:District:62\"><ecoicon item=\"District\"><color=#0E0050FF>Senate Building</color></ecoicon></link></b></foldout>",
+                                  "internalDescription": "<foldout><linktext><u>9 Districts</u></linktext><title>9 Districts</title><b><link=\"ref:District:161\"><ecoicon item=\"District\"><color=#613000FF>Court Building 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:149\"><ecoicon item=\"District\"><color=#004CC6FF>Federal Bank 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:157\"><ecoicon item=\"District\"><color=#FCFF00FF>Federal University 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:159\"><ecoicon item=\"District\"><color=#FF6200FF>Mayors Office 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:156\"><ecoicon item=\"District\"><color=#004DFFFF>Meteor Facility 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:150\"><ecoicon item=\"District\"><color=#ED00FFFF>Player Spawn 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:152\"><ecoicon item=\"District\"><color=#273F24FF>Presidents Mansion 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:158\"><ecoicon item=\"District\"><color=#FF0000FF>Prime Ministers Office 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:160\"><ecoicon item=\"District\"><color=#0E0050FF>Senate Building 3</color></ecoicon></link></b></foldout>",
                                   "entries": [
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Prime Ministers Office",
+                                      "name": "Senate Building 3",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Mayors Office",
+                                      "name": "Federal University 3",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Federal University",
+                                      "name": "Meteor Facility 3",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Meteor Facility",
+                                      "name": "Prime Ministers Office 3",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Senate Building",
+                                      "name": "Player Spawn 3",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Presidents Mansion",
+                                      "name": "Mayors Office 3",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Federal Bank",
+                                      "name": "Court Building 3",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Court Building",
+                                      "name": "Presidents Mansion 3",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Player Spawn",
+                                      "name": "Federal Bank 3",
                                       "reference": true
                                     }
                                   ]
@@ -204,51 +204,51 @@
                                     "value": "Eco.Gameplay.LegislationSystem.District"
                                   },
                                   "requiredTag": null,
-                                  "internalDescription": "<foldout><linktext><u>9 objects</u></linktext><title>9 objects</title><b><link=\"ref:District:63\"><ecoicon item=\"District\"><color=#613000FF>Court Building</color></ecoicon></link></b>\r\n<b><link=\"ref:District:51\"><ecoicon item=\"District\"><color=#004CC6FF>Federal Bank</color></ecoicon></link></b>\r\n<b><link=\"ref:District:59\"><ecoicon item=\"District\"><color=#FCFF00FF>Federal University</color></ecoicon></link></b>\r\n<b><link=\"ref:District:61\"><ecoicon item=\"District\"><color=#FF6200FF>Mayors Office</color></ecoicon></link></b>\r\n<b><link=\"ref:District:58\"><ecoicon item=\"District\"><color=#004DFFFF>Meteor Facility</color></ecoicon></link></b>\r\n<b><link=\"ref:District:52\"><ecoicon item=\"District\"><color=#ED00FFFF>Player Spawn</color></ecoicon></link></b>\r\n<b><link=\"ref:District:54\"><ecoicon item=\"District\"><color=#273F24FF>Presidents Mansion</color></ecoicon></link></b>\r\n<b><link=\"ref:District:60\"><ecoicon item=\"District\"><color=#FF0000FF>Prime Ministers Office</color></ecoicon></link></b>\r\n<b><link=\"ref:District:62\"><ecoicon item=\"District\"><color=#0E0050FF>Senate Building</color></ecoicon></link></b></foldout>",
+                                  "internalDescription": "<foldout><linktext><u>9 Districts</u></linktext><title>9 Districts</title><b><link=\"ref:District:161\"><ecoicon item=\"District\"><color=#613000FF>Court Building 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:149\"><ecoicon item=\"District\"><color=#004CC6FF>Federal Bank 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:157\"><ecoicon item=\"District\"><color=#FCFF00FF>Federal University 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:159\"><ecoicon item=\"District\"><color=#FF6200FF>Mayors Office 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:156\"><ecoicon item=\"District\"><color=#004DFFFF>Meteor Facility 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:150\"><ecoicon item=\"District\"><color=#ED00FFFF>Player Spawn 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:152\"><ecoicon item=\"District\"><color=#273F24FF>Presidents Mansion 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:158\"><ecoicon item=\"District\"><color=#FF0000FF>Prime Ministers Office 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:160\"><ecoicon item=\"District\"><color=#0E0050FF>Senate Building 3</color></ecoicon></link></b></foldout>",
                                   "entries": [
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Prime Ministers Office",
+                                      "name": "Senate Building 3",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Mayors Office",
+                                      "name": "Federal University 3",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Federal University",
+                                      "name": "Meteor Facility 3",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Meteor Facility",
+                                      "name": "Prime Ministers Office 3",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Senate Building",
+                                      "name": "Player Spawn 3",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Presidents Mansion",
+                                      "name": "Mayors Office 3",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Federal Bank",
+                                      "name": "Court Building 3",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Court Building",
+                                      "name": "Presidents Mansion 3",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Player Spawn",
+                                      "name": "Federal Bank 3",
                                       "reference": true
                                     }
                                   ]
@@ -306,17 +306,24 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
                     "reference": false,
                     "properties": {
-                      "StatName": "taxesOwed",
-                      "Person": {
-                        "type": "GameValueContext",
-                        "contextName": "Seller",
-                        "titleBacking": "<ecoicon item=\"User\">Seller</ecoicon>",
-                        "tooltip": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
+                          "name": "Treasury Bank Account",
+                          "reference": true
+                        }
                       },
-                      "Count": {
+                      "Currency": {
+                        "type": "GameValueContext",
+                        "contextName": "Currency",
+                        "titleBacking": "<ecoicon item=\"CurrencyTrade\">Currency</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Currency</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Currency</ecoicon>: Currency used in the transaction.\r\n"
+                      },
+                      "Amount": {
                         "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
                         "properties": {
                           "Number": {
@@ -330,6 +337,17 @@
                             "value": 15.0
                           }
                         }
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "contextName": "Seller",
+                        "titleBacking": "<ecoicon item=\"User\">Seller</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
+                      },
+                      "TaxCode": "Sales Tax",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
                       },
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
@@ -397,40 +415,6 @@
                           }
                         }
                       },
-                      "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
-                        "properties": {}
-                      }
-                    }
-                  },
-                  {
-                    "type": "Eco.Gameplay.Civics.SendNotice",
-                    "reference": false,
-                    "properties": {
-                      "Message": "sales tax charged:",
-                      "NotificationType": "SideBarMessage",
-                      "PeopleToSendTo": {
-                        "type": "GameValueContext",
-                        "contextName": "Seller",
-                        "titleBacking": "<ecoicon item=\"User\">Seller</ecoicon>",
-                        "tooltip": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
-                      },
-                      "ValueToDisplay": {
-                        "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
-                        "properties": {
-                          "Number": {
-                            "type": "GameValueContext",
-                            "contextName": "Currency Amount",
-                            "titleBacking": "<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>",
-                            "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>: Amount used in the transaction.\r\n"
-                          },
-                          "Percent": {
-                            "type": "GameValueWrapper",
-                            "value": 15.0
-                          }
-                        }
-                      },
-                      "LocationToDisplay": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -734,7 +718,7 @@
                           "value": "Eco.Gameplay.Economy.Currency"
                         },
                         "requiredTag": null,
-                        "internalDescription": "<b><link=\"ref:Currency:2\"><ecoicon item=\"CurrencySymbol\"><style=\"Government\">Euro</style></ecoicon></link></b>",
+                        "internalDescription": "<b><link=\"ref:Currency:2\"><ecoicon item=\"CurrencySymbol\"><style=\"Currency\">Euro</style></ecoicon></link></b>",
                         "entries": [
                           {
                             "type": "Eco.Gameplay.Economy.Currency",
@@ -797,11 +781,11 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:District:51\"><ecoicon item=\"District\"><color=#004CC6FF>Federal Bank</color></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:District:149\"><ecoicon item=\"District\"><color=#004CC6FF>Federal Bank 3</color></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
-                                "name": "Federal Bank",
+                                "name": "Federal Bank 3",
                                 "reference": true
                               }
                             ]
@@ -819,7 +803,7 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<foldout><linktext><u>1 objects</u></linktext><title>1 objects</title><b><link=\"ref:ElectedTitle:93\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Director of the Federal Bank</style></ecoicon></link></b></foldout>",
+                            "internalDescription": "<b><link=\"ref:ElectedTitle:93\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Director of the Federal Bank</style></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
@@ -849,31 +833,48 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
                     "reference": false,
                     "properties": {
-                      "StatName": "taxesOwed",
-                      "Person": {
-                        "type": "GameValueContext",
-                        "contextName": "Seller",
-                        "titleBacking": "<ecoicon item=\"User\">Seller</ecoicon>",
-                        "tooltip": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
+                      "SourceBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
+                          "name": "Treasury Bank Account",
+                          "reference": true
+                        }
                       },
-                      "Count": {
-                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                      "Currency": {
+                        "type": "GameValueContext",
+                        "contextName": "Currency",
+                        "titleBacking": "<ecoicon item=\"CurrencyTrade\">Currency</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Currency</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Currency</ecoicon>: Currency used in the transaction.\r\n"
+                      },
+                      "Amount": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
                         "properties": {
-                          "LeftNumber": {
+                          "Number": {
                             "type": "GameValueContext",
                             "contextName": "Currency Amount",
                             "titleBacking": "<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>",
                             "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>: Amount used in the transaction.\r\n"
                           },
-                          "Operation": "Multiply",
-                          "RightNumber": {
+                          "Percent": {
                             "type": "GameValueWrapper",
-                            "value": -0.15
+                            "value": 15.0
                           }
                         }
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                      },
+                      "PaymentCode": "Sales Tax LCP refund",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
                       },
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",

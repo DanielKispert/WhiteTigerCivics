@@ -39,7 +39,13 @@
                         },
                         "requiredTag": null,
                         "internalDescription": "Any",
-                        "entries": []
+                        "entries": [
+                          {
+                            "type": "Eco.Gameplay.Economy.Currency",
+                            "name": "Euro",
+                            "reference": true
+                          }
+                        ]
                       }
                     }
                   },
@@ -60,35 +66,7 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.BasicEngineeringSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.BakingSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositesSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.FertilizersSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CookingSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MillingSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MasonrySkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.IndustrySkillScroll"
+                            "value": "Eco.Mods.TechTree.CuttingEdgeCookingSkillScroll"
                           },
                           {
                             "type": "Type",
@@ -100,27 +78,11 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdvancedMasonrySkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.GlassworkingSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdvancedSmeltingSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.FarmingSkillScroll"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.ButcherySkillScroll"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.ElectronicsSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BasicEngineeringSkillScroll"
                           },
                           {
                             "type": "Type",
@@ -128,7 +90,11 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.TailoringSkillScroll"
+                            "value": "Eco.Mods.TechTree.SmeltingSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.GlassworkingSkillScroll"
                           },
                           {
                             "type": "Type",
@@ -136,11 +102,19 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdvancedBakingSkillScroll"
+                            "value": "Eco.Mods.TechTree.AdvancedSmeltingSkillScroll"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.CuttingEdgeCookingSkillScroll"
+                            "value": "Eco.Mods.TechTree.FertilizersSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ButcherySkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.FarmingSkillScroll"
                           },
                           {
                             "type": "Type",
@@ -148,7 +122,39 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmeltingSkillScroll"
+                            "value": "Eco.Mods.TechTree.MasonrySkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.TailoringSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdvancedBakingSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdvancedMasonrySkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MillingSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BakingSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositesSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CookingSkillScroll"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.IndustrySkillScroll"
                           }
                         ]
                       }
@@ -207,7 +213,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.Pay_LegalAction",
+                    "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
                     "reference": false,
                     "properties": {
                       "SourceBankAccount": {
@@ -217,12 +223,6 @@
                           "name": "# <color=red>Skill Scroll Subsidy",
                           "reference": true
                         }
-                      },
-                      "Target": {
-                        "type": "GameValueContext",
-                        "contextName": "Buyer",
-                        "titleBacking": "<ecoicon item=\"User\">Buyer</ecoicon>",
-                        "tooltip": "When triggered, the <ecoicon item=\"User\">Buyer</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Buyer</ecoicon>: The buying player.\r\n"
                       },
                       "Currency": {
                         "type": "GameValueContext",
@@ -245,7 +245,14 @@
                           }
                         }
                       },
-                      "PreventIfUnableToPay": {
+                      "Target": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                      },
+                      "PaymentCode": "Skill Scroll Subsidy",
+                      "Silent": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
                       },

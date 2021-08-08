@@ -229,7 +229,7 @@
                     "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
                     "reference": false,
                     "properties": {
-                      "StatName": "incomeTaxPaid",
+                      "StatName": "incomeTaxCharged",
                       "Person": {
                         "type": "GameValueContext",
                         "contextName": "Citizen",
@@ -727,7 +727,7 @@
                     "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
                     "reference": false,
                     "properties": {
-                      "StatName": "incomeTaxPaid",
+                      "StatName": "incomeTaxCharged",
                       "Person": {
                         "type": "GameValueContext",
                         "contextName": "Citizen",
@@ -1202,7 +1202,7 @@
                       "ValueToDisplay": {
                         "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
                         "properties": {
-                          "CustomStatName": "incomeTaxPaid",
+                          "CustomStatName": "incomeTaxCharged",
                           "TimeRangeInHours": {
                             "type": "GameValueWrapper",
                             "value": 24.0
@@ -1238,7 +1238,7 @@
                       "ValueToDisplay": {
                         "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
                         "properties": {
-                          "CustomStatName": "incomeTaxPaid",
+                          "CustomStatName": "incomeTaxCharged",
                           "TimeRangeInHours": {
                             "type": "GameValueWrapper",
                             "value": 0.0

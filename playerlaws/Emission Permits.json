@@ -46,7 +46,7 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.SteamEngineItem"
+                            "value": "Eco.Mods.TechTree.TruckItem"
                           },
                           {
                             "type": "Type",
@@ -54,27 +54,7 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.OilRefineryItem"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.CombustionGeneratorItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SteamTruckItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SkidSteerItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.TruckItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.ExcavatorItem"
                           },
                           {
                             "type": "Type",
@@ -82,7 +62,27 @@
                           },
                           {
                             "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteamTruckItem"
+                          },
+                          {
+                            "type": "Type",
                             "value": "Eco.Mods.TechTree.PoweredCartItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ExcavatorItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SkidSteerItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteamEngineItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.OilRefineryItem"
                           },
                           {
                             "type": "Type",
@@ -547,15 +547,7 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.SteamEngineItem"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.BlastFurnaceItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.OilRefineryItem"
                           },
                           {
                             "type": "Type",
@@ -564,6 +556,14 @@
                           {
                             "type": "Type",
                             "value": "Eco.Mods.TechTree.StoveItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteamEngineItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.OilRefineryItem"
                           },
                           {
                             "type": "Type",
@@ -2056,15 +2056,7 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.SteamEngineItem"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.BlastFurnaceItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.OilRefineryItem"
                           },
                           {
                             "type": "Type",
@@ -2073,6 +2065,14 @@
                           {
                             "type": "Type",
                             "value": "Eco.Mods.TechTree.StoveItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteamEngineItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.OilRefineryItem"
                           },
                           {
                             "type": "Type",
@@ -2360,220 +2360,6 @@
                     "type": "Eco.Gameplay.Civics.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
-                      "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
-                        "properties": {}
-                      }
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "type": "Eco.Gameplay.Civics.Laws.LawSection",
-        "reference": false,
-        "properties": {
-          "Title": "Priority increase on gaining a polluting Skill",
-          "UserDescription": "If a citizen invests a star in a skill that might emit air pollution (not through vehicles), their priority is increased to 8. Polluting specialities are:\u000bSmelting\u000bAdvanced Smelting\u000bMasonry (because of Cement Kiln)\nOil Drilling\nAdvanced Cooking (Stove)\u000b\nThis means that they might instantly drop a priority level again on the next law tick, leading to staying on the same level than before, but not dropping one when they would have dropped.\nIf they were already priority 0, then they can't drop more, so to rise in priority properly, citizens are allowed 0.1 PPM of free pollution.\n",
-          "Triggers": [
-            {
-              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
-              "reference": false,
-              "properties": {
-                "Trigger": {
-                  "type": "Type",
-                  "value": "Eco.Gameplay.GameActions.GainSpecialty"
-                },
-                "Configs": [
-                  {
-                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
-                    "typeToConfig": "Eco.Gameplay.GameActions.GainSpecialty",
-                    "propNameBacker": "Profession",
-                    "propDisplayName": "Profession",
-                    "properties": {
-                      "List": {
-                        "type": "GamePickerList",
-                        "mustDeriveType": {
-                          "type": "Type",
-                          "value": "Eco.Gameplay.Skills.Skill"
-                        },
-                        "requiredTag": "Profession",
-                        "internalDescription": "Any",
-                        "entries": []
-                      }
-                    }
-                  },
-                  {
-                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
-                    "typeToConfig": "Eco.Gameplay.GameActions.GainSpecialty",
-                    "propNameBacker": "Specialty",
-                    "propDisplayName": "Specialty",
-                    "properties": {
-                      "List": {
-                        "type": "GamePickerList",
-                        "mustDeriveType": {
-                          "type": "Type",
-                          "value": "Eco.Gameplay.Skills.Skill"
-                        },
-                        "requiredTag": "Specialty",
-                        "internalDescription": "5 Specialty Skills",
-                        "entries": [
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.OilDrillingSkill"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmeltingSkill"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdvancedSmeltingSkill"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdvancedCookingSkill"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MasonrySkill"
-                          }
-                        ]
-                      }
-                    }
-                  }
-                ]
-              }
-            }
-          ],
-          "IfThenBlocks": [
-            {
-              "type": "Eco.Gameplay.Civics.IfThenBlock",
-              "reference": false,
-              "properties": {
-                "If": {
-                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
-                  "properties": {
-                    "List": [
-                      {
-                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
-                        "properties": {
-                          "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
-                            "properties": {
-                              "CustomStatName": "emissionPriority",
-                              "TimeRangeInHours": {
-                                "type": "GameValueWrapper",
-                                "value": 0.0
-                              },
-                              "TimeRangeType": "CountBackFromPresentTime",
-                              "User": {
-                                "type": "GameValueContext",
-                                "contextName": "Citizen",
-                                "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                                "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who changed demographics.\r\n"
-                              }
-                            }
-                          },
-                          "Comparison": "LessThanOrEqualTo",
-                          "Right": {
-                            "type": "GameValueWrapper",
-                            "value": 4.0
-                          }
-                        }
-                      }
-                    ],
-                    "Comparison": "All"
-                  }
-                },
-                "Then": [
-                  {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
-                    "reference": false,
-                    "properties": {
-                      "StatName": "globalEmissionPriority",
-                      "Person": {
-                        "type": "GameValueWrapper",
-                        "value": {
-                          "type": "Eco.Gameplay.Players.User",
-                          "name": "White-Tiger",
-                          "reference": true
-                        }
-                      },
-                      "Count": {
-                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
-                        "properties": {
-                          "LeftNumber": {
-                            "type": "GameValueWrapper",
-                            "value": 8.0
-                          },
-                          "Operation": "Subtract",
-                          "RightNumber": {
-                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
-                            "properties": {
-                              "CustomStatName": "emissionPriority",
-                              "TimeRangeInHours": {
-                                "type": "GameValueWrapper",
-                                "value": 0.0
-                              },
-                              "TimeRangeType": "CountBackFromPresentTime",
-                              "User": {
-                                "type": "GameValueContext",
-                                "contextName": "Citizen",
-                                "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                                "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who changed demographics.\r\n"
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
-                        "properties": {}
-                      }
-                    }
-                  },
-                  {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
-                    "reference": false,
-                    "properties": {
-                      "StatName": "emissionPriority",
-                      "Person": {
-                        "type": "GameValueContext",
-                        "contextName": "Citizen",
-                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who changed demographics.\r\n"
-                      },
-                      "Count": {
-                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
-                        "properties": {
-                          "LeftNumber": {
-                            "type": "GameValueWrapper",
-                            "value": 8.0
-                          },
-                          "Operation": "Subtract",
-                          "RightNumber": {
-                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
-                            "properties": {
-                              "CustomStatName": "emissionPriority",
-                              "TimeRangeInHours": {
-                                "type": "GameValueWrapper",
-                                "value": 0.0
-                              },
-                              "TimeRangeType": "CountBackFromPresentTime",
-                              "User": {
-                                "type": "GameValueContext",
-                                "contextName": "Citizen",
-                                "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                                "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who changed demographics.\r\n"
-                              }
-                            }
-                          }
-                        }
-                      },
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}

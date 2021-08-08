@@ -42,7 +42,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.Pay_LegalAction",
+                    "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
                     "reference": false,
                     "properties": {
                       "SourceBankAccount": {
@@ -52,12 +52,6 @@
                           "name": "# Unica Food Bank Budget",
                           "reference": true
                         }
-                      },
-                      "Target": {
-                        "type": "GameValueContext",
-                        "contextName": "Citizen",
-                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
                       },
                       "Currency": {
                         "type": "GameValueWrapper",
@@ -71,7 +65,14 @@
                         "type": "GameValueWrapper",
                         "value": 200.0
                       },
-                      "PreventIfUnableToPay": {
+                      "Target": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                      },
+                      "PaymentCode": "Initial Food Subsidy",
+                      "Silent": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
                       },
@@ -173,7 +174,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.Pay_LegalAction",
+                    "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
                     "reference": false,
                     "properties": {
                       "SourceBankAccount": {
@@ -183,12 +184,6 @@
                           "name": "# Unica Food Bank Budget",
                           "reference": true
                         }
-                      },
-                      "Target": {
-                        "type": "GameValueContext",
-                        "contextName": "Citizen",
-                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
                       },
                       "Currency": {
                         "type": "GameValueWrapper",
@@ -202,7 +197,14 @@
                         "type": "GameValueWrapper",
                         "value": 50.0
                       },
-                      "PreventIfUnableToPay": {
+                      "Target": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                      },
+                      "PaymentCode": "Gastronomy Vouchers",
+                      "Silent": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
                       },
@@ -401,7 +403,7 @@
                           "value": "Eco.Gameplay.Economy.Currency"
                         },
                         "requiredTag": null,
-                        "internalDescription": "<b><link=\"ref:Currency:569\"><ecoicon item=\"CurrencySymbol\"><style=\"Government\">Gastronomy Vouchers</style></ecoicon></link></b>",
+                        "internalDescription": "<b><link=\"ref:Currency:569\"><ecoicon item=\"CurrencySymbol\"><style=\"Currency\">Gastronomy Vouchers</style></ecoicon></link></b>",
                         "entries": [
                           {
                             "type": "Eco.Gameplay.Economy.Currency",
@@ -470,7 +472,7 @@
                                         "value": "Eco.Gameplay.Civics.Titles.Title"
                                       },
                                       "requiredTag": null,
-                                      "internalDescription": "<foldout><linktext><u>2 objects</u></linktext><title>2 objects</title><b><link=\"ref:ElectedTitle:93\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Director of the Federal Bank</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:65\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b></foldout>",
+                                      "internalDescription": "<foldout><linktext><u>2 Titles</u></linktext><title>2 Titles</title><b><link=\"ref:ElectedTitle:93\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Director of the Federal Bank</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:65\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b></foldout>",
                                       "entries": [
                                         {
                                           "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",

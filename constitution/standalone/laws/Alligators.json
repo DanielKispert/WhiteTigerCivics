@@ -4,7 +4,7 @@
     0
   ],
   "type": "Eco.Gameplay.Civics.Laws.Law",
-  "name": "Constitutional Law: Alligator Protection",
+  "name": "[C] Alligator Protection Legislation",
   "reference": false,
   "description": "Because of the constitutional referendum, alligators will now be protected because of their allegedly bugged status. They are a lot worse at surviving than all other species and go extinct really fast, so the government usually has no time to protect them properly. Once alligators are confirmed to be fixed and in line with the other species, this law can be abolished again.",
   "properties": {
@@ -39,12 +39,7 @@
                         },
                         "requiredTag": null,
                         "internalDescription": "<b><link=\"TypeTooltip:1423\"><ecoicon item=\"AlligatorSpecies\">Alligator Species</ecoicon></link></b>",
-                        "entries": [
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.Organisms.Alligator+AlligatorSpecies"
-                          }
-                        ]
+                        "entries": []
                       }
                     }
                   },
@@ -92,11 +87,11 @@
                                   "value": "Eco.Simulation.Types.Species"
                                 },
                                 "requiredTag": null,
-                                "internalDescription": "<b><link=\"TypeTooltip:1423\"><ecoicon item=\"AlligatorSpecies\">Alligator Species</ecoicon></link></b>",
+                                "internalDescription": "<b><link=\"TypeTooltip:2041\"><ecoicon item=\"AlligatorSpecies\">Alligator Species</ecoicon></link></b>",
                                 "entries": [
                                   {
                                     "type": "Type",
-                                    "value": "Eco.Mods.Organisms.Alligator+AlligatorSpecies"
+                                    "value": "Eco.Mods.TechTree.Alligator+AlligatorSpecies"
                                   }
                                 ]
                               }

@@ -4,7 +4,7 @@
     0
   ],
   "type": "Eco.Gameplay.Civics.Laws.Law",
-  "name": "Federal Capital Regulations",
+  "name": "[C] Federal Capital Legislation",
   "reference": false,
   "description": null,
   "properties": {
@@ -90,7 +90,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:District:52\"><ecoicon item=\"District\"><color=#ED00FFFF>Player Spawn</color></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:District:150\"><ecoicon item=\"District\"><color=#ED00FFFF>Player Spawn</color></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -112,7 +112,7 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:AppointedTitle:61\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:AppointedTitle:65\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
@@ -214,7 +214,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:District:44\"><ecoicon item=\"District\"><color=#003CFFFF>Unica</color></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:District:166\"><ecoicon item=\"District\"><color=#003CFFFF>Unica</color></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -236,7 +236,7 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:AppointedTitle:61\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:AppointedTitle:65\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
@@ -353,7 +353,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:District:44\"><ecoicon item=\"District\"><color=#003CFFFF>Unica</color></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:District:166\"><ecoicon item=\"District\"><color=#003CFFFF>Unica</color></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -497,7 +497,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:District:44\"><ecoicon item=\"District\"><color=#003CFFFF>Unica</color></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:District:166\"><ecoicon item=\"District\"><color=#003CFFFF>Unica</color></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -525,7 +525,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:District:53\"><ecoicon item=\"District\"><color=#462256FF>Capital Buffer</color></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:District:151\"><ecoicon item=\"District\"><color=#462256FF>Capital Buffer</color></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -591,31 +591,7 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.SteamTractorItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.WoodCartItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.WheelbarrowItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.TruckItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CraneItem"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.SkidSteerItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallWoodCartItem"
                           },
                           {
                             "type": "Type",
@@ -623,7 +599,11 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.ExcavatorItem"
+                            "value": "Eco.Mods.TechTree.SmallWoodCartItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WheelbarrowItem"
                           },
                           {
                             "type": "Type",
@@ -631,7 +611,27 @@
                           },
                           {
                             "type": "Type",
+                            "value": "Eco.Mods.TechTree.CraneItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ExcavatorItem"
+                          },
+                          {
+                            "type": "Type",
                             "value": "Eco.Mods.TechTree.SteamTruckItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodCartItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.TruckItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteamTractorItem"
                           }
                         ]
                       }
@@ -672,7 +672,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:District:50\"><ecoicon item=\"District\"><color=#C16237FF>Capital Roads</color></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:District:148\"><ecoicon item=\"District\"><color=#C16237FF>Capital Roads</color></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -710,7 +710,7 @@
         "reference": false,
         "properties": {
           "Title": "Capital Property Buying Regulations",
-          "UserDescription": "Every Citizen may only have one personal plot in the Federal Capital",
+          "UserDescription": "Every Citizen may only have one property in the Federal Capital",
           "Triggers": [
             {
               "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
@@ -789,11 +789,16 @@
                                   "value": "Eco.Gameplay.LegislationSystem.District"
                                 },
                                 "requiredTag": null,
-                                "internalDescription": "<b><link=\"ref:District:44\"><ecoicon item=\"District\"><color=#003CFFFF>Unica</color></ecoicon></link></b>",
+                                "internalDescription": "<foldout><linktext><u>2 Districts</u></linktext><title>2 Districts</title><b><link=\"ref:District:153\"><ecoicon item=\"District\"><color=#FFFFFFFF>Power/Utility Plots</color></ecoicon></link></b>\r\n<b><link=\"ref:District:154\"><ecoicon item=\"District\"><color=#61D6DAFF>Residential Plots</color></ecoicon></link></b></foldout>",
                                 "entries": [
                                   {
                                     "type": "Eco.Gameplay.LegislationSystem.District",
-                                    "name": "Unica",
+                                    "name": "Power/Utility Plots",
+                                    "reference": true
+                                  },
+                                  {
+                                    "type": "Eco.Gameplay.LegislationSystem.District",
+                                    "name": "Residential Plots",
                                     "reference": true
                                   }
                                 ]
@@ -826,7 +831,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:District:44\"><ecoicon item=\"District\"><color=#003CFFFF>Unica</color></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:District:166\"><ecoicon item=\"District\"><color=#003CFFFF>Unica</color></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -848,27 +853,41 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<foldout><linktext><u>2 objects</u></linktext><title>2 objects</title><b><link=\"ref:AppointedTitle:61\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:87\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Mayor of Unica</style></ecoicon></link></b></foldout>",
+                            "internalDescription": "<foldout><linktext><u>2 Titles</u></linktext><title>2 Titles</title><b><link=\"ref:AppointedTitle:65\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:88\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Mayor of Unica</style></ecoicon></link></b></foldout>",
                             "entries": [
-                              {
-                                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                                "name": "Mayor of Unica",
-                                "reference": true
-                              },
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
                                 "name": "Game Masters",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                                "name": "Mayor of Unica",
                                 "reference": true
                               }
                             ]
                           },
                           "Citizen": {
                             "type": "GameValueContext",
-                            "contextName": "Citizen",
-                            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who transfered the property.\r\n"
+                            "contextName": "New Owner",
+                            "titleBacking": "<ecoicon item=\"PropertyTransfer\">New Owner</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"PropertyTransfer\">New Owner</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PropertyTransfer\">New Owner</ecoicon>: New owner of the property being transfered.\r\n"
                           },
                           "Requirements": "HasNone"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.WorldAgeInDays",
+                            "properties": {}
+                          },
+                          "Comparison": "LessThan",
+                          "Right": {
+                            "type": "GameValueWrapper",
+                            "value": 8.0
+                          }
                         }
                       }
                     ],
@@ -1003,7 +1022,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:District:44\"><ecoicon item=\"District\"><color=#003CFFFF>Unica</color></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:District:166\"><ecoicon item=\"District\"><color=#003CFFFF>Unica</color></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -1220,191 +1239,7 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingCedarSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingLumberSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeHardwoodChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingSoftwoodSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingMortaredStoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingBirchSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MortaredSandstoneBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MortaredLimestoneBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.HewnHardwoodBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.HewnChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingMortaredGraniteSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingAshlarGneissSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingSpruceSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeRedwoodChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingAshlarGraniteSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingAshlarLimestoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingMortaredGraniteSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingMortaredStoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingOakSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.PaddedChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.HewnSoftwoodBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.HewnSoftwoodChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingAshlarGneissSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingCedarSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingMortaredSandstoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingJoshuaSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingPalmSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdornedAshlarLimestoneBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AshlarGraniteChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingLumberSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AshlarBasaltBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingCedarSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingCeibaSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingAshlarStoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeFirBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingMortaredSandstoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingCeibaSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingAshlarLimestoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingHardwoodSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingSoftwoodSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeJoshuaChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingAshlarSandstoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingAshlarShaleSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.ConstructionPostItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingRedwoodSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdornedAshlarStoneChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingCeibaSignItem"
+                            "value": "Eco.Mods.TechTree.AdornedAshlarLimestoneChairItem"
                           },
                           {
                             "type": "Type",
@@ -1412,275 +1247,7 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingJoshuaSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeSpruceBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MortaredLimestoneChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeBirchChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.HardwoodLumberBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingAshlarStoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeSoftwoodBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CouchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdornedAshlarLimestoneChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingStoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MortaredGraniteChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingSpruceSignItem"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.CompositeSaguaroChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingRedwoodSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeCedarChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingJoshuaSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingMortaredGraniteSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.HewnBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingAshlarBasaltSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LumberChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeSoftwoodChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingAshlarGraniteSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingOakSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingFirSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdornedAshlarGneissBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingSpruceSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingJoshuaSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingMortaredStoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingPalmSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingFirSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeSaguaroBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingLumberSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingRedwoodSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingSpruceSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdornedAshlarSandstoneChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingOakSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeCeibaBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeRedwoodBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AshlarGneissBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MortaredSandstoneChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingBirchSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AshlarLimestoneChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AshlarStoneChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingHardwoodSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdornedAshlarSandstoneBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeOakBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingSaguaroSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeSpruceChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MortaredGraniteBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AshlarSandstoneBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingAshlarLimestoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingAshlarStoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdornedAshlarGraniteBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SoftwoodLumberBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdornedAshlarStoneBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingMortaredGraniteSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdornedAshlarShaleChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingPalmSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingAshlarGraniteSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingAshlarStoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AshlarStoneBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeHardwoodBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeFirChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingStoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingAshlarGneissSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.StandingGlassSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingAshlarShaleSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.HardwoodLumberChairItem"
                           },
                           {
                             "type": "Type",
@@ -1688,87 +1255,35 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeLumberBenchItem"
+                            "value": "Eco.Mods.TechTree.LargeStandingAshlarSandstoneSignItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingOakSignItem"
+                            "value": "Eco.Mods.TechTree.SmallHangingMortaredStoneSignItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingMortaredLimestoneSignItem"
+                            "value": "Eco.Mods.TechTree.CompositeRedwoodChairItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingAshlarLimestoneSignItem"
+                            "value": "Eco.Mods.TechTree.AdornedAshlarSandstoneChairItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingBirchSignItem"
+                            "value": "Eco.Mods.TechTree.MortaredLimestoneChairItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingAshlarBasaltSignItem"
+                            "value": "Eco.Mods.TechTree.PaddedChairItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.AshlarSandstoneChairItem"
+                            "value": "Eco.Mods.TechTree.HewnSoftwoodChairItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingRedwoodSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AshlarBasaltChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdornedAshlarGraniteChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositePalmChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingMortaredSandstoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingMortaredSandstoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdornedAshlarShaleBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingSaguaroSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.HewnHardwoodChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeBirchBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingAshlarGraniteSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AshlarGraniteBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingHardwoodSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MortaredStoneBenchItem"
+                            "value": "Eco.Mods.TechTree.LumberChairItem"
                           },
                           {
                             "type": "Type",
@@ -1776,103 +1291,27 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.AshlarLimestoneBenchItem"
+                            "value": "Eco.Mods.TechTree.CompositeLumberBenchItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdornedAshlarBasaltBenchItem"
+                            "value": "Eco.Mods.TechTree.SmallStandingFirSignItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeLumberChairItem"
+                            "value": "Eco.Mods.TechTree.SmallStandingAshlarBasaltSignItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.AshlarShaleChairItem"
+                            "value": "Eco.Mods.TechTree.SmallStandingAshlarStoneSignItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeCedarBenchItem"
+                            "value": "Eco.Mods.TechTree.CompositeBirchChairItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingAshlarGneissSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingAshlarBasaltSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingLumberSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingMortaredStoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingHardwoodSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingAshlarBasaltSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeCeibaChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingSaguaroSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingAshlarSandstoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdornedAshlarGneissChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingSaguaroSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingAshlarSandstoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingSoftwoodSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeJoshuaBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MortaredStoneChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeOakChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingCeibaSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingMortaredLimestoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingAshlarSandstoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingFirSignItem"
+                            "value": "Eco.Mods.TechTree.SmallHangingOakSignItem"
                           },
                           {
                             "type": "Type",
@@ -1880,23 +1319,79 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingMortaredLimestoneSignItem"
+                            "value": "Eco.Mods.TechTree.LargeStandingOakSignItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingMortaredLimestoneSignItem"
+                            "value": "Eco.Mods.TechTree.SmallHangingSaguaroSignItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingBirchSignItem"
+                            "value": "Eco.Mods.TechTree.LargeHangingStoneSignItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingPalmSignItem"
+                            "value": "Eco.Mods.TechTree.LargeStandingAshlarGraniteSignItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.AshlarShaleBenchItem"
+                            "value": "Eco.Mods.TechTree.LargeHangingSpruceSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarStoneChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.HewnHardwoodChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingAshlarLimestoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeOakBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingOakSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingMortaredLimestoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingJoshuaSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingSoftwoodSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdornedAshlarShaleChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdornedAshlarGneissChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingOakSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingSaguaroSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdornedAshlarStoneBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositePalmChairItem"
                           },
                           {
                             "type": "Type",
@@ -1904,15 +1399,151 @@
                           },
                           {
                             "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingRedwoodSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarLimestoneChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingHardwoodSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingAshlarSandstoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingMortaredGraniteSignItem"
+                          },
+                          {
+                            "type": "Type",
                             "value": "Eco.Mods.TechTree.LargeHangingAshlarShaleSignItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingFirSignItem"
+                            "value": "Eco.Mods.TechTree.SmallStandingSoftwoodSignItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingSoftwoodSignItem"
+                            "value": "Eco.Mods.TechTree.LargeHangingAshlarGneissSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MortaredStoneChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarGneissBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MortaredLimestoneBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdornedAshlarGraniteChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingBirchSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingCedarSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingAshlarStoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MortaredGraniteChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SoftwoodLumberBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingSpruceSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeJoshuaBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ConstructionPostItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingStoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingJoshuaSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingPalmSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarSandstoneBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdornedAshlarStoneChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingHardwoodSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.HewnHardwoodBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingMortaredGraniteSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.HardwoodLumberBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingAshlarShaleSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarSandstoneChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeBirchBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingAshlarGneissSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingMortaredLimestoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeFirBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingAshlarLimestoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.HardwoodLumberChairItem"
                           },
                           {
                             "type": "Type",
@@ -1920,7 +1551,395 @@
                           },
                           {
                             "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingAshlarGneissSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingMortaredSandstoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingPalmSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeSaguaroBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MortaredSandstoneBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarGraniteBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingPalmSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingBirchSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarShaleBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingMortaredGraniteSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingHardwoodSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingAshlarGraniteSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeSoftwoodBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingSpruceSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeCeibaChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingBirchSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.StandingGlassSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeJoshuaChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdornedAshlarGneissBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeSoftwoodChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingCeibaSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeRedwoodBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingBirchSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingMortaredSandstoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingMortaredStoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MortaredSandstoneChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingRedwoodSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingMortaredLimestoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingAshlarBasaltSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingAshlarSandstoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdornedAshlarBasaltBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingAshlarLimestoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingAshlarShaleSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingCeibaSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingJoshuaSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingMortaredSandstoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.HewnChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingAshlarStoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingLumberSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdornedAshlarSandstoneBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeCedarChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeCeibaBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingMortaredLimestoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingAshlarGraniteSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingAshlarLimestoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeSpruceChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingAshlarGneissSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarLimestoneBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeLumberChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingFirSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeOakChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingRedwoodSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingAshlarGraniteSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingFirSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingSoftwoodSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingAshlarSandstoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingSaguaroSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeFirChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarBasaltChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingAshlarBasaltSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingCedarSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.HewnSoftwoodBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingSoftwoodSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MortaredGraniteBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CouchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingPalmSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdornedAshlarLimestoneBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingCeibaSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.HewnBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeHardwoodBenchItem"
+                          },
+                          {
+                            "type": "Type",
                             "value": "Eco.Mods.TechTree.AshlarGneissChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingLumberSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingRedwoodSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MortaredStoneBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingHardwoodSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingMortaredSandstoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeSpruceBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingLumberSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeHardwoodChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdornedAshlarGraniteBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingCedarSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingMortaredStoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingSaguaroSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingAshlarBasaltSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingSpruceSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingLumberSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingAshlarStoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarShaleChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingJoshuaSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeCedarBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarGraniteChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingMortaredGraniteSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingMortaredStoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdornedAshlarShaleBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarBasaltBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarStoneBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingFirSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingCeibaSignItem"
                           }
                         ]
                       }
@@ -1955,7 +1974,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:District:50\"><ecoicon item=\"District\"><color=#C16237FF>Capital Roads</color></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:District:148\"><ecoicon item=\"District\"><color=#C16237FF>Capital Roads</color></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -2085,187 +2104,7 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingCedarSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingLumberSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeHardwoodChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingSoftwoodSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingMortaredStoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingBirchSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MortaredSandstoneBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MortaredLimestoneBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.HewnHardwoodBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.HewnChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingMortaredGraniteSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingAshlarGneissSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingSpruceSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeRedwoodChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingAshlarGraniteSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingAshlarLimestoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingMortaredGraniteSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingMortaredStoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingOakSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.PaddedChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.HewnSoftwoodBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.HewnSoftwoodChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingAshlarGneissSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingCedarSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingMortaredSandstoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingJoshuaSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingPalmSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdornedAshlarLimestoneBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AshlarGraniteChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingLumberSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AshlarBasaltBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingCedarSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingCeibaSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingAshlarStoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeFirBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingMortaredSandstoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingCeibaSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingAshlarLimestoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingHardwoodSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingSoftwoodSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeJoshuaChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingAshlarSandstoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingAshlarShaleSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingRedwoodSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdornedAshlarStoneChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingCeibaSignItem"
+                            "value": "Eco.Mods.TechTree.AdornedAshlarLimestoneChairItem"
                           },
                           {
                             "type": "Type",
@@ -2273,267 +2112,7 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingJoshuaSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeSpruceBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MortaredLimestoneChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeBirchChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.HardwoodLumberBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingAshlarStoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeSoftwoodBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CouchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdornedAshlarLimestoneChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MortaredGraniteChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingSpruceSignItem"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.CompositeSaguaroChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingRedwoodSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeCedarChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingJoshuaSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingMortaredGraniteSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.HewnBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingAshlarBasaltSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LumberChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeSoftwoodChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingAshlarGraniteSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingOakSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingFirSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdornedAshlarGneissBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingSpruceSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingJoshuaSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingMortaredStoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingPalmSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingFirSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeSaguaroBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingLumberSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingRedwoodSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingSpruceSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdornedAshlarSandstoneChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingOakSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeCeibaBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeRedwoodBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AshlarGneissBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MortaredSandstoneChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingBirchSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AshlarLimestoneChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AshlarStoneChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingHardwoodSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdornedAshlarSandstoneBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeOakBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingSaguaroSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeSpruceChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MortaredGraniteBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AshlarSandstoneBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingAshlarLimestoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingAshlarStoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdornedAshlarGraniteBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SoftwoodLumberBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdornedAshlarStoneBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingMortaredGraniteSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdornedAshlarShaleChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingPalmSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingAshlarGraniteSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingAshlarStoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AshlarStoneBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeHardwoodBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeFirChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingAshlarGneissSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.StandingGlassSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingAshlarShaleSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.HardwoodLumberChairItem"
                           },
                           {
                             "type": "Type",
@@ -2541,87 +2120,35 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeLumberBenchItem"
+                            "value": "Eco.Mods.TechTree.LargeStandingAshlarSandstoneSignItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingOakSignItem"
+                            "value": "Eco.Mods.TechTree.SmallHangingMortaredStoneSignItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingMortaredLimestoneSignItem"
+                            "value": "Eco.Mods.TechTree.CompositeRedwoodChairItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingAshlarLimestoneSignItem"
+                            "value": "Eco.Mods.TechTree.AdornedAshlarSandstoneChairItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingBirchSignItem"
+                            "value": "Eco.Mods.TechTree.MortaredLimestoneChairItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingAshlarBasaltSignItem"
+                            "value": "Eco.Mods.TechTree.PaddedChairItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.AshlarSandstoneChairItem"
+                            "value": "Eco.Mods.TechTree.HewnSoftwoodChairItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingRedwoodSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AshlarBasaltChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdornedAshlarGraniteChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositePalmChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingMortaredSandstoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingMortaredSandstoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdornedAshlarShaleBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingSaguaroSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.HewnHardwoodChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeBirchBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingAshlarGraniteSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AshlarGraniteBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingHardwoodSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MortaredStoneBenchItem"
+                            "value": "Eco.Mods.TechTree.LumberChairItem"
                           },
                           {
                             "type": "Type",
@@ -2629,103 +2156,27 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.AshlarLimestoneBenchItem"
+                            "value": "Eco.Mods.TechTree.CompositeLumberBenchItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdornedAshlarBasaltBenchItem"
+                            "value": "Eco.Mods.TechTree.SmallStandingFirSignItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeLumberChairItem"
+                            "value": "Eco.Mods.TechTree.SmallStandingAshlarBasaltSignItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.AshlarShaleChairItem"
+                            "value": "Eco.Mods.TechTree.SmallStandingAshlarStoneSignItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeCedarBenchItem"
+                            "value": "Eco.Mods.TechTree.CompositeBirchChairItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingAshlarGneissSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingAshlarBasaltSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingLumberSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingMortaredStoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingHardwoodSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingAshlarBasaltSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeCeibaChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingSaguaroSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingAshlarSandstoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdornedAshlarGneissChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingSaguaroSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingAshlarSandstoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingSoftwoodSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeJoshuaBenchItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MortaredStoneChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CompositeOakChairItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingCeibaSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingMortaredLimestoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStandingAshlarSandstoneSignItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingFirSignItem"
+                            "value": "Eco.Mods.TechTree.SmallHangingOakSignItem"
                           },
                           {
                             "type": "Type",
@@ -2733,23 +2184,75 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeStandingMortaredLimestoneSignItem"
+                            "value": "Eco.Mods.TechTree.LargeStandingOakSignItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingMortaredLimestoneSignItem"
+                            "value": "Eco.Mods.TechTree.SmallHangingSaguaroSignItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingBirchSignItem"
+                            "value": "Eco.Mods.TechTree.LargeStandingAshlarGraniteSignItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingPalmSignItem"
+                            "value": "Eco.Mods.TechTree.LargeHangingSpruceSignItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.AshlarShaleBenchItem"
+                            "value": "Eco.Mods.TechTree.AshlarStoneChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.HewnHardwoodChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingAshlarLimestoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeOakBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingOakSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingMortaredLimestoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingJoshuaSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingSoftwoodSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdornedAshlarShaleChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdornedAshlarGneissChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingOakSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingSaguaroSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdornedAshlarStoneBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositePalmChairItem"
                           },
                           {
                             "type": "Type",
@@ -2757,15 +2260,143 @@
                           },
                           {
                             "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingRedwoodSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarLimestoneChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingHardwoodSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingAshlarSandstoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingMortaredGraniteSignItem"
+                          },
+                          {
+                            "type": "Type",
                             "value": "Eco.Mods.TechTree.LargeHangingAshlarShaleSignItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallHangingFirSignItem"
+                            "value": "Eco.Mods.TechTree.SmallStandingSoftwoodSignItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeHangingSoftwoodSignItem"
+                            "value": "Eco.Mods.TechTree.LargeHangingAshlarGneissSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MortaredStoneChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarGneissBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MortaredLimestoneBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdornedAshlarGraniteChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingBirchSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingCedarSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingAshlarStoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MortaredGraniteChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SoftwoodLumberBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingSpruceSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeJoshuaBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingJoshuaSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingPalmSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarSandstoneBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdornedAshlarStoneChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingHardwoodSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.HewnHardwoodBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingMortaredGraniteSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.HardwoodLumberBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingAshlarShaleSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarSandstoneChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeBirchBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingAshlarGneissSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingMortaredLimestoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeFirBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingAshlarLimestoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.HardwoodLumberChairItem"
                           },
                           {
                             "type": "Type",
@@ -2773,7 +2404,395 @@
                           },
                           {
                             "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingAshlarGneissSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingMortaredSandstoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingPalmSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeSaguaroBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MortaredSandstoneBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarGraniteBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingPalmSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingBirchSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarShaleBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingMortaredGraniteSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingHardwoodSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingAshlarGraniteSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeSoftwoodBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingSpruceSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeCeibaChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingBirchSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.StandingGlassSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeJoshuaChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdornedAshlarGneissBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeSoftwoodChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingCeibaSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeRedwoodBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingBirchSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingMortaredSandstoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingMortaredStoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MortaredSandstoneChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingRedwoodSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingMortaredLimestoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingAshlarBasaltSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingAshlarSandstoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdornedAshlarBasaltBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingAshlarLimestoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingAshlarShaleSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingCeibaSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingJoshuaSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingMortaredSandstoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.HewnChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingAshlarStoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingLumberSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdornedAshlarSandstoneBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeCedarChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeCeibaBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingMortaredLimestoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingAshlarGraniteSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingAshlarLimestoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeSpruceChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingAshlarGneissSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarLimestoneBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeLumberChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingFirSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeOakChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingRedwoodSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingAshlarGraniteSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingFirSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingSoftwoodSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingAshlarSandstoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingSaguaroSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeFirChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarBasaltChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingAshlarBasaltSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingCedarSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.HewnSoftwoodBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingSoftwoodSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MortaredGraniteBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CouchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingPalmSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdornedAshlarLimestoneBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingCeibaSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.HewnBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeHardwoodBenchItem"
+                          },
+                          {
+                            "type": "Type",
                             "value": "Eco.Mods.TechTree.AshlarGneissChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingLumberSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingRedwoodSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MortaredStoneBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingHardwoodSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingMortaredSandstoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeSpruceBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingLumberSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeHardwoodChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdornedAshlarGraniteBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingCedarSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingMortaredStoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingSaguaroSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingAshlarBasaltSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingSpruceSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingLumberSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingAshlarStoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarShaleChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeHangingJoshuaSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeCedarBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarGraniteChairItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingMortaredGraniteSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeStandingMortaredStoneSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdornedAshlarShaleBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarBasaltBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarStoneBenchItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallHangingFirSignItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStandingCeibaSignItem"
                           }
                         ]
                       }
@@ -2808,7 +2827,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:District:50\"><ecoicon item=\"District\"><color=#C16237FF>Capital Roads</color></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:District:148\"><ecoicon item=\"District\"><color=#C16237FF>Capital Roads</color></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",

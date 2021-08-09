@@ -35,7 +35,7 @@
               "value": "Eco.Gameplay.LegislationSystem.District"
             },
             "requiredTag": null,
-            "internalDescription": "<b><link=\"ref:District:48\"><ecoicon item=\"District\"><color=#241DA4FF>Altaica</color></ecoicon></link></b>",
+            "internalDescription": "<b><link=\"ref:District:168\"><ecoicon item=\"District\"><color=#241DA4FF>Altaica</color></ecoicon></link></b>",
             "entries": [
               {
                 "type": "Eco.Gameplay.LegislationSystem.District",

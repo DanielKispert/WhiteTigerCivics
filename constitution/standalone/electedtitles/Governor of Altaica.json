@@ -28,7 +28,7 @@
             "value": "Eco.Gameplay.Civics.Demographics.Demographic"
           },
           "requiredTag": null,
-          "internalDescription": "<b><link=\"ref:Demographic:6\"><ecoicon item=\"Demographic\"><style=\"Government\">Citizens of Altaica</style></ecoicon></link></b>",
+          "internalDescription": "<b><link=\"ref:Demographic:25\"><ecoicon item=\"Demographic\"><style=\"Government\">Citizens of Altaica</style></ecoicon></link></b>",
           "entries": [
             {
               "type": "Eco.Gameplay.Civics.Demographics.Demographic",
@@ -80,7 +80,7 @@
                   "value": "Eco.Gameplay.Civics.Demographics.Demographic"
                 },
                 "requiredTag": null,
-                "internalDescription": "<b><link=\"ref:Demographic:9\"><ecoicon item=\"Demographic\"><style=\"Government\">Federal Judges</style> <style=\"Error\">(invalid)</style></ecoicon></link></b>",
+                "internalDescription": "<b><link=\"ref:Demographic:37\"><ecoicon item=\"Demographic\"><style=\"Government\">Federal Judges</style></ecoicon></link></b>",
                 "entries": [
                   {
                     "type": "Eco.Gameplay.Civics.Demographics.Demographic",
@@ -108,16 +108,16 @@
                   "value": "Eco.Gameplay.Civics.Demographics.Demographic"
                 },
                 "requiredTag": null,
-                "internalDescription": "<foldout><linktext><u>2 objects</u></linktext><title>2 objects</title><b><link=\"ref:Demographic:3\"><ecoicon item=\"Demographic\"><style=\"Government\">Active</style></ecoicon></link></b>\r\n<b><link=\"ref:Demographic:6\"><ecoicon item=\"Demographic\"><style=\"Government\">Citizens of Altaica</style></ecoicon></link></b></foldout>",
+                "internalDescription": "<foldout><linktext><u>2 Demographics</u></linktext><title>2 Demographics</title><b><link=\"ref:Demographic:3\"><ecoicon item=\"Demographic\"><style=\"Government\">Active</style></ecoicon></link></b>\r\n<b><link=\"ref:Demographic:25\"><ecoicon item=\"Demographic\"><style=\"Government\">Citizens of Altaica</style></ecoicon></link></b></foldout>",
                 "entries": [
                   {
                     "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-                    "name": "Active",
+                    "name": "Citizens of Altaica",
                     "reference": true
                   },
                   {
                     "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-                    "name": "Citizens of Altaica",
+                    "name": "Active",
                     "reference": true
                   }
                 ]
@@ -141,21 +141,11 @@
                   "value": "Eco.Gameplay.Civics.Titles.Title"
                 },
                 "requiredTag": null,
-                "internalDescription": "<foldout><linktext><u>7 objects</u></linktext><title>7 objects</title><b><link=\"ref:ElectedTitle:323\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Attorney General</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:324\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Chancellor of the Federal University</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:326\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Deputy Prime Minister</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:335\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Director of the Federal Bank</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:17\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Federal President</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:7\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">In Jail</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:320\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Prime Minister</style></ecoicon></link></b></foldout>",
+                "internalDescription": "<foldout><linktext><u>7 Titles</u></linktext><title>7 Titles</title><b><link=\"ref:ElectedTitle:72\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Attorney General</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:94\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Chancellor of the Federal University</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:75\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Deputy Prime Minister</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:93\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Director of the Federal Bank</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:301\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Federal President</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:67\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">In Jail</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:89\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Prime Minister</style></ecoicon></link></b></foldout>",
                 "entries": [
                   {
                     "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                    "name": "Chancellor of the Federal University",
-                    "reference": true
-                  },
-                  {
-                    "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
                     "name": "Attorney General",
-                    "reference": true
-                  },
-                  {
-                    "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                    "name": "In Jail",
                     "reference": true
                   },
                   {
@@ -169,8 +159,18 @@
                     "reference": true
                   },
                   {
+                    "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                    "name": "In Jail",
+                    "reference": true
+                  },
+                  {
                     "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
                     "name": "Director of the Federal Bank",
+                    "reference": true
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                    "name": "Chancellor of the Federal University",
                     "reference": true
                   },
                   {

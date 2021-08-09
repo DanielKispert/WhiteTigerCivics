@@ -4,7 +4,7 @@
     0
   ],
   "type": "Eco.Gameplay.Civics.Laws.Law",
-  "name": "Global Placement Regulations",
+  "name": "[C] Global Placement Legislation",
   "reference": false,
   "description": null,
   "properties": {
@@ -77,7 +77,7 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:AppointedTitle:1\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:AppointedTitle:65\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
@@ -149,11 +149,11 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.ExecutiveOfficeItem"
+                            "value": "Eco.Mods.TechTree.CourtItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.BoardOfElectionsItem"
+                            "value": "Eco.Mods.TechTree.GovernmentOfficeItem"
                           },
                           {
                             "type": "Type",
@@ -165,7 +165,7 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.CourtItem"
+                            "value": "Eco.Mods.TechTree.BoardOfElectionsItem"
                           },
                           {
                             "type": "Type",
@@ -173,7 +173,7 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.GovernmentOfficeItem"
+                            "value": "Eco.Mods.TechTree.ExecutiveOfficeItem"
                           }
                         ]
                       }
@@ -214,7 +214,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<foldout><linktext><u>2 objects</u></linktext><title>2 objects</title><b><link=\"ref:District:121\"><ecoicon item=\"District\"><color=#613000FF>Court Building</color></ecoicon></link></b>\r\n<b><link=\"ref:District:120\"><ecoicon item=\"District\"><color=#0E0050FF>Senate Building</color></ecoicon></link></b></foldout>",
+                            "internalDescription": "<foldout><linktext><u>2 Districts</u></linktext><title>2 Districts</title><b><link=\"ref:District:161\"><ecoicon item=\"District\"><color=#613000FF>Court Building</color></ecoicon></link></b>\r\n<b><link=\"ref:District:160\"><ecoicon item=\"District\"><color=#0E0050FF>Senate Building</color></ecoicon></link></b></foldout>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -241,7 +241,7 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:AppointedTitle:1\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:AppointedTitle:65\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
@@ -313,15 +313,15 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "GarbageItem"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.WetTailingsItem"
                           },
                           {
                             "type": "Type",
                             "value": "Eco.Mods.TechTree.TailingsItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "GarbageItem"
                           }
                         ]
                       }
@@ -386,7 +386,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<foldout><linktext><u>1 objects</u></linktext><title>1 objects</title><b><link=\"ref:District:46\"><ecoicon item=\"District\"><color=#003CFFFF>Unica</color></ecoicon></link></b></foldout>",
+                            "internalDescription": "<b><link=\"ref:District:166\"><ecoicon item=\"District\"><color=#003CFFFF>Unica</color></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -505,15 +505,15 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "GarbageItem"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.WetTailingsItem"
                           },
                           {
                             "type": "Type",
                             "value": "Eco.Mods.TechTree.TailingsItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "GarbageItem"
                           }
                         ]
                       }
@@ -540,11 +540,7 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.LumberStockpileItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeLumberStockpileItem"
+                            "value": "Eco.Mods.TechTree.TinyStockpileItem"
                           },
                           {
                             "type": "Type",
@@ -552,7 +548,11 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.TinyStockpileItem"
+                            "value": "Eco.Mods.TechTree.LumberStockpileItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeLumberStockpileItem"
                           }
                         ]
                       }
@@ -653,11 +653,11 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.AmendmentsItem"
+                            "value": "Eco.Mods.TechTree.CapitolItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.CapitolItem"
+                            "value": "Eco.Mods.TechTree.AmendmentsItem"
                           }
                         ]
                       }
@@ -722,7 +722,7 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:AppointedTitle:1\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:AppointedTitle:65\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",

@@ -4,9 +4,9 @@
     0
   ],
   "type": "Eco.Gameplay.Civics.Laws.Law",
-  "name": "Jail Regulations",
+  "name": "[C] Jail Legislation",
   "reference": false,
-  "description": "Citizens",
+  "description": "Citizens can be thrown into jail basically",
   "properties": {
     "Sections": [
       {
@@ -635,7 +635,7 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:AppointedTitle:62\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">In Jail</style></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:AppointedTitle:67\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">In Jail</style></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",

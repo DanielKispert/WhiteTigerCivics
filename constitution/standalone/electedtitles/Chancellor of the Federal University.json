@@ -45,16 +45,16 @@
                   "value": "Eco.Gameplay.Civics.Demographics.Demographic"
                 },
                 "requiredTag": null,
-                "internalDescription": "<foldout><linktext><u>2 objects</u></linktext><title>2 objects</title><b><link=\"ref:Demographic:9\"><ecoicon item=\"Demographic\"><style=\"Government\">Federal Judges</style> <style=\"Error\">(invalid)</style></ecoicon></link></b>\r\n<b><link=\"ref:Demographic:18\"><ecoicon item=\"Demographic\"><style=\"Government\">The Senate</style> <style=\"Error\">(invalid)</style></ecoicon></link></b></foldout>",
+                "internalDescription": "<foldout><linktext><u>2 Demographics</u></linktext><title>2 Demographics</title><b><link=\"ref:Demographic:37\"><ecoicon item=\"Demographic\"><style=\"Government\">Federal Judges</style></ecoicon></link></b>\r\n<b><link=\"ref:Demographic:35\"><ecoicon item=\"Demographic\"><style=\"Government\">The Senate</style></ecoicon></link></b></foldout>",
                 "entries": [
                   {
                     "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-                    "name": "Federal Judges",
+                    "name": "The Senate",
                     "reference": true
                   },
                   {
                     "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-                    "name": "The Senate",
+                    "name": "Federal Judges",
                     "reference": true
                   }
                 ]
@@ -78,16 +78,11 @@
                   "value": "Eco.Gameplay.Civics.Titles.Title"
                 },
                 "requiredTag": null,
-                "internalDescription": "<foldout><linktext><u>7 objects</u></linktext><title>7 objects</title><b><link=\"ref:ElectedTitle:323\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Attorney General</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:326\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Deputy Prime Minister</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:335\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Director of the Federal Bank</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:17\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Federal President</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:2\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Federal Secretary</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:7\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">In Jail</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:320\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Prime Minister</style></ecoicon></link></b></foldout>",
+                "internalDescription": "<foldout><linktext><u>7 Titles</u></linktext><title>7 Titles</title><b><link=\"ref:ElectedTitle:72\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Attorney General</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:75\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Deputy Prime Minister</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:93\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Director of the Federal Bank</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:301\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Federal President</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:64\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Federal Secretary</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:67\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">In Jail</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:89\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Prime Minister</style></ecoicon></link></b></foldout>",
                 "entries": [
                   {
                     "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
                     "name": "Attorney General",
-                    "reference": true
-                  },
-                  {
-                    "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                    "name": "In Jail",
                     "reference": true
                   },
                   {
@@ -96,13 +91,18 @@
                     "reference": true
                   },
                   {
+                    "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                    "name": "Deputy Prime Minister",
+                    "reference": true
+                  },
+                  {
                     "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
                     "name": "Federal Secretary",
                     "reference": true
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                    "name": "Deputy Prime Minister",
+                    "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                    "name": "In Jail",
                     "reference": true
                   },
                   {
@@ -127,31 +127,72 @@
             }
           },
           {
-            "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
+            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
             "properties": {
-              "Demographics": {
-                "type": "GamePickerList",
-                "mustDeriveType": {
-                  "type": "Type",
-                  "value": "Eco.Gameplay.Civics.Demographics.Demographic"
-                },
-                "requiredTag": null,
-                "internalDescription": "<b><link=\"ref:Demographic:3\"><ecoicon item=\"Demographic\"><style=\"Government\">Active</style></ecoicon></link></b>",
-                "entries": [
-                  {
-                    "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-                    "name": "Active",
-                    "reference": true
+              "List": [
+                {
+                  "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
+                  "properties": {
+                    "Demographics": {
+                      "type": "GamePickerList",
+                      "mustDeriveType": {
+                        "type": "Type",
+                        "value": "Eco.Gameplay.Civics.Demographics.Demographic"
+                      },
+                      "requiredTag": null,
+                      "internalDescription": "<b><link=\"ref:Demographic:3\"><ecoicon item=\"Demographic\"><style=\"Government\">Active</style></ecoicon></link></b>",
+                      "entries": [
+                        {
+                          "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                          "name": "Active",
+                          "reference": true
+                        }
+                      ]
+                    },
+                    "Citizen": {
+                      "type": "GameValueContext",
+                      "contextName": "Citizen",
+                      "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                      "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The candidate or office holder.\r\n"
+                    },
+                    "Requirements": "HasAll"
                   }
-                ]
-              },
-              "Citizen": {
-                "type": "GameValueContext",
-                "contextName": "Citizen",
-                "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The candidate or office holder.\r\n"
-              },
-              "Requirements": "HasAll"
+                },
+                {
+                  "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                  "properties": {
+                    "Titles": {
+                      "type": "GamePickerList",
+                      "mustDeriveType": {
+                        "type": "Type",
+                        "value": "Eco.Gameplay.Civics.Titles.Title"
+                      },
+                      "requiredTag": null,
+                      "internalDescription": "<foldout><linktext><u>2 Titles</u></linktext><title>2 Titles</title><b><link=\"ref:AppointedTitle:65\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:71\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Utility Accounts</style></ecoicon></link></b></foldout>",
+                      "entries": [
+                        {
+                          "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                          "name": "Game Masters",
+                          "reference": true
+                        },
+                        {
+                          "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                          "name": "Utility Accounts",
+                          "reference": true
+                        }
+                      ]
+                    },
+                    "Citizen": {
+                      "type": "GameValueContext",
+                      "contextName": "Citizen",
+                      "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                      "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The candidate or office holder.\r\n"
+                    },
+                    "Requirements": "HasAny"
+                  }
+                }
+              ],
+              "Comparison": "Any"
             }
           }
         ],

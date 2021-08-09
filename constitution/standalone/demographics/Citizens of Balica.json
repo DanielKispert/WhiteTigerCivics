@@ -63,7 +63,7 @@
               "value": "Eco.Gameplay.LegislationSystem.District"
             },
             "requiredTag": null,
-            "internalDescription": "<b><link=\"ref:District:50\"><ecoicon item=\"District\"><color=#72546BFF>Balica</color></ecoicon></link></b>",
+            "internalDescription": "<b><link=\"ref:District:170\"><ecoicon item=\"District\"><color=#72546BFF>Balica</color></ecoicon></link></b>",
             "entries": [
               {
                 "type": "Eco.Gameplay.LegislationSystem.District",

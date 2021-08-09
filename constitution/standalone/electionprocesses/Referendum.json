@@ -10,7 +10,7 @@
   "properties": {
     "Voters": {
       "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-      "name": "Active",
+      "name": "Everyone",
       "reference": true
     },
     "Vetoers": {

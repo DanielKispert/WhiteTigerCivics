@@ -20,8 +20,8 @@
     },
     "MaximumElectionHours": 24.0,
     "MinimumPercentOfEligibleVotersRequired": 10.0,
-    "PercentOfAllVotersToInstantWin": 67.0,
-    "PercentOfAllVotersToInstantLose": 67.0,
+    "PercentOfAllVotersToInstantWin": 66.0,
+    "PercentOfAllVotersToInstantLose": 66.0,
     "EndElectionEarlyWhenThisPercentHaveVoted": 95.0,
     "MinimumDaysBetweenElectionsOfThisType": 0.0,
     "AnonymousVoting": false

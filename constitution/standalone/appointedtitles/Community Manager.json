@@ -14,8 +14,7 @@
       "reference": true
     }
   ],
-  "users": [
-  ],
+  "users": [],
   "properties": {
     "RequiredOfOfficeHolders": null,
     "BackupOwner": {

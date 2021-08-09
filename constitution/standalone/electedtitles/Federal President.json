@@ -21,7 +21,11 @@
     "RequiredOfCandidates": null,
     "MaxOccupants": 1,
     "Successor": null,
-    "WhoCanRemoveFromOffice": null,
+    "WhoCanRemoveFromOffice": {
+      "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+      "name": "Game Masters",
+      "reference": true
+    },
     "TermLimitDays": 60.0,
     "TotalTermsAllowed": 0,
     "ConsecutiveTermsAllowed": 0,

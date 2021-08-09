@@ -24,7 +24,7 @@
               "value": "Eco.Gameplay.Civics.Demographics.Demographic"
             },
             "requiredTag": null,
-            "internalDescription": "<b><link=\"ref:Demographic:14\"><ecoicon item=\"Demographic\"><style=\"Government\">Non-Abandoned</style></ecoicon></link></b>",
+            "internalDescription": "<b><link=\"ref:Demographic:32\"><ecoicon item=\"Demographic\"><style=\"Government\">Non-Abandoned</style></ecoicon></link></b>",
             "entries": [
               {
                 "type": "Eco.Gameplay.Civics.Demographics.Demographic",
@@ -82,7 +82,7 @@
               "value": "Eco.Gameplay.Civics.Demographics.Demographic"
             },
             "requiredTag": null,
-            "internalDescription": "<b><link=\"ref:Demographic:24\"><ecoicon item=\"Demographic\"><style=\"Government\">Government Members</style></ecoicon></link></b>",
+            "internalDescription": "<b><link=\"ref:Demographic:36\"><ecoicon item=\"Demographic\"><style=\"Government\">Government Members</style></ecoicon></link></b>",
             "entries": [
               {
                 "type": "Eco.Gameplay.Civics.Demographics.Demographic",

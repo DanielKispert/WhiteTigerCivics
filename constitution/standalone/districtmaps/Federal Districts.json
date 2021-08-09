@@ -37,7 +37,7 @@
     },
     {
       "type": "Eco.Gameplay.LegislationSystem.District",
-      "name": "Virgata",
+      "name": "Balica",
       "reference": false,
       "description": null,
       "properties": {},
@@ -63,7 +63,7 @@
     },
     {
       "type": "Eco.Gameplay.LegislationSystem.District",
-      "name": "Sondaica",
+      "name": "Virgata",
       "reference": false,
       "description": null,
       "properties": {},
@@ -76,7 +76,7 @@
     },
     {
       "type": "Eco.Gameplay.LegislationSystem.District",
-      "name": "Balica",
+      "name": "Sondaica",
       "reference": false,
       "description": null,
       "properties": {},

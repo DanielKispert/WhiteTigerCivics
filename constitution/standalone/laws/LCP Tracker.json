@@ -4,9 +4,9 @@
     0
   ],
   "type": "Eco.Gameplay.Civics.Laws.Law",
-  "name": "Land Claim Paper Tracker",
+  "name": "[C] Land Claim Paper Tracker",
   "reference": false,
-  "description": null,
+  "description": "This is an experimental Law that tracks how many LCPs a person has in their inventory currently",
   "properties": {
     "Sections": [
       {

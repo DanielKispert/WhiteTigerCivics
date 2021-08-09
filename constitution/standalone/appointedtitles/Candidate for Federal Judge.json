@@ -9,13 +9,13 @@
   "description": null,
   "managers": [
     {
-      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-      "name": "Prime Minister",
+      "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+      "name": "Game Masters",
       "reference": true
     },
     {
-      "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-      "name": "Game Masters",
+      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+      "name": "Prime Minister",
       "reference": true
     }
   ],

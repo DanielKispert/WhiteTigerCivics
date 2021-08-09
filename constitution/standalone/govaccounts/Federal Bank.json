@@ -9,17 +9,23 @@
   "description": null,
   "managers": [
     {
-      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-      "name": "Director of the Federal Bank",
-      "reference": true
-    },
-    {
       "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
       "name": "Game Masters",
       "reference": true
     }
   ],
-  "users": [],
+  "users": [
+    {
+      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+      "name": "Director of the Federal Bank",
+      "reference": true
+    },
+    {
+      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+      "name": "Chancellor of the Federal University",
+      "reference": true
+    }
+  ],
   "properties": {},
   "holdings": [
     {
@@ -28,7 +34,7 @@
         "name": "Euro",
         "reference": true
       },
-      "amount": 200000.0
+      "amount": 300000.0
     },
     {
       "currency": {
@@ -44,7 +50,7 @@
         "name": "Emission Permit",
         "reference": true
       },
-      "amount": 450000.0
+      "amount": 900000.0
     }
   ]
 }

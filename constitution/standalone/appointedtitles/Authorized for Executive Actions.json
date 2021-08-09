@@ -17,6 +17,16 @@
   "users": [
     {
       "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+      "name": "Governor of Altaica",
+      "reference": true
+    },
+    {
+      "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+      "name": "Game Masters",
+      "reference": true
+    },
+    {
+      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
       "name": "Prime Minister",
       "reference": true
     },
@@ -32,22 +42,12 @@
     },
     {
       "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-      "name": "Governor of Virgata",
-      "reference": true
-    },
-    {
-      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-      "name": "Governor of Altaica",
-      "reference": true
-    },
-    {
-      "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-      "name": "Game Masters",
-      "reference": true
-    },
-    {
-      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
       "name": "Mayor of Unica",
+      "reference": true
+    },
+    {
+      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+      "name": "Governor of Virgata",
       "reference": true
     }
   ],

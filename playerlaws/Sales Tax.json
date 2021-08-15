@@ -100,51 +100,51 @@
                                     "value": "Eco.Gameplay.LegislationSystem.District"
                                   },
                                   "requiredTag": null,
-                                  "internalDescription": "<foldout><linktext><u>9 Districts</u></linktext><title>9 Districts</title><b><link=\"ref:District:161\"><ecoicon item=\"District\"><color=#613000FF>Court Building 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:149\"><ecoicon item=\"District\"><color=#004CC6FF>Federal Bank 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:157\"><ecoicon item=\"District\"><color=#FCFF00FF>Federal University 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:159\"><ecoicon item=\"District\"><color=#FF6200FF>Mayors Office 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:156\"><ecoicon item=\"District\"><color=#004DFFFF>Meteor Facility 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:150\"><ecoicon item=\"District\"><color=#ED00FFFF>Player Spawn 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:152\"><ecoicon item=\"District\"><color=#273F24FF>Presidents Mansion 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:158\"><ecoicon item=\"District\"><color=#FF0000FF>Prime Ministers Office 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:160\"><ecoicon item=\"District\"><color=#0E0050FF>Senate Building 3</color></ecoicon></link></b></foldout>",
+                                  "internalDescription": "<foldout><linktext><u>9 Districts</u></linktext><title>9 Districts</title><b><link=\"ref:District:161\"><ecoicon item=\"District\"><color=#613000FF>Court Building</color></ecoicon></link></b>\r\n<b><link=\"ref:District:149\"><ecoicon item=\"District\"><color=#004CC6FF>Federal Bank</color></ecoicon></link></b>\r\n<b><link=\"ref:District:157\"><ecoicon item=\"District\"><color=#FCFF00FF>Federal University</color></ecoicon></link></b>\r\n<b><link=\"ref:District:159\"><ecoicon item=\"District\"><color=#FF6200FF>Mayors Office</color></ecoicon></link></b>\r\n<b><link=\"ref:District:156\"><ecoicon item=\"District\"><color=#004DFFFF>Meteor Facility</color></ecoicon></link></b>\r\n<b><link=\"ref:District:150\"><ecoicon item=\"District\"><color=#ED00FFFF>Player Spawn</color></ecoicon></link></b>\r\n<b><link=\"ref:District:152\"><ecoicon item=\"District\"><color=#273F24FF>Presidents Mansion</color></ecoicon></link></b>\r\n<b><link=\"ref:District:158\"><ecoicon item=\"District\"><color=#FF0000FF>Prime Ministers Office</color></ecoicon></link></b>\r\n<b><link=\"ref:District:160\"><ecoicon item=\"District\"><color=#0E0050FF>Senate Building</color></ecoicon></link></b></foldout>",
                                   "entries": [
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Senate Building 3",
+                                      "name": "Senate Building",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Federal University 3",
+                                      "name": "Federal University",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Meteor Facility 3",
+                                      "name": "Meteor Facility",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Prime Ministers Office 3",
+                                      "name": "Prime Ministers Office",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Player Spawn 3",
+                                      "name": "Player Spawn",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Mayors Office 3",
+                                      "name": "Mayors Office",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Court Building 3",
+                                      "name": "Court Building",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Presidents Mansion 3",
+                                      "name": "Presidents Mansion",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Federal Bank 3",
+                                      "name": "Federal Bank",
                                       "reference": true
                                     }
                                   ]
@@ -204,51 +204,51 @@
                                     "value": "Eco.Gameplay.LegislationSystem.District"
                                   },
                                   "requiredTag": null,
-                                  "internalDescription": "<foldout><linktext><u>9 Districts</u></linktext><title>9 Districts</title><b><link=\"ref:District:161\"><ecoicon item=\"District\"><color=#613000FF>Court Building 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:149\"><ecoicon item=\"District\"><color=#004CC6FF>Federal Bank 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:157\"><ecoicon item=\"District\"><color=#FCFF00FF>Federal University 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:159\"><ecoicon item=\"District\"><color=#FF6200FF>Mayors Office 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:156\"><ecoicon item=\"District\"><color=#004DFFFF>Meteor Facility 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:150\"><ecoicon item=\"District\"><color=#ED00FFFF>Player Spawn 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:152\"><ecoicon item=\"District\"><color=#273F24FF>Presidents Mansion 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:158\"><ecoicon item=\"District\"><color=#FF0000FF>Prime Ministers Office 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:160\"><ecoicon item=\"District\"><color=#0E0050FF>Senate Building 3</color></ecoicon></link></b></foldout>",
+                                  "internalDescription": "<foldout><linktext><u>9 Districts</u></linktext><title>9 Districts</title><b><link=\"ref:District:161\"><ecoicon item=\"District\"><color=#613000FF>Court Building</color></ecoicon></link></b>\r\n<b><link=\"ref:District:149\"><ecoicon item=\"District\"><color=#004CC6FF>Federal Bank</color></ecoicon></link></b>\r\n<b><link=\"ref:District:157\"><ecoicon item=\"District\"><color=#FCFF00FF>Federal University</color></ecoicon></link></b>\r\n<b><link=\"ref:District:159\"><ecoicon item=\"District\"><color=#FF6200FF>Mayors Office</color></ecoicon></link></b>\r\n<b><link=\"ref:District:156\"><ecoicon item=\"District\"><color=#004DFFFF>Meteor Facility</color></ecoicon></link></b>\r\n<b><link=\"ref:District:150\"><ecoicon item=\"District\"><color=#ED00FFFF>Player Spawn</color></ecoicon></link></b>\r\n<b><link=\"ref:District:152\"><ecoicon item=\"District\"><color=#273F24FF>Presidents Mansion</color></ecoicon></link></b>\r\n<b><link=\"ref:District:158\"><ecoicon item=\"District\"><color=#FF0000FF>Prime Ministers Office</color></ecoicon></link></b>\r\n<b><link=\"ref:District:160\"><ecoicon item=\"District\"><color=#0E0050FF>Senate Building</color></ecoicon></link></b></foldout>",
                                   "entries": [
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Senate Building 3",
+                                      "name": "Senate Building",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Federal University 3",
+                                      "name": "Federal University",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Meteor Facility 3",
+                                      "name": "Meteor Facility",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Prime Ministers Office 3",
+                                      "name": "Prime Ministers Office",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Player Spawn 3",
+                                      "name": "Player Spawn",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Mayors Office 3",
+                                      "name": "Mayors Office",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Court Building 3",
+                                      "name": "Court Building",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Presidents Mansion 3",
+                                      "name": "Presidents Mansion",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Federal Bank 3",
+                                      "name": "Federal Bank",
                                       "reference": true
                                     }
                                   ]
@@ -781,11 +781,11 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:District:149\"><ecoicon item=\"District\"><color=#004CC6FF>Federal Bank 3</color></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:District:149\"><ecoicon item=\"District\"><color=#004CC6FF>Federal Bank</color></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
-                                "name": "Federal Bank 3",
+                                "name": "Federal Bank",
                                 "reference": true
                               }
                             ]

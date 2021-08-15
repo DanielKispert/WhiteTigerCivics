@@ -95,7 +95,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<foldout><linktext><u>3 Districts</u></linktext><title>3 Districts</title><b><link=\"ref:District:148\"><ecoicon item=\"District\"><color=#C16237FF>Capital Roads 3</color></ecoicon></link></b>\r\n<b><link=\"ref:District:165\"><ecoicon item=\"District\"><color=#7F7F7FFF>Federal Highways</color></ecoicon></link></b>\r\n<b><link=\"ref:District:171\"><ecoicon item=\"District\"><color=#FFFFFFFF>State Routes</color></ecoicon></link></b></foldout>",
+                            "internalDescription": "<foldout><linktext><u>3 Districts</u></linktext><title>3 Districts</title><b><link=\"ref:District:148\"><ecoicon item=\"District\"><color=#C16237FF>Capital Roads</color></ecoicon></link></b>\r\n<b><link=\"ref:District:165\"><ecoicon item=\"District\"><color=#7F7F7FFF>Federal Highways</color></ecoicon></link></b>\r\n<b><link=\"ref:District:171\"><ecoicon item=\"District\"><color=#FFFFFFFF>State Routes</color></ecoicon></link></b></foldout>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -104,7 +104,7 @@
                               },
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
-                                "name": "Capital Roads 3",
+                                "name": "Capital Roads",
                                 "reference": true
                               },
                               {

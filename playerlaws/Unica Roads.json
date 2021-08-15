@@ -101,11 +101,11 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:District:148\"><ecoicon item=\"District\"><color=#C16237FF>Capital Roads 3</color></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:District:148\"><ecoicon item=\"District\"><color=#C16237FF>Capital Roads</color></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
-                                "name": "Capital Roads 3",
+                                "name": "Capital Roads",
                                 "reference": true
                               }
                             ]
@@ -172,11 +172,11 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:District:148\"><ecoicon item=\"District\"><color=#C16237FF>Capital Roads 3</color></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:District:148\"><ecoicon item=\"District\"><color=#C16237FF>Capital Roads</color></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
-                                "name": "Capital Roads 3",
+                                "name": "Capital Roads",
                                 "reference": true
                               }
                             ]
@@ -308,11 +308,11 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:District:148\"><ecoicon item=\"District\"><color=#C16237FF>Capital Roads 3</color></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:District:148\"><ecoicon item=\"District\"><color=#C16237FF>Capital Roads</color></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
-                                "name": "Capital Roads 3",
+                                "name": "Capital Roads",
                                 "reference": true
                               }
                             ]
@@ -379,11 +379,11 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:District:148\"><ecoicon item=\"District\"><color=#C16237FF>Capital Roads 3</color></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:District:148\"><ecoicon item=\"District\"><color=#C16237FF>Capital Roads</color></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
-                                "name": "Capital Roads 3",
+                                "name": "Capital Roads",
                                 "reference": true
                               }
                             ]
@@ -1438,11 +1438,11 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:District:148\"><ecoicon item=\"District\"><color=#C16237FF>Capital Roads 3</color></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:District:148\"><ecoicon item=\"District\"><color=#C16237FF>Capital Roads</color></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
-                                "name": "Capital Roads 3",
+                                "name": "Capital Roads",
                                 "reference": true
                               }
                             ]
@@ -1627,11 +1627,11 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:District:148\"><ecoicon item=\"District\"><color=#C16237FF>Capital Roads 3</color></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:District:148\"><ecoicon item=\"District\"><color=#C16237FF>Capital Roads</color></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
-                                "name": "Capital Roads 3",
+                                "name": "Capital Roads",
                                 "reference": true
                               }
                             ]

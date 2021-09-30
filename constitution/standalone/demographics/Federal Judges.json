@@ -24,7 +24,7 @@
               "value": "Eco.Gameplay.Civics.Titles.Title"
             },
             "requiredTag": null,
-            "internalDescription": "<foldout><linktext><u>2 Titles</u></linktext><title>2 Titles</title><b><link=\"ref:ElectedTitle:77\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Federal Judge 1</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:78\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Federal Judge 2</style></ecoicon></link></b></foldout>",
+            "internalDescription": "<foldout><linktext><u>2 Titles</u></linktext><title>2 Titles</title><b><link=\"ref:ElectedTitle:19\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Federal Judge 1</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:20\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Federal Judge 2</style></ecoicon></link></b></foldout>",
             "entries": [
               {
                 "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",

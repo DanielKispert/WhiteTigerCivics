@@ -17,24 +17,24 @@
   "users": [
     {
       "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-      "name": "Lieutenant Governor of Altaica",
+      "name": "Governor of Altaica",
       "reference": true
     },
     {
       "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-      "name": "Governor of Altaica",
+      "name": "Lieutenant Governor of Altaica",
       "reference": true
     }
   ],
   "properties": {},
   "holdings": [
-   {
+    {
       "currency": {
         "type": "Eco.Gameplay.Economy.Currency",
         "name": "Donation Receipt",
         "reference": true
       },
       "amount": 1000000.0
-    }  
+    }
   ]
 }

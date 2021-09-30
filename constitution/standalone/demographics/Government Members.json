@@ -28,7 +28,7 @@
                     "value": "Eco.Gameplay.Civics.Titles.Title"
                   },
                   "requiredTag": null,
-                  "internalDescription": "<foldout><linktext><u>7 Titles</u></linktext><title>7 Titles</title><b><link=\"ref:ElectedTitle:72\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Attorney General</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:94\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Chancellor of the Federal University</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:75\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Deputy Prime Minister</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:93\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Director of the Federal Bank</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:301\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Federal President</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:64\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Federal Secretary</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:89\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Prime Minister</style></ecoicon></link></b></foldout>",
+                  "internalDescription": "<foldout><linktext><u>8 Titles</u></linktext><title>8 Titles</title><b><link=\"ref:ElectedTitle:129\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Attorney General</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:15\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Chancellor of the Federal University</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:17\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Deputy Prime Minister</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:18\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Director of the Federal Bank</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:5\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Federal Civil Servant</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:21\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Federal President</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:6\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Federal Secretary</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:31\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Prime Minister</style></ecoicon></link></b></foldout>",
                   "entries": [
                     {
                       "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
@@ -36,18 +36,18 @@
                       "reference": true
                     },
                     {
-                      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                      "name": "Prime Minister",
-                      "reference": true
-                    },
-                    {
-                      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                      "name": "Deputy Prime Minister",
+                      "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                      "name": "Federal Secretary",
                       "reference": true
                     },
                     {
                       "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                      "name": "Federal Secretary",
+                      "name": "Federal Civil Servant",
+                      "reference": true
+                    },
+                    {
+                      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                      "name": "Prime Minister",
                       "reference": true
                     },
                     {
@@ -58,6 +58,11 @@
                     {
                       "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
                       "name": "Chancellor of the Federal University",
+                      "reference": true
+                    },
+                    {
+                      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                      "name": "Deputy Prime Minister",
                       "reference": true
                     },
                     {
@@ -86,16 +91,16 @@
                     "value": "Eco.Gameplay.Civics.Demographics.Demographic"
                   },
                   "requiredTag": null,
-                  "internalDescription": "<foldout><linktext><u>2 Demographics</u></linktext><title>2 Demographics</title><b><link=\"ref:Demographic:37\"><ecoicon item=\"Demographic\"><style=\"Government\">Federal Judges</style></ecoicon></link></b>\r\n<b><link=\"ref:Demographic:35\"><ecoicon item=\"Demographic\"><style=\"Government\">The Senate</style></ecoicon></link></b></foldout>",
+                  "internalDescription": "<foldout><linktext><u>2 Demographics</u></linktext><title>2 Demographics</title><b><link=\"ref:Demographic:18\"><ecoicon item=\"Demographic\"><style=\"Government\">Federal Judges</style></ecoicon></link></b>\r\n<b><link=\"ref:Demographic:14\"><ecoicon item=\"Demographic\"><style=\"Government\">The Senate</style></ecoicon></link></b></foldout>",
                   "entries": [
                     {
                       "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-                      "name": "The Senate",
+                      "name": "Federal Judges",
                       "reference": true
                     },
                     {
                       "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-                      "name": "Federal Judges",
+                      "name": "The Senate",
                       "reference": true
                     }
                   ]

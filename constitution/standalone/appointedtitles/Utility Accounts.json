@@ -19,6 +19,11 @@
       "type": "Eco.Gameplay.Players.User",
       "name": "White-Tiger",
       "reference": true
+    },
+    {
+      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+      "name": "Federal President",
+      "reference": true
     }
   ],
   "properties": {

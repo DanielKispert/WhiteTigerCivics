@@ -19,11 +19,6 @@
       "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
       "name": "Director of the Federal Bank",
       "reference": true
-    },
-    {
-      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-      "name": "Chancellor of the Federal University",
-      "reference": true
     }
   ],
   "properties": {},
@@ -43,14 +38,6 @@
         "reference": true
       },
       "amount": 1000000.0
-    },
-    {
-      "currency": {
-        "type": "Eco.Gameplay.Economy.Currency",
-        "name": "Emission Permit",
-        "reference": true
-      },
-      "amount": 900000.0
     }
   ]
 }

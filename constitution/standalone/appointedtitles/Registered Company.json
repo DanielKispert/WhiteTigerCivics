@@ -14,13 +14,7 @@
       "reference": true
     }
   ],
-  "users": [
-    {
-      "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-      "name": "Temporary Registered Company",
-      "reference": true
-    }
-  ],
+  "users": [],
   "properties": {
     "RequiredOfOfficeHolders": null,
     "BackupOwner": {

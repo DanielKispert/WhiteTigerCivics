@@ -35,7 +35,7 @@
               "value": "Eco.Gameplay.LegislationSystem.District"
             },
             "requiredTag": null,
-            "internalDescription": "<b><link=\"ref:District:167\"><ecoicon item=\"District\"><color=#F0FF25FF>Virgata</color></ecoicon></link></b>",
+            "internalDescription": "<b><link=\"ref:District:5\"><ecoicon item=\"District\"><color=#86E803FF>Virgata</color></ecoicon></link></b>",
             "entries": [
               {
                 "type": "Eco.Gameplay.LegislationSystem.District",

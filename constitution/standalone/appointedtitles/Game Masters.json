@@ -17,6 +17,11 @@
   "users": [
     {
       "type": "Eco.Gameplay.Players.User",
+      "name": "Elmeye",
+      "reference": true
+    },
+    {
+      "type": "Eco.Gameplay.Players.User",
       "name": "[PMD]Daniel93a",
       "reference": true
     }

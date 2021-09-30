@@ -24,26 +24,11 @@
               "value": "Eco.Gameplay.Civics.Titles.Title"
             },
             "requiredTag": null,
-            "internalDescription": "<foldout><linktext><u>10 Titles</u></linktext><title>10 Titles</title><b><link=\"ref:ElectedTitle:74\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Deputy Mayor of Unica</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:80\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Governor of Altaica</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:81\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Governor of Balica</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:82\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Governor of Sondaica</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:83\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Governor of Virgata</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:92\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Lieutenant Governor of Altaica</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:91\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Lieutenant Governor of Balica</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:86\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Lieutenant Governor of Sondaica</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:87\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Lieutenant Governor of Virgata</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:88\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Mayor of Unica</style></ecoicon></link></b></foldout>",
+            "internalDescription": "<foldout><linktext><u>10 Titles</u></linktext><title>10 Titles</title><b><link=\"ref:ElectedTitle:16\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Deputy Mayor of Unica</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:22\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Governor of Altaica</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:23\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Governor of Balica</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:24\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Governor of Sondaica</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:25\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Governor of Virgata</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:26\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Lieutenant Governor of Altaica</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:27\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Lieutenant Governor of Balica</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:28\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Lieutenant Governor of Sondaica</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:29\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Lieutenant Governor of Virgata</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:30\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Mayor of Unica</style></ecoicon></link></b></foldout>",
             "entries": [
               {
                 "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                "name": "Governor of Altaica",
-                "reference": true
-              },
-              {
-                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                "name": "Governor of Balica",
-                "reference": true
-              },
-              {
-                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                "name": "Deputy Mayor of Unica",
-                "reference": true
-              },
-              {
-                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                "name": "Governor of Sondaica",
+                "name": "Governor of Virgata",
                 "reference": true
               },
               {
@@ -53,7 +38,12 @@
               },
               {
                 "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                "name": "Mayor of Unica",
+                "name": "Deputy Mayor of Unica",
+                "reference": true
+              },
+              {
+                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                "name": "Governor of Altaica",
                 "reference": true
               },
               {
@@ -63,7 +53,7 @@
               },
               {
                 "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                "name": "Lieutenant Governor of Altaica",
+                "name": "Governor of Balica",
                 "reference": true
               },
               {
@@ -73,7 +63,17 @@
               },
               {
                 "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                "name": "Governor of Virgata",
+                "name": "Mayor of Unica",
+                "reference": true
+              },
+              {
+                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                "name": "Lieutenant Governor of Altaica",
+                "reference": true
+              },
+              {
+                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                "name": "Governor of Sondaica",
                 "reference": true
               }
             ]

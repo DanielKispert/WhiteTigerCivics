@@ -63,7 +63,7 @@
               "value": "Eco.Gameplay.LegislationSystem.District"
             },
             "requiredTag": null,
-            "internalDescription": "<b><link=\"ref:District:169\"><ecoicon item=\"District\"><color=#86E803FF>Sondaica</color></ecoicon></link></b>",
+            "internalDescription": "<b><link=\"ref:District:6\"><ecoicon item=\"District\"><color=#72546BFF>Sondaica</color></ecoicon></link></b>",
             "entries": [
               {
                 "type": "Eco.Gameplay.LegislationSystem.District",

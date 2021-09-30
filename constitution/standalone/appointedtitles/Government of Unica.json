@@ -16,13 +16,13 @@
   ],
   "users": [
     {
-      "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-      "name": "Game Masters",
+      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+      "name": "Deputy Mayor of Unica",
       "reference": true
     },
     {
-      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-      "name": "Deputy Mayor of Unica",
+      "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+      "name": "Game Masters",
       "reference": true
     },
     {

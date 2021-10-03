@@ -104,7 +104,7 @@
                                   "entries": [
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Senate Building",
+                                      "name": "The Capitol",
                                       "reference": true
                                     },
                                     {
@@ -119,22 +119,17 @@
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Prime Ministers Office",
+                                      "name": "Office of the Federal Government",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Player Spawn",
+                                      "name": "Office of the Government of Unica",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Mayors Office",
-                                      "reference": true
-                                    },
-                                    {
-                                      "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Court Building",
+                                      "name": "Offices of the Governments of the States",
                                       "reference": true
                                     },
                                     {
@@ -208,7 +203,7 @@
                                   "entries": [
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Senate Building",
+                                      "name": "The Capitol",
                                       "reference": true
                                     },
                                     {
@@ -223,22 +218,17 @@
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Prime Ministers Office",
+                                      "name": "Office of the Federal Government",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Player Spawn",
+                                      "name": "Office of the Government of Unica",
                                       "reference": true
                                     },
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Mayors Office",
-                                      "reference": true
-                                    },
-                                    {
-                                      "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Court Building",
+                                      "name": "Offices of the Governments of the States",
                                       "reference": true
                                     },
                                     {

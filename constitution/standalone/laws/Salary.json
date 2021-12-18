@@ -294,6 +294,51 @@
                         "properties": {}
                       }
                     }
+                  },
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "Presidential Budget",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "GameValueWrapper",
+                        "value": 2000.0
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                      },
+                      "TaxCode": "Transfer of Budget",
+                      "Suspended": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
                   }
                 ]
               }
@@ -482,7 +527,7 @@
                                 },
                                 "Count": {
                                   "type": "GameValueWrapper",
-                                  "value": 52500.0
+                                  "value": 550.0
                                 },
                                 "InfoboxOnSuccess": {
                                   "type": "Eco.Gameplay.Civics.GameValues.No",
@@ -636,7 +681,7 @@
                             "properties": {
                               "Number": {
                                 "type": "GameValueWrapper",
-                                "value": 1750.0
+                                "value": 17.5
                               },
                               "Percent": {
                                 "type": "GameValueWrapper",
@@ -754,7 +799,7 @@
                           },
                           "Percent": {
                             "type": "GameValueWrapper",
-                            "value": 60.0
+                            "value": 65.0
                           }
                         }
                       },
@@ -794,11 +839,11 @@
                             "properties": {
                               "Number": {
                                 "type": "GameValueWrapper",
-                                "value": 1750.0
+                                "value": 17.5
                               },
                               "Percent": {
                                 "type": "GameValueWrapper",
-                                "value": 60.0
+                                "value": 65.0
                               }
                             }
                           },
@@ -912,7 +957,7 @@
                           },
                           "Percent": {
                             "type": "GameValueWrapper",
-                            "value": 57.5
+                            "value": 55.0
                           }
                         }
                       },
@@ -952,11 +997,11 @@
                             "properties": {
                               "Number": {
                                 "type": "GameValueWrapper",
-                                "value": 2250.0
+                                "value": 25.0
                               },
                               "Percent": {
                                 "type": "GameValueWrapper",
-                                "value": 57.5
+                                "value": 55.0
                               }
                             }
                           },
@@ -1070,7 +1115,7 @@
                           },
                           "Percent": {
                             "type": "GameValueWrapper",
-                            "value": 55.0
+                            "value": 47.5
                           }
                         }
                       },
@@ -1110,11 +1155,11 @@
                             "properties": {
                               "Number": {
                                 "type": "GameValueWrapper",
-                                "value": 2250.0
+                                "value": 25.0
                               },
                               "Percent": {
                                 "type": "GameValueWrapper",
-                                "value": 55.0
+                                "value": 47.5
                               }
                             }
                           },
@@ -1228,7 +1273,7 @@
                           },
                           "Percent": {
                             "type": "GameValueWrapper",
-                            "value": 52.5
+                            "value": 55.0
                           }
                         }
                       },
@@ -1268,11 +1313,11 @@
                             "properties": {
                               "Number": {
                                 "type": "GameValueWrapper",
-                                "value": 1750.0
+                                "value": 17.5
                               },
                               "Percent": {
                                 "type": "GameValueWrapper",
-                                "value": 52.5
+                                "value": 55.0
                               }
                             }
                           },
@@ -1386,7 +1431,7 @@
                           },
                           "Percent": {
                             "type": "GameValueWrapper",
-                            "value": 50.0
+                            "value": 55.0
                           }
                         }
                       },
@@ -1426,11 +1471,11 @@
                             "properties": {
                               "Number": {
                                 "type": "GameValueWrapper",
-                                "value": 1750.0
+                                "value": 17.5
                               },
                               "Percent": {
                                 "type": "GameValueWrapper",
-                                "value": 50.0
+                                "value": 55.0
                               }
                             }
                           },
@@ -1506,7 +1551,7 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<foldout><linktext><u>2 Titles</u></linktext><title>2 Titles</title><b><link=\"ref:ElectedTitle:16\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Deputy Mayor of Unica</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:30\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Mayor of Unica</style></ecoicon></link></b></foldout>",
+                            "internalDescription": "<foldout><linktext><u>2 Titles</u></linktext><title>2 Titles</title><b><link=\"ref:ElectedTitle:66\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Deputy Mayor of Unica</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:27\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Mayor of Unica</style></ecoicon></link></b></foldout>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
@@ -1618,7 +1663,7 @@
                             "properties": {
                               "Number": {
                                 "type": "GameValueWrapper",
-                                "value": 2250.0
+                                "value": 25.0
                               },
                               "Percent": {
                                 "type": "GameValueWrapper",
@@ -1698,7 +1743,7 @@
                               "value": "Eco.Gameplay.Civics.Demographics.Demographic"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:Demographic:19\"><ecoicon item=\"Demographic\"><style=\"Government\">Government Members</style></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:Demographic:12\"><ecoicon item=\"Demographic\"><style=\"Government\">Government Members</style></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Demographics.Demographic",
@@ -1821,7 +1866,7 @@
                               },
                               "Percent": {
                                 "type": "GameValueWrapper",
-                                "value": 70.0
+                                "value": 75.0
                               }
                             }
                           }
@@ -1941,7 +1986,7 @@
                           },
                           "Percent": {
                             "type": "GameValueWrapper",
-                            "value": 52.5
+                            "value": 55.0
                           }
                         }
                       },
@@ -1981,11 +2026,11 @@
                             "properties": {
                               "Number": {
                                 "type": "GameValueWrapper",
-                                "value": 1750.0
+                                "value": 17.5
                               },
                               "Percent": {
                                 "type": "GameValueWrapper",
-                                "value": 52.5
+                                "value": 55.0
                               }
                             }
                           },
@@ -2099,7 +2144,7 @@
                           },
                           "Percent": {
                             "type": "GameValueWrapper",
-                            "value": 45.0
+                            "value": 50.0
                           }
                         }
                       },
@@ -2139,11 +2184,11 @@
                             "properties": {
                               "Number": {
                                 "type": "GameValueWrapper",
-                                "value": 1750.0
+                                "value": 17.5
                               },
                               "Percent": {
                                 "type": "GameValueWrapper",
-                                "value": 45.0
+                                "value": 50.0
                               }
                             }
                           },
@@ -2284,7 +2329,7 @@
                               },
                               "Percent": {
                                 "type": "GameValueWrapper",
-                                "value": 70.0
+                                "value": 75.0
                               }
                             }
                           }
@@ -2390,7 +2435,7 @@
                                       },
                                       "Operation": "Subtract",
                                       "RightNumber": {
-                                        "type": "Eco.Mods.SmartTax.GovernmentAccountHolding",
+                                        "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
                                         "properties": {
                                           "Currency": {
                                             "type": "GameValueWrapper",
@@ -2546,7 +2591,7 @@
                           },
                           "Percent": {
                             "type": "GameValueWrapper",
-                            "value": 12.5
+                            "value": 15.0
                           }
                         }
                       },
@@ -2586,11 +2631,11 @@
                             "properties": {
                               "Number": {
                                 "type": "GameValueWrapper",
-                                "value": 1750.0
+                                "value": 17.5
                               },
                               "Percent": {
                                 "type": "GameValueWrapper",
-                                "value": 12.5
+                                "value": 15.0
                               }
                             }
                           },

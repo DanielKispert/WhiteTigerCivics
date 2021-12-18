@@ -66,7 +66,7 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:AppointedTitle:7\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:AppointedTitle:31\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
@@ -721,7 +721,7 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:AppointedTitle:13\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Utility Accounts</style></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:AppointedTitle:12\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Utility Accounts</style></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
@@ -910,12 +910,10 @@
                       "Message": "UBI already paid out or being paid out (€):",
                       "NotificationType": "SideBarMessage",
                       "PeopleToSendTo": {
-                        "type": "GameValueWrapper",
-                        "value": {
-                          "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-                          "name": "Everyone",
-                          "reference": true
-                        }
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
                       },
                       "ValueToDisplay": {
                         "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",

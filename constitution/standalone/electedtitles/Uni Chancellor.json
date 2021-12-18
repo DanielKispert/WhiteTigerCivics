@@ -30,7 +30,7 @@
     "CanSetGlobalObjective": false,
     "CanSetTreasuryTaxes": false,
     "CanUseTreasuryBankAccount": false,
-    "HasGovernmentBankingPrivileges": true,
+    "HasGovernmentBankingPrivileges": false,
     "RequiredOfOfficeHolders": {
       "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
       "properties": {
@@ -45,7 +45,7 @@
                   "value": "Eco.Gameplay.Civics.Demographics.Demographic"
                 },
                 "requiredTag": null,
-                "internalDescription": "<foldout><linktext><u>2 Demographics</u></linktext><title>2 Demographics</title><b><link=\"ref:Demographic:18\"><ecoicon item=\"Demographic\"><style=\"Government\">Federal Judges</style></ecoicon></link></b>\r\n<b><link=\"ref:Demographic:14\"><ecoicon item=\"Demographic\"><style=\"Government\">The Senate</style></ecoicon></link></b></foldout>",
+                "internalDescription": "<foldout><linktext><u>2 Demographics</u></linktext><title>2 Demographics</title><b><link=\"ref:Demographic:11\"><ecoicon item=\"Demographic\"><style=\"Government\">Federal Judges</style></ecoicon></link></b>\r\n<b><link=\"ref:Demographic:15\"><ecoicon item=\"Demographic\"><style=\"Government\">The Senate</style></ecoicon></link></b></foldout>",
                 "entries": [
                   {
                     "type": "Eco.Gameplay.Civics.Demographics.Demographic",
@@ -78,8 +78,23 @@
                   "value": "Eco.Gameplay.Civics.Titles.Title"
                 },
                 "requiredTag": null,
-                "internalDescription": "<foldout><linktext><u>7 Titles</u></linktext><title>7 Titles</title><b><link=\"ref:ElectedTitle:129\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Attorney General</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:17\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Deputy Prime Minister</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:18\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Director of the Federal Bank</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:21\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Federal President</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:6\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Federal Secretary</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:9\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">In Jail</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:31\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Prime Minister</style></ecoicon></link></b></foldout>",
+                "internalDescription": "<foldout><linktext><u>7 Titles</u></linktext><title>7 Titles</title><b><link=\"ref:ElectedTitle:13\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Attorney General</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:15\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Deputy Prime Minister</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:16\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Director of the Federal Bank</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:29\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Federal President</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:5\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Federal Secretary</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:7\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">In Jail</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:28\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Prime Minister</style></ecoicon></link></b></foldout>",
                 "entries": [
+                  {
+                    "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                    "name": "In Jail",
+                    "reference": true
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                    "name": "Deputy Prime Minister",
+                    "reference": true
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                    "name": "Federal President",
+                    "reference": true
+                  },
                   {
                     "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
                     "name": "Attorney General",
@@ -91,28 +106,13 @@
                     "reference": true
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                    "name": "In Jail",
-                    "reference": true
-                  },
-                  {
-                    "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                    "name": "Prime Minister",
-                    "reference": true
-                  },
-                  {
                     "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
                     "name": "Director of the Federal Bank",
                     "reference": true
                   },
                   {
                     "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                    "name": "Deputy Prime Minister",
-                    "reference": true
-                  },
-                  {
-                    "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                    "name": "Federal President",
+                    "name": "Prime Minister",
                     "reference": true
                   }
                 ]
@@ -168,16 +168,16 @@
                         "value": "Eco.Gameplay.Civics.Titles.Title"
                       },
                       "requiredTag": null,
-                      "internalDescription": "<foldout><linktext><u>2 Titles</u></linktext><title>2 Titles</title><b><link=\"ref:AppointedTitle:7\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:13\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Utility Accounts</style></ecoicon></link></b></foldout>",
+                      "internalDescription": "<foldout><linktext><u>2 Titles</u></linktext><title>2 Titles</title><b><link=\"ref:AppointedTitle:31\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:12\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Utility Accounts</style></ecoicon></link></b></foldout>",
                       "entries": [
                         {
                           "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                          "name": "Utility Accounts",
+                          "name": "Game Masters",
                           "reference": true
                         },
                         {
                           "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                          "name": "Game Masters",
+                          "name": "Utility Accounts",
                           "reference": true
                         }
                       ]

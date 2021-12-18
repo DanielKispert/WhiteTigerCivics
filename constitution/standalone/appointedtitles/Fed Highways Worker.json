@@ -4,7 +4,7 @@
     0
   ],
   "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-  "name": "Ministry Official",
+  "name": "Federal Highways Worker",
   "reference": false,
   "description": null,
   "managers": [
@@ -15,17 +15,16 @@
     },
     {
       "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+      "name": "Deputy Prime Minister",
+      "reference": true
+    },
+    {
+      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
       "name": "Prime Minister",
       "reference": true
     }
   ],
-  "users": [
-    {
-      "type": "Eco.Gameplay.Players.User",
-      "name": "[PMD]Daniel93a",
-      "reference": true
-    }
-  ],
+  "users": [],
   "properties": {
     "RequiredOfOfficeHolders": null,
     "BackupOwner": {

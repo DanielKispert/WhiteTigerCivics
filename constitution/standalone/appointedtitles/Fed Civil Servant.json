@@ -4,7 +4,7 @@
     0
   ],
   "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-  "name": "Ministry Official",
+  "name": "Federal Civil Servant",
   "reference": false,
   "description": null,
   "managers": [
@@ -21,8 +21,8 @@
   ],
   "users": [
     {
-      "type": "Eco.Gameplay.Players.User",
-      "name": "[PMD]Daniel93a",
+      "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+      "name": "Ministry Official",
       "reference": true
     }
   ],
@@ -30,7 +30,7 @@
     "RequiredOfOfficeHolders": null,
     "BackupOwner": {
       "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-      "name": "Everyone",
+      "name": "Admins",
       "reference": true
     },
     "Wages": {

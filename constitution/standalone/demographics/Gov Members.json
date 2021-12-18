@@ -1,0 +1,133 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+  "name": "Government Members",
+  "reference": false,
+  "description": null,
+  "properties": {
+    "BackupOwner": {
+      "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+      "name": "Everyone",
+      "reference": true
+    },
+    "Conditions": [
+      {
+        "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+        "properties": {
+          "List": [
+            {
+              "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+              "properties": {
+                "Titles": {
+                  "type": "GamePickerList",
+                  "mustDeriveType": {
+                    "type": "Type",
+                    "value": "Eco.Gameplay.Civics.Titles.Title"
+                  },
+                  "requiredTag": null,
+                  "internalDescription": "<foldout><linktext><u>8 Titles</u></linktext><title>8 Titles</title><b><link=\"ref:ElectedTitle:13\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Attorney General</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:30\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Chancellor of the Federal University</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:15\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Deputy Prime Minister</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:16\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Director of the Federal Bank</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:4\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Federal Civil Servant</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:29\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Federal President</style></ecoicon></link></b>\r\n<b><link=\"ref:AppointedTitle:5\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Federal Secretary</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:28\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Prime Minister</style></ecoicon></link></b></foldout>",
+                  "entries": [
+                    {
+                      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                      "name": "Chancellor of the Federal University",
+                      "reference": true
+                    },
+                    {
+                      "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                      "name": "Federal Civil Servant",
+                      "reference": true
+                    },
+                    {
+                      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                      "name": "Deputy Prime Minister",
+                      "reference": true
+                    },
+                    {
+                      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                      "name": "Federal President",
+                      "reference": true
+                    },
+                    {
+                      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                      "name": "Attorney General",
+                      "reference": true
+                    },
+                    {
+                      "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                      "name": "Federal Secretary",
+                      "reference": true
+                    },
+                    {
+                      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                      "name": "Director of the Federal Bank",
+                      "reference": true
+                    },
+                    {
+                      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                      "name": "Prime Minister",
+                      "reference": true
+                    }
+                  ]
+                },
+                "Citizen": {
+                  "type": "GameValueContext",
+                  "contextName": "Citizen",
+                  "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                  "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen being checked for this demographic.\r\n"
+                },
+                "Requirements": "HasAny"
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
+              "properties": {
+                "Demographics": {
+                  "type": "GamePickerList",
+                  "mustDeriveType": {
+                    "type": "Type",
+                    "value": "Eco.Gameplay.Civics.Demographics.Demographic"
+                  },
+                  "requiredTag": null,
+                  "internalDescription": "<foldout><linktext><u>2 Demographics</u></linktext><title>2 Demographics</title><b><link=\"ref:Demographic:11\"><ecoicon item=\"Demographic\"><style=\"Government\">Federal Judges</style></ecoicon></link></b>\r\n<b><link=\"ref:Demographic:15\"><ecoicon item=\"Demographic\"><style=\"Government\">The Senate</style></ecoicon></link></b></foldout>",
+                  "entries": [
+                    {
+                      "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                      "name": "Federal Judges",
+                      "reference": true
+                    },
+                    {
+                      "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                      "name": "The Senate",
+                      "reference": true
+                    }
+                  ]
+                },
+                "Citizen": {
+                  "type": "GameValueContext",
+                  "contextName": "Citizen",
+                  "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                  "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen being checked for this demographic.\r\n"
+                },
+                "Requirements": "HasAny"
+              }
+            }
+          ],
+          "Comparison": "Any"
+        }
+      }
+    ],
+    "Wages": {
+      "type": "Eco.Gameplay.Economy.Jobs.RecurringTransferDefinition",
+      "reference": false,
+      "properties": {
+        "Currency": null,
+        "AmountPerHour": null,
+        "PaymentType": "OnlineAndOfflineHours"
+      }
+    },
+    "WagesSourceBankAccount": null
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+  "name": "Company Buffer (Do Not Touch)",
+  "reference": false,
+  "description": null,
+  "managers": [
+    {
+      "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+      "name": "Game Masters",
+      "reference": true
+    }
+  ],
+  "users": [],
+  "properties": {},
+  "holdings": []
+}

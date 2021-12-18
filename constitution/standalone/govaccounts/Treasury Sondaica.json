@@ -4,7 +4,7 @@
     0
   ],
   "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-  "name": "# Federal Bank",
+  "name": "# Treasury of Sondaica",
   "reference": false,
   "description": null,
   "managers": [
@@ -17,7 +17,12 @@
   "users": [
     {
       "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-      "name": "Director of the Federal Bank",
+      "name": "Governor of Sondaica",
+      "reference": true
+    },
+    {
+      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+      "name": "Lieutenant Governor of Sondaica",
       "reference": true
     }
   ],
@@ -26,26 +31,10 @@
     {
       "currency": {
         "type": "Eco.Gameplay.Economy.Currency",
-        "name": "Euro",
-        "reference": true
-      },
-      "amount": 300000.0
-    },
-    {
-      "currency": {
-        "type": "Eco.Gameplay.Economy.Currency",
-        "name": "Emission Permit",
-        "reference": true
-      },
-      "amount": 900000.0
-    },
-    {
-      "currency": {
-        "type": "Eco.Gameplay.Economy.Currency",
         "name": "Donation Receipt",
         "reference": true
       },
-      "amount": 5000000.0
+      "amount": 1000000.0
     }
   ]
 }

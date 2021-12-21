@@ -1,0 +1,474 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Laws.Law",
+  "name": "Rent Tax",
+  "reference": false,
+  "description": "Federal Rent Tax.",
+  "properties": {
+    "Sections": [
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Rent Tax",
+          "UserDescription": "10% of rent and move in fee value to be taxed from the landlord. If the landlord is an employee of a company, the tax is actioned on the amount left untouched by the constitutional Company Tax.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.PayRentOrMoveInFee"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.PayRentOrMoveInFee",
+                    "propNameBacker": "Earner",
+                    "propDisplayName": "Landlord",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Aliases.IAlias"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.PayRentOrMoveInFee",
+                    "propNameBacker": "Currency",
+                    "propDisplayName": "Currency",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Economy.Currency"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<b><link=\"ref:Currency:2\"><ecoicon item=\"CurrencySymbol\"><style=\"Currency\">Euro</style></ecoicon></link></b>",
+                        "entries": [
+                          {
+                            "type": "Eco.Gameplay.Economy.Currency",
+                            "name": "Euro",
+                            "reference": true
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.PayRentOrMoveInFee",
+                    "propNameBacker": "SourceBankAccount",
+                    "propDisplayName": "Source Bank Account",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Economy.BankAccount"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.PayRentOrMoveInFee",
+                    "propNameBacker": "TargetBankAccount",
+                    "propDisplayName": "Target Bank Account",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Economy.BankAccount"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "contextName": "Earner",
+                                      "titleBacking": "<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>",
+                                      "tooltip": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>: The citizen or group who receive the payment.\r\n"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "Eco.Mods.Companies.IsCompanyLegalPerson",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "contextName": "Earner",
+                                      "titleBacking": "<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>",
+                                      "tooltip": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>: The citizen or group who receive the payment.\r\n"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "Any"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "TargetBankAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
+                                    "name": "Treasury Bank Account",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Euro",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                  "properties": {
+                                    "Number": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                      "properties": {
+                                        "Number": {
+                                          "type": "GameValueContext",
+                                          "contextName": "Currency Amount",
+                                          "titleBacking": "<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>",
+                                          "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>: Amount used in the transaction.\r\n"
+                                        },
+                                        "Percent": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                          "properties": {
+                                            "LeftNumber": {
+                                              "type": "GameValueWrapper",
+                                              "value": 100.0
+                                            },
+                                            "Operation": "Subtract",
+                                            "RightNumber": {
+                                              "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                              "properties": {
+                                                "CustomStatName": "companyTaxRate",
+                                                "TimeRangeInHours": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": 0.0
+                                                },
+                                                "TimeRangeType": "CountBackFromPresentTime",
+                                                "User": {
+                                                  "type": "GameValueContext",
+                                                  "contextName": "Earner",
+                                                  "titleBacking": "<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>",
+                                                  "tooltip": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>: The citizen or group who receive the payment.\r\n"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "Percent": {
+                                      "type": "GameValueWrapper",
+                                      "value": 10.0
+                                    }
+                                  }
+                                },
+                                "Target": {
+                                  "type": "GameValueContext",
+                                  "contextName": "Earner",
+                                  "titleBacking": "<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>",
+                                  "tooltip": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>: The citizen or group who receive the payment.\r\n"
+                                },
+                                "TaxCode": "Rent Tax",
+                                "Suspended": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "Silent": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                              "reference": false,
+                              "properties": {
+                                "StatName": "totalRentTax",
+                                "Person": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Players.User",
+                                    "name": "White-Tiger",
+                                    "reference": true
+                                  }
+                                },
+                                "Count": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                  "properties": {
+                                    "Number": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                      "properties": {
+                                        "Number": {
+                                          "type": "GameValueContext",
+                                          "contextName": "Currency Amount",
+                                          "titleBacking": "<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>",
+                                          "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>: Amount used in the transaction.\r\n"
+                                        },
+                                        "Percent": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                          "properties": {
+                                            "LeftNumber": {
+                                              "type": "GameValueWrapper",
+                                              "value": 100.0
+                                            },
+                                            "Operation": "Subtract",
+                                            "RightNumber": {
+                                              "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                              "properties": {
+                                                "CustomStatName": "companyTaxRate",
+                                                "TimeRangeInHours": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": 0.0
+                                                },
+                                                "TimeRangeType": "CountBackFromPresentTime",
+                                                "User": {
+                                                  "type": "Eco.Mods.Companies.EmployerLegalPerson",
+                                                  "properties": {
+                                                    "Citizen": {
+                                                      "type": "GameValueContext",
+                                                      "contextName": "Earner",
+                                                      "titleBacking": "<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>",
+                                                      "tooltip": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>: The citizen or group who receive the payment.\r\n"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "Percent": {
+                                      "type": "GameValueWrapper",
+                                      "value": 10.0
+                                    }
+                                  }
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "contextName": "Earner",
+                                      "titleBacking": "<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>",
+                                      "tooltip": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>: The citizen or group who receive the payment.\r\n"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "Eco.Mods.Companies.IsCompanyLegalPerson",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "contextName": "Earner",
+                                      "titleBacking": "<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>",
+                                      "tooltip": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>: The citizen or group who receive the payment.\r\n"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "None"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "TargetBankAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
+                                    "name": "Treasury Bank Account",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueContext",
+                                  "contextName": "Currency",
+                                  "titleBacking": "<ecoicon item=\"CurrencyTrade\">Currency</ecoicon>",
+                                  "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Currency</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Currency</ecoicon>: Currency used in the transaction.\r\n"
+                                },
+                                "Amount": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                  "properties": {
+                                    "Number": {
+                                      "type": "GameValueContext",
+                                      "contextName": "Currency Amount",
+                                      "titleBacking": "<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>",
+                                      "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>: Amount used in the transaction.\r\n"
+                                    },
+                                    "Percent": {
+                                      "type": "GameValueWrapper",
+                                      "value": 10.0
+                                    }
+                                  }
+                                },
+                                "Target": {
+                                  "type": "GameValueContext",
+                                  "contextName": "Earner",
+                                  "titleBacking": "<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>",
+                                  "tooltip": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>: The citizen or group who receive the payment.\r\n"
+                                },
+                                "TaxCode": "Rent Tax",
+                                "Suspended": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "Silent": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                              "reference": false,
+                              "properties": {
+                                "StatName": "totalRentTax",
+                                "Person": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Players.User",
+                                    "name": "White-Tiger",
+                                    "reference": true
+                                  }
+                                },
+                                "Count": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                  "properties": {
+                                    "Number": {
+                                      "type": "GameValueContext",
+                                      "contextName": "Currency Amount",
+                                      "titleBacking": "<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>",
+                                      "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>: Amount used in the transaction.\r\n"
+                                    },
+                                    "Percent": {
+                                      "type": "GameValueWrapper",
+                                      "value": 10.0
+                                    }
+                                  }
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

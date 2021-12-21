@@ -1,0 +1,717 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Laws.Law",
+  "name": "Sales Tax",
+  "reference": false,
+  "description": "Federal Sales Tax.",
+  "properties": {
+    "Sections": [
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Sales Tax",
+          "UserDescription": "20% of transaction value to be taxed from the seller of every trade, excluding sales from government property. If the seller is an employee of a company, the tax is actioned on the amount left untouched by the constitutional Company Tax.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.CurrencyTrade"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.CurrencyTrade",
+                    "propNameBacker": "Currency",
+                    "propDisplayName": "Currency",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Economy.Currency"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<b><link=\"ref:Currency:2\"><ecoicon item=\"CurrencySymbol\"><style=\"Currency\">Euro</style></ecoicon></link></b>",
+                        "entries": [
+                          {
+                            "type": "Eco.Gameplay.Economy.Currency",
+                            "name": "Euro",
+                            "reference": true
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.CurrencyTrade",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Traded",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                        "properties": {
+                          "List": [
+                            {
+                              "type": "GameValueContext",
+                              "contextName": "Selling",
+                              "titleBacking": "<ecoicon item=\"CurrencyTrade\">Selling</ecoicon>",
+                              "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Selling</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Selling</ecoicon>: Was the good bought or sold by the initiating player?\r\n"
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                              "properties": {
+                                "List": [
+                                  {
+                                    "type": "GameValueContext",
+                                    "contextName": "Buying",
+                                    "titleBacking": "<ecoicon item=\"CurrencyTrade\">Buying</ecoicon>",
+                                    "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Buying</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Buying</ecoicon>: Was the good bought or sold by the initiating player?\r\n"
+                                  },
+                                  {
+                                    "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                                    "properties": {
+                                      "Location": {
+                                        "type": "GameValueContext",
+                                        "contextName": "Action Location",
+                                        "titleBacking": "<ecoicon item=\"CurrencyTrade\">Action Location</ecoicon>",
+                                        "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Action Location</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Action Location</ecoicon>: The position where the interaction took place.\r\n"
+                                      },
+                                      "Districts": {
+                                        "type": "GamePickerList",
+                                        "mustDeriveType": {
+                                          "type": "Type",
+                                          "value": "Eco.Gameplay.LegislationSystem.District"
+                                        },
+                                        "requiredTag": null,
+                                        "internalDescription": "<foldout><linktext><u>7 Districts</u></linktext><title>7 Districts</title><b><link=\"ref:District:10\"><ecoicon item=\"District\"><color=#004CC6FF>Federal Bank</color></ecoicon></link></b>\r\n<b><link=\"ref:District:23\"><ecoicon item=\"District\"><color=#221D1DFF>Federal University</color></ecoicon></link></b>\r\n<b><link=\"ref:District:16\"><ecoicon item=\"District\"><color=#004DFFFF>Meteor Facility</color></ecoicon></link></b>\r\n<b><link=\"ref:District:17\"><ecoicon item=\"District\"><color=#FF0000FF>Office of the Federal Government</color></ecoicon></link></b>\r\n<b><link=\"ref:District:18\"><ecoicon item=\"District\"><color=#FF6200FF>Office of the Government of Unica</color></ecoicon></link></b>\r\n<b><link=\"ref:District:20\"><ecoicon item=\"District\"><color=#613000FF>Offices of the Governments of the States</color></ecoicon></link></b>\r\n<b><link=\"ref:District:12\"><ecoicon item=\"District\"><color=#273F24FF>Presidents Mansion</color></ecoicon></link></b></foldout>",
+                                        "entries": [
+                                          {
+                                            "type": "Eco.Gameplay.LegislationSystem.District",
+                                            "name": "Meteor Facility",
+                                            "reference": true
+                                          },
+                                          {
+                                            "type": "Eco.Gameplay.LegislationSystem.District",
+                                            "name": "Office of the Federal Government",
+                                            "reference": true
+                                          },
+                                          {
+                                            "type": "Eco.Gameplay.LegislationSystem.District",
+                                            "name": "Federal Bank",
+                                            "reference": true
+                                          },
+                                          {
+                                            "type": "Eco.Gameplay.LegislationSystem.District",
+                                            "name": "Office of the Government of Unica",
+                                            "reference": true
+                                          },
+                                          {
+                                            "type": "Eco.Gameplay.LegislationSystem.District",
+                                            "name": "Presidents Mansion",
+                                            "reference": true
+                                          },
+                                          {
+                                            "type": "Eco.Gameplay.LegislationSystem.District",
+                                            "name": "Federal University",
+                                            "reference": true
+                                          },
+                                          {
+                                            "type": "Eco.Gameplay.LegislationSystem.District",
+                                            "name": "Offices of the Governments of the States",
+                                            "reference": true
+                                          }
+                                        ]
+                                      },
+                                      "Requirements": "OutsideAll"
+                                    }
+                                  }
+                                ],
+                                "Comparison": "All"
+                              }
+                            }
+                          ],
+                          "Comparison": "Any"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "contextName": "Seller",
+                                      "titleBacking": "<ecoicon item=\"User\">Seller</ecoicon>",
+                                      "tooltip": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "Eco.Mods.Companies.IsCompanyLegalPerson",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "contextName": "Seller",
+                                      "titleBacking": "<ecoicon item=\"User\">Seller</ecoicon>",
+                                      "tooltip": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "Any"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "TargetBankAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
+                                    "name": "Treasury Bank Account",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Euro",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                  "properties": {
+                                    "Number": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                      "properties": {
+                                        "Number": {
+                                          "type": "GameValueContext",
+                                          "contextName": "Currency Amount",
+                                          "titleBacking": "<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>",
+                                          "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>: Amount used in the transaction.\r\n"
+                                        },
+                                        "Percent": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                          "properties": {
+                                            "LeftNumber": {
+                                              "type": "GameValueWrapper",
+                                              "value": 100.0
+                                            },
+                                            "Operation": "Subtract",
+                                            "RightNumber": {
+                                              "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                              "properties": {
+                                                "CustomStatName": "companyTaxRate",
+                                                "TimeRangeInHours": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": 0.0
+                                                },
+                                                "TimeRangeType": "CountBackFromPresentTime",
+                                                "User": {
+                                                  "type": "Eco.Mods.Companies.EmployerLegalPerson",
+                                                  "properties": {
+                                                    "Citizen": {
+                                                      "type": "GameValueContext",
+                                                      "contextName": "Seller",
+                                                      "titleBacking": "<ecoicon item=\"User\">Seller</ecoicon>",
+                                                      "tooltip": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "Percent": {
+                                      "type": "GameValueWrapper",
+                                      "value": 20.0
+                                    }
+                                  }
+                                },
+                                "Target": {
+                                  "type": "GameValueContext",
+                                  "contextName": "Seller",
+                                  "titleBacking": "<ecoicon item=\"User\">Seller</ecoicon>",
+                                  "tooltip": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
+                                },
+                                "TaxCode": "Sales Tax",
+                                "Suspended": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "Silent": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                              "reference": false,
+                              "properties": {
+                                "StatName": "totalSalesTax",
+                                "Person": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Players.User",
+                                    "name": "White-Tiger",
+                                    "reference": true
+                                  }
+                                },
+                                "Count": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                  "properties": {
+                                    "Number": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                      "properties": {
+                                        "Number": {
+                                          "type": "GameValueContext",
+                                          "contextName": "Currency Amount",
+                                          "titleBacking": "<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>",
+                                          "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>: Amount used in the transaction.\r\n"
+                                        },
+                                        "Percent": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                          "properties": {
+                                            "LeftNumber": {
+                                              "type": "GameValueWrapper",
+                                              "value": 100.0
+                                            },
+                                            "Operation": "Subtract",
+                                            "RightNumber": {
+                                              "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                              "properties": {
+                                                "CustomStatName": "companyTaxRate",
+                                                "TimeRangeInHours": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": 0.0
+                                                },
+                                                "TimeRangeType": "CountBackFromPresentTime",
+                                                "User": {
+                                                  "type": "Eco.Mods.Companies.EmployerLegalPerson",
+                                                  "properties": {
+                                                    "Citizen": {
+                                                      "type": "GameValueContext",
+                                                      "contextName": "Seller",
+                                                      "titleBacking": "<ecoicon item=\"User\">Seller</ecoicon>",
+                                                      "tooltip": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "Percent": {
+                                      "type": "GameValueWrapper",
+                                      "value": 20.0
+                                    }
+                                  }
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "contextName": "Seller",
+                                      "titleBacking": "<ecoicon item=\"User\">Seller</ecoicon>",
+                                      "tooltip": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "Eco.Mods.Companies.IsCompanyLegalPerson",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "contextName": "Seller",
+                                      "titleBacking": "<ecoicon item=\"User\">Seller</ecoicon>",
+                                      "tooltip": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "None"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "TargetBankAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
+                                    "name": "Treasury Bank Account",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueContext",
+                                  "contextName": "Currency",
+                                  "titleBacking": "<ecoicon item=\"CurrencyTrade\">Currency</ecoicon>",
+                                  "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Currency</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Currency</ecoicon>: Currency used in the transaction.\r\n"
+                                },
+                                "Amount": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                  "properties": {
+                                    "Number": {
+                                      "type": "GameValueContext",
+                                      "contextName": "Currency Amount",
+                                      "titleBacking": "<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>",
+                                      "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>: Amount used in the transaction.\r\n"
+                                    },
+                                    "Percent": {
+                                      "type": "GameValueWrapper",
+                                      "value": 20.0
+                                    }
+                                  }
+                                },
+                                "Target": {
+                                  "type": "GameValueContext",
+                                  "contextName": "Seller",
+                                  "titleBacking": "<ecoicon item=\"User\">Seller</ecoicon>",
+                                  "tooltip": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
+                                },
+                                "TaxCode": "Sales Tax",
+                                "Suspended": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "Silent": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                              "reference": false,
+                              "properties": {
+                                "StatName": "totalSalesTax",
+                                "Person": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Players.User",
+                                    "name": "White-Tiger",
+                                    "reference": true
+                                  }
+                                },
+                                "Count": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                  "properties": {
+                                    "Number": {
+                                      "type": "GameValueContext",
+                                      "contextName": "Currency Amount",
+                                      "titleBacking": "<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>",
+                                      "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>: Amount used in the transaction.\r\n"
+                                    },
+                                    "Percent": {
+                                      "type": "GameValueWrapper",
+                                      "value": 20.0
+                                    }
+                                  }
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Contracts",
+          "UserDescription": "20% of transaction value to be taxed from the one completing the contract",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.CompletedContract"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.CompletedContract",
+                    "propNameBacker": "Currency",
+                    "propDisplayName": "Currency",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Economy.Currency"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<b><link=\"ref:Currency:2\"><ecoicon item=\"CurrencySymbol\"><style=\"Currency\">Euro</style></ecoicon></link></b>",
+                        "entries": [
+                          {
+                            "type": "Eco.Gameplay.Economy.Currency",
+                            "name": "Euro",
+                            "reference": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.CompletedWorkParty"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.CompletedWorkParty",
+                    "propNameBacker": "Currency",
+                    "propDisplayName": "Currency",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Economy.Currency"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<b><link=\"ref:Currency:2\"><ecoicon item=\"CurrencySymbol\"><style=\"Currency\">Euro</style></ecoicon></link></b>",
+                        "entries": [
+                          {
+                            "type": "Eco.Gameplay.Economy.Currency",
+                            "name": "Euro",
+                            "reference": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
+                          "name": "Treasury Bank Account",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueContext",
+                        "contextName": "Currency",
+                        "titleBacking": "<ecoicon item=\"CompletedContract\">Currency</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"CompletedContract\">Currency</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CompletedContract\">Currency</ecoicon>: Currency used.\r\n"
+                      },
+                      "Amount": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                        "properties": {
+                          "Number": {
+                            "type": "GameValueContext",
+                            "contextName": "Currency Amount",
+                            "titleBacking": "<ecoicon item=\"CompletedContract\">Currency Amount</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"CompletedContract\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CompletedContract\">Currency Amount</ecoicon>: Amount for payment.\r\n"
+                          },
+                          "Percent": {
+                            "type": "GameValueWrapper",
+                            "value": 20.0
+                          }
+                        }
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                      },
+                      "TaxCode": "Sales Tax",
+                      "Suspended": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "totalSalesTax",
+                      "Person": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Players.User",
+                          "name": "White-Tiger",
+                          "reference": true
+                        }
+                      },
+                      "Count": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                        "properties": {
+                          "Number": {
+                            "type": "GameValueContext",
+                            "contextName": "Currency Amount",
+                            "titleBacking": "<ecoicon item=\"CompletedContract\">Currency Amount</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"CompletedContract\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CompletedContract\">Currency Amount</ecoicon>: Amount for payment.\r\n"
+                          },
+                          "Percent": {
+                            "type": "GameValueWrapper",
+                            "value": 20.0
+                          }
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

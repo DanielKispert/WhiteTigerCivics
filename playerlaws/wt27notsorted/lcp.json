@@ -1,0 +1,499 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Laws.Law",
+  "name": "Citizen Land Allocation Revision",
+  "reference": false,
+  "description": "- Citizens are allocated an amount of land based on the server age. This allocation limits the number of LCPs they may buy from the appropriate government store.\n- The Executive branch of the federal government is ordered to:\u000b  - continuously buy materials required to craft LCPs,\u000b  - continuously craft them and continuously sell them at instrinsic value (resource + labor cost) from the PM Office plot,\u000b  - continuously rebuy them for the same price as the sale price, but only for € (not DRs)",
+  "properties": {
+    "Sections": [
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Update Allocations",
+          "UserDescription": "Every citizen is retroactively allocated 5 LCPs per day.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.CitizenTimer"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.CitizenTimerTriggerConfig",
+                    "typeToConfig": null,
+                    "propNameBacker": null,
+                    "propDisplayName": null,
+                    "properties": {
+                      "RepeatForEachUser": {
+                        "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                        "name": "Everyone",
+                        "reference": true
+                      },
+                      "HoursBetweenExecutions": 1.0
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "allocatedPlots",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                      },
+                      "Count": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                        "properties": {
+                          "LeftNumber": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                            "properties": {
+                              "LeftNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Values.WorldAgeInDays",
+                                "properties": {}
+                              },
+                              "Operation": "Multiply",
+                              "RightNumber": {
+                                "type": "GameValueWrapper",
+                                "value": 5.0
+                              }
+                            }
+                          },
+                          "Operation": "Subtract",
+                          "RightNumber": {
+                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                            "properties": {
+                              "CustomStatName": "allocatedPlots",
+                              "TimeRangeInHours": {
+                                "type": "GameValueWrapper",
+                                "value": 0.0
+                              },
+                              "TimeRangeType": "CurrentTimeBlock",
+                              "User": {
+                                "type": "GameValueContext",
+                                "contextName": "Citizen",
+                                "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Query Allocations",
+          "UserDescription": "Citizens may query their current allocation and usage.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ChatSent"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectString",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChatSent",
+                    "propNameBacker": "Tag",
+                    "propDisplayName": "Tag",
+                    "properties": {
+                      "String": null
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectString",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChatSent",
+                    "propNameBacker": "Message",
+                    "propDisplayName": "Message",
+                    "properties": {
+                      "String": "!land"
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.SendNotice",
+                    "reference": false,
+                    "properties": {
+                      "Message": "Number of plots used:",
+                      "NotificationType": "SideBarMessage",
+                      "PeopleToSendTo": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                      },
+                      "ValueToDisplay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                        "properties": {
+                          "CustomStatName": "usedPlots",
+                          "TimeRangeInHours": {
+                            "type": "GameValueWrapper",
+                            "value": 0.0
+                          },
+                          "TimeRangeType": "CurrentTimeBlock",
+                          "User": {
+                            "type": "GameValueContext",
+                            "contextName": "Citizen",
+                            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                          }
+                        }
+                      },
+                      "LocationToDisplay": null,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.SendNotice",
+                    "reference": false,
+                    "properties": {
+                      "Message": "Number of plots allocated:",
+                      "NotificationType": "SideBarMessage",
+                      "PeopleToSendTo": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                      },
+                      "ValueToDisplay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                        "properties": {
+                          "CustomStatName": "allocatedPlots",
+                          "TimeRangeInHours": {
+                            "type": "GameValueWrapper",
+                            "value": 0.0
+                          },
+                          "TimeRangeType": "CurrentTimeBlock",
+                          "User": {
+                            "type": "GameValueContext",
+                            "contextName": "Citizen",
+                            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                          }
+                        }
+                      },
+                      "LocationToDisplay": null,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Enforce Allocations",
+          "UserDescription": "Citizens may not buy more LCPs than their allocated amount. If they sell back LCPs, they may rebuy them again later.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.CurrencyTrade"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.CurrencyTrade",
+                    "propNameBacker": "Currency",
+                    "propDisplayName": "Currency",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Economy.Currency"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.CurrencyTrade",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Traded",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<b><link=\"TypeTooltip:665\"><b><link=\"Item:PropertyClaimItem\"><style=\"Item\"><ecoicon item=\"PropertyClaimItem\">Land Claim Papers</ecoicon></style></link></b></link></b>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Gameplay.Items.PropertyClaimItem"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "contextName": "Buying",
+                        "titleBacking": "<ecoicon item=\"CurrencyTrade\">Buying</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Buying</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Buying</ecoicon>: Was the good bought or sold by the initiating player?\r\n"
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                            "properties": {
+                              "LeftNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                "properties": {
+                                  "CustomStatName": "usedPlots",
+                                  "TimeRangeInHours": {
+                                    "type": "GameValueWrapper",
+                                    "value": 0.0
+                                  },
+                                  "TimeRangeType": "CurrentTimeBlock",
+                                  "User": {
+                                    "type": "GameValueContext",
+                                    "contextName": "Buyer",
+                                    "titleBacking": "<ecoicon item=\"User\">Buyer</ecoicon>",
+                                    "tooltip": "When triggered, the <ecoicon item=\"User\">Buyer</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Buyer</ecoicon>: The buying player.\r\n"
+                                  }
+                                }
+                              },
+                              "Operation": "Add",
+                              "RightNumber": {
+                                "type": "GameValueContext",
+                                "contextName": "Number Of Items",
+                                "titleBacking": "<ecoicon item=\"CurrencyTrade\">Number Of Items</ecoicon>",
+                                "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Number Of Items</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Number Of Items</ecoicon>: Number of items in the transaction\r\n"
+                              }
+                            }
+                          },
+                          "Comparison": "GreaterThan",
+                          "Right": {
+                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                            "properties": {
+                              "CustomStatName": "allocatedPlots",
+                              "TimeRangeInHours": {
+                                "type": "GameValueWrapper",
+                                "value": 0.0
+                              },
+                              "TimeRangeType": "CurrentTimeBlock",
+                              "User": {
+                                "type": "GameValueContext",
+                                "contextName": "Buyer",
+                                "titleBacking": "<ecoicon item=\"User\">Buyer</ecoicon>",
+                                "tooltip": "When triggered, the <ecoicon item=\"User\">Buyer</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Buyer</ecoicon>: The buying player.\r\n"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.Prevent_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "contextName": "Buying",
+                        "titleBacking": "<ecoicon item=\"CurrencyTrade\">Buying</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Buying</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Buying</ecoicon>: Was the good bought or sold by the initiating player?\r\n"
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "usedPlots",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "contextName": "Buyer",
+                        "titleBacking": "<ecoicon item=\"User\">Buyer</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Buyer</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Buyer</ecoicon>: The buying player.\r\n"
+                      },
+                      "Count": {
+                        "type": "GameValueContext",
+                        "contextName": "Number Of Items",
+                        "titleBacking": "<ecoicon item=\"CurrencyTrade\">Number Of Items</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Number Of Items</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Number Of Items</ecoicon>: Number of items in the transaction\r\n"
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "contextName": "Selling",
+                        "titleBacking": "<ecoicon item=\"CurrencyTrade\">Selling</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Selling</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Selling</ecoicon>: Was the good bought or sold by the initiating player?\r\n"
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "usedPlots",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "contextName": "Seller",
+                        "titleBacking": "<ecoicon item=\"User\">Seller</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
+                      },
+                      "Count": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                        "properties": {
+                          "LeftNumber": {
+                            "type": "GameValueContext",
+                            "contextName": "Number Of Items",
+                            "titleBacking": "<ecoicon item=\"CurrencyTrade\">Number Of Items</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Number Of Items</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Number Of Items</ecoicon>: Number of items in the transaction\r\n"
+                          },
+                          "Operation": "Multiply",
+                          "RightNumber": {
+                            "type": "GameValueWrapper",
+                            "value": -1.0
+                          }
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

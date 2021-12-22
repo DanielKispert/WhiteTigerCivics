@@ -1224,11 +1224,6 @@
                                 "entries": [
                                   {
                                     "type": "Eco.Gameplay.LegislationSystem.District",
-                                    "name": "Power/Utility Plots",
-                                    "reference": true
-                                  },
-                                  {
-                                    "type": "Eco.Gameplay.LegislationSystem.District",
                                     "name": "Residential Plots",
                                     "reference": true
                                   }
@@ -1445,11 +1440,6 @@
                                 "requiredTag": null,
                                 "internalDescription": "<foldout><linktext><u>2 objects</u></linktext><title>2 objects</title><b><link=\"ref:District:55\"><ecoicon item=\"District\"><color=#FFFFFFFF>Power/Utility Plots</color></ecoicon></link></b>\r\n<b><link=\"ref:District:56\"><ecoicon item=\"District\"><color=#61D6DAFF>Residential Plots</color></ecoicon></link></b></foldout>",
                                 "entries": [
-                                  {
-                                    "type": "Eco.Gameplay.LegislationSystem.District",
-                                    "name": "Power/Utility Plots",
-                                    "reference": true
-                                  },
                                   {
                                     "type": "Eco.Gameplay.LegislationSystem.District",
                                     "name": "Residential Plots",
@@ -2029,11 +2019,6 @@
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
-                                "name": "Power/Utility Plots",
-                                "reference": true
-                              },
-                              {
-                                "type": "Eco.Gameplay.LegislationSystem.District",
                                 "name": "Residential Plots",
                                 "reference": true
                               }
@@ -2063,11 +2048,6 @@
                                 "requiredTag": null,
                                 "internalDescription": "<foldout><linktext><u>2 objects</u></linktext><title>2 objects</title><b><link=\"ref:District:55\"><ecoicon item=\"District\"><color=#FFFFFFFF>Power/Utility Plots</color></ecoicon></link></b>\r\n<b><link=\"ref:District:56\"><ecoicon item=\"District\"><color=#61D6DAFF>Residential Plots</color></ecoicon></link></b></foldout>",
                                 "entries": [
-                                  {
-                                    "type": "Eco.Gameplay.LegislationSystem.District",
-                                    "name": "Power/Utility Plots",
-                                    "reference": true
-                                  },
                                   {
                                     "type": "Eco.Gameplay.LegislationSystem.District",
                                     "name": "Residential Plots",
@@ -2290,11 +2270,6 @@
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
-                                "name": "Power/Utility Plots",
-                                "reference": true
-                              },
-                              {
-                                "type": "Eco.Gameplay.LegislationSystem.District",
                                 "name": "Residential Plots",
                                 "reference": true
                               }
@@ -2324,11 +2299,6 @@
                                 "requiredTag": null,
                                 "internalDescription": "<foldout><linktext><u>2 objects</u></linktext><title>2 objects</title><b><link=\"ref:District:55\"><ecoicon item=\"District\"><color=#FFFFFFFF>Power/Utility Plots</color></ecoicon></link></b>\r\n<b><link=\"ref:District:56\"><ecoicon item=\"District\"><color=#61D6DAFF>Residential Plots</color></ecoicon></link></b></foldout>",
                                 "entries": [
-                                  {
-                                    "type": "Eco.Gameplay.LegislationSystem.District",
-                                    "name": "Power/Utility Plots",
-                                    "reference": true
-                                  },
                                   {
                                     "type": "Eco.Gameplay.LegislationSystem.District",
                                     "name": "Residential Plots",

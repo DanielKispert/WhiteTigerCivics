@@ -1303,7 +1303,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                          "name": "# Unica Living Budget",
+                          "name": "# Treasury of Unica",
                           "reference": true
                         }
                       },
@@ -1519,7 +1519,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                          "name": "# Unica Living Budget",
+                          "name": "# Treasury of Unica",
                           "reference": true
                         }
                       },
@@ -2129,7 +2129,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                          "name": "# Unica Living Budget",
+                          "name": "# Treasury of Unica",
                           "reference": true
                         }
                       },
@@ -2378,7 +2378,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                          "name": "# Unica Living Budget",
+                          "name": "# Treasury of Unica",
                           "reference": true
                         }
                       },

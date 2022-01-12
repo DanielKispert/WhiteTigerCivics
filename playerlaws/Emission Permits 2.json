@@ -6,7 +6,7 @@
   "type": "Eco.Gameplay.Civics.Laws.Law",
   "name": "Emission Permits 2.0",
   "reference": false,
-  "description": "This law manages air pollution with an Emission Permits system.\n\nThe \"EP Tracking\" account is ONLY used for tracking your own pollution. No actual transactions are done with it!\nThe Treasury is used for actual holding and distribution of EP.\n\nThe first section enforces that you need EP to pollute, and it tracks the EP you consume as a fake tax. It also permits every citizen to pollute until they emitted 5 PPM in their tracked amount\nThe second section decays old EP debt and calculates the epPercentage, used for later distribution. Valid amounts are 0 - 100, meaning 0 - 100% of the total",
+  "description": "This law manages air pollution with an Emission Permits system.\n\nThe \"EP Tracking\" account is ONLY used for tracking your own pollution. No actual transactions are done with it!\nThe Treasury is used for actual holding and distribution of EP.\n\nThe first section enforces that you need EP to pollute, and it tracks the EP you consume as a fake tax. It also permits every citizen to pollute until they emitted 5-10 PPM in their tracked amount\nThe second section decays old EP debt and calculates the epPercentage, used for later distribution. Valid amounts are 0 - 100, meaning 0 - 100%.\nThe epPercentage is not the absolute percentage as the restriction of a max percentage can lead to the sum of all percentages being lower than 100%. Therefore the sum of all percentages is used instead.",
   "properties": {
     "Sections": [
       {
@@ -42,6 +42,14 @@
                         "entries": [
                           {
                             "type": "Type",
+                            "value": "Eco.Mods.TechTree.CombustionGeneratorItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.OilRefineryItem"
+                          },
+                          {
+                            "type": "Type",
                             "value": "Eco.Mods.TechTree.StoveItem"
                           },
                           {
@@ -50,19 +58,11 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.BlastFurnaceItem"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.CementKilnItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.OilRefineryItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CombustionGeneratorItem"
+                            "value": "Eco.Mods.TechTree.BlastFurnaceItem"
                           }
                         ]
                       }
@@ -117,24 +117,62 @@
                               "type": "Eco.Gameplay.Civics.GameValues.Compare",
                               "properties": {
                                 "Left": {
-                                  "type": "Eco.Gameplay.Civics.GameValues.Values.Wealth",
+                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
                                   "properties": {
-                                    "Currency": {
-                                      "type": "GameValueWrapper",
-                                      "value": {
-                                        "type": "Eco.Gameplay.Economy.Currency",
-                                        "name": "Emission Permit",
-                                        "reference": true
+                                    "LeftNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Values.Wealth",
+                                      "properties": {
+                                        "Currency": {
+                                          "type": "GameValueWrapper",
+                                          "value": {
+                                            "type": "Eco.Gameplay.Economy.Currency",
+                                            "name": "Emission Permit",
+                                            "reference": true
+                                          }
+                                        },
+                                        "Citizen": {
+                                          "type": "Eco.Mods.Companies.EmployerLegalPerson",
+                                          "properties": {
+                                            "Citizen": {
+                                              "type": "GameValueContext",
+                                              "contextName": "Citizen",
+                                              "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                              "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the pollution.\r\n"
+                                            }
+                                          }
+                                        }
                                       }
                                     },
-                                    "Citizen": {
-                                      "type": "Eco.Mods.Companies.EmployerLegalPerson",
+                                    "Operation": "Add",
+                                    "RightNumber": {
+                                      "type": "Eco.Mods.SmartTax.OwedPayments",
                                       "properties": {
+                                        "Currency": {
+                                          "type": "GameValueWrapper",
+                                          "value": {
+                                            "type": "Eco.Gameplay.Economy.Currency",
+                                            "name": "Emission Permit",
+                                            "reference": true
+                                          }
+                                        },
                                         "Citizen": {
-                                          "type": "GameValueContext",
-                                          "contextName": "Citizen",
-                                          "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                                          "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the pollution.\r\n"
+                                          "type": "Eco.Mods.Companies.EmployerLegalPerson",
+                                          "properties": {
+                                            "Citizen": {
+                                              "type": "GameValueContext",
+                                              "contextName": "Citizen",
+                                              "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                              "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the pollution.\r\n"
+                                            }
+                                          }
+                                        },
+                                        "SourceAccount": {
+                                          "type": "GameValueWrapper",
+                                          "value": {
+                                            "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
+                                            "name": "Treasury Bank Account",
+                                            "reference": true
+                                          }
                                         }
                                       }
                                     }
@@ -220,8 +258,73 @@
                                 },
                                 "Comparison": "GreaterThanOrEqualTo",
                                 "Right": {
-                                  "type": "GameValueWrapper",
-                                  "value": 5000.0
+                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                  "properties": {
+                                    "LeftNumber": {
+                                      "type": "GameValueWrapper",
+                                      "value": 5000.0
+                                    },
+                                    "Operation": "Add",
+                                    "RightNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                      "properties": {
+                                        "LeftNumber": {
+                                          "type": "GameValueWrapper",
+                                          "value": 5000.0
+                                        },
+                                        "Operation": "Multiply",
+                                        "RightNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                          "properties": {
+                                            "LeftNumber": {
+                                              "type": "GameValueWrapper",
+                                              "value": 1.0
+                                            },
+                                            "Operation": "Subtract",
+                                            "RightNumber": {
+                                              "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                              "properties": {
+                                                "LeftNumber": {
+                                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                                  "properties": {
+                                                    "LeftNumber": {
+                                                      "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                                      "properties": {
+                                                        "CustomStatName": "globalAirPollution",
+                                                        "TimeRangeInHours": {
+                                                          "type": "GameValueWrapper",
+                                                          "value": 24.0
+                                                        },
+                                                        "TimeRangeType": "CountBackFromPresentTime",
+                                                        "User": {
+                                                          "type": "GameValueWrapper",
+                                                          "value": {
+                                                            "type": "Eco.Gameplay.Players.User",
+                                                            "name": "White-Tiger",
+                                                            "reference": true
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "Operation": "Divide",
+                                                    "RightNumber": {
+                                                      "type": "GameValueWrapper",
+                                                      "value": 450000.0
+                                                    }
+                                                  }
+                                                },
+                                                "Operation": "AtMost",
+                                                "RightNumber": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": 1.0
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
                                 }
                               }
                             }
@@ -265,21 +368,54 @@
                               "type": "Eco.Gameplay.Civics.GameValues.Compare",
                               "properties": {
                                 "Left": {
-                                  "type": "Eco.Gameplay.Civics.GameValues.Values.Wealth",
+                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
                                   "properties": {
-                                    "Currency": {
-                                      "type": "GameValueWrapper",
-                                      "value": {
-                                        "type": "Eco.Gameplay.Economy.Currency",
-                                        "name": "Emission Permit",
-                                        "reference": true
+                                    "LeftNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Values.Wealth",
+                                      "properties": {
+                                        "Currency": {
+                                          "type": "GameValueWrapper",
+                                          "value": {
+                                            "type": "Eco.Gameplay.Economy.Currency",
+                                            "name": "Emission Permit",
+                                            "reference": true
+                                          }
+                                        },
+                                        "Citizen": {
+                                          "type": "GameValueContext",
+                                          "contextName": "Citizen",
+                                          "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                          "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the pollution.\r\n"
+                                        }
                                       }
                                     },
-                                    "Citizen": {
-                                      "type": "GameValueContext",
-                                      "contextName": "Citizen",
-                                      "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                                      "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the pollution.\r\n"
+                                    "Operation": "Add",
+                                    "RightNumber": {
+                                      "type": "Eco.Mods.SmartTax.OwedPayments",
+                                      "properties": {
+                                        "Currency": {
+                                          "type": "GameValueWrapper",
+                                          "value": {
+                                            "type": "Eco.Gameplay.Economy.Currency",
+                                            "name": "Emission Permit",
+                                            "reference": true
+                                          }
+                                        },
+                                        "Citizen": {
+                                          "type": "GameValueContext",
+                                          "contextName": "Citizen",
+                                          "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                          "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the pollution.\r\n"
+                                        },
+                                        "SourceAccount": {
+                                          "type": "GameValueWrapper",
+                                          "value": {
+                                            "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
+                                            "name": "Treasury Bank Account",
+                                            "reference": true
+                                          }
+                                        }
+                                      }
                                     }
                                   }
                                 },
@@ -353,8 +489,73 @@
                                 },
                                 "Comparison": "GreaterThanOrEqualTo",
                                 "Right": {
-                                  "type": "GameValueWrapper",
-                                  "value": 5000.0
+                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                  "properties": {
+                                    "LeftNumber": {
+                                      "type": "GameValueWrapper",
+                                      "value": 5000.0
+                                    },
+                                    "Operation": "Add",
+                                    "RightNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                      "properties": {
+                                        "LeftNumber": {
+                                          "type": "GameValueWrapper",
+                                          "value": 5000.0
+                                        },
+                                        "Operation": "Multiply",
+                                        "RightNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                          "properties": {
+                                            "LeftNumber": {
+                                              "type": "GameValueWrapper",
+                                              "value": 1.0
+                                            },
+                                            "Operation": "Subtract",
+                                            "RightNumber": {
+                                              "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                              "properties": {
+                                                "LeftNumber": {
+                                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                                  "properties": {
+                                                    "LeftNumber": {
+                                                      "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                                      "properties": {
+                                                        "CustomStatName": "globalAirPollution",
+                                                        "TimeRangeInHours": {
+                                                          "type": "GameValueWrapper",
+                                                          "value": 24.0
+                                                        },
+                                                        "TimeRangeType": "CountBackFromPresentTime",
+                                                        "User": {
+                                                          "type": "GameValueWrapper",
+                                                          "value": {
+                                                            "type": "Eco.Gameplay.Players.User",
+                                                            "name": "White-Tiger",
+                                                            "reference": true
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "Operation": "Divide",
+                                                    "RightNumber": {
+                                                      "type": "GameValueWrapper",
+                                                      "value": 450000.0
+                                                    }
+                                                  }
+                                                },
+                                                "Operation": "AtMost",
+                                                "RightNumber": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": 1.0
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
                                 }
                               }
                             }
@@ -515,24 +716,62 @@
                                             "type": "Eco.Gameplay.Civics.GameValues.Compare",
                                             "properties": {
                                               "Left": {
-                                                "type": "Eco.Gameplay.Civics.GameValues.Values.Wealth",
+                                                "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
                                                 "properties": {
-                                                  "Currency": {
-                                                    "type": "GameValueWrapper",
-                                                    "value": {
-                                                      "type": "Eco.Gameplay.Economy.Currency",
-                                                      "name": "Emission Permit",
-                                                      "reference": true
+                                                  "LeftNumber": {
+                                                    "type": "Eco.Gameplay.Civics.GameValues.Values.Wealth",
+                                                    "properties": {
+                                                      "Currency": {
+                                                        "type": "GameValueWrapper",
+                                                        "value": {
+                                                          "type": "Eco.Gameplay.Economy.Currency",
+                                                          "name": "Emission Permit",
+                                                          "reference": true
+                                                        }
+                                                      },
+                                                      "Citizen": {
+                                                        "type": "Eco.Mods.Companies.EmployerLegalPerson",
+                                                        "properties": {
+                                                          "Citizen": {
+                                                            "type": "GameValueContext",
+                                                            "contextName": "Citizen",
+                                                            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                                            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the pollution.\r\n"
+                                                          }
+                                                        }
+                                                      }
                                                     }
                                                   },
-                                                  "Citizen": {
-                                                    "type": "Eco.Mods.Companies.EmployerLegalPerson",
+                                                  "Operation": "Add",
+                                                  "RightNumber": {
+                                                    "type": "Eco.Mods.SmartTax.OwedPayments",
                                                     "properties": {
+                                                      "Currency": {
+                                                        "type": "GameValueWrapper",
+                                                        "value": {
+                                                          "type": "Eco.Gameplay.Economy.Currency",
+                                                          "name": "Emission Permit",
+                                                          "reference": true
+                                                        }
+                                                      },
                                                       "Citizen": {
-                                                        "type": "GameValueContext",
-                                                        "contextName": "Citizen",
-                                                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                                                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the pollution.\r\n"
+                                                        "type": "Eco.Mods.Companies.EmployerLegalPerson",
+                                                        "properties": {
+                                                          "Citizen": {
+                                                            "type": "GameValueContext",
+                                                            "contextName": "Citizen",
+                                                            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                                            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the pollution.\r\n"
+                                                          }
+                                                        }
+                                                      },
+                                                      "SourceAccount": {
+                                                        "type": "GameValueWrapper",
+                                                        "value": {
+                                                          "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
+                                                          "name": "Treasury Bank Account",
+                                                          "reference": true
+                                                        }
                                                       }
                                                     }
                                                   }
@@ -619,10 +858,15 @@
                                             }
                                           },
                                           "Target": {
-                                            "type": "GameValueContext",
-                                            "contextName": "Citizen",
-                                            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                                            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the pollution.\r\n"
+                                            "type": "Eco.Mods.Companies.EmployerLegalPersonAlias",
+                                            "properties": {
+                                              "Citizen": {
+                                                "type": "GameValueContext",
+                                                "contextName": "Citizen",
+                                                "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                                "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the pollution.\r\n"
+                                              }
+                                            }
                                           },
                                           "TaxCode": "Air Pollution",
                                           "Suspended": {
@@ -775,21 +1019,54 @@
                                             "type": "Eco.Gameplay.Civics.GameValues.Compare",
                                             "properties": {
                                               "Left": {
-                                                "type": "Eco.Gameplay.Civics.GameValues.Values.Wealth",
+                                                "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
                                                 "properties": {
-                                                  "Currency": {
-                                                    "type": "GameValueWrapper",
-                                                    "value": {
-                                                      "type": "Eco.Gameplay.Economy.Currency",
-                                                      "name": "Emission Permit",
-                                                      "reference": true
+                                                  "LeftNumber": {
+                                                    "type": "Eco.Gameplay.Civics.GameValues.Values.Wealth",
+                                                    "properties": {
+                                                      "Currency": {
+                                                        "type": "GameValueWrapper",
+                                                        "value": {
+                                                          "type": "Eco.Gameplay.Economy.Currency",
+                                                          "name": "Emission Permit",
+                                                          "reference": true
+                                                        }
+                                                      },
+                                                      "Citizen": {
+                                                        "type": "GameValueContext",
+                                                        "contextName": "Citizen",
+                                                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the pollution.\r\n"
+                                                      }
                                                     }
                                                   },
-                                                  "Citizen": {
-                                                    "type": "GameValueContext",
-                                                    "contextName": "Citizen",
-                                                    "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                                                    "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the pollution.\r\n"
+                                                  "Operation": "Add",
+                                                  "RightNumber": {
+                                                    "type": "Eco.Mods.SmartTax.OwedPayments",
+                                                    "properties": {
+                                                      "Currency": {
+                                                        "type": "GameValueWrapper",
+                                                        "value": {
+                                                          "type": "Eco.Gameplay.Economy.Currency",
+                                                          "name": "Emission Permit",
+                                                          "reference": true
+                                                        }
+                                                      },
+                                                      "Citizen": {
+                                                        "type": "GameValueContext",
+                                                        "contextName": "Citizen",
+                                                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the pollution.\r\n"
+                                                      },
+                                                      "SourceAccount": {
+                                                        "type": "GameValueWrapper",
+                                                        "value": {
+                                                          "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
+                                                          "name": "Treasury Bank Account",
+                                                          "reference": true
+                                                        }
+                                                      }
+                                                    }
                                                   }
                                                 }
                                               },
@@ -1036,7 +1313,7 @@
         "reference": false,
         "properties": {
           "Title": "EP Decay & Priority calculation",
-          "UserDescription": "Every 1, pollution is decayed by 2.85%, leading to a half life of 1 day (1 day until 50% of pollution is forgotten). If a higher number is used here, past pollution will be forgotten quicker. There is a limit to the maximum percentage a citizen can reach: no more than 50 PPM is considered.",
+          "UserDescription": "Every 1, pollution is decayed by 2.85%, leading to a half life between 12h and 1 day. The decay rate is determined. There is a limit to the maximum percentage a citizen can reach: no more than 50 PPM is considered. EP percentages below 0.1% are ignored (18.75 to 37.5 EP per hour) to not clog up distribution.",
           "Triggers": [
             {
               "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
@@ -1110,8 +1387,47 @@
                           },
                           "Comparison": "GreaterThanOrEqualTo",
                           "Right": {
-                            "type": "GameValueWrapper",
-                            "value": 0.01
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                            "properties": {
+                              "LeftNumber": {
+                                "type": "Eco.Mods.SmartTax.OwedTaxes",
+                                "properties": {
+                                  "Currency": {
+                                    "type": "GameValueWrapper",
+                                    "value": {
+                                      "type": "Eco.Gameplay.Economy.Currency",
+                                      "name": "Emission Permit",
+                                      "reference": true
+                                    }
+                                  },
+                                  "Citizen": {
+                                    "type": "GameValueWrapper",
+                                    "value": {
+                                      "type": "Eco.Gameplay.Players.User",
+                                      "name": "White-Tiger",
+                                      "reference": true
+                                    }
+                                  },
+                                  "TargetAccount": {
+                                    "type": "GameValueWrapper",
+                                    "value": {
+                                      "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                      "name": "EP Tracking (no touchy)",
+                                      "reference": true
+                                    }
+                                  },
+                                  "ConsiderRebates": {
+                                    "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                    "properties": {}
+                                  }
+                                }
+                              },
+                              "Operation": "Divide",
+                              "RightNumber": {
+                                "type": "GameValueWrapper",
+                                "value": 1000.0
+                              }
+                            }
                           }
                         }
                       },
@@ -1261,7 +1577,7 @@
                                 "type": "GameValueWrapper",
                                 "value": 0.0
                               },
-                              "TimeRangeType": "CurrentTimeBlock",
+                              "TimeRangeType": "CountBackFromPresentTime",
                               "User": {
                                 "type": "GameValueContext",
                                 "contextName": "Citizen",
@@ -1333,8 +1649,73 @@
                             }
                           },
                           "Percent": {
-                            "type": "GameValueWrapper",
-                            "value": 2.85
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                            "properties": {
+                              "LeftNumber": {
+                                "type": "GameValueWrapper",
+                                "value": 2.85
+                              },
+                              "Operation": "Add",
+                              "RightNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                "properties": {
+                                  "LeftNumber": {
+                                    "type": "GameValueWrapper",
+                                    "value": 2.85
+                                  },
+                                  "Operation": "Multiply",
+                                  "RightNumber": {
+                                    "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                    "properties": {
+                                      "LeftNumber": {
+                                        "type": "GameValueWrapper",
+                                        "value": 1.0
+                                      },
+                                      "Operation": "Subtract",
+                                      "RightNumber": {
+                                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                        "properties": {
+                                          "LeftNumber": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                            "properties": {
+                                              "LeftNumber": {
+                                                "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                                "properties": {
+                                                  "CustomStatName": "globalAirPollution",
+                                                  "TimeRangeInHours": {
+                                                    "type": "GameValueWrapper",
+                                                    "value": 24.0
+                                                  },
+                                                  "TimeRangeType": "CountBackFromPresentTime",
+                                                  "User": {
+                                                    "type": "GameValueWrapper",
+                                                    "value": {
+                                                      "type": "Eco.Gameplay.Players.User",
+                                                      "name": "White-Tiger",
+                                                      "reference": true
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "Operation": "Divide",
+                                              "RightNumber": {
+                                                "type": "GameValueWrapper",
+                                                "value": 450000.0
+                                              }
+                                            }
+                                          },
+                                          "Operation": "AtMost",
+                                          "RightNumber": {
+                                            "type": "GameValueWrapper",
+                                            "value": 1.0
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
                           }
                         }
                       },
@@ -1412,8 +1793,73 @@
                             }
                           },
                           "Percent": {
-                            "type": "GameValueWrapper",
-                            "value": 2.85
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                            "properties": {
+                              "LeftNumber": {
+                                "type": "GameValueWrapper",
+                                "value": 2.85
+                              },
+                              "Operation": "Add",
+                              "RightNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                "properties": {
+                                  "LeftNumber": {
+                                    "type": "GameValueWrapper",
+                                    "value": 2.85
+                                  },
+                                  "Operation": "Multiply",
+                                  "RightNumber": {
+                                    "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                    "properties": {
+                                      "LeftNumber": {
+                                        "type": "GameValueWrapper",
+                                        "value": 1.0
+                                      },
+                                      "Operation": "Subtract",
+                                      "RightNumber": {
+                                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                        "properties": {
+                                          "LeftNumber": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                            "properties": {
+                                              "LeftNumber": {
+                                                "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                                "properties": {
+                                                  "CustomStatName": "globalAirPollution",
+                                                  "TimeRangeInHours": {
+                                                    "type": "GameValueWrapper",
+                                                    "value": 24.0
+                                                  },
+                                                  "TimeRangeType": "CountBackFromPresentTime",
+                                                  "User": {
+                                                    "type": "GameValueWrapper",
+                                                    "value": {
+                                                      "type": "Eco.Gameplay.Players.User",
+                                                      "name": "White-Tiger",
+                                                      "reference": true
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "Operation": "Divide",
+                                              "RightNumber": {
+                                                "type": "GameValueWrapper",
+                                                "value": 450000.0
+                                              }
+                                            }
+                                          },
+                                          "Operation": "AtMost",
+                                          "RightNumber": {
+                                            "type": "GameValueWrapper",
+                                            "value": 1.0
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
                           }
                         }
                       },
@@ -1427,6 +1873,138 @@
                       "Silent": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "globalEpPercentage",
+                      "Person": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Players.User",
+                          "name": "White-Tiger",
+                          "reference": true
+                        }
+                      },
+                      "Count": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                        "properties": {
+                          "LeftNumber": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                            "properties": {
+                              "LeftNumber": {
+                                "type": "GameValueWrapper",
+                                "value": 100.0
+                              },
+                              "Operation": "Multiply",
+                              "RightNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                "properties": {
+                                  "LeftNumber": {
+                                    "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                    "properties": {
+                                      "LeftNumber": {
+                                        "type": "Eco.Mods.SmartTax.OwedTaxes",
+                                        "properties": {
+                                          "Currency": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.Currency",
+                                              "name": "Emission Permit",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Citizen": {
+                                            "type": "GameValueContext",
+                                            "contextName": "Citizen",
+                                            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                          },
+                                          "TargetAccount": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                              "name": "EP Tracking (no touchy)",
+                                              "reference": true
+                                            }
+                                          },
+                                          "ConsiderRebates": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                            "properties": {}
+                                          }
+                                        }
+                                      },
+                                      "Operation": "AtMost",
+                                      "RightNumber": {
+                                        "type": "GameValueWrapper",
+                                        "value": 50000.0
+                                      }
+                                    }
+                                  },
+                                  "Operation": "Divide",
+                                  "RightNumber": {
+                                    "type": "Eco.Mods.SmartTax.OwedTaxes",
+                                    "properties": {
+                                      "Currency": {
+                                        "type": "GameValueWrapper",
+                                        "value": {
+                                          "type": "Eco.Gameplay.Economy.Currency",
+                                          "name": "Emission Permit",
+                                          "reference": true
+                                        }
+                                      },
+                                      "Citizen": {
+                                        "type": "GameValueWrapper",
+                                        "value": {
+                                          "type": "Eco.Gameplay.Players.User",
+                                          "name": "White-Tiger",
+                                          "reference": true
+                                        }
+                                      },
+                                      "TargetAccount": {
+                                        "type": "GameValueWrapper",
+                                        "value": {
+                                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                          "name": "EP Tracking (no touchy)",
+                                          "reference": true
+                                        }
+                                      },
+                                      "ConsiderRebates": {
+                                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                        "properties": {}
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "Operation": "Subtract",
+                          "RightNumber": {
+                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                            "properties": {
+                              "CustomStatName": "epPercentage",
+                              "TimeRangeInHours": {
+                                "type": "GameValueWrapper",
+                                "value": 0.0
+                              },
+                              "TimeRangeType": "CountBackFromPresentTime",
+                              "User": {
+                                "type": "GameValueContext",
+                                "contextName": "Citizen",
+                                "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                              }
+                            }
+                          }
+                        }
                       },
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
@@ -1456,7 +2034,7 @@
                                 "type": "GameValueWrapper",
                                 "value": 0.0
                               },
-                              "TimeRangeType": "CurrentTimeBlock",
+                              "TimeRangeType": "CountBackFromPresentTime",
                               "User": {
                                 "type": "GameValueContext",
                                 "contextName": "Citizen",
@@ -1504,7 +2082,53 @@
                                 "type": "GameValueWrapper",
                                 "value": 0.0
                               },
-                              "TimeRangeType": "CurrentTimeBlock",
+                              "TimeRangeType": "CountBackFromPresentTime",
+                              "User": {
+                                "type": "GameValueContext",
+                                "contextName": "Citizen",
+                                "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "globalEpPercentage",
+                      "Person": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Players.User",
+                          "name": "White-Tiger",
+                          "reference": true
+                        }
+                      },
+                      "Count": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                        "properties": {
+                          "LeftNumber": {
+                            "type": "GameValueWrapper",
+                            "value": 0.0
+                          },
+                          "Operation": "Subtract",
+                          "RightNumber": {
+                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                            "properties": {
+                              "CustomStatName": "epPercentage",
+                              "TimeRangeInHours": {
+                                "type": "GameValueWrapper",
+                                "value": 0.0
+                              },
+                              "TimeRangeType": "CountBackFromPresentTime",
                               "User": {
                                 "type": "GameValueContext",
                                 "contextName": "Citizen",
@@ -1532,7 +2156,7 @@
         "reference": false,
         "properties": {
           "Title": "EP Redistribution",
-          "UserDescription": "Every 1 hour, pull in all EP from all citizens. Then distribute between 18,75k (450k / 24) and 37,5k of them based on the calculated percentages. The distributed amount is determined through the usual overprovisioning, by comparing the air pollution in the last 24h with the target of 450k. If we polluted too much, this will result in underprovisioning, but that should never happen realistically as the EP barrier is a natural stopper.",
+          "UserDescription": "Every 1 hour, pull in all EP from all citizens. Then distribute between 18,75k (450k / 24) and 37,5k of them based on the calculated percentages. The distributed amount is determined through the usual overprovisioning, by comparing the air pollution in the last 24h with the target of 450k. If we polluted too much, this will result in underprovisioning, but that should never happen realistically as the EP barrier is a natural stopper.\nIf a citizen joins a cooperative, their EP share is sent to the cooperative instead.",
           "Triggers": [
             {
               "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
@@ -1624,21 +2248,58 @@
                         }
                       },
                       "Amount": {
-                        "type": "Eco.Gameplay.Civics.GameValues.Values.Wealth",
+                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
                         "properties": {
-                          "Currency": {
-                            "type": "GameValueWrapper",
-                            "value": {
-                              "type": "Eco.Gameplay.Economy.Currency",
-                              "name": "Emission Permit",
-                              "reference": true
+                          "LeftNumber": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Wealth",
+                            "properties": {
+                              "Currency": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.Currency",
+                                  "name": "Emission Permit",
+                                  "reference": true
+                                }
+                              },
+                              "Citizen": {
+                                "type": "GameValueContext",
+                                "contextName": "Citizen",
+                                "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                              }
                             }
                           },
-                          "Citizen": {
-                            "type": "GameValueContext",
-                            "contextName": "Citizen",
-                            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                          "Operation": "Subtract",
+                          "RightNumber": {
+                            "type": "Eco.Mods.SmartTax.OwedTaxes",
+                            "properties": {
+                              "Currency": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.Currency",
+                                  "name": "Emission Permit",
+                                  "reference": true
+                                }
+                              },
+                              "Citizen": {
+                                "type": "GameValueContext",
+                                "contextName": "Citizen",
+                                "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                              },
+                              "TargetAccount": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
+                                  "name": "Treasury Bank Account",
+                                  "reference": true
+                                }
+                              },
+                              "ConsiderRebates": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                "properties": {}
+                              }
+                            }
                           }
                         }
                       },
@@ -1664,116 +2325,417 @@
                     }
                   },
                   {
-                    "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                    "type": "Eco.Gameplay.Civics.Conditional_LegalAction",
                     "reference": false,
                     "properties": {
-                      "SourceBankAccount": {
-                        "type": "GameValueWrapper",
-                        "value": {
-                          "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
-                          "name": "Treasury Bank Account",
-                          "reference": true
-                        }
-                      },
-                      "Currency": {
-                        "type": "GameValueWrapper",
-                        "value": {
-                          "type": "Eco.Gameplay.Economy.Currency",
-                          "name": "Emission Permit",
-                          "reference": true
-                        }
-                      },
-                      "Amount": {
-                        "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
                         "properties": {
-                          "Number": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
                             "properties": {
-                              "LeftNumber": {
-                                "type": "GameValueWrapper",
-                                "value": 18750.0
-                              },
-                              "Operation": "Add",
-                              "RightNumber": {
-                                "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
-                                "properties": {
-                                  "LeftNumber": {
-                                    "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
-                                    "properties": {
-                                      "LeftNumber": {
-                                        "type": "GameValueWrapper",
-                                        "value": 1.0
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
+                                  "properties": {
+                                    "Demographics": {
+                                      "type": "GamePickerList",
+                                      "mustDeriveType": {
+                                        "type": "Type",
+                                        "value": "Eco.Gameplay.Civics.Demographics.Demographic"
                                       },
-                                      "Operation": "Subtract",
-                                      "RightNumber": {
-                                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
-                                        "properties": {
-                                          "LeftNumber": {
-                                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
-                                            "properties": {
-                                              "CustomStatName": "globalAirPollution",
-                                              "TimeRangeInHours": {
-                                                "type": "GameValueWrapper",
-                                                "value": 24.0
-                                              },
-                                              "TimeRangeType": "CountBackFromPresentTime",
-                                              "User": {
-                                                "type": "GameValueWrapper",
-                                                "value": {
-                                                  "type": "Eco.Gameplay.Players.User",
-                                                  "name": "White-Tiger",
-                                                  "reference": true
+                                      "requiredTag": null,
+                                      "internalDescription": "<b><link=\"ref:Demographic:25\"><ecoicon item=\"Demographic\"><style=\"Government\">Employee of Cooperative</style></ecoicon></link></b>",
+                                      "entries": [
+                                        {
+                                          "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                                          "name": "Employee of Cooperative",
+                                          "reference": true
+                                        }
+                                      ]
+                                    },
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "contextName": "Citizen",
+                                      "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                      "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                    },
+                                    "Requirements": "HasAll"
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "SourceBankAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
+                                    "name": "Treasury Bank Account",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Emission Permit",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                  "properties": {
+                                    "Number": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                      "properties": {
+                                        "LeftNumber": {
+                                          "type": "GameValueWrapper",
+                                          "value": 18750.0
+                                        },
+                                        "Operation": "Add",
+                                        "RightNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                          "properties": {
+                                            "LeftNumber": {
+                                              "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                              "properties": {
+                                                "LeftNumber": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": 1.0
+                                                },
+                                                "Operation": "Subtract",
+                                                "RightNumber": {
+                                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                                  "properties": {
+                                                    "LeftNumber": {
+                                                      "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                                      "properties": {
+                                                        "CustomStatName": "globalAirPollution",
+                                                        "TimeRangeInHours": {
+                                                          "type": "GameValueWrapper",
+                                                          "value": 24.0
+                                                        },
+                                                        "TimeRangeType": "CountBackFromPresentTime",
+                                                        "User": {
+                                                          "type": "GameValueWrapper",
+                                                          "value": {
+                                                            "type": "Eco.Gameplay.Players.User",
+                                                            "name": "White-Tiger",
+                                                            "reference": true
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "Operation": "Divide",
+                                                    "RightNumber": {
+                                                      "type": "GameValueWrapper",
+                                                      "value": 450000.0
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "Operation": "Multiply",
+                                            "RightNumber": {
+                                              "type": "GameValueWrapper",
+                                              "value": 18750.0
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "Percent": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                      "properties": {
+                                        "LeftNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                          "properties": {
+                                            "CustomStatName": "epPercentage",
+                                            "TimeRangeInHours": {
+                                              "type": "GameValueWrapper",
+                                              "value": 0.0
+                                            },
+                                            "TimeRangeType": "CountBackFromPresentTime",
+                                            "User": {
+                                              "type": "GameValueContext",
+                                              "contextName": "Citizen",
+                                              "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                              "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                            }
+                                          }
+                                        },
+                                        "Operation": "Multiply",
+                                        "RightNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                          "properties": {
+                                            "LeftNumber": {
+                                              "type": "GameValueWrapper",
+                                              "value": 100.0
+                                            },
+                                            "Operation": "Divide",
+                                            "RightNumber": {
+                                              "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                              "properties": {
+                                                "CustomStatName": "globalEpPercentage",
+                                                "TimeRangeInHours": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": 0.0
+                                                },
+                                                "TimeRangeType": "CountBackFromPresentTime",
+                                                "User": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Players.User",
+                                                    "name": "White-Tiger",
+                                                    "reference": true
+                                                  }
                                                 }
                                               }
                                             }
-                                          },
-                                          "Operation": "Divide",
-                                          "RightNumber": {
-                                            "type": "GameValueWrapper",
-                                            "value": 450000.0
                                           }
                                         }
                                       }
                                     }
-                                  },
-                                  "Operation": "Multiply",
-                                  "RightNumber": {
-                                    "type": "GameValueWrapper",
-                                    "value": 18750.0
                                   }
+                                },
+                                "Target": {
+                                  "type": "Eco.Mods.Companies.EmployerLegalPersonAlias",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "contextName": "Citizen",
+                                      "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                      "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                    }
+                                  }
+                                },
+                                "PaymentCode": "EP Redistribution",
+                                "Silent": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
                                 }
                               }
                             }
-                          },
-                          "Percent": {
-                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
-                            "properties": {
-                              "CustomStatName": "epPercentage",
-                              "TimeRangeInHours": {
-                                "type": "GameValueWrapper",
-                                "value": 0.0
-                              },
-                              "TimeRangeType": "CountBackFromPresentTime",
-                              "User": {
-                                "type": "GameValueContext",
-                                "contextName": "Citizen",
-                                "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                                "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
-                              }
-                            }
-                          }
+                          ]
                         }
                       },
-                      "Target": {
-                        "type": "GameValueContext",
-                        "contextName": "Citizen",
-                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
-                      },
-                      "PaymentCode": "EP Redistribution",
-                      "Silent": {
+                      "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
+                                  "properties": {
+                                    "Demographics": {
+                                      "type": "GamePickerList",
+                                      "mustDeriveType": {
+                                        "type": "Type",
+                                        "value": "Eco.Gameplay.Civics.Demographics.Demographic"
+                                      },
+                                      "requiredTag": null,
+                                      "internalDescription": "<b><link=\"ref:Demographic:25\"><ecoicon item=\"Demographic\"><style=\"Government\">Employee of Cooperative</style></ecoicon></link></b>",
+                                      "entries": [
+                                        {
+                                          "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                                          "name": "Employee of Cooperative",
+                                          "reference": true
+                                        }
+                                      ]
+                                    },
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "contextName": "Citizen",
+                                      "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                      "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                    },
+                                    "Requirements": "HasNone"
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "SourceBankAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
+                                    "name": "Treasury Bank Account",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Emission Permit",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                  "properties": {
+                                    "Number": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                      "properties": {
+                                        "LeftNumber": {
+                                          "type": "GameValueWrapper",
+                                          "value": 18750.0
+                                        },
+                                        "Operation": "Add",
+                                        "RightNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                          "properties": {
+                                            "LeftNumber": {
+                                              "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                              "properties": {
+                                                "LeftNumber": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": 1.0
+                                                },
+                                                "Operation": "Subtract",
+                                                "RightNumber": {
+                                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                                  "properties": {
+                                                    "LeftNumber": {
+                                                      "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                                      "properties": {
+                                                        "CustomStatName": "globalAirPollution",
+                                                        "TimeRangeInHours": {
+                                                          "type": "GameValueWrapper",
+                                                          "value": 24.0
+                                                        },
+                                                        "TimeRangeType": "CountBackFromPresentTime",
+                                                        "User": {
+                                                          "type": "GameValueWrapper",
+                                                          "value": {
+                                                            "type": "Eco.Gameplay.Players.User",
+                                                            "name": "White-Tiger",
+                                                            "reference": true
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "Operation": "Divide",
+                                                    "RightNumber": {
+                                                      "type": "GameValueWrapper",
+                                                      "value": 450000.0
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "Operation": "Multiply",
+                                            "RightNumber": {
+                                              "type": "GameValueWrapper",
+                                              "value": 18750.0
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "Percent": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                      "properties": {
+                                        "LeftNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                          "properties": {
+                                            "CustomStatName": "epPercentage",
+                                            "TimeRangeInHours": {
+                                              "type": "GameValueWrapper",
+                                              "value": 0.0
+                                            },
+                                            "TimeRangeType": "CountBackFromPresentTime",
+                                            "User": {
+                                              "type": "GameValueContext",
+                                              "contextName": "Citizen",
+                                              "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                              "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                            }
+                                          }
+                                        },
+                                        "Operation": "Multiply",
+                                        "RightNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                          "properties": {
+                                            "LeftNumber": {
+                                              "type": "GameValueWrapper",
+                                              "value": 100.0
+                                            },
+                                            "Operation": "Divide",
+                                            "RightNumber": {
+                                              "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                              "properties": {
+                                                "CustomStatName": "globalEpPercentage",
+                                                "TimeRangeInHours": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": 0.0
+                                                },
+                                                "TimeRangeType": "CountBackFromPresentTime",
+                                                "User": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Players.User",
+                                                    "name": "White-Tiger",
+                                                    "reference": true
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "Target": {
+                                  "type": "GameValueContext",
+                                  "contextName": "Citizen",
+                                  "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                  "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                },
+                                "PaymentCode": "EP Redistribution",
+                                "Silent": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
                       },
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
@@ -1947,6 +2909,325 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Yes",
                         "properties": {}
                       },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Technical - Receive Debug Info about the EPs",
+          "UserDescription": "Citizens can enter !epinfo to receive information about the current status of the EP system\u000bInfo given:\u000b- current utilization: how efficiently the global resource air pollution is being consumed. Ideal amount is 450 PPM per day. Close to 100% is best if resource constrained.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ChatSent"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectString",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChatSent",
+                    "propNameBacker": "Tag",
+                    "propDisplayName": "Tag",
+                    "properties": {
+                      "String": null
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectString",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChatSent",
+                    "propNameBacker": "Message",
+                    "propDisplayName": "Message",
+                    "properties": {
+                      "String": "!epinfo"
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.SendNotice",
+                    "reference": false,
+                    "properties": {
+                      "Message": "current utilization in %:",
+                      "NotificationType": "SideBarMessage",
+                      "PeopleToSendTo": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                      },
+                      "ValueToDisplay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                        "properties": {
+                          "LeftNumber": {
+                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                            "properties": {
+                              "CustomStatName": "globalAirPollution",
+                              "TimeRangeInHours": {
+                                "type": "GameValueWrapper",
+                                "value": 24.0
+                              },
+                              "TimeRangeType": "CountBackFromPresentTime",
+                              "User": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Players.User",
+                                  "name": "White-Tiger",
+                                  "reference": true
+                                }
+                              }
+                            }
+                          },
+                          "Operation": "Divide",
+                          "RightNumber": {
+                            "type": "GameValueWrapper",
+                            "value": 4500.0
+                          }
+                        }
+                      },
+                      "LocationToDisplay": null,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.SendNotice",
+                    "reference": false,
+                    "properties": {
+                      "Message": "current decay rate in %/h:",
+                      "NotificationType": "SideBarMessage",
+                      "PeopleToSendTo": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                      },
+                      "ValueToDisplay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                        "properties": {
+                          "LeftNumber": {
+                            "type": "GameValueWrapper",
+                            "value": 2.85
+                          },
+                          "Operation": "Add",
+                          "RightNumber": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                            "properties": {
+                              "LeftNumber": {
+                                "type": "GameValueWrapper",
+                                "value": 2.85
+                              },
+                              "Operation": "Multiply",
+                              "RightNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                "properties": {
+                                  "LeftNumber": {
+                                    "type": "GameValueWrapper",
+                                    "value": 1.0
+                                  },
+                                  "Operation": "Subtract",
+                                  "RightNumber": {
+                                    "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                    "properties": {
+                                      "LeftNumber": {
+                                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                        "properties": {
+                                          "LeftNumber": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                            "properties": {
+                                              "CustomStatName": "globalAirPollution",
+                                              "TimeRangeInHours": {
+                                                "type": "GameValueWrapper",
+                                                "value": 24.0
+                                              },
+                                              "TimeRangeType": "CountBackFromPresentTime",
+                                              "User": {
+                                                "type": "GameValueWrapper",
+                                                "value": {
+                                                  "type": "Eco.Gameplay.Players.User",
+                                                  "name": "White-Tiger",
+                                                  "reference": true
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "Operation": "Divide",
+                                          "RightNumber": {
+                                            "type": "GameValueWrapper",
+                                            "value": 450000.0
+                                          }
+                                        }
+                                      },
+                                      "Operation": "AtMost",
+                                      "RightNumber": {
+                                        "type": "GameValueWrapper",
+                                        "value": 1.0
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "LocationToDisplay": null,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.SendNotice",
+                    "reference": false,
+                    "properties": {
+                      "Message": "current free pollution level in EP:",
+                      "NotificationType": "SideBarMessage",
+                      "PeopleToSendTo": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                      },
+                      "ValueToDisplay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                        "properties": {
+                          "LeftNumber": {
+                            "type": "GameValueWrapper",
+                            "value": 5000.0
+                          },
+                          "Operation": "Add",
+                          "RightNumber": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                            "properties": {
+                              "LeftNumber": {
+                                "type": "GameValueWrapper",
+                                "value": 5000.0
+                              },
+                              "Operation": "Multiply",
+                              "RightNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                "properties": {
+                                  "LeftNumber": {
+                                    "type": "GameValueWrapper",
+                                    "value": 1.0
+                                  },
+                                  "Operation": "Subtract",
+                                  "RightNumber": {
+                                    "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                    "properties": {
+                                      "LeftNumber": {
+                                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                        "properties": {
+                                          "LeftNumber": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                            "properties": {
+                                              "CustomStatName": "globalAirPollution",
+                                              "TimeRangeInHours": {
+                                                "type": "GameValueWrapper",
+                                                "value": 24.0
+                                              },
+                                              "TimeRangeType": "CountBackFromPresentTime",
+                                              "User": {
+                                                "type": "GameValueWrapper",
+                                                "value": {
+                                                  "type": "Eco.Gameplay.Players.User",
+                                                  "name": "White-Tiger",
+                                                  "reference": true
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "Operation": "Divide",
+                                          "RightNumber": {
+                                            "type": "GameValueWrapper",
+                                            "value": 450000.0
+                                          }
+                                        }
+                                      },
+                                      "Operation": "AtMost",
+                                      "RightNumber": {
+                                        "type": "GameValueWrapper",
+                                        "value": 1.0
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "LocationToDisplay": null,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.SendNotice",
+                    "reference": false,
+                    "properties": {
+                      "Message": "current global percentage in % (only for debug):",
+                      "NotificationType": "SideBarMessage",
+                      "PeopleToSendTo": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                      },
+                      "ValueToDisplay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                        "properties": {
+                          "CustomStatName": "globalEpPercentage",
+                          "TimeRangeInHours": {
+                            "type": "GameValueWrapper",
+                            "value": 0.0
+                          },
+                          "TimeRangeType": "CountBackFromPresentTime",
+                          "User": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Players.User",
+                              "name": "White-Tiger",
+                              "reference": true
+                            }
+                          }
+                        }
+                      },
+                      "LocationToDisplay": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}

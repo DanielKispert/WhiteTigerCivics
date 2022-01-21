@@ -1,0 +1,213 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Laws.Law",
+  "name": "Federal Hunting Authorization",
+  "reference": false,
+  "description": "Citizens shall be allowed to hunt freely on owned land as well. If a citizen does not wish for hunting to happen on their property, they can request to be added to a zone that is exempt from this.",
+  "properties": {
+    "Sections": [
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Hunting Authorization",
+          "UserDescription": "",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.HarvestOrHunt"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.HarvestOrHunt",
+                    "propNameBacker": "Species",
+                    "propDisplayName": "Species",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Simulation.Types.Species"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<foldout><linktext><u>27 Animals</u></linktext><title>27 Animals</title><b><link=\"TypeTooltip:577\"><ecoicon item=\"AgoutiSpecies\">Agouti Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1600\"><ecoicon item=\"AlligatorSpecies\">Alligator Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:491\"><ecoicon item=\"BassSpecies\">Bass Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1283\"><ecoicon item=\"BighornSheepSpecies\">Bighorn Sheep Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:152\"><ecoicon item=\"BisonSpecies\">Bison Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:2744\"><ecoicon item=\"BlueSharkSpecies\">Blue Shark Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:113\"><ecoicon item=\"CodSpecies\">Cod Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:619\"><ecoicon item=\"CoyoteSpecies\">Coyote Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1541\"><ecoicon item=\"CrabSpecies\">Crab Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:752\"><ecoicon item=\"DeerSpecies\">Deer Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:455\"><ecoicon item=\"ElkSpecies\">Elk Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1853\"><ecoicon item=\"FoxSpecies\">Fox Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:32\"><ecoicon item=\"HareSpecies\">Hare Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1260\"><ecoicon item=\"JaguarSpecies\">Jaguar Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1212\"><ecoicon item=\"MoonJellyfishSpecies\">Moon Jellyfish Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:2712\"><ecoicon item=\"MountainGoatSpecies\">Mountain Goat Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1432\"><ecoicon item=\"OtterSpecies\">Otter Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1406\"><ecoicon item=\"PacificSardineSpecies\">Pacific Sardine Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1171\"><ecoicon item=\"PrairieDogSpecies\">Prairie Dog Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1572\"><ecoicon item=\"SalmonSpecies\">Salmon Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:2665\"><ecoicon item=\"SnappingTurtleSpecies\">Snapping Turtle Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:2439\"><ecoicon item=\"TarantulaSpecies\">Tarantula Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:672\"><ecoicon item=\"TortoiseSpecies\">Tortoise Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:215\"><ecoicon item=\"TroutSpecies\">Trout Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1998\"><ecoicon item=\"TunaSpecies\">Tuna Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:760\"><ecoicon item=\"TurkeySpecies\">Turkey Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:89\"><ecoicon item=\"WolfSpecies\">Wolf Species</ecoicon></link></b></foldout>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.PacificSardine+PacificSardineSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Elk+ElkSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Jaguar+JaguarSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Wolf+WolfSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Alligator+AlligatorSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Turkey+TurkeySpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Cod+CodSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Tuna+TunaSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.PrairieDog+PrairieDogSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Tarantula+TarantulaSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Deer+DeerSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MoonJellyfish+MoonJellyfishSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Hare+HareSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Crab+CrabSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BighornSheep+BighornSheepSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Otter+OtterSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Agouti+AgoutiSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Bison+BisonSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Tortoise+TortoiseSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Fox+FoxSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BlueShark+BlueSharkSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SnappingTurtle+SnappingTurtleSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MountainGoat+MountainGoatSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Trout+TroutSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Coyote+CoyoteSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Bass+BassSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Salmon+SalmonSpecies"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.HarvestOrHunt",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Harvester",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.OnOwnedLand",
+                        "properties": {}
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.IgnoreAuth_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

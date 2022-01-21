@@ -1,0 +1,1249 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Laws.Law",
+  "name": "Unica Roadwork",
+  "reference": false,
+  "description": "This law manages road construction inside Unica",
+  "properties": {
+    "Sections": [
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Stone Road (Tracking)",
+          "UserDescription": "Track payment for placement of and fee for removal of stone roads.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ConstructOrDeconstruct"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ConstructOrDeconstruct",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Constructable",
+                        "internalDescription": "<b><link=\"TypeTooltip:399\"><b><link=\"Item:StoneRoadItem\"><style=\"Item\"><ecoicon item=\"Stone Road\">Stone Road</ecoicon></style></link></b></link></b>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.StoneRoadItem"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ConstructOrDeconstruct",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Construction",
+                        "internalDescription": null,
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "contextName": "Constructed",
+                        "titleBacking": "<ecoicon item=\"ConstructOrDeconstruct\">Constructed</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"ConstructOrDeconstruct\">Constructed</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"ConstructOrDeconstruct\">Constructed</ecoicon>: Was the block constructed or deconstructed?\r\n"
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "contextName": "Action Location",
+                            "titleBacking": "<ecoicon item=\"ConstructOrDeconstruct\">Action Location</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"ConstructOrDeconstruct\">Action Location</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"ConstructOrDeconstruct\">Action Location</ecoicon>: The position where the interaction took place.\r\n"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<b><link=\"ref:District:26\"><ecoicon item=\"District\"><color=#C16237FF>Capital Roads</color></ecoicon></link></b>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Capital Roads",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "InsideOne"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Treasury of Unica",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                        "properties": {
+                          "Currency": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Economy.Currency",
+                              "name": "Euro",
+                              "reference": true
+                            }
+                          },
+                          "Account": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                              "name": "# Federal Infrastructure Payout (Stone Road)",
+                              "reference": true
+                            }
+                          }
+                        }
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                      },
+                      "PaymentCode": "Unica Roads",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "contextName": "Deconstructed",
+                        "titleBacking": "<ecoicon item=\"ConstructOrDeconstruct\">Deconstructed</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"ConstructOrDeconstruct\">Deconstructed</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"ConstructOrDeconstruct\">Deconstructed</ecoicon>: Was the block constructed or deconstructed?\r\n"
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "contextName": "Action Location",
+                            "titleBacking": "<ecoicon item=\"ConstructOrDeconstruct\">Action Location</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"ConstructOrDeconstruct\">Action Location</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"ConstructOrDeconstruct\">Action Location</ecoicon>: The position where the interaction took place.\r\n"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<b><link=\"ref:District:26\"><ecoicon item=\"District\"><color=#C16237FF>Capital Roads</color></ecoicon></link></b>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Capital Roads",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "InsideOne"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Treasury of Unica",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                        "properties": {
+                          "Currency": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Economy.Currency",
+                              "name": "Euro",
+                              "reference": true
+                            }
+                          },
+                          "Account": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                              "name": "# Federal Infrastructure Payout (Stone Road)",
+                              "reference": true
+                            }
+                          }
+                        }
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                      },
+                      "TaxCode": "Unica Roads",
+                      "Suspended": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Asphalt Road (Tracking)",
+          "UserDescription": "Track payment for placement of and fee for removal of asphalt roads.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ConstructOrDeconstruct"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ConstructOrDeconstruct",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Constructable",
+                        "internalDescription": "<b><link=\"TypeTooltip:810\"><b><link=\"Item:AsphaltConcreteItem\"><style=\"Item\"><ecoicon item=\"Asphalt Concrete\">Asphalt Concrete</ecoicon></style></link></b></link></b>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AsphaltConcreteItem"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ConstructOrDeconstruct",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Construction",
+                        "internalDescription": null,
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "contextName": "Constructed",
+                        "titleBacking": "<ecoicon item=\"ConstructOrDeconstruct\">Constructed</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"ConstructOrDeconstruct\">Constructed</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"ConstructOrDeconstruct\">Constructed</ecoicon>: Was the block constructed or deconstructed?\r\n"
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "contextName": "Action Location",
+                            "titleBacking": "<ecoicon item=\"ConstructOrDeconstruct\">Action Location</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"ConstructOrDeconstruct\">Action Location</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"ConstructOrDeconstruct\">Action Location</ecoicon>: The position where the interaction took place.\r\n"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<b><link=\"ref:District:26\"><ecoicon item=\"District\"><color=#C16237FF>Capital Roads</color></ecoicon></link></b>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Capital Roads",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "InsideOne"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Treasury of Unica",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                        "properties": {
+                          "Currency": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Economy.Currency",
+                              "name": "Euro",
+                              "reference": true
+                            }
+                          },
+                          "Account": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                              "name": "# Federal Infrastructure Payout (Asphalt Road)",
+                              "reference": true
+                            }
+                          }
+                        }
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                      },
+                      "PaymentCode": "Unica Roads",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "contextName": "Deconstructed",
+                        "titleBacking": "<ecoicon item=\"ConstructOrDeconstruct\">Deconstructed</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"ConstructOrDeconstruct\">Deconstructed</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"ConstructOrDeconstruct\">Deconstructed</ecoicon>: Was the block constructed or deconstructed?\r\n"
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "contextName": "Action Location",
+                            "titleBacking": "<ecoicon item=\"ConstructOrDeconstruct\">Action Location</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"ConstructOrDeconstruct\">Action Location</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"ConstructOrDeconstruct\">Action Location</ecoicon>: The position where the interaction took place.\r\n"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<b><link=\"ref:District:26\"><ecoicon item=\"District\"><color=#C16237FF>Capital Roads</color></ecoicon></link></b>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Capital Roads",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "InsideOne"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Treasury of Unica",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                        "properties": {
+                          "Currency": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Economy.Currency",
+                              "name": "Euro",
+                              "reference": true
+                            }
+                          },
+                          "Account": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                              "name": "# Federal Infrastructure Payout (Asphalt Road)",
+                              "reference": true
+                            }
+                          }
+                        }
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                      },
+                      "TaxCode": "Unica Roads",
+                      "Suspended": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Giving Access",
+          "UserDescription": "",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ConstructOrDeconstruct"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ConstructOrDeconstruct",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Constructable",
+                        "internalDescription": "<foldout><linktext><u>2 Currencies</u></linktext><title>2 Currencies</title><b><link=\"TypeTooltip:604\"><b><link=\"Item:AsphaltConcreteItem\"><style=\"Item\"><ecoicon item=\"AsphaltConcreteItem\">Asphalt Concrete</ecoicon></style></link></b></link></b>\r\n<b><link=\"TypeTooltip:1539\"><b><link=\"Item:StoneRoadItem\"><style=\"Item\"><ecoicon item=\"StoneRoadItem\">Stone Road</ecoicon></style></link></b></link></b></foldout>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AsphaltConcreteItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.StoneRoadItem"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ConstructOrDeconstruct",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Construction",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.TampRoad"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.TampRoad",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Tamper",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.HarvestOrHunt"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.HarvestOrHunt",
+                    "propNameBacker": "Species",
+                    "propDisplayName": "Species",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Simulation.Types.Species"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<foldout><linktext><u>64 Plants</u></linktext><title>64 Plants</title><b><link=\"TypeTooltip:858\"><ecoicon item=\"AgaveSpecies\">Agave Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:528\"><ecoicon item=\"AmanitaMushroomSpecies\">Amanita Mushroom Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:836\"><ecoicon item=\"ArcticWillowSpecies\">Arctic Willow Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1802\"><ecoicon item=\"BarrelCactusSpecies\">Barrel Cactus Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:2296\"><ecoicon item=\"BeansSpecies\">Beans Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:2617\"><ecoicon item=\"BeetsSpecies\">Beets Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:4\"><ecoicon item=\"BigBluestemSpecies\">Big Bluestem Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:316\"><ecoicon item=\"BirchSpecies\">Birch Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:642\"><ecoicon item=\"BoleteMushroomSpecies\">Bolete Mushroom Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:2189\"><ecoicon item=\"BullrushSpecies\">Bullrush Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:2158\"><ecoicon item=\"BunchgrassSpecies\">Bunchgrass Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:151\"><ecoicon item=\"ButtonbushSpecies\">Buttonbush Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:367\"><ecoicon item=\"CamasSpecies\">Camas Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1211\"><ecoicon item=\"CedarSpecies\">Cedar Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1049\"><ecoicon item=\"CeibaSpecies\">Ceiba Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1545\"><ecoicon item=\"ClamSpecies\">Clam Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:178\"><ecoicon item=\"CommonGrassSpecies\">Common Grass Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:2762\"><ecoicon item=\"CookeinaMushroomSpecies\">Cookeina Mushroom Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1050\"><ecoicon item=\"CornSpecies\">Corn Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1217\"><ecoicon item=\"CottonSpecies\">Cotton Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1581\"><ecoicon item=\"CreosoteBushSpecies\">Creosote Bush Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1205\"><ecoicon item=\"CriminiMushroomSpecies\">Crimini Mushroom Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:198\"><ecoicon item=\"DeerLichenSpecies\">Deer Lichen Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1409\"><ecoicon item=\"DesertMossSpecies\">Desert Moss Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1875\"><ecoicon item=\"DwarfWillowSpecies\">Dwarf Willow Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1090\"><ecoicon item=\"FernSpecies\">Fern Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1113\"><ecoicon item=\"FilmyFernSpecies\">Filmy Fern Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:120\"><ecoicon item=\"FirSpecies\">Fir Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:210\"><ecoicon item=\"FireweedSpecies\">Fireweed Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:2246\"><ecoicon item=\"HeliconiaSpecies\">Heliconia Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1689\"><ecoicon item=\"HuckleberrySpecies\">Huckleberry Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1710\"><ecoicon item=\"JointfirSpecies\">Jointfir Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1724\"><ecoicon item=\"JoshuaSpecies\">Joshua Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1454\"><ecoicon item=\"KelpSpecies\">Kelp Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1736\"><ecoicon item=\"KingFernSpecies\">King Fern Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:2350\"><ecoicon item=\"LatticeMushroomSpecies\">Lattice Mushroom Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:2753\"><ecoicon item=\"LupineSpecies\">Lupine Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:743\"><ecoicon item=\"OakSpecies\">Oak Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1076\"><ecoicon item=\"OceanSpraySpecies\">Ocean Spray Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1402\"><ecoicon item=\"OldGrowthRedwoodSpecies\">Old Growth Redwood Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:49\"><ecoicon item=\"OrchidSpecies\">Orchid Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:2332\"><ecoicon item=\"PalmSpecies\">Palm Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1844\"><ecoicon item=\"PapayaSpecies\">Papaya Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:2050\"><ecoicon item=\"PeatMossSpecies\">Peat Moss Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1784\"><ecoicon item=\"PineappleSpecies\">Pineapple Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:2637\"><ecoicon item=\"PitcherPlantSpecies\">Pitcher Plant Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:2661\"><ecoicon item=\"PricklyPearSpecies\">Prickly Pear Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:413\"><ecoicon item=\"PumpkinSpecies\">Pumpkin Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:425\"><ecoicon item=\"RedwoodSpecies\">Redwood Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1808\"><ecoicon item=\"RiceSpecies\">Rice Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1834\"><ecoicon item=\"SaguaroCactusSpecies\">Saguaro Cactus Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:2430\"><ecoicon item=\"SalalSpecies\">Salal Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:896\"><ecoicon item=\"SaxifrageSpecies\">Saxifrage Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:204\"><ecoicon item=\"SeagrassSpecies\">Seagrass Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:2105\"><ecoicon item=\"SpruceSpecies\">Spruce Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:970\"><ecoicon item=\"SunflowerSpecies\">Sunflower Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1715\"><ecoicon item=\"SwitchgrassSpecies\">Switchgrass Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1139\"><ecoicon item=\"TaroSpecies\">Taro Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1361\"><ecoicon item=\"TomatoesSpecies\">Tomatoes Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:2322\"><ecoicon item=\"TrilliumSpecies\">Trillium Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1173\"><ecoicon item=\"UrchinSpecies\">Urchin Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:1550\"><ecoicon item=\"WaterweedSpecies\">Waterweed Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:100\"><ecoicon item=\"WheatSpecies\">Wheat Species</ecoicon></link></b>\r\n<b><link=\"TypeTooltip:848\"><ecoicon item=\"WhiteBursageSpecies\">White Bursage Species</ecoicon></link></b></foldout>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.AmanitaMushroom+AmanitaMushroomSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Sunflower+SunflowerSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Bullrush+BullrushSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Corn+CornSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Fireweed+FireweedSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Taro+TaroSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.CreosoteBush+CreosoteBushSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.WhiteBursage+WhiteBursageSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.DwarfWillow+DwarfWillowSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Camas+CamasSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Pineapple+PineappleSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Fir+FirSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Buttonbush+ButtonbushSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Kelp+KelpSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.BoleteMushroom+BoleteMushroomSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Salal+SalalSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Tomatoes+TomatoesSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Redwood+RedwoodSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.CriminiMushroom+CriminiMushroomSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.LatticeMushroom+LatticeMushroomSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Joshua+JoshuaSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Seagrass+SeagrassSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Birch+BirchSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.KingFern+KingFernSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Ceiba+CeibaSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.OceanSpray+OceanSpraySpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.PitcherPlant+PitcherPlantSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Jointfir+JointfirSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Rice+RiceSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Fern+FernSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Saxifrage+SaxifrageSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.DesertMoss+DesertMossSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.OldGrowthRedwood+OldGrowthRedwoodSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Beans+BeansSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Oak+OakSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Palm+PalmSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.PeatMoss+PeatMossSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Beets+BeetsSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Clam+ClamSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.CommonGrass+CommonGrassSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.FilmyFern+FilmyFernSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Urchin+UrchinSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.SaguaroCactus+SaguaroCactusSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.CookeinaMushroom+CookeinaMushroomSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Cotton+CottonSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Bunchgrass+BunchgrassSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.BigBluestem+BigBluestemSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.ArcticWillow+ArcticWillowSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Lupine+LupineSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.BarrelCactus+BarrelCactusSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Spruce+SpruceSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Orchid+OrchidSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.PricklyPear+PricklyPearSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Trillium+TrilliumSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Heliconia+HeliconiaSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Cedar+CedarSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Switchgrass+SwitchgrassSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Agave+AgaveSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Pumpkin+PumpkinSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Waterweed+WaterweedSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Wheat+WheatSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Huckleberry+HuckleberrySpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.DeerLichen+DeerLichenSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Papaya+PapayaSpecies"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.HarvestOrHunt",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Harvester",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ChopTree"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChopTree",
+                    "propNameBacker": "TreeSpecies",
+                    "propDisplayName": "Tree Species",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Simulation.Types.TreeSpecies"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChopTree",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Logging",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ChopStump"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChopStump",
+                    "propNameBacker": "TreeSpecies",
+                    "propDisplayName": "Tree Species",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Simulation.Types.TreeSpecies"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChopStump",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Logging",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.CleanupTreeDebris"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.CleanupTreeDebris",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Logging",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.DigOrMine"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.DigOrMine",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Excavatable",
+                        "internalDescription": "<b><link=\"TypeTooltip:981\"><b><link=\"Item:DirtItem\"><style=\"Item\"><ecoicon item=\"DirtItem\">Dirt</ecoicon></style></link></b></link></b>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.DirtItem"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.DigOrMine",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Excavation",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                        "properties": {
+                          "Titles": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Civics.Titles.Title"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<b><link=\"ref:AppointedTitle:42\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Unica Road Crew</style></ecoicon></link></b>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                "name": "Unica Road Crew",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "contextName": "Citizen",
+                            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                          },
+                          "Requirements": "HasAll"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "contextName": "Action Location",
+                            "titleBacking": "<ecoicon item=\"ConstructOrDeconstruct\">Action Location</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"ConstructOrDeconstruct\">Action Location</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"ConstructOrDeconstruct\">Action Location</ecoicon>: The position where the interaction took place.\r\n"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<b><link=\"ref:District:26\"><ecoicon item=\"District\"><color=#C16237FF>Capital Roads</color></ecoicon></link></b>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Capital Roads",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "InsideOne"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.IgnoreAuth_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

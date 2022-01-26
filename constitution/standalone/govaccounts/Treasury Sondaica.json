@@ -19,11 +19,6 @@
       "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
       "name": "Governor of Sondaica",
       "reference": true
-    },
-    {
-      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-      "name": "Lieutenant Governor of Sondaica",
-      "reference": true
     }
   ],
   "properties": {},

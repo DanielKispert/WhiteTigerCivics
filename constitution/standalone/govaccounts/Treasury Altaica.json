@@ -19,11 +19,6 @@
       "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
       "name": "Governor of Altaica",
       "reference": true
-    },
-    {
-      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-      "name": "Lieutenant Governor of Altaica",
-      "reference": true
     }
   ],
   "properties": {},

@@ -15,11 +15,6 @@
     },
     {
       "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-      "name": "Deputy Prime Minister",
-      "reference": true
-    },
-    {
-      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
       "name": "Prime Minister",
       "reference": true
     }

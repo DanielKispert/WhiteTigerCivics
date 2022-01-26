@@ -1,0 +1,36 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+  "name": "In Jail",
+  "reference": false,
+  "description": null,
+  "managers": [
+    {
+      "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+      "name": "Game Masters",
+      "reference": true
+    }
+  ],
+  "users": [],
+  "properties": {
+    "RequiredOfOfficeHolders": null,
+    "BackupOwner": {
+      "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+      "name": "Everyone",
+      "reference": true
+    },
+    "Wages": {
+      "type": "Eco.Gameplay.Economy.Jobs.RecurringTransferDefinition",
+      "reference": false,
+      "properties": {
+        "Currency": null,
+        "AmountPerHour": null,
+        "PaymentType": "OnlineAndOfflineHours"
+      }
+    },
+    "WagesSourceBankAccount": null
+  }
+}

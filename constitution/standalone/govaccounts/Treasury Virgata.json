@@ -17,11 +17,6 @@
   "users": [
     {
       "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-      "name": "Lieutenant Governor of Virgata",
-      "reference": true
-    },
-    {
-      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
       "name": "Governor of Virgata",
       "reference": true
     }

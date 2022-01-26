@@ -19,11 +19,6 @@
       "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
       "name": "Governor of Balica",
       "reference": true
-    },
-    {
-      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-      "name": "Lieutenant Governor of Balica",
-      "reference": true
     }
   ],
   "properties": {},

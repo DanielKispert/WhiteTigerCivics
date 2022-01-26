@@ -16,8 +16,8 @@
   ],
   "users": [
     {
-      "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-      "name": "Government of Unica",
+      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+      "name": "Mayor of Unica",
       "reference": true
     }
   ],

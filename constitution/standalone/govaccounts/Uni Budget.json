@@ -10,7 +10,7 @@
   "managers": [
     {
       "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-      "name": "Chancellor of the Federal University",
+      "name": "Minister of Education",
       "reference": true
     },
     {

@@ -17,7 +17,7 @@
   "users": [
     {
       "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-      "name": "Director of the Federal Bank",
+      "name": "Minister of Finance",
       "reference": true
     }
   ],
@@ -37,7 +37,7 @@
         "name": "Emission Permit",
         "reference": true
       },
-      "amount": 900000.0
+      "amount": 95000.0
     },
     {
       "currency": {

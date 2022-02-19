@@ -1,0 +1,20 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+  "name": "Hunting Tracking",
+  "reference": false,
+  "description": null,
+  "managers": [
+    {
+      "type": "Eco.Gameplay.Players.User",
+      "name": "[PMD]Daniel93a",
+      "reference": true
+    }
+  ],
+  "users": [],
+  "properties": {},
+  "holdings": []
+}

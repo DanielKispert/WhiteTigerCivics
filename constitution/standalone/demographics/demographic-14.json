@@ -4,9 +4,9 @@
     0
   ],
   "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-  "name": "Citizens of Sondaica",
+  "name": "Eligible for UBI",
   "reference": false,
-  "description": "This demographic contains every Citizen of the Federal Republic currently residing in the voting district of Sondaica.",
+  "description": null,
   "properties": {
     "BackupOwner": {
       "type": "Eco.Gameplay.Civics.Demographics.Demographic",
@@ -15,64 +15,28 @@
     },
     "Conditions": [
       {
-        "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
+        "type": "Eco.Gameplay.Civics.GameValues.Compare",
         "properties": {
-          "Demographics": {
-            "type": "GamePickerList",
-            "mustDeriveType": {
-              "type": "Type",
-              "value": "Eco.Gameplay.Civics.Demographics.Demographic"
-            },
-            "requiredTag": null,
-            "internalDescription": "<b><link=\"ref:Demographic:4\"><ecoicon item=\"Demographic\"><style=\"Government\">Abandoned</style></ecoicon></link></b>",
-            "entries": [
-              {
-                "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-                "name": "Abandoned",
-                "reference": true
-              }
-            ]
-          },
-          "Citizen": {
-            "type": "GameValueContext",
-            "contextName": "Citizen",
-            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen being checked for this demographic.\r\n"
-          },
-          "Requirements": "HasNone"
-        }
-      },
-      {
-        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
-        "properties": {
-          "Location": {
-            "type": "Eco.Gameplay.Civics.GameValues.Values.Residence",
+          "Left": {
+            "type": "Eco.Gameplay.Civics.GameValues.Values.HoursPlayed",
             "properties": {
               "Citizen": {
                 "type": "GameValueContext",
                 "contextName": "Citizen",
                 "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
                 "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen being checked for this demographic.\r\n"
+              },
+              "WithinLastNumberOfDays": {
+                "type": "GameValueWrapper",
+                "value": 1.0
               }
             }
           },
-          "Districts": {
-            "type": "GamePickerList",
-            "mustDeriveType": {
-              "type": "Type",
-              "value": "Eco.Gameplay.LegislationSystem.District"
-            },
-            "requiredTag": null,
-            "internalDescription": "<b><link=\"ref:District:6\"><ecoicon item=\"District\"><color=#72546BFF>Sondaica</color></ecoicon></link></b>",
-            "entries": [
-              {
-                "type": "Eco.Gameplay.LegislationSystem.District",
-                "name": "Sondaica",
-                "reference": true
-              }
-            ]
-          },
-          "Requirements": "InsideOne"
+          "Comparison": "GreaterThan",
+          "Right": {
+            "type": "GameValueWrapper",
+            "value": 0.25
+          }
         }
       }
     ],

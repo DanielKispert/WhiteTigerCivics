@@ -1,0 +1,743 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Laws.Law",
+  "name": "[C] Tax and Company Legislation",
+  "reference": false,
+  "description": "All taxes on White Tiger have to fulfill certain requirements. Taxes not fulfilling these requirements are invalid and their collection is not lawful.\u000bAll the constitutional requirements on laws also apply to taxes, this only adds additional requirements.\u000bThese requirements are as follows:\u000b\u000b1. the tax may not simply forget a person being unable to pay, the amount must be remembered and charged at a later time.\n2. the tax may not block actions when being unable to pay.\n3. the tax has to provide reporting to both citizens and the government. This reporting has to include how much of this specific tax was paid by the citizen in the last day and in total, as well as how much was paid for this tax by all citizens together in the last day and in total. The reporting also has to inform citizens of how much money they still owe to this tax.\u000b4. charging taxes through this tax has to be compatible to the federal tax reporting, which collects information on how much tax income the government received in both the last 24h and in total. This can be easily achieved by using the \"smart\" tax actions.\n5. the tax may not target wealth gains or wealth acquired through the UBI. This means wealth taxes must have a 0% bracket of at least (UBI per hour * world age in hours) and income taxes must also have a 0% bracket of at least the UBI payments over its duration of collection (e.g. an income tax acting every 3 hours must have a 0% bracket of 3 * UBI per hour)\u000b6. the tax has to respect tax rebates for its respective treasury. For example, a property tax by the State of Virgata has to consider every tax rebate acting on the Treasury of Virgata.",
+  "properties": {
+    "Sections": [
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "[SR] Company Tax",
+          "UserDescription": "Every group of collaborating players (=company) pays an additional tax on all income if they have more skills than its member with the most skills (like our old skills rule forbid).",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Mods.Companies.GameActions.CompanyIncome"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Mods.Companies.GameActions.CompanyIncome",
+                    "propNameBacker": "SourceBankAccount",
+                    "propDisplayName": "Source Bank Account",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Economy.BankAccount"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Mods.Companies.GameActions.CompanyIncome",
+                    "propNameBacker": "TargetBankAccount",
+                    "propDisplayName": "Target Bank Account",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Economy.BankAccount"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Mods.Companies.GameActions.CompanyIncome",
+                    "propNameBacker": "Currency",
+                    "propDisplayName": "Currency",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Economy.Currency"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<b><link=\"ref:Currency:3\"><ecoicon item=\"CurrencySymbol\"><style=\"Currency\">Euro</style></ecoicon></link></b>",
+                        "entries": [
+                          {
+                            "type": "Eco.Gameplay.Economy.Currency",
+                            "name": "Euro",
+                            "reference": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.Tax_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Bank",
+                          "reference": true
+                        }
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "contextName": "Receiver Legal Person",
+                        "titleBacking": "<ecoicon item=\"User\">Receiver Legal Person</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Receiver Legal Person</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Receiver Legal Person</ecoicon>: The legal person of the company who received the money.\r\n"
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                        "properties": {
+                          "Number": {
+                            "type": "GameValueContext",
+                            "contextName": "Currency Amount",
+                            "titleBacking": "<ecoicon item=\"CompanyIncome\">Currency Amount</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"CompanyIncome\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CompanyIncome\">Currency Amount</ecoicon>: The amount of money transfered.\r\n"
+                          },
+                          "Percent": {
+                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                            "properties": {
+                              "CustomStatName": "companyTaxRate",
+                              "TimeRangeInHours": {
+                                "type": "GameValueWrapper",
+                                "value": 0.0
+                              },
+                              "TimeRangeType": "CountBackFromPresentTime",
+                              "User": {
+                                "type": "GameValueContext",
+                                "contextName": "Receiver Legal Person",
+                                "titleBacking": "<ecoicon item=\"User\">Receiver Legal Person</ecoicon>",
+                                "tooltip": "When triggered, the <ecoicon item=\"User\">Receiver Legal Person</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Receiver Legal Person</ecoicon>: The legal person of the company who received the money.\r\n"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "PreventIfUnableToPay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "[SR] Setting Company Tax Rates",
+          "UserDescription": "Once per hour, every company's tax rate is evaluated. The tax increases by 15% for each extra skill that is added to a company, so at 1 extra skill it is 15%, at 2 extra skills it is 15% + (0.85 * 15%) = 32%, at 3 extra skills it is 42% and so on. This is saved multiplied by 100 in the legal person so every tax can access it. the *100 is so the accuracy is kept and the number is not rounded",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.CitizenTimer"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.CitizenTimerTriggerConfig",
+                    "typeToConfig": null,
+                    "propNameBacker": null,
+                    "propDisplayName": null,
+                    "properties": {
+                      "RepeatForEachUser": {
+                        "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                        "name": "Registered Company",
+                        "reference": true
+                      },
+                      "HoursBetweenExecutions": 1.0
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "companyTaxRate",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                      },
+                      "Count": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                        "properties": {
+                          "LeftNumber": {
+                            "type": "Eco.Gameplay.Civics.GameValues.TextFormula",
+                            "properties": {
+                              "Formula": "(1-((1-markup)^extraskills))*100",
+                              "Variables": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                                  "reference": false,
+                                  "properties": {
+                                    "Name": "markup",
+                                    "Definition": {
+                                      "type": "GameValueWrapper",
+                                      "value": 0.15
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                                  "reference": false,
+                                  "properties": {
+                                    "Name": "extraskills",
+                                    "Definition": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                      "properties": {
+                                        "LeftNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                          "properties": {
+                                            "LeftNumber": {
+                                              "type": "Eco.Mods.Companies.SkillCount",
+                                              "properties": {
+                                                "LegalPerson": {
+                                                  "type": "GameValueContext",
+                                                  "contextName": "Citizen",
+                                                  "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                                  "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                                },
+                                                "UniqueSkills": {
+                                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                                  "properties": {}
+                                                },
+                                                "Highest": {
+                                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                                  "properties": {}
+                                                }
+                                              }
+                                            },
+                                            "Operation": "Subtract",
+                                            "RightNumber": {
+                                              "type": "Eco.Mods.Companies.SkillCount",
+                                              "properties": {
+                                                "LegalPerson": {
+                                                  "type": "GameValueContext",
+                                                  "contextName": "Citizen",
+                                                  "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                                  "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                                },
+                                                "UniqueSkills": {
+                                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                                  "properties": {}
+                                                },
+                                                "Highest": {
+                                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                                  "properties": {}
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "Operation": "AtLeast",
+                                        "RightNumber": {
+                                          "type": "GameValueWrapper",
+                                          "value": 0.0
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          "Operation": "Subtract",
+                          "RightNumber": {
+                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                            "properties": {
+                              "CustomStatName": "companyTaxRate",
+                              "TimeRangeInHours": {
+                                "type": "GameValueWrapper",
+                                "value": 0.0
+                              },
+                              "TimeRangeType": "CountBackFromPresentTime",
+                              "User": {
+                                "type": "GameValueContext",
+                                "contextName": "Citizen",
+                                "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "[SR] Automated Money Transfer for Cooperatives",
+          "UserDescription": "Every employee of a Type 1 Company (=Cooperative) can no longer have private money. All money and property is in the hands of the company. Therefore, money the citizen receives is automatically transferred to the cooperative.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.TransferMoney"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.TransferMoney",
+                    "propNameBacker": "SourceBankAccount",
+                    "propDisplayName": "Source Bank Account",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Economy.BankAccount"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.TransferMoney",
+                    "propNameBacker": "TargetBankAccount",
+                    "propDisplayName": "Target Bank Account",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Economy.BankAccount"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.TransferMoney",
+                    "propNameBacker": "Currency",
+                    "propDisplayName": "Currency",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Economy.Currency"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
+                        "properties": {
+                          "Demographics": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Civics.Demographics.Demographic"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<b><link=\"ref:Demographic:17\"><ecoicon item=\"Demographic\"><style=\"Government\">Employee of Cooperative</style></ecoicon></link></b>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                                "name": "Employee of Cooperative",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "contextName": "Receiver",
+                            "titleBacking": "<ecoicon item=\"User\">Receiver</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"User\">Receiver</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Receiver</ecoicon>: The citizen who received the money.\r\n"
+                          },
+                          "Requirements": "HasAll"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
+                        "properties": {
+                          "Demographics": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Civics.Demographics.Demographic"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<b><link=\"ref:Demographic:19\"><ecoicon item=\"Demographic\"><style=\"Government\">Government Members</style></ecoicon></link></b>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                                "name": "Government Members",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "contextName": "Receiver",
+                            "titleBacking": "<ecoicon item=\"User\">Receiver</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"User\">Receiver</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Receiver</ecoicon>: The citizen who received the money.\r\n"
+                          },
+                          "Requirements": "HasNone"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Not",
+                        "properties": {
+                          "NotValue": {
+                            "type": "Eco.Mods.Companies.IsCompanyLegalPerson",
+                            "properties": {
+                              "Citizen": {
+                                "type": "Eco.Mods.Companies.AccountLegalPerson",
+                                "properties": {
+                                  "BankAccount": {
+                                    "type": "GameValueContext",
+                                    "contextName": "Target Bank Account",
+                                    "titleBacking": "<ecoicon item=\"TransferMoney\">Target Bank Account</ecoicon>",
+                                    "tooltip": "When triggered, the <ecoicon item=\"TransferMoney\">Target Bank Account</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"TransferMoney\">Target Bank Account</ecoicon>: The bank account the money went to.\r\n"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.TransferToAccount_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceAccount": {
+                        "type": "GameValueContext",
+                        "contextName": "Target Bank Account",
+                        "titleBacking": "<ecoicon item=\"TransferMoney\">Target Bank Account</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"TransferMoney\">Target Bank Account</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"TransferMoney\">Target Bank Account</ecoicon>: The bank account the money went to.\r\n"
+                      },
+                      "TargetAccount": {
+                        "type": "Eco.Gameplay.Civics.GameValues.PersonalBankAccount_GameValue",
+                        "properties": {
+                          "User": {
+                            "type": "Eco.Mods.Companies.EmployerLegalPerson",
+                            "properties": {
+                              "Citizen": {
+                                "type": "GameValueContext",
+                                "contextName": "Receiver",
+                                "titleBacking": "<ecoicon item=\"User\">Receiver</ecoicon>",
+                                "tooltip": "When triggered, the <ecoicon item=\"User\">Receiver</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Receiver</ecoicon>: The citizen who received the money.\r\n"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueContext",
+                        "contextName": "Currency",
+                        "titleBacking": "<ecoicon item=\"TransferMoney\">Currency</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"TransferMoney\">Currency</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"TransferMoney\">Currency</ecoicon>: The currency of the transfer.\r\n"
+                      },
+                      "Amount": {
+                        "type": "GameValueContext",
+                        "contextName": "Currency Amount",
+                        "titleBacking": "<ecoicon item=\"TransferMoney\">Currency Amount</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"TransferMoney\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"TransferMoney\">Currency Amount</ecoicon>: The amount of money transfered.\r\n"
+                      },
+                      "PreventIfUnableToPay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "[SR] Automated Hourly Transfer for Cooperatives",
+          "UserDescription": "",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.CitizenTimer"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.CitizenTimerTriggerConfig",
+                    "typeToConfig": null,
+                    "propNameBacker": null,
+                    "propDisplayName": null,
+                    "properties": {
+                      "RepeatForEachUser": {
+                        "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                        "name": "Employee of Cooperative",
+                        "reference": true
+                      },
+                      "HoursBetweenExecutions": 1.0
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "Company Buffer (Do Not Touch)",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.Wealth",
+                        "properties": {
+                          "Currency": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Economy.Currency",
+                              "name": "Euro",
+                              "reference": true
+                            }
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "contextName": "Citizen",
+                            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                          }
+                        }
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "contextName": "Citizen",
+                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                      },
+                      "TaxCode": "Cooperative Automation",
+                      "Suspended": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "Company Buffer (Do Not Touch)",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.Wealth",
+                        "properties": {
+                          "Currency": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Economy.Currency",
+                              "name": "Euro",
+                              "reference": true
+                            }
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "contextName": "Citizen",
+                            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                          }
+                        }
+                      },
+                      "Target": {
+                        "type": "Eco.Mods.Companies.EmployerLegalPersonAlias",
+                        "properties": {
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "contextName": "Citizen",
+                            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                          }
+                        }
+                      },
+                      "PaymentCode": "Cooperative Automation",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

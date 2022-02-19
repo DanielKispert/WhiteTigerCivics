@@ -4,9 +4,9 @@
     0
   ],
   "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-  "name": "Federal Judges",
+  "name": "Non-Abandoned",
   "reference": false,
-  "description": null,
+  "description": "This demographic encompasses every citizen that has not abandoned the server.",
   "properties": {
     "BackupOwner": {
       "type": "Eco.Gameplay.Civics.Demographics.Demographic",
@@ -15,25 +15,20 @@
     },
     "Conditions": [
       {
-        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+        "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
         "properties": {
-          "Titles": {
+          "Demographics": {
             "type": "GamePickerList",
             "mustDeriveType": {
               "type": "Type",
-              "value": "Eco.Gameplay.Civics.Titles.Title"
+              "value": "Eco.Gameplay.Civics.Demographics.Demographic"
             },
             "requiredTag": null,
-            "internalDescription": "<foldout><linktext><u>2 Titles</u></linktext><title>2 Titles</title><b><link=\"ref:ElectedTitle:55\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Federal Judge 1</style></ecoicon></link></b>\r\n<b><link=\"ref:ElectedTitle:56\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Federal Judge 2</style></ecoicon></link></b></foldout>",
+            "internalDescription": "<b><link=\"ref:Demographic:4\"><ecoicon item=\"Demographic\"><style=\"Government\">Abandoned</style></ecoicon></link></b>",
             "entries": [
               {
-                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                "name": "Federal Judge 2",
-                "reference": true
-              },
-              {
-                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                "name": "Federal Judge 1",
+                "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                "name": "Abandoned",
                 "reference": true
               }
             ]
@@ -44,7 +39,7 @@
             "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
             "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen being checked for this demographic.\r\n"
           },
-          "Requirements": "HasAny"
+          "Requirements": "HasNone"
         }
       }
     ],

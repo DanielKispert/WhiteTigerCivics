@@ -42,21 +42,6 @@
                         "entries": [
                           {
                             "type": "Eco.Gameplay.Civics.ElectionProcess",
-                            "name": "Unica Electorial Process",
-                            "reference": true
-                          },
-                          {
-                            "type": "Eco.Gameplay.Civics.ElectionProcess",
-                            "name": "Appointment by Federal President",
-                            "reference": true
-                          },
-                          {
-                            "type": "Eco.Gameplay.Civics.ElectionProcess",
-                            "name": "Virgata Electorial Process",
-                            "reference": true
-                          },
-                          {
-                            "type": "Eco.Gameplay.Civics.ElectionProcess",
                             "name": "Appointment by Prime Minister",
                             "reference": true
                           },
@@ -67,22 +52,37 @@
                           },
                           {
                             "type": "Eco.Gameplay.Civics.ElectionProcess",
-                            "name": "Balica Electorial Process",
-                            "reference": true
-                          },
-                          {
-                            "type": "Eco.Gameplay.Civics.ElectionProcess",
-                            "name": "Sondaica Electorial Process",
-                            "reference": true
-                          },
-                          {
-                            "type": "Eco.Gameplay.Civics.ElectionProcess",
                             "name": "Federal Election",
                             "reference": true
                           },
                           {
                             "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Balica Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Virgata Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Unica Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
                             "name": "Altaica Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Appointment by Federal President",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Sondaica Electorial Process",
                             "reference": true
                           }
                         ]
@@ -275,21 +275,6 @@
                         "entries": [
                           {
                             "type": "Eco.Gameplay.Civics.ElectionProcess",
-                            "name": "Unica Electorial Process",
-                            "reference": true
-                          },
-                          {
-                            "type": "Eco.Gameplay.Civics.ElectionProcess",
-                            "name": "Appointment by Federal President",
-                            "reference": true
-                          },
-                          {
-                            "type": "Eco.Gameplay.Civics.ElectionProcess",
-                            "name": "Virgata Electorial Process",
-                            "reference": true
-                          },
-                          {
-                            "type": "Eco.Gameplay.Civics.ElectionProcess",
                             "name": "Appointment by Prime Minister",
                             "reference": true
                           },
@@ -300,22 +285,37 @@
                           },
                           {
                             "type": "Eco.Gameplay.Civics.ElectionProcess",
-                            "name": "Balica Electorial Process",
-                            "reference": true
-                          },
-                          {
-                            "type": "Eco.Gameplay.Civics.ElectionProcess",
-                            "name": "Sondaica Electorial Process",
-                            "reference": true
-                          },
-                          {
-                            "type": "Eco.Gameplay.Civics.ElectionProcess",
                             "name": "Federal Election",
                             "reference": true
                           },
                           {
                             "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Balica Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Virgata Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Unica Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
                             "name": "Altaica Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Appointment by Federal President",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Sondaica Electorial Process",
                             "reference": true
                           }
                         ]
@@ -351,21 +351,6 @@
                         "entries": [
                           {
                             "type": "Eco.Gameplay.Civics.ElectionProcess",
-                            "name": "Unica Electorial Process",
-                            "reference": true
-                          },
-                          {
-                            "type": "Eco.Gameplay.Civics.ElectionProcess",
-                            "name": "Appointment by Federal President",
-                            "reference": true
-                          },
-                          {
-                            "type": "Eco.Gameplay.Civics.ElectionProcess",
-                            "name": "Virgata Electorial Process",
-                            "reference": true
-                          },
-                          {
-                            "type": "Eco.Gameplay.Civics.ElectionProcess",
                             "name": "Appointment by Prime Minister",
                             "reference": true
                           },
@@ -376,22 +361,37 @@
                           },
                           {
                             "type": "Eco.Gameplay.Civics.ElectionProcess",
-                            "name": "Balica Electorial Process",
-                            "reference": true
-                          },
-                          {
-                            "type": "Eco.Gameplay.Civics.ElectionProcess",
-                            "name": "Sondaica Electorial Process",
-                            "reference": true
-                          },
-                          {
-                            "type": "Eco.Gameplay.Civics.ElectionProcess",
                             "name": "Federal Election",
                             "reference": true
                           },
                           {
                             "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Balica Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Virgata Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Unica Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
                             "name": "Altaica Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Appointment by Federal President",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Sondaica Electorial Process",
                             "reference": true
                           }
                         ]
@@ -493,16 +493,6 @@
                         "entries": [
                           {
                             "type": "Eco.Gameplay.Civics.ElectionProcess",
-                            "name": "Unica Electorial Process",
-                            "reference": true
-                          },
-                          {
-                            "type": "Eco.Gameplay.Civics.ElectionProcess",
-                            "name": "Virgata Electorial Process",
-                            "reference": true
-                          },
-                          {
-                            "type": "Eco.Gameplay.Civics.ElectionProcess",
                             "name": "Appointment by Prime Minister",
                             "reference": true
                           },
@@ -513,22 +503,32 @@
                           },
                           {
                             "type": "Eco.Gameplay.Civics.ElectionProcess",
-                            "name": "Balica Electorial Process",
-                            "reference": true
-                          },
-                          {
-                            "type": "Eco.Gameplay.Civics.ElectionProcess",
-                            "name": "Sondaica Electorial Process",
-                            "reference": true
-                          },
-                          {
-                            "type": "Eco.Gameplay.Civics.ElectionProcess",
                             "name": "Federal Election",
                             "reference": true
                           },
                           {
                             "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Balica Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Virgata Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Unica Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
                             "name": "Altaica Electorial Process",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Civics.ElectionProcess",
+                            "name": "Sondaica Electorial Process",
                             "reference": true
                           }
                         ]
@@ -591,6 +591,34 @@
                             "type": "GameValueWrapper",
                             "value": 0.0
                           }
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                        "properties": {
+                          "Titles": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Civics.Titles.Title"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<b><link=\"ref:AppointedTitle:8\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link></b>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                "name": "Game Masters",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "contextName": "Citizen",
+                            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the action.\r\n"
+                          },
+                          "Requirements": "HasNone"
                         }
                       }
                     ],

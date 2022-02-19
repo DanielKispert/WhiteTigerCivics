@@ -6,7 +6,7 @@
   "type": "Eco.Gameplay.Civics.Laws.Law",
   "name": "Emission Permits 2.1",
   "reference": false,
-  "description": "This law manages air pollution with an Emission Permits system.\n\nThe \"EP Tracking\" account is ONLY used for tracking your own pollution. No actual transactions are done with it!\nThe Treasury is used for actual holding and distribution of EP.\u000bScaling is applied to 3 variables: the free tracked EP, the EP given out per hour and the decay rate of tracked EP\n\nThe first section enforces that you need EP to pollute, and it tracks the EP you consume as a fake tax. It also permits every citizen to pollute until they emitted 5-10 PPM in their tracked amount\nThe second section decays old EP debt and calculates the epPercentage, used for later distribution. Valid amounts are 0 - 100, meaning 0 - 100%.\nThe epPercentage is not the absolute percentage as the restriction of a max percentage can lead to the sum of all percentages being lower than 100%. Therefore the sum of all percentages is used instead.",
+  "description": "This law manages air pollution with an Emission Permits system.\n\nThe \"EP Tracking\" account is ONLY used for tracking your own pollution. No actual transactions are done with it!\u000bDo NOT pollute with the White-Tiger user! it is strictly for global tracking and will screw up the whole system\nThe Treasury is used for actual holding and distribution of EP.\u000bScaling is applied to 3 variables: the free tracked EP, the EP given out per hour and the decay rate of tracked EP\n\nThe first section enforces that you need EP to pollute, and it tracks the EP you consume as a fake tax. It also permits every citizen to pollute until they emitted 5-10 PPM in their tracked amount\nThe second section decays old EP debt and calculates the epPercentage, used for later distribution. Valid amounts are 0 - 100, meaning 0 - 100%.\nThe epPercentage is not the absolute percentage as the restriction of a max percentage can lead to the sum of all percentages being lower than 100%. Therefore the sum of all percentages is used instead.",
   "properties": {
     "Sections": [
       {
@@ -42,15 +42,7 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.BlastFurnaceItem"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.OilRefineryItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CombustionGeneratorItem"
                           },
                           {
                             "type": "Type",
@@ -58,11 +50,19 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.SteamEngineItem"
+                            "value": "Eco.Mods.TechTree.StoveItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.StoveItem"
+                            "value": "Eco.Mods.TechTree.CombustionGeneratorItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BlastFurnaceItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteamEngineItem"
                           }
                         ]
                       }
@@ -2640,72 +2640,97 @@
                                 "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
                                 "properties": {
                                   "LeftNumber": {
-                                    "type": "GameValueWrapper",
-                                    "value": 210.0
-                                  },
-                                  "Operation": "Subtract",
-                                  "RightNumber": {
                                     "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
                                     "properties": {
                                       "LeftNumber": {
                                         "type": "GameValueWrapper",
-                                        "value": 1100.0
+                                        "value": 210.0
                                       },
-                                      "Operation": "Divide",
+                                      "Operation": "Subtract",
                                       "RightNumber": {
                                         "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
                                         "properties": {
                                           "LeftNumber": {
                                             "type": "GameValueWrapper",
-                                            "value": 110.0
+                                            "value": 1100.0
                                           },
-                                          "Operation": "Subtract",
+                                          "Operation": "Divide",
                                           "RightNumber": {
                                             "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
                                             "properties": {
                                               "LeftNumber": {
-                                                "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                                "type": "GameValueWrapper",
+                                                "value": 110.0
+                                              },
+                                              "Operation": "Subtract",
+                                              "RightNumber": {
+                                                "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
                                                 "properties": {
-                                                  "CustomStatName": "globalAirPollution",
-                                                  "TimeRangeInHours": {
-                                                    "type": "GameValueWrapper",
-                                                    "value": 24.0
-                                                  },
-                                                  "TimeRangeType": "CountBackFromPresentTime",
-                                                  "User": {
-                                                    "type": "GameValueWrapper",
-                                                    "value": {
-                                                      "type": "Eco.Gameplay.Players.User",
-                                                      "name": "White-Tiger",
-                                                      "reference": true
+                                                  "LeftNumber": {
+                                                    "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                                    "properties": {
+                                                      "CustomStatName": "globalAirPollution",
+                                                      "TimeRangeInHours": {
+                                                        "type": "GameValueWrapper",
+                                                        "value": 24.0
+                                                      },
+                                                      "TimeRangeType": "CountBackFromPresentTime",
+                                                      "User": {
+                                                        "type": "GameValueWrapper",
+                                                        "value": {
+                                                          "type": "Eco.Gameplay.Players.User",
+                                                          "name": "White-Tiger",
+                                                          "reference": true
+                                                        }
+                                                      }
                                                     }
+                                                  },
+                                                  "Operation": "Divide",
+                                                  "RightNumber": {
+                                                    "type": "GameValueWrapper",
+                                                    "value": 4500.0
                                                   }
                                                 }
-                                              },
-                                              "Operation": "Divide",
-                                              "RightNumber": {
-                                                "type": "GameValueWrapper",
-                                                "value": 4500.0
                                               }
                                             }
                                           }
                                         }
                                       }
                                     }
+                                  },
+                                  "Operation": "AtLeast",
+                                  "RightNumber": {
+                                    "type": "GameValueWrapper",
+                                    "value": 100.0
                                   }
                                 }
                               },
-                              "Operation": "AtLeast",
+                              "Operation": "AtMost",
                               "RightNumber": {
                                 "type": "GameValueWrapper",
-                                "value": 100.0
+                                "value": 200.0
                               }
                             }
                           },
-                          "Operation": "AtMost",
+                          "Operation": "Subtract",
                           "RightNumber": {
-                            "type": "GameValueWrapper",
-                            "value": 200.0
+                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                            "properties": {
+                              "CustomStatName": "epScaling",
+                              "TimeRangeInHours": {
+                                "type": "GameValueWrapper",
+                                "value": 0.0
+                              },
+                              "TimeRangeType": "CountBackFromPresentTime",
+                              "User": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Players.User",
+                                  "name": "White-Tiger",
+                                  "reference": true
+                                }
+                              }
+                            }
                           }
                         }
                       },

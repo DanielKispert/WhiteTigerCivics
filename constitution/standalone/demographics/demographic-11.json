@@ -4,7 +4,7 @@
     0
   ],
   "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-  "name": "Registered Company",
+  "name": "Retired Officials",
   "reference": false,
   "description": null,
   "properties": {
@@ -15,14 +15,89 @@
     },
     "Conditions": [
       {
-        "type": "Eco.Mods.Companies.IsCompanyLegalPerson",
+        "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
         "properties": {
+          "Demographics": {
+            "type": "GamePickerList",
+            "mustDeriveType": {
+              "type": "Type",
+              "value": "Eco.Gameplay.Civics.Demographics.Demographic"
+            },
+            "requiredTag": null,
+            "internalDescription": "<b><link=\"ref:Demographic:9\"><ecoicon item=\"Demographic\"><style=\"Government\">Non-Abandoned</style></ecoicon></link></b>",
+            "entries": [
+              {
+                "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                "name": "Non-Abandoned",
+                "reference": true
+              }
+            ]
+          },
           "Citizen": {
             "type": "GameValueContext",
             "contextName": "Citizen",
             "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
             "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen being checked for this demographic.\r\n"
+          },
+          "Requirements": "HasAll"
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+        "properties": {
+          "Left": {
+            "type": "Eco.Gameplay.Civics.GameValues.CitizenStatistics",
+            "properties": {
+              "Action": {
+                "type": "Type",
+                "value": "Eco.Gameplay.GameActions.WonElection"
+              },
+              "TimeRangeInHours": {
+                "type": "GameValueWrapper",
+                "value": 0.0
+              },
+              "TimeRangeType": "CountBackFromPresentTime",
+              "User": {
+                "type": "GameValueContext",
+                "contextName": "Citizen",
+                "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen being checked for this demographic.\r\n"
+              }
+            }
+          },
+          "Comparison": "GreaterThan",
+          "Right": {
+            "type": "GameValueWrapper",
+            "value": 0.0
           }
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
+        "properties": {
+          "Demographics": {
+            "type": "GamePickerList",
+            "mustDeriveType": {
+              "type": "Type",
+              "value": "Eco.Gameplay.Civics.Demographics.Demographic"
+            },
+            "requiredTag": null,
+            "internalDescription": "<b><link=\"ref:Demographic:19\"><ecoicon item=\"Demographic\"><style=\"Government\">Government Members</style></ecoicon></link></b>",
+            "entries": [
+              {
+                "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                "name": "Government Members",
+                "reference": true
+              }
+            ]
+          },
+          "Citizen": {
+            "type": "GameValueContext",
+            "contextName": "Citizen",
+            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen being checked for this demographic.\r\n"
+          },
+          "Requirements": "HasNone"
         }
       }
     ],

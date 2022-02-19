@@ -60,6 +60,14 @@
                         "entries": [
                           {
                             "type": "Type",
+                            "value": "Eco.Mods.TechTree.OilDrillingSkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdvancedMasonrySkill"
+                          },
+                          {
+                            "type": "Type",
                             "value": "Eco.Mods.TechTree.ElectronicsSkill"
                           },
                           {
@@ -68,15 +76,7 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdvancedMasonrySkill"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.CompositesSkill"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.OilDrillingSkill"
                           }
                         ]
                       }
@@ -296,7 +296,7 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdvancedBakingSkill"
+                            "value": "Eco.Mods.TechTree.MechanicsSkill"
                           },
                           {
                             "type": "Type",
@@ -304,11 +304,11 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.GlassworkingSkill"
+                            "value": "Eco.Mods.TechTree.AdvancedBakingSkill"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.MechanicsSkill"
+                            "value": "Eco.Mods.TechTree.GlassworkingSkill"
                           },
                           {
                             "type": "Type",
@@ -532,15 +532,27 @@
                         "entries": [
                           {
                             "type": "Type",
+                            "value": "Eco.Mods.TechTree.FertilizersSkill"
+                          },
+                          {
+                            "type": "Type",
                             "value": "Eco.Mods.TechTree.PotterySkill"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.BasicEngineeringSkill"
+                            "value": "Eco.Mods.TechTree.TailoringSkill"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.FertilizersSkill"
+                            "value": "Eco.Mods.TechTree.CarpentrySkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BakingSkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BasicEngineeringSkill"
                           },
                           {
                             "type": "Type",
@@ -557,18 +569,6 @@
                           {
                             "type": "Type",
                             "value": "Eco.Mods.TechTree.CookingSkill"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.TailoringSkill"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.BakingSkill"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CarpentrySkill"
                           }
                         ]
                       }

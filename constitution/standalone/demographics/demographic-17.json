@@ -4,9 +4,9 @@
     0
   ],
   "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-  "name": "Citizens of Unica",
+  "name": "Employee of Cooperative",
   "reference": false,
-  "description": "This demographic contains every citizen of the Federal Republic currently residing in the City-State of Unica",
+  "description": "This citizen is an employee of a cooperative. They do not possess any private property or funds outside of their cooperative.\u000bThe technical conditions are as follows:\u000b1. the citizen is an employee of a company as per thomas' mod\u000b2. the citizen's employer company is not a public company, which makes it a cooperative\u000b3. the citizen is not a legal person. This is needed because the companies mod assumes that the fake citizen \"legal person\" is an employee of the company too.",
   "properties": {
     "BackupOwner": {
       "type": "Eco.Gameplay.Civics.Demographics.Demographic",
@@ -15,137 +15,63 @@
     },
     "Conditions": [
       {
-        "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
+        "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
         "properties": {
-          "Demographics": {
-            "type": "GamePickerList",
-            "mustDeriveType": {
-              "type": "Type",
-              "value": "Eco.Gameplay.Civics.Demographics.Demographic"
-            },
-            "requiredTag": null,
-            "internalDescription": "<b><link=\"ref:Demographic:4\"><ecoicon item=\"Demographic\"><style=\"Government\">Abandoned</style></ecoicon></link></b>",
-            "entries": [
-              {
-                "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-                "name": "Abandoned",
-                "reference": true
-              }
-            ]
-          },
           "Citizen": {
             "type": "GameValueContext",
             "contextName": "Citizen",
             "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
             "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen being checked for this demographic.\r\n"
+          }
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+        "properties": {
+          "Titles": {
+            "type": "GamePickerList",
+            "mustDeriveType": {
+              "type": "Type",
+              "value": "Eco.Gameplay.Civics.Titles.Title"
+            },
+            "requiredTag": null,
+            "internalDescription": "<b><link=\"ref:AppointedTitle:12\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Public Company</style></ecoicon></link></b>",
+            "entries": [
+              {
+                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                "name": "Public Company",
+                "reference": true
+              }
+            ]
+          },
+          "Citizen": {
+            "type": "Eco.Mods.Companies.EmployerLegalPersonAlias",
+            "properties": {
+              "Citizen": {
+                "type": "GameValueContext",
+                "contextName": "Citizen",
+                "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen being checked for this demographic.\r\n"
+              }
+            }
           },
           "Requirements": "HasNone"
         }
       },
       {
-        "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+        "type": "Eco.Gameplay.Civics.GameValues.Not",
         "properties": {
-          "List": [
-            {
-              "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
-              "properties": {
-                "Location": {
-                  "type": "Eco.Gameplay.Civics.GameValues.Values.Residence",
-                  "properties": {
-                    "Citizen": {
-                      "type": "GameValueContext",
-                      "contextName": "Citizen",
-                      "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                      "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen being checked for this demographic.\r\n"
-                    }
-                  }
-                },
-                "Districts": {
-                  "type": "GamePickerList",
-                  "mustDeriveType": {
-                    "type": "Type",
-                    "value": "Eco.Gameplay.LegislationSystem.District"
-                  },
-                  "requiredTag": null,
-                  "internalDescription": "<b><link=\"ref:District:2\"><ecoicon item=\"District\"><color=#003CFFFF>Unica</color></ecoicon></link></b>",
-                  "entries": [
-                    {
-                      "type": "Eco.Gameplay.LegislationSystem.District",
-                      "name": "Unica",
-                      "reference": true
-                    }
-                  ]
-                },
-                "Requirements": "InsideOne"
-              }
-            },
-            {
-              "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
-              "properties": {
-                "List": [
-                  {
-                    "type": "Eco.Gameplay.Civics.GameValues.Compare",
-                    "properties": {
-                      "Left": {
-                        "type": "Eco.Gameplay.Civics.GameValues.Values.WorldAgeInDays",
-                        "properties": {}
-                      },
-                      "Comparison": "LessThan",
-                      "Right": {
-                        "type": "GameValueWrapper",
-                        "value": 2.0
-                      }
-                    }
-                  },
-                  {
-                    "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
-                    "properties": {
-                      "Demographics": {
-                        "type": "GamePickerList",
-                        "mustDeriveType": {
-                          "type": "Type",
-                          "value": "Eco.Gameplay.Civics.Demographics.Demographic"
-                        },
-                        "requiredTag": null,
-                        "internalDescription": "<foldout><linktext><u>4 Demographics</u></linktext><title>4 Demographics</title><b><link=\"ref:Demographic:5\"><ecoicon item=\"Demographic\"><style=\"Government\">Citizens of Altaica</style></ecoicon></link></b>\r\n<b><link=\"ref:Demographic:6\"><ecoicon item=\"Demographic\"><style=\"Government\">Citizens of Balica</style></ecoicon></link></b>\r\n<b><link=\"ref:Demographic:14\"><ecoicon item=\"Demographic\"><style=\"Government\">Citizens of Sondaica</style></ecoicon></link></b>\r\n<b><link=\"ref:Demographic:18\"><ecoicon item=\"Demographic\"><style=\"Government\">Citizens of Virgata</style></ecoicon></link></b></foldout>",
-                        "entries": [
-                          {
-                            "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-                            "name": "Citizens of Sondaica",
-                            "reference": true
-                          },
-                          {
-                            "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-                            "name": "Citizens of Virgata",
-                            "reference": true
-                          },
-                          {
-                            "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-                            "name": "Citizens of Balica",
-                            "reference": true
-                          },
-                          {
-                            "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-                            "name": "Citizens of Altaica",
-                            "reference": true
-                          }
-                        ]
-                      },
-                      "Citizen": {
-                        "type": "GameValueContext",
-                        "contextName": "Citizen",
-                        "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                        "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen being checked for this demographic.\r\n"
-                      },
-                      "Requirements": "HasNone"
-                    }
-                  }
-                ],
-                "Comparison": "All"
+          "NotValue": {
+            "type": "Eco.Mods.Companies.IsCompanyLegalPerson",
+            "properties": {
+              "Citizen": {
+                "type": "GameValueContext",
+                "contextName": "Citizen",
+                "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen being checked for this demographic.\r\n"
               }
             }
-          ],
-          "Comparison": "Any"
+          }
         }
       }
     ],

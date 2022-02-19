@@ -4,9 +4,9 @@
     0
   ],
   "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-  "name": "Non-Abandoned",
+  "name": "Registered Company",
   "reference": false,
-  "description": "This demographic encompasses every citizen that has not abandoned the server.",
+  "description": null,
   "properties": {
     "BackupOwner": {
       "type": "Eco.Gameplay.Civics.Demographics.Demographic",
@@ -15,31 +15,14 @@
     },
     "Conditions": [
       {
-        "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
+        "type": "Eco.Mods.Companies.IsCompanyLegalPerson",
         "properties": {
-          "Demographics": {
-            "type": "GamePickerList",
-            "mustDeriveType": {
-              "type": "Type",
-              "value": "Eco.Gameplay.Civics.Demographics.Demographic"
-            },
-            "requiredTag": null,
-            "internalDescription": "<b><link=\"ref:Demographic:4\"><ecoicon item=\"Demographic\"><style=\"Government\">Abandoned</style></ecoicon></link></b>",
-            "entries": [
-              {
-                "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-                "name": "Abandoned",
-                "reference": true
-              }
-            ]
-          },
           "Citizen": {
             "type": "GameValueContext",
             "contextName": "Citizen",
             "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
             "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen being checked for this demographic.\r\n"
-          },
-          "Requirements": "HasNone"
+          }
         }
       }
     ],

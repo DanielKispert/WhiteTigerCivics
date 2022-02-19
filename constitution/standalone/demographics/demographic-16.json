@@ -4,9 +4,9 @@
     0
   ],
   "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-  "name": "Eligible for UBI",
+  "name": "Citizens of Virgata",
   "reference": false,
-  "description": null,
+  "description": "This demographic contains every Citizen of the Federal Republic currently residing in the voting district of Virgata.",
   "properties": {
     "BackupOwner": {
       "type": "Eco.Gameplay.Civics.Demographics.Demographic",
@@ -15,28 +15,64 @@
     },
     "Conditions": [
       {
-        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
         "properties": {
-          "Left": {
-            "type": "Eco.Gameplay.Civics.GameValues.Values.HoursPlayed",
+          "Location": {
+            "type": "Eco.Gameplay.Civics.GameValues.Values.Residence",
             "properties": {
               "Citizen": {
                 "type": "GameValueContext",
                 "contextName": "Citizen",
                 "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
                 "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen being checked for this demographic.\r\n"
-              },
-              "WithinLastNumberOfDays": {
-                "type": "GameValueWrapper",
-                "value": 1.0
               }
             }
           },
-          "Comparison": "GreaterThan",
-          "Right": {
-            "type": "GameValueWrapper",
-            "value": 0.25
-          }
+          "Districts": {
+            "type": "GamePickerList",
+            "mustDeriveType": {
+              "type": "Type",
+              "value": "Eco.Gameplay.LegislationSystem.District"
+            },
+            "requiredTag": null,
+            "internalDescription": "<b><link=\"ref:District:5\"><ecoicon item=\"District\"><color=#86E803FF>Virgata</color></ecoicon></link></b>",
+            "entries": [
+              {
+                "type": "Eco.Gameplay.LegislationSystem.District",
+                "name": "Virgata",
+                "reference": true
+              }
+            ]
+          },
+          "Requirements": "InsideOne"
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
+        "properties": {
+          "Demographics": {
+            "type": "GamePickerList",
+            "mustDeriveType": {
+              "type": "Type",
+              "value": "Eco.Gameplay.Civics.Demographics.Demographic"
+            },
+            "requiredTag": null,
+            "internalDescription": "<b><link=\"ref:Demographic:4\"><ecoicon item=\"Demographic\"><style=\"Government\">Abandoned</style></ecoicon></link></b>",
+            "entries": [
+              {
+                "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                "name": "Abandoned",
+                "reference": true
+              }
+            ]
+          },
+          "Citizen": {
+            "type": "GameValueContext",
+            "contextName": "Citizen",
+            "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
+            "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen being checked for this demographic.\r\n"
+          },
+          "Requirements": "HasNone"
         }
       }
     ],

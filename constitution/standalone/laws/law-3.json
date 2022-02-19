@@ -149,6 +149,18 @@
                         "entries": [
                           {
                             "type": "Type",
+                            "value": "Eco.Mods.TechTree.BoardOfElectionsItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ExecutiveOfficeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.GovernmentOfficeItem"
+                          },
+                          {
+                            "type": "Type",
                             "value": "Eco.Mods.TechTree.CensusBureauItem"
                           },
                           {
@@ -157,23 +169,11 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.CourtItem"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.BallotBoxItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.GovernmentOfficeItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.BoardOfElectionsItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.ExecutiveOfficeItem"
+                            "value": "Eco.Mods.TechTree.CourtItem"
                           }
                         ]
                       }
@@ -214,11 +214,16 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<foldout><linktext><u>4 Districts</u></linktext><title>4 Districts</title><b><link=\"ref:District:94\"><ecoicon item=\"District\"><color=#FF0000FF>Office of the Federal Government</color></ecoicon></link></b>\r\n<b><link=\"ref:District:95\"><ecoicon item=\"District\"><color=#FF6200FF>Office of the Government of Unica</color></ecoicon></link></b>\r\n<b><link=\"ref:District:97\"><ecoicon item=\"District\"><color=#613000FF>Offices of the Governments of the States</color></ecoicon></link></b>\r\n<b><link=\"ref:District:96\"><ecoicon item=\"District\"><color=#0E0050FF>The Capitol</color></ecoicon></link></b></foldout>",
+                            "internalDescription": "<foldout><linktext><u>4 Districts</u></linktext><title>4 Districts</title><b><link=\"ref:District:15\"><ecoicon item=\"District\"><color=#FF0000FF>Office of the Federal Government</color></ecoicon></link></b>\r\n<b><link=\"ref:District:14\"><ecoicon item=\"District\"><color=#FF8900FF>Office of the Government of Unica</color></ecoicon></link></b>\r\n<b><link=\"ref:District:22\"><ecoicon item=\"District\"><color=#FF8900FF>Offices of the Governments of the States</color></ecoicon></link></b>\r\n<b><link=\"ref:District:18\"><ecoicon item=\"District\"><color=#0074A1FF>The Capitol</color></ecoicon></link></b></foldout>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
-                                "name": "Office of the Government of Unica",
+                                "name": "Offices of the Governments of the States",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "The Capitol",
                                 "reference": true
                               },
                               {
@@ -228,12 +233,7 @@
                               },
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
-                                "name": "Offices of the Governments of the States",
-                                "reference": true
-                              },
-                              {
-                                "type": "Eco.Gameplay.LegislationSystem.District",
-                                "name": "The Capitol",
+                                "name": "Office of the Government of Unica",
                                 "reference": true
                               }
                             ]
@@ -323,11 +323,11 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.TailingsItem"
+                            "value": "Eco.Mods.TechTree.WetTailingsItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.WetTailingsItem"
+                            "value": "Eco.Mods.TechTree.TailingsItem"
                           },
                           {
                             "type": "Type",
@@ -515,11 +515,11 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.TailingsItem"
+                            "value": "Eco.Mods.TechTree.WetTailingsItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.WetTailingsItem"
+                            "value": "Eco.Mods.TechTree.TailingsItem"
                           },
                           {
                             "type": "Type",
@@ -546,7 +546,15 @@
                         "entries": [
                           {
                             "type": "Type",
+                            "value": "Eco.Mods.TechTree.StockpileItem"
+                          },
+                          {
+                            "type": "Type",
                             "value": "Eco.Mods.TechTree.LargeLumberStockpileItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallStockpileItem"
                           },
                           {
                             "type": "Type",
@@ -555,14 +563,6 @@
                           {
                             "type": "Type",
                             "value": "Eco.Mods.TechTree.LumberStockpileItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallStockpileItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.StockpileItem"
                           }
                         ]
                       }
@@ -663,11 +663,11 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.CapitolItem"
+                            "value": "Eco.Mods.TechTree.AmendmentsItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.AmendmentsItem"
+                            "value": "Eco.Mods.TechTree.CapitolItem"
                           }
                         ]
                       }
@@ -804,35 +804,7 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.Organisms.Oak+OakSpecies"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.Organisms.Spruce+SpruceSpecies"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.Organisms.OldGrowthRedwood+OldGrowthRedwoodSpecies"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.Organisms.Redwood+RedwoodSpecies"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.Organisms.SaguaroCactus+SaguaroCactusSpecies"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.Organisms.Fir+FirSpecies"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.Organisms.Joshua+JoshuaSpecies"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.Organisms.Ceiba+CeibaSpecies"
                           },
                           {
                             "type": "Type",
@@ -840,11 +812,39 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.Organisms.Palm+PalmSpecies"
+                            "value": "Eco.Mods.Organisms.Joshua+JoshuaSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Fir+FirSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Spruce+SpruceSpecies"
                           },
                           {
                             "type": "Type",
                             "value": "Eco.Mods.Organisms.Birch+BirchSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Palm+PalmSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Ceiba+CeibaSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Oak+OakSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Redwood+RedwoodSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.OldGrowthRedwood+OldGrowthRedwoodSpecies"
                           }
                         ]
                       }
@@ -904,35 +904,7 @@
                                 "entries": [
                                   {
                                     "type": "Type",
-                                    "value": "Eco.Mods.Organisms.Oak+OakSpecies"
-                                  },
-                                  {
-                                    "type": "Type",
-                                    "value": "Eco.Mods.Organisms.Spruce+SpruceSpecies"
-                                  },
-                                  {
-                                    "type": "Type",
-                                    "value": "Eco.Mods.Organisms.OldGrowthRedwood+OldGrowthRedwoodSpecies"
-                                  },
-                                  {
-                                    "type": "Type",
-                                    "value": "Eco.Mods.Organisms.Redwood+RedwoodSpecies"
-                                  },
-                                  {
-                                    "type": "Type",
                                     "value": "Eco.Mods.Organisms.SaguaroCactus+SaguaroCactusSpecies"
-                                  },
-                                  {
-                                    "type": "Type",
-                                    "value": "Eco.Mods.Organisms.Fir+FirSpecies"
-                                  },
-                                  {
-                                    "type": "Type",
-                                    "value": "Eco.Mods.Organisms.Joshua+JoshuaSpecies"
-                                  },
-                                  {
-                                    "type": "Type",
-                                    "value": "Eco.Mods.Organisms.Ceiba+CeibaSpecies"
                                   },
                                   {
                                     "type": "Type",
@@ -940,11 +912,39 @@
                                   },
                                   {
                                     "type": "Type",
-                                    "value": "Eco.Mods.Organisms.Palm+PalmSpecies"
+                                    "value": "Eco.Mods.Organisms.Joshua+JoshuaSpecies"
+                                  },
+                                  {
+                                    "type": "Type",
+                                    "value": "Eco.Mods.Organisms.Fir+FirSpecies"
+                                  },
+                                  {
+                                    "type": "Type",
+                                    "value": "Eco.Mods.Organisms.Spruce+SpruceSpecies"
                                   },
                                   {
                                     "type": "Type",
                                     "value": "Eco.Mods.Organisms.Birch+BirchSpecies"
+                                  },
+                                  {
+                                    "type": "Type",
+                                    "value": "Eco.Mods.Organisms.Palm+PalmSpecies"
+                                  },
+                                  {
+                                    "type": "Type",
+                                    "value": "Eco.Mods.Organisms.Ceiba+CeibaSpecies"
+                                  },
+                                  {
+                                    "type": "Type",
+                                    "value": "Eco.Mods.Organisms.Oak+OakSpecies"
+                                  },
+                                  {
+                                    "type": "Type",
+                                    "value": "Eco.Mods.Organisms.Redwood+RedwoodSpecies"
+                                  },
+                                  {
+                                    "type": "Type",
+                                    "value": "Eco.Mods.Organisms.OldGrowthRedwood+OldGrowthRedwoodSpecies"
                                   }
                                 ]
                               }

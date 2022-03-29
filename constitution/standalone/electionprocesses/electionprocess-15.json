@@ -1,0 +1,26 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.ElectionProcess",
+  "name": "Federal Election",
+  "reference": false,
+  "description": "Every Non-Abandoned Citizen of the Federal Republic of White Tiger is allowed to vote in a Federal Election",
+  "properties": {
+    "Voters": {
+      "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+      "name": "Non-Abandoned",
+      "reference": true
+    },
+    "Vetoers": null,
+    "HowToProceedIfElectionsEndInATie": "RandomCandidate",
+    "MaximumElectionHours": 24.0,
+    "MinimumPercentOfEligibleVotersRequired": 0.0,
+    "PercentOfAllVotersToInstantWin": 51.0,
+    "PercentOfAllVotersToInstantLose": 51.0,
+    "EndElectionEarlyWhenThisPercentHaveVoted": 95.0,
+    "MinimumDaysBetweenElectionsOfThisType": 0.0,
+    "AnonymousVoting": false
+  }
+}

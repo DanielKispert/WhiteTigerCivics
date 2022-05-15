@@ -14,7 +14,7 @@
         "reference": false,
         "properties": {
           "Title": "Sales Tax",
-          "UserDescription": "20% of transaction value to be taxed from the seller of every trade, excluding sales from government property. If the seller is an employee of a company, the tax is actioned on the amount left untouched by the constitutional Company Tax.\nThere are three cases:\u000b1. the seller is neither an employee of a company nor a company himself. He pays 20% sales tax from his own pockets.\u000b2. the seller is a company itself. The company pays the reduced sales tax rate from the company's bank account.\n3. the seller is an employee of a company. The company pays the reduced sales tax rate from the company's bank account.",
+          "UserDescription": "20% of transaction value to be taxed from the seller of every trade, excluding sales from government property. If the seller is an employee of a company, the tax is actioned on the amount left untouched by the constitutional Company Income Scaling. If the initiating player is selling something but has only Self Improvement as a skill, then they are not taxed. \nThere are three cases:\u000b1. the seller is neither an employee of a company nor a company himself. He pays 20% sales tax from his own pockets.\u000b2. the seller is a company itself. The company pays the reduced sales tax rate from the company's bank account.\n3. the seller is an employee of a company. The company pays the reduced sales tax rate from the company's bank account.",
           "Triggers": [
             {
               "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
@@ -85,10 +85,43 @@
                         "properties": {
                           "List": [
                             {
-                              "type": "GameValueContext",
-                              "contextName": "Selling",
-                              "titleBacking": "<ecoicon item=\"CurrencyTrade\">Selling</ecoicon>",
-                              "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Selling</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Selling</ecoicon>: Was the good bought or sold by the initiating player?\r\n"
+                              "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                              "properties": {
+                                "List": [
+                                  {
+                                    "type": "GameValueContext",
+                                    "_name": "Selling",
+                                    "markedUpName": "<ecoicon item=\"CurrencyTrade\">Selling</ecoicon>",
+                                    "contextDescription": "Was the good bought or sold by the initiating player?"
+                                  },
+                                  {
+                                    "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                    "properties": {
+                                      "Left": {
+                                        "type": "Eco.Mods.LawExtensions.CitizenSkillCount",
+                                        "properties": {
+                                          "Citizen": {
+                                            "type": "GameValueContext",
+                                            "_name": "Citizen",
+                                            "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                            "contextDescription": "The citizen who performed the interaction."
+                                          },
+                                          "IncludeUnspecialised": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                                            "properties": {}
+                                          }
+                                        }
+                                      },
+                                      "Comparison": "GreaterThan",
+                                      "Right": {
+                                        "type": "GameValueWrapper",
+                                        "value": 1.0
+                                      }
+                                    }
+                                  }
+                                ],
+                                "Comparison": "All"
+                              }
                             },
                             {
                               "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
@@ -96,18 +129,18 @@
                                 "List": [
                                   {
                                     "type": "GameValueContext",
-                                    "contextName": "Buying",
-                                    "titleBacking": "<ecoicon item=\"CurrencyTrade\">Buying</ecoicon>",
-                                    "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Buying</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Buying</ecoicon>: Was the good bought or sold by the initiating player?\r\n"
+                                    "_name": "Buying",
+                                    "markedUpName": "<ecoicon item=\"CurrencyTrade\">Buying</ecoicon>",
+                                    "contextDescription": "Was the good bought or sold by the initiating player?"
                                   },
                                   {
                                     "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
                                     "properties": {
                                       "Location": {
                                         "type": "GameValueContext",
-                                        "contextName": "Action Location",
-                                        "titleBacking": "<ecoicon item=\"CurrencyTrade\">Action Location</ecoicon>",
-                                        "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Action Location</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Action Location</ecoicon>: The position where the interaction took place.\r\n"
+                                        "_name": "Action Location",
+                                        "markedUpName": "<ecoicon item=\"CurrencyTrade\">Action Location</ecoicon>",
+                                        "contextDescription": "When triggered, the <ecoicon item=\"CurrencyTrade\">Action Location</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Action Location</ecoicon>: The position where the interaction took place.\r\n"
                                       },
                                       "Districts": {
                                         "type": "GamePickerList",
@@ -116,26 +149,11 @@
                                           "value": "Eco.Gameplay.LegislationSystem.District"
                                         },
                                         "requiredTag": null,
-                                        "internalDescription": "<foldout><linktext><u>7 Districts</u></linktext><title>7 Districts</title><b><link=\"ref:District:27\"><ecoicon item=\"District\"><color=#004CC6FF>Federal Bank 2</color></ecoicon></link></b>\r\n<b><link=\"ref:District:40\"><ecoicon item=\"District\"><color=#221D1DFF>Federal University 2</color></ecoicon></link></b>\r\n<b><link=\"ref:District:33\"><ecoicon item=\"District\"><color=#004DFFFF>Meteor Facility 2</color></ecoicon></link></b>\r\n<b><link=\"ref:District:34\"><ecoicon item=\"District\"><color=#FF0000FF>Office of the Federal Government 2</color></ecoicon></link></b>\r\n<b><link=\"ref:District:35\"><ecoicon item=\"District\"><color=#FF6200FF>Office of the Government of Unica 2</color></ecoicon></link></b>\r\n<b><link=\"ref:District:37\"><ecoicon item=\"District\"><color=#613000FF>Offices of the Governments of the States 2</color></ecoicon></link></b>\r\n<b><link=\"ref:District:29\"><ecoicon item=\"District\"><color=#273F24FF>Presidents Mansion 2</color></ecoicon></link></b></foldout>",
+                                        "internalDescription": "<foldout><linktext><u>5 Districts</u></linktext><title>5 Districts</title><link=\"view:2549:103022\"><ecoicon item=\"District\"><color=#BCBC00FF>Federal Bank</color></ecoicon></link>\r\n<link=\"view:2549:103027\"><ecoicon item=\"District\"><color=#4B51D5FF>Federal University</color></ecoicon></link>\r\n<link=\"view:2549:103011\"><ecoicon item=\"District\"><color=#AB0300FF>Office of the Federal Government</color></ecoicon></link>\r\n<link=\"view:2549:103018\"><ecoicon item=\"District\"><color=#B27601FF>Office of the Government of Unica</color></ecoicon></link>\r\n<link=\"view:2549:103016\"><ecoicon item=\"District\"><color=#E44D5AFF>Offices of the Governments of the States</color></ecoicon></link></foldout>",
                                         "entries": [
                                           {
                                             "type": "Eco.Gameplay.LegislationSystem.District",
-                                            "name": "Meteor Facility",
-                                            "reference": true
-                                          },
-                                          {
-                                            "type": "Eco.Gameplay.LegislationSystem.District",
-                                            "name": "Presidents Mansion",
-                                            "reference": true
-                                          },
-                                          {
-                                            "type": "Eco.Gameplay.LegislationSystem.District",
-                                            "name": "Federal University",
-                                            "reference": true
-                                          },
-                                          {
-                                            "type": "Eco.Gameplay.LegislationSystem.District",
-                                            "name": "Office of the Federal Government",
+                                            "name": "Federal Bank",
                                             "reference": true
                                           },
                                           {
@@ -145,12 +163,17 @@
                                           },
                                           {
                                             "type": "Eco.Gameplay.LegislationSystem.District",
-                                            "name": "Federal Bank",
+                                            "name": "Office of the Federal Government",
                                             "reference": true
                                           },
                                           {
                                             "type": "Eco.Gameplay.LegislationSystem.District",
                                             "name": "Office of the Government of Unica",
+                                            "reference": true
+                                          },
+                                          {
+                                            "type": "Eco.Gameplay.LegislationSystem.District",
+                                            "name": "Federal University",
                                             "reference": true
                                           }
                                         ]
@@ -188,9 +211,9 @@
                                   "properties": {
                                     "Citizen": {
                                       "type": "GameValueContext",
-                                      "contextName": "Seller",
-                                      "titleBacking": "<ecoicon item=\"User\">Seller</ecoicon>",
-                                      "tooltip": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
+                                      "_name": "Seller",
+                                      "markedUpName": "<ecoicon item=\"User\">Seller</ecoicon>",
+                                      "contextDescription": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
                                     }
                                   }
                                 },
@@ -199,9 +222,9 @@
                                   "properties": {
                                     "Citizen": {
                                       "type": "GameValueContext",
-                                      "contextName": "Seller",
-                                      "titleBacking": "<ecoicon item=\"User\">Seller</ecoicon>",
-                                      "tooltip": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
+                                      "_name": "Seller",
+                                      "markedUpName": "<ecoicon item=\"User\">Seller</ecoicon>",
+                                      "contextDescription": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
                                     }
                                   }
                                 }
@@ -235,9 +258,9 @@
                                   "properties": {
                                     "Number": {
                                       "type": "GameValueContext",
-                                      "contextName": "Currency Amount",
-                                      "titleBacking": "<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>",
-                                      "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>: Amount used in the transaction.\r\n"
+                                      "_name": "Currency Amount",
+                                      "markedUpName": "<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>",
+                                      "contextDescription": "When triggered, the <ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>: Amount used in the transaction.\r\n"
                                     },
                                     "Percent": {
                                       "type": "GameValueWrapper",
@@ -247,9 +270,9 @@
                                 },
                                 "Target": {
                                   "type": "GameValueContext",
-                                  "contextName": "Seller",
-                                  "titleBacking": "<ecoicon item=\"User\">Seller</ecoicon>",
-                                  "tooltip": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
+                                  "_name": "Seller",
+                                  "markedUpName": "<ecoicon item=\"User\">Seller</ecoicon>",
+                                  "contextDescription": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
                                 },
                                 "TaxCode": "Sales Tax",
                                 "Suspended": {
@@ -292,9 +315,9 @@
                                   "properties": {
                                     "Citizen": {
                                       "type": "GameValueContext",
-                                      "contextName": "Seller",
-                                      "titleBacking": "<ecoicon item=\"User\">Seller</ecoicon>",
-                                      "tooltip": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
+                                      "_name": "Seller",
+                                      "markedUpName": "<ecoicon item=\"User\">Seller</ecoicon>",
+                                      "contextDescription": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
                                     }
                                   }
                                 }
@@ -331,9 +354,9 @@
                                       "properties": {
                                         "Number": {
                                           "type": "GameValueContext",
-                                          "contextName": "Currency Amount",
-                                          "titleBacking": "<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>",
-                                          "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>: Amount used in the transaction.\r\n"
+                                          "_name": "Currency Amount",
+                                          "markedUpName": "<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>",
+                                          "contextDescription": "When triggered, the <ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>: Amount used in the transaction.\r\n"
                                         },
                                         "Percent": {
                                           "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
@@ -354,9 +377,9 @@
                                                 "TimeRangeType": "CountBackFromPresentTime",
                                                 "User": {
                                                   "type": "GameValueContext",
-                                                  "contextName": "Seller",
-                                                  "titleBacking": "<ecoicon item=\"User\">Seller</ecoicon>",
-                                                  "tooltip": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
+                                                  "_name": "Seller",
+                                                  "markedUpName": "<ecoicon item=\"User\">Seller</ecoicon>",
+                                                  "contextDescription": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
                                                 }
                                               }
                                             }
@@ -372,9 +395,9 @@
                                 },
                                 "Target": {
                                   "type": "GameValueContext",
-                                  "contextName": "Seller",
-                                  "titleBacking": "<ecoicon item=\"User\">Seller</ecoicon>",
-                                  "tooltip": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
+                                  "_name": "Seller",
+                                  "markedUpName": "<ecoicon item=\"User\">Seller</ecoicon>",
+                                  "contextDescription": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
                                 },
                                 "TaxCode": "Sales Tax",
                                 "Suspended": {
@@ -433,9 +456,9 @@
                                     },
                                     "Citizen": {
                                       "type": "GameValueContext",
-                                      "contextName": "Citizen",
-                                      "titleBacking": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                                      "tooltip": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                                      "_name": "Citizen",
+                                      "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                      "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
                                     },
                                     "Requirements": "HasAll"
                                   }
@@ -473,9 +496,9 @@
                                       "properties": {
                                         "Number": {
                                           "type": "GameValueContext",
-                                          "contextName": "Currency Amount",
-                                          "titleBacking": "<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>",
-                                          "tooltip": "When triggered, the <ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>: Amount used in the transaction.\r\n"
+                                          "_name": "Currency Amount",
+                                          "markedUpName": "<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>",
+                                          "contextDescription": "When triggered, the <ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CurrencyTrade\">Currency Amount</ecoicon>: Amount used in the transaction.\r\n"
                                         },
                                         "Percent": {
                                           "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
@@ -499,9 +522,9 @@
                                                   "properties": {
                                                     "Citizen": {
                                                       "type": "GameValueContext",
-                                                      "contextName": "Seller",
-                                                      "titleBacking": "<ecoicon item=\"User\">Seller</ecoicon>",
-                                                      "tooltip": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
+                                                      "_name": "Seller",
+                                                      "markedUpName": "<ecoicon item=\"User\">Seller</ecoicon>",
+                                                      "contextDescription": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
                                                     }
                                                   }
                                                 }
@@ -522,9 +545,9 @@
                                   "properties": {
                                     "Citizen": {
                                       "type": "GameValueContext",
-                                      "contextName": "Seller",
-                                      "titleBacking": "<ecoicon item=\"User\">Seller</ecoicon>",
-                                      "tooltip": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
+                                      "_name": "Seller",
+                                      "markedUpName": "<ecoicon item=\"User\">Seller</ecoicon>",
+                                      "contextDescription": "When triggered, the <ecoicon item=\"User\">Seller</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Seller</ecoicon>: The selling player.\r\n"
                                     }
                                   }
                                 },
@@ -668,9 +691,9 @@
                           },
                           "Citizen": {
                             "type": "GameValueContext",
-                            "contextName": "Client",
-                            "titleBacking": "<ecoicon item=\"User\">Client</ecoicon>",
-                            "tooltip": "When triggered, the <ecoicon item=\"User\">Client</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Client</ecoicon>: The citizen who posted the work.\r\n"
+                            "_name": "Client",
+                            "markedUpName": "<ecoicon item=\"User\">Client</ecoicon>",
+                            "contextDescription": "When triggered, the <ecoicon item=\"User\">Client</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Client</ecoicon>: The citizen who posted the work.\r\n"
                           },
                           "Requirements": "HasAll"
                         }
@@ -694,9 +717,9 @@
                       },
                       "Currency": {
                         "type": "GameValueContext",
-                        "contextName": "Currency",
-                        "titleBacking": "<ecoicon item=\"CompletedContract\">Currency</ecoicon>",
-                        "tooltip": "When triggered, the <ecoicon item=\"CompletedContract\">Currency</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CompletedContract\">Currency</ecoicon>: Currency used.\r\n"
+                        "_name": "Currency",
+                        "markedUpName": "<ecoicon item=\"CompletedContract\">Currency</ecoicon>",
+                        "contextDescription": "When triggered, the <ecoicon item=\"CompletedContract\">Currency</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CompletedContract\">Currency</ecoicon>: Currency used.\r\n"
                       },
                       "Amount": {
                         "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
@@ -706,9 +729,9 @@
                             "properties": {
                               "Number": {
                                 "type": "GameValueContext",
-                                "contextName": "Currency Amount",
-                                "titleBacking": "<ecoicon item=\"CompletedContract\">Currency Amount</ecoicon>",
-                                "tooltip": "When triggered, the <ecoicon item=\"CompletedContract\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CompletedContract\">Currency Amount</ecoicon>: Amount for payment.\r\n"
+                                "_name": "Currency Amount",
+                                "markedUpName": "<ecoicon item=\"CompletedContract\">Currency Amount</ecoicon>",
+                                "contextDescription": "When triggered, the <ecoicon item=\"CompletedContract\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CompletedContract\">Currency Amount</ecoicon>: Amount for payment.\r\n"
                               },
                               "Percent": {
                                 "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
@@ -732,9 +755,9 @@
                                         "properties": {
                                           "Citizen": {
                                             "type": "GameValueContext",
-                                            "contextName": "Client",
-                                            "titleBacking": "<ecoicon item=\"User\">Client</ecoicon>",
-                                            "tooltip": "When triggered, the <ecoicon item=\"User\">Client</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Client</ecoicon>: The citizen who posted the work.\r\n"
+                                            "_name": "Client",
+                                            "markedUpName": "<ecoicon item=\"User\">Client</ecoicon>",
+                                            "contextDescription": "When triggered, the <ecoicon item=\"User\">Client</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Client</ecoicon>: The citizen who posted the work.\r\n"
                                           }
                                         }
                                       }
@@ -755,9 +778,9 @@
                         "properties": {
                           "Citizen": {
                             "type": "GameValueContext",
-                            "contextName": "Client",
-                            "titleBacking": "<ecoicon item=\"User\">Client</ecoicon>",
-                            "tooltip": "When triggered, the <ecoicon item=\"User\">Client</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Client</ecoicon>: The citizen who posted the work.\r\n"
+                            "_name": "Client",
+                            "markedUpName": "<ecoicon item=\"User\">Client</ecoicon>",
+                            "contextDescription": "When triggered, the <ecoicon item=\"User\">Client</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Client</ecoicon>: The citizen who posted the work.\r\n"
                           }
                         }
                       },
@@ -805,18 +828,18 @@
                       },
                       "Currency": {
                         "type": "GameValueContext",
-                        "contextName": "Currency",
-                        "titleBacking": "<ecoicon item=\"CompletedContract\">Currency</ecoicon>",
-                        "tooltip": "When triggered, the <ecoicon item=\"CompletedContract\">Currency</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CompletedContract\">Currency</ecoicon>: Currency used.\r\n"
+                        "_name": "Currency",
+                        "markedUpName": "<ecoicon item=\"CompletedContract\">Currency</ecoicon>",
+                        "contextDescription": "When triggered, the <ecoicon item=\"CompletedContract\">Currency</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CompletedContract\">Currency</ecoicon>: Currency used.\r\n"
                       },
                       "Amount": {
                         "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
                         "properties": {
                           "Number": {
                             "type": "GameValueContext",
-                            "contextName": "Currency Amount",
-                            "titleBacking": "<ecoicon item=\"CompletedContract\">Currency Amount</ecoicon>",
-                            "tooltip": "When triggered, the <ecoicon item=\"CompletedContract\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CompletedContract\">Currency Amount</ecoicon>: Amount for payment.\r\n"
+                            "_name": "Currency Amount",
+                            "markedUpName": "<ecoicon item=\"CompletedContract\">Currency Amount</ecoicon>",
+                            "contextDescription": "When triggered, the <ecoicon item=\"CompletedContract\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"CompletedContract\">Currency Amount</ecoicon>: Amount for payment.\r\n"
                           },
                           "Percent": {
                             "type": "GameValueWrapper",
@@ -826,9 +849,9 @@
                       },
                       "Target": {
                         "type": "GameValueContext",
-                        "contextName": "Client",
-                        "titleBacking": "<ecoicon item=\"User\">Client</ecoicon>",
-                        "tooltip": "When triggered, the <ecoicon item=\"User\">Client</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Client</ecoicon>: The citizen who posted the work.\r\n"
+                        "_name": "Client",
+                        "markedUpName": "<ecoicon item=\"User\">Client</ecoicon>",
+                        "contextDescription": "When triggered, the <ecoicon item=\"User\">Client</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Client</ecoicon>: The citizen who posted the work.\r\n"
                       },
                       "TaxCode": "Contract and WP Tax",
                       "Suspended": {
@@ -973,9 +996,9 @@
                           },
                           "Citizen": {
                             "type": "GameValueContext",
-                            "contextName": "Earner",
-                            "titleBacking": "<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>",
-                            "tooltip": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>: The citizen or group who receive the payment.\r\n"
+                            "_name": "Earner",
+                            "markedUpName": "<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>",
+                            "contextDescription": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>: The citizen or group who receive the payment.\r\n"
                           },
                           "Requirements": "HasAll"
                         }
@@ -999,9 +1022,9 @@
                       },
                       "Currency": {
                         "type": "GameValueContext",
-                        "contextName": "Currency",
-                        "titleBacking": "<ecoicon item=\"PayRentOrMoveInFee\">Currency</ecoicon>",
-                        "tooltip": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Currency</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Currency</ecoicon>: Currency used.\r\n"
+                        "_name": "Currency",
+                        "markedUpName": "<ecoicon item=\"PayRentOrMoveInFee\">Currency</ecoicon>",
+                        "contextDescription": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Currency</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Currency</ecoicon>: Currency used.\r\n"
                       },
                       "Amount": {
                         "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
@@ -1011,9 +1034,9 @@
                             "properties": {
                               "Number": {
                                 "type": "GameValueContext",
-                                "contextName": "Currency Amount",
-                                "titleBacking": "<ecoicon item=\"PayRentOrMoveInFee\">Currency Amount</ecoicon>",
-                                "tooltip": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Currency Amount</ecoicon>: Amount of payment.\r\n"
+                                "_name": "Currency Amount",
+                                "markedUpName": "<ecoicon item=\"PayRentOrMoveInFee\">Currency Amount</ecoicon>",
+                                "contextDescription": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Currency Amount</ecoicon>: Amount of payment.\r\n"
                               },
                               "Percent": {
                                 "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
@@ -1037,9 +1060,9 @@
                                         "properties": {
                                           "Citizen": {
                                             "type": "GameValueContext",
-                                            "contextName": "Earner",
-                                            "titleBacking": "<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>",
-                                            "tooltip": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>: The citizen or group who receive the payment.\r\n"
+                                            "_name": "Earner",
+                                            "markedUpName": "<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>",
+                                            "contextDescription": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>: The citizen or group who receive the payment.\r\n"
                                           }
                                         }
                                       }
@@ -1060,9 +1083,9 @@
                         "properties": {
                           "Citizen": {
                             "type": "GameValueContext",
-                            "contextName": "Earner",
-                            "titleBacking": "<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>",
-                            "tooltip": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>: The citizen or group who receive the payment.\r\n"
+                            "_name": "Earner",
+                            "markedUpName": "<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>",
+                            "contextDescription": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>: The citizen or group who receive the payment.\r\n"
                           }
                         }
                       },
@@ -1097,9 +1120,9 @@
                         "properties": {
                           "Citizen": {
                             "type": "GameValueContext",
-                            "contextName": "Earner",
-                            "titleBacking": "<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>",
-                            "tooltip": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>: The citizen or group who receive the payment.\r\n"
+                            "_name": "Earner",
+                            "markedUpName": "<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>",
+                            "contextDescription": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>: The citizen or group who receive the payment.\r\n"
                           }
                         }
                       }
@@ -1122,9 +1145,9 @@
                       },
                       "Currency": {
                         "type": "GameValueContext",
-                        "contextName": "Currency",
-                        "titleBacking": "<ecoicon item=\"PayRentOrMoveInFee\">Currency</ecoicon>",
-                        "tooltip": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Currency</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Currency</ecoicon>: Currency used.\r\n"
+                        "_name": "Currency",
+                        "markedUpName": "<ecoicon item=\"PayRentOrMoveInFee\">Currency</ecoicon>",
+                        "contextDescription": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Currency</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Currency</ecoicon>: Currency used.\r\n"
                       },
                       "Amount": {
                         "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
@@ -1134,9 +1157,9 @@
                             "properties": {
                               "Number": {
                                 "type": "GameValueContext",
-                                "contextName": "Currency Amount",
-                                "titleBacking": "<ecoicon item=\"PayRentOrMoveInFee\">Currency Amount</ecoicon>",
-                                "tooltip": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Currency Amount</ecoicon>: Amount of payment.\r\n"
+                                "_name": "Currency Amount",
+                                "markedUpName": "<ecoicon item=\"PayRentOrMoveInFee\">Currency Amount</ecoicon>",
+                                "contextDescription": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Currency Amount</ecoicon>: Amount of payment.\r\n"
                               },
                               "Percent": {
                                 "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
@@ -1157,9 +1180,9 @@
                                       "TimeRangeType": "CountBackFromPresentTime",
                                       "User": {
                                         "type": "GameValueContext",
-                                        "contextName": "Earner",
-                                        "titleBacking": "<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>",
-                                        "tooltip": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>: The citizen or group who receive the payment.\r\n"
+                                        "_name": "Earner",
+                                        "markedUpName": "<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>",
+                                        "contextDescription": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>: The citizen or group who receive the payment.\r\n"
                                       }
                                     }
                                   }
@@ -1175,9 +1198,9 @@
                       },
                       "Target": {
                         "type": "GameValueContext",
-                        "contextName": "Earner",
-                        "titleBacking": "<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>",
-                        "tooltip": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>: The citizen or group who receive the payment.\r\n"
+                        "_name": "Earner",
+                        "markedUpName": "<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>",
+                        "contextDescription": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>: The citizen or group who receive the payment.\r\n"
                       },
                       "TaxCode": "Rent Tax",
                       "Suspended": {
@@ -1223,18 +1246,18 @@
                       },
                       "Currency": {
                         "type": "GameValueContext",
-                        "contextName": "Currency",
-                        "titleBacking": "<ecoicon item=\"PayRentOrMoveInFee\">Currency</ecoicon>",
-                        "tooltip": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Currency</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Currency</ecoicon>: Currency used.\r\n"
+                        "_name": "Currency",
+                        "markedUpName": "<ecoicon item=\"PayRentOrMoveInFee\">Currency</ecoicon>",
+                        "contextDescription": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Currency</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Currency</ecoicon>: Currency used.\r\n"
                       },
                       "Amount": {
                         "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
                         "properties": {
                           "Number": {
                             "type": "GameValueContext",
-                            "contextName": "Currency Amount",
-                            "titleBacking": "<ecoicon item=\"PayRentOrMoveInFee\">Currency Amount</ecoicon>",
-                            "tooltip": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Currency Amount</ecoicon>: Amount of payment.\r\n"
+                            "_name": "Currency Amount",
+                            "markedUpName": "<ecoicon item=\"PayRentOrMoveInFee\">Currency Amount</ecoicon>",
+                            "contextDescription": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Currency Amount</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Currency Amount</ecoicon>: Amount of payment.\r\n"
                           },
                           "Percent": {
                             "type": "GameValueWrapper",
@@ -1244,9 +1267,9 @@
                       },
                       "Target": {
                         "type": "GameValueContext",
-                        "contextName": "Earner",
-                        "titleBacking": "<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>",
-                        "tooltip": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>: The citizen or group who receive the payment.\r\n"
+                        "_name": "Earner",
+                        "markedUpName": "<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>",
+                        "contextDescription": "When triggered, the <ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"PayRentOrMoveInFee\">Earner</ecoicon>: The citizen or group who receive the payment.\r\n"
                       },
                       "TaxCode": "Rent Tax",
                       "Suspended": {

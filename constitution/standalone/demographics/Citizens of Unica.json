@@ -1,0 +1,198 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+  "name": "Citizens of Unica",
+  "reference": false,
+  "description": "This demographic contains every citizen of the Federal Republic currently residing in the City-State of Unica",
+  "properties": {
+    "BackupOwner": {
+      "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+      "name": "Everyone",
+      "reference": true
+    },
+    "Conditions": [
+      {
+        "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
+        "properties": {
+          "Demographics": {
+            "type": "GamePickerList",
+            "mustDeriveType": {
+              "type": "Type",
+              "value": "Eco.Gameplay.Civics.Demographics.Demographic"
+            },
+            "requiredTag": null,
+            "internalDescription": "<b><link=\"ref:Demographic:4\"><ecoicon item=\"Demographic\"><style=\"Government\">Abandoned</style></ecoicon></link></b>",
+            "entries": [
+              {
+                "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                "name": "Abandoned",
+                "reference": true
+              }
+            ]
+          },
+          "Citizen": {
+            "type": "GameValueContext",
+            "_name": "Citizen",
+            "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
+            "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen being checked for this demographic.\r\n"
+          },
+          "Requirements": "HasNone"
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+        "properties": {
+          "Location": {
+            "type": "Eco.Gameplay.Civics.GameValues.Values.Residence",
+            "properties": {
+              "Citizen": {
+                "type": "GameValueContext",
+                "_name": "Citizen",
+                "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                "contextDescription": "The citizen being checked for this demographic."
+              }
+            }
+          },
+          "Districts": {
+            "type": "GamePickerList",
+            "mustDeriveType": {
+              "type": "Type",
+              "value": "Eco.Gameplay.LegislationSystem.District"
+            },
+            "requiredTag": null,
+            "internalDescription": "<link=\"view:2549:57341547\"><ecoicon item=\"District\"><color=#003CFFFF>Unica</color></ecoicon></link>",
+            "entries": [
+              {
+                "type": "Eco.Gameplay.LegislationSystem.District",
+                "name": "Unica",
+                "reference": true
+              }
+            ]
+          },
+          "Requirements": "InsideOne"
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+        "properties": {
+          "Left": {
+            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+            "properties": {
+              "CustomStatName": "residentOfAltaica",
+              "TimeRangeInHours": {
+                "type": "GameValueWrapper",
+                "value": 24.0
+              },
+              "TimeRangeType": "CountBackFromPresentTime",
+              "User": {
+                "type": "GameValueContext",
+                "_name": "Citizen",
+                "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                "contextDescription": "The citizen being checked for this demographic."
+              }
+            }
+          },
+          "Comparison": "LessThanOrEqualTo",
+          "Right": {
+            "type": "GameValueWrapper",
+            "value": 0.0
+          }
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+        "properties": {
+          "Left": {
+            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+            "properties": {
+              "CustomStatName": "residentOfBalica",
+              "TimeRangeInHours": {
+                "type": "GameValueWrapper",
+                "value": 24.0
+              },
+              "TimeRangeType": "CountBackFromPresentTime",
+              "User": {
+                "type": "GameValueContext",
+                "_name": "Citizen",
+                "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                "contextDescription": "The citizen being checked for this demographic."
+              }
+            }
+          },
+          "Comparison": "LessThanOrEqualTo",
+          "Right": {
+            "type": "GameValueWrapper",
+            "value": 0.0
+          }
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+        "properties": {
+          "Left": {
+            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+            "properties": {
+              "CustomStatName": "residentOfSondaica",
+              "TimeRangeInHours": {
+                "type": "GameValueWrapper",
+                "value": 24.0
+              },
+              "TimeRangeType": "CountBackFromPresentTime",
+              "User": {
+                "type": "GameValueContext",
+                "_name": "Citizen",
+                "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                "contextDescription": "The citizen being checked for this demographic."
+              }
+            }
+          },
+          "Comparison": "LessThanOrEqualTo",
+          "Right": {
+            "type": "GameValueWrapper",
+            "value": 0.0
+          }
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+        "properties": {
+          "Left": {
+            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+            "properties": {
+              "CustomStatName": "residentOfVirgata",
+              "TimeRangeInHours": {
+                "type": "GameValueWrapper",
+                "value": 24.0
+              },
+              "TimeRangeType": "CountBackFromPresentTime",
+              "User": {
+                "type": "GameValueContext",
+                "_name": "Citizen",
+                "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                "contextDescription": "The citizen being checked for this demographic."
+              }
+            }
+          },
+          "Comparison": "LessThanOrEqualTo",
+          "Right": {
+            "type": "GameValueWrapper",
+            "value": 0.0
+          }
+        }
+      }
+    ],
+    "Wages": {
+      "type": "Eco.Gameplay.Economy.Jobs.RecurringTransferDefinition",
+      "reference": false,
+      "properties": {
+        "Currency": null,
+        "AmountPerHour": null,
+        "PaymentType": "OnlineAndOfflineHours"
+      }
+    },
+    "WagesSourceBankAccount": null
+  }
+}

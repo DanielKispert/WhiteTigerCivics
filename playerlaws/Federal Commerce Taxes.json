@@ -422,11 +422,11 @@
                                         "value": "Eco.Gameplay.Civics.Demographics.Demographic"
                                       },
                                       "requiredTag": null,
-                                      "internalDescription": "<b><link=\"ref:Demographic:25\"><ecoicon item=\"Demographic\"><style=\"Government\">Employee of Cooperative</style></ecoicon></link></b>",
+                                      "internalDescription": "<b><link=\"ref:Demographic:25\"><ecoicon item=\"Demographic\"><style=\"Government\">Employee of Private Company</style></ecoicon></link></b>",
                                       "entries": [
                                         {
                                           "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-                                          "name": "Employee of Cooperative",
+                                          "name": "Employee of Private Company",
                                           "reference": true
                                         }
                                       ]
@@ -657,11 +657,11 @@
                               "value": "Eco.Gameplay.Civics.Demographics.Demographic"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:Demographic:25\"><ecoicon item=\"Demographic\"><style=\"Government\">Employee of Cooperative</style></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:Demographic:25\"><ecoicon item=\"Demographic\"><style=\"Government\">Employee of Private Company</style></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-                                "name": "Employee of Cooperative",
+                                "name": "Employee of Private Company",
                                 "reference": true
                               }
                             ]
@@ -962,11 +962,11 @@
                               "value": "Eco.Gameplay.Civics.Demographics.Demographic"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<b><link=\"ref:Demographic:25\"><ecoicon item=\"Demographic\"><style=\"Government\">Employee of Cooperative</style></ecoicon></link></b>",
+                            "internalDescription": "<b><link=\"ref:Demographic:25\"><ecoicon item=\"Demographic\"><style=\"Government\">Employee of Private Company</style></ecoicon></link></b>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-                                "name": "Employee of Cooperative",
+                                "name": "Employee of Private Company",
                                 "reference": true
                               }
                             ]

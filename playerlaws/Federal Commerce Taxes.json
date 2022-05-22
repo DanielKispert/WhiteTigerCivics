@@ -95,28 +95,142 @@
                                     "contextDescription": "Was the good bought or sold by the initiating player?"
                                   },
                                   {
-                                    "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                    "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
                                     "properties": {
-                                      "Left": {
-                                        "type": "Eco.Mods.LawExtensions.CitizenSkillCount",
-                                        "properties": {
-                                          "Citizen": {
-                                            "type": "GameValueContext",
-                                            "_name": "Citizen",
-                                            "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                                            "contextDescription": "The citizen who performed the interaction."
-                                          },
-                                          "IncludeUnspecialised": {
-                                            "type": "Eco.Gameplay.Civics.GameValues.No",
-                                            "properties": {}
+                                      "List": [
+                                        {
+                                          "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                                          "properties": {
+                                            "List": [
+                                              {
+                                                "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
+                                                "properties": {
+                                                  "Demographics": {
+                                                    "type": "GamePickerList",
+                                                    "mustDeriveType": {
+                                                      "type": "Type",
+                                                      "value": "Eco.Gameplay.Civics.Demographics.Demographic"
+                                                    },
+                                                    "requiredTag": null,
+                                                    "internalDescription": "<link=\"view:1961:52860\"><ecoicon item=\"Demographic\"><style=\"Government\">Employee of Private Company</style></ecoicon></link>",
+                                                    "entries": [
+                                                      {
+                                                        "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                                                        "name": "Employee of Private Company",
+                                                        "reference": true
+                                                      }
+                                                    ]
+                                                  },
+                                                  "Citizen": {
+                                                    "type": "GameValueContext",
+                                                    "_name": "Citizen",
+                                                    "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                                    "contextDescription": "The citizen who performed the interaction."
+                                                  },
+                                                  "Requirements": "HasAll"
+                                                }
+                                              },
+                                              {
+                                                "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                                "properties": {
+                                                  "Left": {
+                                                    "type": "Eco.Mods.Companies.SkillCount",
+                                                    "properties": {
+                                                      "LegalPerson": {
+                                                        "type": "Eco.Mods.Companies.EmployerLegalPerson",
+                                                        "properties": {
+                                                          "Citizen": {
+                                                            "type": "GameValueContext",
+                                                            "_name": "Citizen",
+                                                            "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                                            "contextDescription": "The citizen who performed the interaction."
+                                                          }
+                                                        }
+                                                      },
+                                                      "UniqueSkills": {
+                                                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                                        "properties": {}
+                                                      },
+                                                      "Highest": {
+                                                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                                                        "properties": {}
+                                                      }
+                                                    }
+                                                  },
+                                                  "Comparison": "GreaterThan",
+                                                  "Right": {
+                                                    "type": "GameValueWrapper",
+                                                    "value": 1.0
+                                                  }
+                                                }
+                                              }
+                                            ],
+                                            "Comparison": "All"
+                                          }
+                                        },
+                                        {
+                                          "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                                          "properties": {
+                                            "List": [
+                                              {
+                                                "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
+                                                "properties": {
+                                                  "Demographics": {
+                                                    "type": "GamePickerList",
+                                                    "mustDeriveType": {
+                                                      "type": "Type",
+                                                      "value": "Eco.Gameplay.Civics.Demographics.Demographic"
+                                                    },
+                                                    "requiredTag": null,
+                                                    "internalDescription": "<link=\"view:1961:52860\"><ecoicon item=\"Demographic\"><style=\"Government\">Employee of Private Company</style></ecoicon></link>",
+                                                    "entries": [
+                                                      {
+                                                        "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                                                        "name": "Employee of Private Company",
+                                                        "reference": true
+                                                      }
+                                                    ]
+                                                  },
+                                                  "Citizen": {
+                                                    "type": "GameValueContext",
+                                                    "_name": "Citizen",
+                                                    "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                                    "contextDescription": "The citizen who performed the interaction."
+                                                  },
+                                                  "Requirements": "HasNone"
+                                                }
+                                              },
+                                              {
+                                                "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                                "properties": {
+                                                  "Left": {
+                                                    "type": "Eco.Mods.LawExtensions.CitizenSkillCount",
+                                                    "properties": {
+                                                      "Citizen": {
+                                                        "type": "GameValueContext",
+                                                        "_name": "Citizen",
+                                                        "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                                        "contextDescription": "The citizen who performed the interaction."
+                                                      },
+                                                      "IncludeUnspecialised": {
+                                                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                                                        "properties": {}
+                                                      }
+                                                    }
+                                                  },
+                                                  "Comparison": "GreaterThan",
+                                                  "Right": {
+                                                    "type": "GameValueWrapper",
+                                                    "value": 1.0
+                                                  }
+                                                }
+                                              }
+                                            ],
+                                            "Comparison": "All"
                                           }
                                         }
-                                      },
-                                      "Comparison": "GreaterThan",
-                                      "Right": {
-                                        "type": "GameValueWrapper",
-                                        "value": 1.0
-                                      }
+                                      ],
+                                      "Comparison": "Any"
                                     }
                                   }
                                 ],
@@ -153,17 +267,7 @@
                                         "entries": [
                                           {
                                             "type": "Eco.Gameplay.LegislationSystem.District",
-                                            "name": "Federal Bank",
-                                            "reference": true
-                                          },
-                                          {
-                                            "type": "Eco.Gameplay.LegislationSystem.District",
                                             "name": "Offices of the Governments of the States",
-                                            "reference": true
-                                          },
-                                          {
-                                            "type": "Eco.Gameplay.LegislationSystem.District",
-                                            "name": "Office of the Federal Government",
                                             "reference": true
                                           },
                                           {
@@ -173,7 +277,17 @@
                                           },
                                           {
                                             "type": "Eco.Gameplay.LegislationSystem.District",
+                                            "name": "Federal Bank",
+                                            "reference": true
+                                          },
+                                          {
+                                            "type": "Eco.Gameplay.LegislationSystem.District",
                                             "name": "Federal University",
+                                            "reference": true
+                                          },
+                                          {
+                                            "type": "Eco.Gameplay.LegislationSystem.District",
+                                            "name": "Office of the Federal Government",
                                             "reference": true
                                           }
                                         ]

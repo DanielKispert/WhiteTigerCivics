@@ -19,11 +19,6 @@
       "type": "Eco.Gameplay.Players.User",
       "name": "White-Tiger",
       "reference": true
-    },
-    {
-      "type": "Eco.Gameplay.Players.User",
-      "name": "[PMD]Daniel93a",
-      "reference": true
     }
   ],
   "properties": {

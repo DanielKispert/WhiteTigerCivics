@@ -19,13 +19,7 @@
       "reference": true
     }
   ],
-  "users": [
-    {
-      "type": "Eco.Gameplay.Players.User",
-      "name": "[PMD]Daniel93a",
-      "reference": true
-    }
-  ],
+  "users": [],
   "properties": {
     "RequiredOfOfficeHolders": null,
     "BackupOwner": {

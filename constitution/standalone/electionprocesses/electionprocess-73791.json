@@ -1,0 +1,32 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.ElectionProcess",
+  "name": "Appointment by Prime Minister",
+  "reference": false,
+  "description": null,
+  "properties": {
+    "Voters": {
+      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+      "name": "Prime Minister",
+      "reference": true
+    },
+    "Vetoers": {
+      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+      "name": "Prime Minister",
+      "reference": true
+    },
+    "HowToProceedIfElectionsEndInATie": "RandomCandidate",
+    "MaximumElectionHours": 96.0,
+    "MinimumPercentOfEligibleVotersRequired": 10.0,
+    "PercentOfAllVotersToInstantWin": 51.0,
+    "PercentOfAllVotersToInstantLose": 51.0,
+    "EndElectionEarlyWhenThisPercentHaveVoted": 95.0,
+    "MinimumDaysBetweenElectionsOfThisType": 0.0,
+    "AnonymousVoting": false,
+    "TwitchVoteWeight": 0.1,
+    "MaxPercentTwitchVotes": 0.1
+  }
+}

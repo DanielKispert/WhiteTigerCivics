@@ -214,7 +214,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<foldout><linktext><u>4 Districts</u></linktext><title>4 Districts</title><link=\"view:488:13152499\"><ecoicon item=\"District\"><color=#AB0300FF>Office of the Federal Government</color></ecoicon></link>\r\n<link=\"view:488:13152498\"><ecoicon item=\"District\"><color=#B27601FF>Office of the Government of Unica</color></ecoicon></link>\r\n<link=\"view:488:20360489\"><ecoicon item=\"District\"><color=#F823EDFF>Offices of the Governments of the States 3</color></ecoicon></link>\r\n<link=\"view:488:13152501\"><ecoicon item=\"District\"><color=#3A1F00FF>The Capitol</color></ecoicon></link></foldout>",
+                            "internalDescription": "<foldout><linktext><u>4 Districts</u></linktext><title>4 Districts</title><link=\"view:488:13152499\"><ecoicon item=\"District\"><color=#AB0300FF>Office of the Federal Government</color></ecoicon></link>\r\n<link=\"view:488:13152498\"><ecoicon item=\"District\"><color=#B27601FF>Office of the Government of Unica</color></ecoicon></link>\r\n<link=\"view:488:20360489\"><ecoicon item=\"District\"><color=#F823EDFF>Offices of the Governments of the States</color></ecoicon></link>\r\n<link=\"view:488:13152501\"><ecoicon item=\"District\"><color=#3A1F00FF>The Capitol</color></ecoicon></link></foldout>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -233,7 +233,7 @@
                               },
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
-                                "name": "Offices of the Governments of the States 3",
+                                "name": "Offices of the Governments of the States",
                                 "reference": true
                               }
                             ]

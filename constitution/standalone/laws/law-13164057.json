@@ -765,7 +765,7 @@
                                         "value": "Eco.Gameplay.LegislationSystem.District"
                                       },
                                       "requiredTag": null,
-                                      "internalDescription": "<foldout><linktext><u>7 Districts</u></linktext><title>7 Districts</title><link=\"view:488:13152497\"><ecoicon item=\"District\"><color=#BCBC00FF>Federal Bank</color></ecoicon></link>\r\n<link=\"view:488:13152496\"><ecoicon item=\"District\"><color=#4B51D5FF>Federal University</color></ecoicon></link>\r\n<link=\"view:488:13152499\"><ecoicon item=\"District\"><color=#AB0300FF>Office of the Federal Government</color></ecoicon></link>\r\n<link=\"view:488:13152498\"><ecoicon item=\"District\"><color=#B27601FF>Office of the Government of Unica</color></ecoicon></link>\r\n<link=\"view:488:20360489\"><ecoicon item=\"District\"><color=#F823EDFF>Offices of the Governments of the States 3</color></ecoicon></link>\r\n<link=\"view:488:13152501\"><ecoicon item=\"District\"><color=#3A1F00FF>The Capitol</color></ecoicon></link>\r\n<link=\"view:488:13152503\"><ecoicon item=\"District\"><color=#BCC2CAFF>Utility Plot</color></ecoicon></link></foldout>",
+                                      "internalDescription": "<foldout><linktext><u>7 Districts</u></linktext><title>7 Districts</title><link=\"view:488:13152497\"><ecoicon item=\"District\"><color=#BCBC00FF>Federal Bank</color></ecoicon></link>\r\n<link=\"view:488:13152496\"><ecoicon item=\"District\"><color=#4B51D5FF>Federal University</color></ecoicon></link>\r\n<link=\"view:488:13152499\"><ecoicon item=\"District\"><color=#AB0300FF>Office of the Federal Government</color></ecoicon></link>\r\n<link=\"view:488:13152498\"><ecoicon item=\"District\"><color=#B27601FF>Office of the Government of Unica</color></ecoicon></link>\r\n<link=\"view:488:20360489\"><ecoicon item=\"District\"><color=#F823EDFF>Offices of the Governments of the States</color></ecoicon></link>\r\n<link=\"view:488:13152501\"><ecoicon item=\"District\"><color=#3A1F00FF>The Capitol</color></ecoicon></link>\r\n<link=\"view:488:13152503\"><ecoicon item=\"District\"><color=#BCC2CAFF>Utility Plot</color></ecoicon></link></foldout>",
                                       "entries": [
                                         {
                                           "type": "Eco.Gameplay.LegislationSystem.District",
@@ -789,7 +789,7 @@
                                         },
                                         {
                                           "type": "Eco.Gameplay.LegislationSystem.District",
-                                          "name": "Offices of the Governments of the States 3",
+                                          "name": "Offices of the Governments of the States",
                                           "reference": true
                                         },
                                         {

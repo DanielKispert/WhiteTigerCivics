@@ -1,0 +1,30 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.ElectionProcess",
+  "name": "Referendum",
+  "reference": false,
+  "description": null,
+  "properties": {
+    "Voters": {
+      "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+      "name": "Everyone",
+      "reference": true
+    },
+    "Vetoers": {
+      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+      "name": "Federal President",
+      "reference": true
+    },
+    "HowToProceedIfElectionsEndInATie": "RandomCandidate",
+    "MaximumElectionHours": 24.0,
+    "MinimumPercentOfEligibleVotersRequired": 2.5,
+    "PercentOfAllVotersToInstantWin": 51.0,
+    "PercentOfAllVotersToInstantLose": 51.0,
+    "EndElectionEarlyWhenThisPercentHaveVoted": 99.0,
+    "MinimumDaysBetweenElectionsOfThisType": 0.0,
+    "AnonymousVoting": false
+  }
+}

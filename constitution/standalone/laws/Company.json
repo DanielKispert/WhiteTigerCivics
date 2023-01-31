@@ -74,7 +74,7 @@
                           "value": "Eco.Gameplay.Economy.Currency"
                         },
                         "requiredTag": null,
-                        "internalDescription": "<link=\"view:2411:74464\"><ecoicon item=\"CurrencySymbol\"><style=\"Currency\">Euro</style></ecoicon></link>",
+                        "internalDescription": "<link=\"view:678:117544\"><icon name=\"CurrencySymbol\"><style=\"Currency\">Euro</style></icon></link>",
                         "entries": [
                           {
                             "type": "Eco.Gameplay.Economy.Currency",
@@ -532,7 +532,7 @@
                               "value": "Eco.Gameplay.Civics.Demographics.Demographic"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<link=\"view:3455:75449\"><ecoicon item=\"Demographic\"><style=\"Government\">Employee of Private Company</style></ecoicon></link>",
+                            "internalDescription": "<link=\"view:1593:255457\"><icon name=\"Demographic\"><style=\"Government\">Employee of Private Company</style></icon></link>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Demographics.Demographic",
@@ -560,7 +560,7 @@
                               "value": "Eco.Gameplay.Civics.Demographics.Demographic"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<link=\"view:3455:75451\"><ecoicon item=\"Demographic\"><style=\"Government\">Government Members</style></ecoicon></link>",
+                            "internalDescription": "<link=\"view:1593:258903\"><icon name=\"Demographic\"><style=\"Government\">Government Members</style></icon></link>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Demographics.Demographic",
@@ -605,7 +605,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.TransferToAccount_LegalAction",
+                    "type": "Eco.Gameplay.Civics.LegalActions.TransferToAccount_LegalAction",
                     "reference": false,
                     "properties": {
                       "SourceAccount": {
@@ -861,7 +861,7 @@
                           "value": "Eco.Gameplay.Civics.Demographics.Demographic"
                         },
                         "requiredTag": null,
-                        "internalDescription": "<link=\"view:27:673\"><ecoicon item=\"Demographic\"><style=\"Government\">Registered Company</style></ecoicon></link>",
+                        "internalDescription": "<link=\"view:1593:255462\"><icon name=\"Demographic\"><style=\"Government\">Registered Company</style></icon></link>",
                         "entries": [
                           {
                             "type": "Eco.Gameplay.Civics.Demographics.Demographic",
@@ -1109,7 +1109,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.IgnoreAuth_LegalAction",
+                    "type": "Eco.Gameplay.Civics.LegalActions.IgnoreAuth_LegalAction",
                     "reference": false,
                     "properties": {
                       "InfoboxOnSuccess": {
@@ -1187,7 +1187,7 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<link=\"view:487:102951\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Individual Company (Type 2)</style></ecoicon></link>",
+                            "internalDescription": "<link=\"view:3290:255451\"><icon name=\"AppointedTitle\"><style=\"Government\">Individual Company (Type 2)</style></icon></link>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
@@ -1211,7 +1211,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.Prevent_LegalAction",
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
                       "InfoboxOnSuccess": {

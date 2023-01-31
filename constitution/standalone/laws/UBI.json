@@ -66,7 +66,7 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<link=\"view:1432:73820\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Game Masters</style></ecoicon></link>",
+                            "internalDescription": "<link=\"view:3290:255449\"><icon name=\"AppointedTitle\"><style=\"Government\">Game Masters</style></icon></link>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
@@ -195,7 +195,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.SendNotice",
+                    "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
                     "reference": false,
                     "properties": {
                       "Message": "current UBI (€/h):",
@@ -233,7 +233,7 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.SendNotice",
+                    "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
                     "reference": false,
                     "properties": {
                       "Message": "UBI already paid out or being paid out (€):",
@@ -269,7 +269,7 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.SendNotice",
+                    "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
                     "reference": false,
                     "properties": {
                       "Message": "current UBI balance (unspent UBI) WIPWIPWIP!!!:",
@@ -607,95 +607,6 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
-                    "reference": false,
-                    "properties": {
-                      "SourceBankAccount": {
-                        "type": "GameValueWrapper",
-                        "value": {
-                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                          "name": "# Federal Bank (ONLY FOR LOANS)",
-                          "reference": true
-                        }
-                      },
-                      "Currency": {
-                        "type": "GameValueWrapper",
-                        "value": {
-                          "type": "Eco.Gameplay.Economy.Currency",
-                          "name": "Euro",
-                          "reference": true
-                        }
-                      },
-                      "Amount": {
-                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
-                        "properties": {
-                          "LeftNumber": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
-                            "properties": {
-                              "LeftNumber": {
-                                "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
-                                "properties": {
-                                  "CustomStatName": "hourlyUBI",
-                                  "TimeRangeInHours": {
-                                    "type": "GameValueWrapper",
-                                    "value": 0.0
-                                  },
-                                  "TimeRangeType": "CountBackFromPresentTime",
-                                  "User": {
-                                    "type": "GameValueWrapper",
-                                    "value": {
-                                      "type": "Eco.Gameplay.Players.User",
-                                      "name": "White-Tiger",
-                                      "reference": true
-                                    }
-                                  }
-                                }
-                              },
-                              "Operation": "Multiply",
-                              "RightNumber": {
-                                "type": "Eco.Gameplay.Civics.GameValues.Values.WorldAgeInHours",
-                                "properties": {}
-                              }
-                            }
-                          },
-                          "Operation": "Subtract",
-                          "RightNumber": {
-                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
-                            "properties": {
-                              "CustomStatName": "UBIReceived",
-                              "TimeRangeInHours": {
-                                "type": "GameValueWrapper",
-                                "value": 0.0
-                              },
-                              "TimeRangeType": "CountBackFromPresentTime",
-                              "User": {
-                                "type": "GameValueContext",
-                                "_name": "Citizen",
-                                "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                                "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "Target": {
-                        "type": "GameValueContext",
-                        "_name": "Citizen",
-                        "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                        "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
-                      },
-                      "PaymentCode": "Universal Basic Income",
-                      "Silent": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
-                        "properties": {}
-                      },
-                      "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
-                        "properties": {}
-                      }
-                    }
-                  },
-                  {
                     "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
                     "reference": false,
                     "properties": {
@@ -832,6 +743,331 @@
                         "properties": {}
                       }
                     }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
+                                  "properties": {
+                                    "Demographics": {
+                                      "type": "GamePickerList",
+                                      "mustDeriveType": {
+                                        "type": "Type",
+                                        "value": "Eco.Gameplay.Civics.Demographics.Demographic"
+                                      },
+                                      "requiredTag": null,
+                                      "internalDescription": "<link=\"view:1593:255457\"><icon name=\"Demographic\"><style=\"Government\">Employee of Private Company</style></icon></link>",
+                                      "entries": [
+                                        {
+                                          "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                                          "name": "Employee of Private Company",
+                                          "reference": true
+                                        }
+                                      ]
+                                    },
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\">Citizen</icon>",
+                                      "contextDescription": "The citizen currently being processed for the timer event."
+                                    },
+                                    "Requirements": "HasAll"
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "SourceBankAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "# Federal Bank (ONLY FOR LOANS)",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Euro",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.TextFormula",
+                                  "properties": {
+                                    "Formula": "hourly * worldage - received",
+                                    "Variables": [
+                                      {
+                                        "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                                        "reference": false,
+                                        "properties": {
+                                          "Name": "hourly",
+                                          "Definition": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                            "properties": {
+                                              "CustomStatName": "hourlyUBI",
+                                              "TimeRangeInHours": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              },
+                                              "TimeRangeType": "CountBackFromPresentTime",
+                                              "User": {
+                                                "type": "GameValueWrapper",
+                                                "value": {
+                                                  "type": "Eco.Gameplay.Players.User",
+                                                  "name": "White-Tiger",
+                                                  "reference": true
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                                        "reference": false,
+                                        "properties": {
+                                          "Name": "worldage",
+                                          "Definition": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Values.WorldAgeInHours",
+                                            "properties": {}
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                                        "reference": false,
+                                        "properties": {
+                                          "Name": "received",
+                                          "Definition": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                            "properties": {
+                                              "CustomStatName": "UBIReceived",
+                                              "TimeRangeInHours": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              },
+                                              "TimeRangeType": "CountBackFromPresentTime",
+                                              "User": {
+                                                "type": "GameValueContext",
+                                                "_name": "Citizen",
+                                                "markedUpName": "<icon name=\"User\">Citizen</icon>",
+                                                "contextDescription": "The citizen currently being processed for the timer event."
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                "Target": {
+                                  "type": "Eco.Mods.Companies.EmployerLegalPersonAlias",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\">Citizen</icon>",
+                                      "contextDescription": "The citizen currently being processed for the timer event."
+                                    }
+                                  }
+                                },
+                                "PaymentCode": "Universal Basic Income",
+                                "Silent": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
+                                  "properties": {
+                                    "Demographics": {
+                                      "type": "GamePickerList",
+                                      "mustDeriveType": {
+                                        "type": "Type",
+                                        "value": "Eco.Gameplay.Civics.Demographics.Demographic"
+                                      },
+                                      "requiredTag": null,
+                                      "internalDescription": "<link=\"view:1593:255457\"><icon name=\"Demographic\"><style=\"Government\">Employee of Private Company</style></icon></link>",
+                                      "entries": [
+                                        {
+                                          "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                                          "name": "Employee of Private Company",
+                                          "reference": true
+                                        }
+                                      ]
+                                    },
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\">Citizen</icon>",
+                                      "contextDescription": "The citizen currently being processed for the timer event."
+                                    },
+                                    "Requirements": "HasNone"
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "SourceBankAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "# Federal Bank (ONLY FOR LOANS)",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Euro",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.TextFormula",
+                                  "properties": {
+                                    "Formula": "hourly * worldage - received",
+                                    "Variables": [
+                                      {
+                                        "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                                        "reference": false,
+                                        "properties": {
+                                          "Name": "hourly",
+                                          "Definition": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                            "properties": {
+                                              "CustomStatName": "hourlyUBI",
+                                              "TimeRangeInHours": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              },
+                                              "TimeRangeType": "CountBackFromPresentTime",
+                                              "User": {
+                                                "type": "GameValueWrapper",
+                                                "value": {
+                                                  "type": "Eco.Gameplay.Players.User",
+                                                  "name": "White-Tiger",
+                                                  "reference": true
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                                        "reference": false,
+                                        "properties": {
+                                          "Name": "worldage",
+                                          "Definition": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Values.WorldAgeInHours",
+                                            "properties": {}
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                                        "reference": false,
+                                        "properties": {
+                                          "Name": "received",
+                                          "Definition": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                            "properties": {
+                                              "CustomStatName": "UBIReceived",
+                                              "TimeRangeInHours": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              },
+                                              "TimeRangeType": "CountBackFromPresentTime",
+                                              "User": {
+                                                "type": "GameValueContext",
+                                                "_name": "Citizen",
+                                                "markedUpName": "<icon name=\"User\">Citizen</icon>",
+                                                "contextDescription": "The citizen currently being processed for the timer event."
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                "Target": {
+                                  "type": "GameValueContext",
+                                  "_name": "Citizen",
+                                  "markedUpName": "<icon name=\"User\">Citizen</icon>",
+                                  "contextDescription": "The citizen currently being processed for the timer event."
+                                },
+                                "PaymentCode": "Universal Basic Income",
+                                "Silent": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
                   }
                 ]
               }
@@ -843,7 +1079,7 @@
         "type": "Eco.Gameplay.Civics.Laws.LawSection",
         "reference": false,
         "properties": {
-          "Title": "UBI Seizing on Abandonement",
+          "Title": "UBI Seizing on Abandonement and giving back when leaving abandonement",
           "UserDescription": "",
           "Triggers": [
             {
@@ -868,7 +1104,7 @@
                           "value": "Eco.Gameplay.Civics.Demographics.Demographic"
                         },
                         "requiredTag": null,
-                        "internalDescription": "<link=\"view:1841:140\"><ecoicon item=\"Demographic\"><style=\"Government\">Abandoned</style></ecoicon></link>",
+                        "internalDescription": "<link=\"view:1593:1269\"><icon name=\"Demographic\"><style=\"Government\">Abandoned</style></icon></link>",
                         "entries": [
                           {
                             "type": "Eco.Gameplay.Civics.Demographics.Demographic",
@@ -908,7 +1144,7 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<link=\"view:487:102966\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Utility Accounts</style></ecoicon></link>",
+                            "internalDescription": "<link=\"view:3290:255454\"><icon name=\"AppointedTitle\"><style=\"Government\">Utility Accounts</style></icon></link>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
@@ -1025,6 +1261,537 @@
                               }
                             }
                           }
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "_name": "LeavingDemographic",
+                        "markedUpName": "<icon name=\"DemographicChange\">Leaving Demographic</icon>",
+                        "contextDescription": "Did The citizen become part of the demographic, or stop being part?"
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                        "properties": {
+                          "Titles": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Civics.Titles.Title"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:3290:255454\"><icon name=\"AppointedTitle\"><style=\"Government\">Utility Accounts</style></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                "name": "Utility Accounts",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\">Citizen</icon>",
+                            "contextDescription": "The citizen who changed demographics."
+                          },
+                          "Requirements": "HasNone"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                            "properties": {
+                              "LeftNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Values.WorldAgeInHours",
+                                "properties": {}
+                              },
+                              "Operation": "Multiply",
+                              "RightNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                "properties": {
+                                  "CustomStatName": "hourlyUBI",
+                                  "TimeRangeInHours": {
+                                    "type": "GameValueWrapper",
+                                    "value": 0.0
+                                  },
+                                  "TimeRangeType": "CountBackFromPresentTime",
+                                  "User": {
+                                    "type": "GameValueWrapper",
+                                    "value": {
+                                      "type": "Eco.Gameplay.Players.User",
+                                      "name": "White-Tiger",
+                                      "reference": true
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "Comparison": "LessThan",
+                          "Right": {
+                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                            "properties": {
+                              "CustomStatName": "UBIReceived",
+                              "TimeRangeInHours": {
+                                "type": "GameValueWrapper",
+                                "value": 0.0
+                              },
+                              "TimeRangeType": "CountBackFromPresentTime",
+                              "User": {
+                                "type": "GameValueContext",
+                                "_name": "Citizen",
+                                "markedUpName": "<icon name=\"User\">Citizen</icon>",
+                                "contextDescription": "The citizen who changed demographics."
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "UBIReceived",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\">Citizen</icon>",
+                        "contextDescription": "The citizen who changed demographics."
+                      },
+                      "Count": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                        "properties": {
+                          "LeftNumber": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                            "properties": {
+                              "LeftNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                "properties": {
+                                  "CustomStatName": "hourlyUBI",
+                                  "TimeRangeInHours": {
+                                    "type": "GameValueWrapper",
+                                    "value": 0.0
+                                  },
+                                  "TimeRangeType": "CountBackFromPresentTime",
+                                  "User": {
+                                    "type": "GameValueWrapper",
+                                    "value": {
+                                      "type": "Eco.Gameplay.Players.User",
+                                      "name": "White-Tiger",
+                                      "reference": true
+                                    }
+                                  }
+                                }
+                              },
+                              "Operation": "Multiply",
+                              "RightNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Values.WorldAgeInHours",
+                                "properties": {}
+                              }
+                            }
+                          },
+                          "Operation": "Subtract",
+                          "RightNumber": {
+                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                            "properties": {
+                              "CustomStatName": "UBIReceived",
+                              "TimeRangeInHours": {
+                                "type": "GameValueWrapper",
+                                "value": 0.0
+                              },
+                              "TimeRangeType": "CountBackFromPresentTime",
+                              "User": {
+                                "type": "GameValueContext",
+                                "_name": "Citizen",
+                                "markedUpName": "<icon name=\"User\">Citizen</icon>",
+                                "contextDescription": "The citizen who changed demographics."
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "UBIBalance",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\">Citizen</icon>",
+                        "contextDescription": "The citizen who changed demographics."
+                      },
+                      "Count": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                        "properties": {
+                          "LeftNumber": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                            "properties": {
+                              "LeftNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                "properties": {
+                                  "CustomStatName": "hourlyUBI",
+                                  "TimeRangeInHours": {
+                                    "type": "GameValueWrapper",
+                                    "value": 0.0
+                                  },
+                                  "TimeRangeType": "CountBackFromPresentTime",
+                                  "User": {
+                                    "type": "GameValueWrapper",
+                                    "value": {
+                                      "type": "Eco.Gameplay.Players.User",
+                                      "name": "White-Tiger",
+                                      "reference": true
+                                    }
+                                  }
+                                }
+                              },
+                              "Operation": "Multiply",
+                              "RightNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Values.WorldAgeInHours",
+                                "properties": {}
+                              }
+                            }
+                          },
+                          "Operation": "Subtract",
+                          "RightNumber": {
+                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                            "properties": {
+                              "CustomStatName": "UBIReceived",
+                              "TimeRangeInHours": {
+                                "type": "GameValueWrapper",
+                                "value": 0.0
+                              },
+                              "TimeRangeType": "CountBackFromPresentTime",
+                              "User": {
+                                "type": "GameValueContext",
+                                "_name": "Citizen",
+                                "markedUpName": "<icon name=\"User\">Citizen</icon>",
+                                "contextDescription": "The citizen who changed demographics."
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
+                                  "properties": {
+                                    "Demographics": {
+                                      "type": "GamePickerList",
+                                      "mustDeriveType": {
+                                        "type": "Type",
+                                        "value": "Eco.Gameplay.Civics.Demographics.Demographic"
+                                      },
+                                      "requiredTag": null,
+                                      "internalDescription": "<link=\"view:1593:255457\"><icon name=\"Demographic\"><style=\"Government\">Employee of Private Company</style></icon></link>",
+                                      "entries": [
+                                        {
+                                          "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                                          "name": "Employee of Private Company",
+                                          "reference": true
+                                        }
+                                      ]
+                                    },
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\">Citizen</icon>",
+                                      "contextDescription": "The citizen who changed demographics."
+                                    },
+                                    "Requirements": "HasAll"
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "SourceBankAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "# Federal Bank (ONLY FOR LOANS)",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Euro",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                  "properties": {
+                                    "LeftNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                      "properties": {
+                                        "LeftNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                          "properties": {
+                                            "CustomStatName": "hourlyUBI",
+                                            "TimeRangeInHours": {
+                                              "type": "GameValueWrapper",
+                                              "value": 0.0
+                                            },
+                                            "TimeRangeType": "CountBackFromPresentTime",
+                                            "User": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Players.User",
+                                                "name": "White-Tiger",
+                                                "reference": true
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "Operation": "Multiply",
+                                        "RightNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Values.WorldAgeInHours",
+                                          "properties": {}
+                                        }
+                                      }
+                                    },
+                                    "Operation": "Add",
+                                    "RightNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                      "properties": {
+                                        "CustomStatName": "UBIReceived",
+                                        "TimeRangeInHours": {
+                                          "type": "GameValueWrapper",
+                                          "value": 0.0
+                                        },
+                                        "TimeRangeType": "CountBackFromPresentTime",
+                                        "User": {
+                                          "type": "GameValueContext",
+                                          "_name": "Citizen",
+                                          "markedUpName": "<icon name=\"User\">Citizen</icon>",
+                                          "contextDescription": "The citizen who changed demographics."
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "Target": {
+                                  "type": "Eco.Mods.Companies.EmployerLegalPersonAlias",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\">Citizen</icon>",
+                                      "contextDescription": "The citizen who changed demographics."
+                                    }
+                                  }
+                                },
+                                "PaymentCode": "Universal Basic Income",
+                                "Silent": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
+                                  "properties": {
+                                    "Demographics": {
+                                      "type": "GamePickerList",
+                                      "mustDeriveType": {
+                                        "type": "Type",
+                                        "value": "Eco.Gameplay.Civics.Demographics.Demographic"
+                                      },
+                                      "requiredTag": null,
+                                      "internalDescription": "<link=\"view:1593:255457\"><icon name=\"Demographic\"><style=\"Government\">Employee of Private Company</style></icon></link>",
+                                      "entries": [
+                                        {
+                                          "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                                          "name": "Employee of Private Company",
+                                          "reference": true
+                                        }
+                                      ]
+                                    },
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\">Citizen</icon>",
+                                      "contextDescription": "The citizen who changed demographics."
+                                    },
+                                    "Requirements": "HasNone"
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "SourceBankAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "# Federal Bank (ONLY FOR LOANS)",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Euro",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                  "properties": {
+                                    "LeftNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                      "properties": {
+                                        "LeftNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                          "properties": {
+                                            "CustomStatName": "hourlyUBI",
+                                            "TimeRangeInHours": {
+                                              "type": "GameValueWrapper",
+                                              "value": 0.0
+                                            },
+                                            "TimeRangeType": "CountBackFromPresentTime",
+                                            "User": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Players.User",
+                                                "name": "White-Tiger",
+                                                "reference": true
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "Operation": "Multiply",
+                                        "RightNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Values.WorldAgeInHours",
+                                          "properties": {}
+                                        }
+                                      }
+                                    },
+                                    "Operation": "Subtract",
+                                    "RightNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                      "properties": {
+                                        "CustomStatName": "UBIReceived",
+                                        "TimeRangeInHours": {
+                                          "type": "GameValueWrapper",
+                                          "value": 0.0
+                                        },
+                                        "TimeRangeType": "CountBackFromPresentTime",
+                                        "User": {
+                                          "type": "GameValueContext",
+                                          "_name": "Citizen",
+                                          "markedUpName": "<icon name=\"User\">Citizen</icon>",
+                                          "contextDescription": "The citizen who changed demographics."
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "Target": {
+                                  "type": "GameValueContext",
+                                  "_name": "Citizen",
+                                  "markedUpName": "<icon name=\"User\">Citizen</icon>",
+                                  "contextDescription": "The citizen who changed demographics."
+                                },
+                                "PaymentCode": "Universal Basic Income",
+                                "Silent": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
                         }
                       },
                       "InfoboxOnSuccess": {

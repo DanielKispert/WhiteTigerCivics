@@ -66,7 +66,7 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<link=\"view:3290:255449\"><icon name=\"AppointedTitle\"><style=\"Government\">Game Masters</style></icon></link>",
+                            "internalDescription": "<link=\"view:1972:341294\"><icon name=\"AppointedTitle\"><style=\"Government\">Game Masters</style></icon></link>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
@@ -766,7 +766,7 @@
                                         "value": "Eco.Gameplay.Civics.Demographics.Demographic"
                                       },
                                       "requiredTag": null,
-                                      "internalDescription": "<link=\"view:1593:255457\"><icon name=\"Demographic\"><style=\"Government\">Employee of Private Company</style></icon></link>",
+                                      "internalDescription": "<link=\"view:918:341302\"><icon name=\"Demographic\"><style=\"Government\">Employee of Private Company</style></icon></link>",
                                       "entries": [
                                         {
                                           "type": "Eco.Gameplay.Civics.Demographics.Demographic",
@@ -931,7 +931,7 @@
                                         "value": "Eco.Gameplay.Civics.Demographics.Demographic"
                                       },
                                       "requiredTag": null,
-                                      "internalDescription": "<link=\"view:1593:255457\"><icon name=\"Demographic\"><style=\"Government\">Employee of Private Company</style></icon></link>",
+                                      "internalDescription": "<link=\"view:918:341302\"><icon name=\"Demographic\"><style=\"Government\">Employee of Private Company</style></icon></link>",
                                       "entries": [
                                         {
                                           "type": "Eco.Gameplay.Civics.Demographics.Demographic",
@@ -1104,7 +1104,7 @@
                           "value": "Eco.Gameplay.Civics.Demographics.Demographic"
                         },
                         "requiredTag": null,
-                        "internalDescription": "<link=\"view:1593:1269\"><icon name=\"Demographic\"><style=\"Government\">Abandoned</style></icon></link>",
+                        "internalDescription": "<link=\"view:918:1268\"><icon name=\"Demographic\"><style=\"Government\">Abandoned</style></icon></link>",
                         "entries": [
                           {
                             "type": "Eco.Gameplay.Civics.Demographics.Demographic",
@@ -1144,7 +1144,7 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<link=\"view:3290:255454\"><icon name=\"AppointedTitle\"><style=\"Government\">Utility Accounts</style></icon></link>",
+                            "internalDescription": "<link=\"view:1972:341299\"><icon name=\"AppointedTitle\"><style=\"Government\">Utility Accounts</style></icon></link>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
@@ -1296,7 +1296,7 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<link=\"view:3290:255454\"><icon name=\"AppointedTitle\"><style=\"Government\">Utility Accounts</style></icon></link>",
+                            "internalDescription": "<link=\"view:1972:341299\"><icon name=\"AppointedTitle\"><style=\"Government\">Utility Accounts</style></icon></link>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
@@ -1346,7 +1346,7 @@
                               }
                             }
                           },
-                          "Comparison": "LessThan",
+                          "Comparison": "GreaterThan",
                           "Right": {
                             "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
                             "properties": {
@@ -1531,7 +1531,7 @@
                                         "value": "Eco.Gameplay.Civics.Demographics.Demographic"
                                       },
                                       "requiredTag": null,
-                                      "internalDescription": "<link=\"view:1593:255457\"><icon name=\"Demographic\"><style=\"Government\">Employee of Private Company</style></icon></link>",
+                                      "internalDescription": "<link=\"view:918:341302\"><icon name=\"Demographic\"><style=\"Government\">Employee of Private Company</style></icon></link>",
                                       "entries": [
                                         {
                                           "type": "Eco.Gameplay.Civics.Demographics.Demographic",
@@ -1679,7 +1679,7 @@
                                         "value": "Eco.Gameplay.Civics.Demographics.Demographic"
                                       },
                                       "requiredTag": null,
-                                      "internalDescription": "<link=\"view:1593:255457\"><icon name=\"Demographic\"><style=\"Government\">Employee of Private Company</style></icon></link>",
+                                      "internalDescription": "<link=\"view:918:341302\"><icon name=\"Demographic\"><style=\"Government\">Employee of Private Company</style></icon></link>",
                                       "entries": [
                                         {
                                           "type": "Eco.Gameplay.Civics.Demographics.Demographic",

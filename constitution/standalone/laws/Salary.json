@@ -61,7 +61,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.SendNotice",
+                    "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
                     "reference": false,
                     "properties": {
                       "Message": "current index wage",
@@ -156,7 +156,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.SendNotice",
+                    "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
                     "reference": false,
                     "properties": {
                       "Message": "The Government owes you this much wage:",
@@ -450,7 +450,7 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.Conditional_LegalAction",
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
                     "reference": false,
                     "properties": {
                       "IfThenBlock": {
@@ -554,166 +554,8 @@
         "type": "Eco.Gameplay.Civics.Laws.LawSection",
         "reference": false,
         "properties": {
-          "Title": "Federal Judge Wage",
-          "UserDescription": "Federal Judges receive 62.5% of the Index Wage and a pension of 1.75% of that per day served.",
-          "Triggers": [
-            {
-              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
-              "reference": false,
-              "properties": {
-                "Trigger": {
-                  "type": "Type",
-                  "value": "Eco.Gameplay.GameActions.CitizenTimer"
-                },
-                "Configs": [
-                  {
-                    "type": "Eco.Gameplay.GameActions.CitizenTimerTriggerConfig",
-                    "typeToConfig": null,
-                    "propNameBacker": null,
-                    "propDisplayName": null,
-                    "properties": {
-                      "RepeatForEachUser": {
-                        "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-                        "name": "Federal Judges",
-                        "reference": true
-                      },
-                      "HoursBetweenExecutions": 1.0
-                    }
-                  }
-                ]
-              }
-            }
-          ],
-          "IfThenBlocks": [
-            {
-              "type": "Eco.Gameplay.Civics.IfThenBlock",
-              "reference": false,
-              "properties": {
-                "If": {
-                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
-                  "properties": {
-                    "List": [],
-                    "Comparison": "All"
-                  }
-                },
-                "Then": [
-                  {
-                    "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
-                    "reference": false,
-                    "properties": {
-                      "SourceBankAccount": {
-                        "type": "GameValueWrapper",
-                        "value": {
-                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                          "name": "# Federal Government Wages Fund",
-                          "reference": true
-                        }
-                      },
-                      "Currency": {
-                        "type": "GameValueWrapper",
-                        "value": {
-                          "type": "Eco.Gameplay.Economy.Currency",
-                          "name": "Euro",
-                          "reference": true
-                        }
-                      },
-                      "Amount": {
-                        "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
-                        "properties": {
-                          "Number": {
-                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
-                            "properties": {
-                              "CustomStatName": "indexWage",
-                              "TimeRangeInHours": {
-                                "type": "GameValueWrapper",
-                                "value": 0.0
-                              },
-                              "TimeRangeType": "CountBackFromPresentTime",
-                              "User": {
-                                "type": "GameValueWrapper",
-                                "value": {
-                                  "type": "Eco.Gameplay.Players.User",
-                                  "name": "White-Tiger",
-                                  "reference": true
-                                }
-                              }
-                            }
-                          },
-                          "Percent": {
-                            "type": "GameValueWrapper",
-                            "value": 62.5
-                          }
-                        }
-                      },
-                      "Target": {
-                        "type": "GameValueContext",
-                        "_name": "Citizen",
-                        "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                        "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
-                      },
-                      "PaymentCode": "Federal Wage",
-                      "Silent": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
-                        "properties": {}
-                      },
-                      "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
-                        "properties": {}
-                      }
-                    }
-                  },
-                  {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
-                    "reference": false,
-                    "properties": {
-                      "StatName": "miliPensionPerHour",
-                      "Person": {
-                        "type": "GameValueContext",
-                        "_name": "Citizen",
-                        "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                        "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
-                      },
-                      "Count": {
-                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
-                        "properties": {
-                          "LeftNumber": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
-                            "properties": {
-                              "Number": {
-                                "type": "GameValueWrapper",
-                                "value": 17.5
-                              },
-                              "Percent": {
-                                "type": "GameValueWrapper",
-                                "value": 62.5
-                              }
-                            }
-                          },
-                          "Operation": "Divide",
-                          "RightNumber": {
-                            "type": "GameValueWrapper",
-                            "value": 24.0
-                          }
-                        }
-                      },
-                      "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
-                        "properties": {}
-                      }
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "type": "Eco.Gameplay.Civics.Laws.LawSection",
-        "reference": false,
-        "properties": {
-          "Title": "Governor Wage",
-          "UserDescription": "The Governors get 55% of the index wage, with 1.75% of that going towards their pension. This SHOULD be paid by the respective states and not the feds but that makes it super complicated so it's the feds for now.",
+          "Title": "Mayor of Unica Wage",
+          "UserDescription": "The Mayor gets 55% of the index wage, with 1.75% of that going towards their pension. ",
           "Triggers": [
             {
               "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
@@ -761,28 +603,8 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<foldout><linktext><u>5 Titles</u></linktext><title>5 Titles</title><link=\"view:2604:73768\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Governor of Altaica</style></ecoicon></link>\r\n<link=\"view:2604:73770\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Governor of Balica</style></ecoicon></link>\r\n<link=\"view:2604:73783\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Governor of Sondaica</style></ecoicon></link>\r\n<link=\"view:2604:73785\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Governor of Virgata</style></ecoicon></link>\r\n<link=\"view:2604:73784\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Mayor of Unica</style></ecoicon></link></foldout>",
+                            "internalDescription": "<link=\"view:4198:105153\"><icon name=\"ElectedTitle\"><style=\"Government\">Mayor of Unica</style> <style=\"InfoLight\">(draft)</style></icon></link>",
                             "entries": [
-                              {
-                                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                                "name": "Governor of Balica",
-                                "reference": true
-                              },
-                              {
-                                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                                "name": "Governor of Sondaica",
-                                "reference": true
-                              },
-                              {
-                                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                                "name": "Governor of Virgata",
-                                "reference": true
-                              },
-                              {
-                                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                                "name": "Governor of Altaica",
-                                "reference": true
-                              },
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
                                 "name": "Mayor of Unica",
@@ -1284,16 +1106,16 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<foldout><linktext><u>3 Titles</u></linktext><title>3 Titles</title><link=\"view:2604:73778\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Minister of Education</style></ecoicon></link>\r\n<link=\"view:2604:73779\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Minister of Finance</style></ecoicon></link>\r\n<link=\"view:2604:73782\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Prime Minister</style></ecoicon></link></foldout>",
+                            "internalDescription": "<foldout><linktext><u>3 Titles</u></linktext><title>3 Titles</title><link=\"view:4198:105143\"><icon name=\"ElectedTitle\"><style=\"Government\">Minister of Education</style> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:4198:105159\"><icon name=\"ElectedTitle\"><style=\"Government\">Minister of Finance</style> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:4198:105163\"><icon name=\"ElectedTitle\"><style=\"Government\">Prime Minister</style> <style=\"InfoLight\">(draft)</style></icon></link></foldout>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                                "name": "Minister of Finance",
+                                "name": "Prime Minister",
                                 "reference": true
                               },
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                                "name": "Prime Minister",
+                                "name": "Minister of Finance",
                                 "reference": true
                               },
                               {
@@ -1481,7 +1303,7 @@
                               "value": "Eco.Gameplay.Civics.Demographics.Demographic"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<link=\"view:1841:73701\"><ecoicon item=\"Demographic\"><style=\"Government\">Government Members</style></ecoicon></link>",
+                            "internalDescription": "<link=\"view:2728:105096\"><icon name=\"Demographic\"><style=\"Government\">Government Members</style> <style=\"InfoLight\">(draft)</style></icon></link>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Demographics.Demographic",
@@ -1620,164 +1442,6 @@
                       "Silent": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
-                      },
-                      "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
-                        "properties": {}
-                      }
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "type": "Eco.Gameplay.Civics.Laws.LawSection",
-        "reference": false,
-        "properties": {
-          "Title": "Attorney General Wage",
-          "UserDescription": "The attorney general receives 55% of the index wage and 1.75% of that as pension",
-          "Triggers": [
-            {
-              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
-              "reference": false,
-              "properties": {
-                "Trigger": {
-                  "type": "Type",
-                  "value": "Eco.Gameplay.GameActions.CitizenTimer"
-                },
-                "Configs": [
-                  {
-                    "type": "Eco.Gameplay.GameActions.CitizenTimerTriggerConfig",
-                    "typeToConfig": null,
-                    "propNameBacker": null,
-                    "propDisplayName": null,
-                    "properties": {
-                      "RepeatForEachUser": {
-                        "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                        "name": "Attorney General",
-                        "reference": true
-                      },
-                      "HoursBetweenExecutions": 1.0
-                    }
-                  }
-                ]
-              }
-            }
-          ],
-          "IfThenBlocks": [
-            {
-              "type": "Eco.Gameplay.Civics.IfThenBlock",
-              "reference": false,
-              "properties": {
-                "If": {
-                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
-                  "properties": {
-                    "List": [],
-                    "Comparison": "All"
-                  }
-                },
-                "Then": [
-                  {
-                    "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
-                    "reference": false,
-                    "properties": {
-                      "SourceBankAccount": {
-                        "type": "GameValueWrapper",
-                        "value": {
-                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                          "name": "# Federal Government Wages Fund",
-                          "reference": true
-                        }
-                      },
-                      "Currency": {
-                        "type": "GameValueWrapper",
-                        "value": {
-                          "type": "Eco.Gameplay.Economy.Currency",
-                          "name": "Euro",
-                          "reference": true
-                        }
-                      },
-                      "Amount": {
-                        "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
-                        "properties": {
-                          "Number": {
-                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
-                            "properties": {
-                              "CustomStatName": "indexWage",
-                              "TimeRangeInHours": {
-                                "type": "GameValueWrapper",
-                                "value": 0.0
-                              },
-                              "TimeRangeType": "CountBackFromPresentTime",
-                              "User": {
-                                "type": "GameValueWrapper",
-                                "value": {
-                                  "type": "Eco.Gameplay.Players.User",
-                                  "name": "White-Tiger",
-                                  "reference": true
-                                }
-                              }
-                            }
-                          },
-                          "Percent": {
-                            "type": "GameValueWrapper",
-                            "value": 55.0
-                          }
-                        }
-                      },
-                      "Target": {
-                        "type": "GameValueContext",
-                        "_name": "Citizen",
-                        "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                        "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
-                      },
-                      "PaymentCode": "Federal Wage",
-                      "Silent": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
-                        "properties": {}
-                      },
-                      "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
-                        "properties": {}
-                      }
-                    }
-                  },
-                  {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
-                    "reference": false,
-                    "properties": {
-                      "StatName": "miliPensionPerHour",
-                      "Person": {
-                        "type": "GameValueContext",
-                        "_name": "Citizen",
-                        "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                        "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
-                      },
-                      "Count": {
-                        "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
-                        "properties": {
-                          "LeftNumber": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
-                            "properties": {
-                              "Number": {
-                                "type": "GameValueWrapper",
-                                "value": 17.5
-                              },
-                              "Percent": {
-                                "type": "GameValueWrapper",
-                                "value": 55.0
-                              }
-                            }
-                          },
-                          "Operation": "Divide",
-                          "RightNumber": {
-                            "type": "GameValueWrapper",
-                            "value": 24.0
-                          }
-                        }
                       },
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
@@ -2001,7 +1665,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.SendNotice",
+                    "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
                     "reference": false,
                     "properties": {
                       "Message": "pension (% of index wage):",
@@ -2396,6 +2060,7 @@
           ]
         }
       }
-    ]
+    ],
+    "State": "Draft"
   }
 }

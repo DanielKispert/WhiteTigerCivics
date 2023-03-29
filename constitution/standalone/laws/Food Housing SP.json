@@ -192,7 +192,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.SendNotice",
+                    "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
                     "reference": false,
                     "properties": {
                       "Message": "you need at least 50 food subtotal to do this job!",
@@ -230,7 +230,7 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.Prevent_LegalAction",
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
                       "InfoboxOnSuccess": {
@@ -296,11 +296,7 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.MechanicsSkill"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdvancedBakingSkill"
+                            "value": "Eco.Mods.TechTree.AdvancedCookingSkill"
                           },
                           {
                             "type": "Type",
@@ -308,11 +304,15 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdvancedCookingSkill"
+                            "value": "Eco.Mods.TechTree.AdvancedSmeltingSkill"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdvancedSmeltingSkill"
+                            "value": "Eco.Mods.TechTree.MechanicsSkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdvancedBakingSkill"
                           }
                         ]
                       }
@@ -428,7 +428,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.SendNotice",
+                    "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
                     "reference": false,
                     "properties": {
                       "Message": "you need at least 35 food subtotal to do this job!",
@@ -466,7 +466,7 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.Prevent_LegalAction",
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
                       "InfoboxOnSuccess": {
@@ -532,7 +532,7 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.CookingSkill"
+                            "value": "Eco.Mods.TechTree.TailoringSkill"
                           },
                           {
                             "type": "Type",
@@ -544,14 +544,6 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.FertilizersSkill"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.TailoringSkill"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.MasonrySkill"
                           },
                           {
@@ -560,15 +552,23 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmeltingSkill"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.BasicEngineeringSkill"
                           },
                           {
                             "type": "Type",
+                            "value": "Eco.Mods.TechTree.CookingSkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.FertilizersSkill"
+                          },
+                          {
+                            "type": "Type",
                             "value": "Eco.Mods.TechTree.BakingSkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmeltingSkill"
                           }
                         ]
                       }
@@ -684,7 +684,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.SendNotice",
+                    "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
                     "reference": false,
                     "properties": {
                       "Message": "you need at least 25 food subtotal to do this job!",
@@ -722,255 +722,7 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.Prevent_LegalAction",
-                    "reference": false,
-                    "properties": {
-                      "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
-                        "properties": {}
-                      }
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "type": "Eco.Gameplay.Civics.Laws.LawSection",
-        "reference": false,
-        "properties": {
-          "Title": "Housing SP Block for Basic Jobs",
-          "UserDescription": "Can't do basic jobs with less than 5 Housing SP",
-          "Triggers": [
-            {
-              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
-              "reference": false,
-              "properties": {
-                "Trigger": {
-                  "type": "Type",
-                  "value": "Eco.Gameplay.GameActions.LaborWorkOrderAction"
-                },
-                "Configs": [
-                  {
-                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
-                    "typeToConfig": "Eco.Gameplay.GameActions.LaborWorkOrderAction",
-                    "propNameBacker": "LaborProfession",
-                    "propDisplayName": "Labor Profession",
-                    "properties": {
-                      "List": {
-                        "type": "GamePickerList",
-                        "mustDeriveType": {
-                          "type": "Type",
-                          "value": "Eco.Gameplay.Skills.Skill"
-                        },
-                        "requiredTag": "Profession",
-                        "internalDescription": "Any",
-                        "entries": []
-                      }
-                    }
-                  },
-                  {
-                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
-                    "typeToConfig": "Eco.Gameplay.GameActions.LaborWorkOrderAction",
-                    "propNameBacker": "LaborSkill",
-                    "propDisplayName": "Labor Skill",
-                    "properties": {
-                      "List": {
-                        "type": "GamePickerList",
-                        "mustDeriveType": {
-                          "type": "Type",
-                          "value": "Eco.Gameplay.Skills.Skill"
-                        },
-                        "requiredTag": "Specialty",
-                        "internalDescription": "<foldout><linktext><u>10 Specialties</u></linktext><title>10 Specialties</title><link=\"Item:BakingSkill\"><style=\"Item\"><ecoicon item=\"BakingSkill\">Baking</ecoicon></style></link>\r\n<link=\"Item:BasicEngineeringSkill\"><style=\"Item\"><ecoicon item=\"BasicEngineeringSkill\">Basic Engineering</ecoicon></style></link>\r\n<link=\"Item:CarpentrySkill\"><style=\"Item\"><ecoicon item=\"CarpentrySkill\">Carpentry</ecoicon></style></link>\r\n<link=\"Item:CookingSkill\"><style=\"Item\"><ecoicon item=\"CookingSkill\">Cooking</ecoicon></style></link>\r\n<link=\"Item:FertilizersSkill\"><style=\"Item\"><ecoicon item=\"FertilizersSkill\">Fertilizers</ecoicon></style></link>\r\n<link=\"Item:MasonrySkill\"><style=\"Item\"><ecoicon item=\"MasonrySkill\">Masonry</ecoicon></style></link>\r\n<link=\"Item:MillingSkill\"><style=\"Item\"><ecoicon item=\"MillingSkill\">Milling</ecoicon></style></link>\r\n<link=\"Item:PotterySkill\"><style=\"Item\"><ecoicon item=\"PotterySkill\">Pottery</ecoicon></style></link>\r\n<link=\"Item:SmeltingSkill\"><style=\"Item\"><ecoicon item=\"SmeltingSkill\">Smelting</ecoicon></style></link>\r\n<link=\"Item:TailoringSkill\"><style=\"Item\"><ecoicon item=\"TailoringSkill\">Tailoring</ecoicon></style></link></foldout>",
-                        "entries": [
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CookingSkill"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MillingSkill"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.PotterySkill"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.FertilizersSkill"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.TailoringSkill"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MasonrySkill"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CarpentrySkill"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmeltingSkill"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.BasicEngineeringSkill"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.BakingSkill"
-                          }
-                        ]
-                      }
-                    }
-                  },
-                  {
-                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
-                    "typeToConfig": "Eco.Gameplay.GameActions.LaborWorkOrderAction",
-                    "propNameBacker": "CraftedItem",
-                    "propDisplayName": "Crafted Item",
-                    "properties": {
-                      "List": {
-                        "type": "GamePickerList",
-                        "mustDeriveType": {
-                          "type": "Type",
-                          "value": "Eco.Gameplay.Items.Item"
-                        },
-                        "requiredTag": "Product",
-                        "internalDescription": "Any",
-                        "entries": []
-                      }
-                    }
-                  },
-                  {
-                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
-                    "typeToConfig": "Eco.Gameplay.GameActions.LaborWorkOrderAction",
-                    "propNameBacker": "Byproduct",
-                    "propDisplayName": "Byproduct",
-                    "properties": {
-                      "List": {
-                        "type": "GamePickerList",
-                        "mustDeriveType": {
-                          "type": "Type",
-                          "value": "Eco.Gameplay.Items.Item"
-                        },
-                        "requiredTag": "Product",
-                        "internalDescription": "Any",
-                        "entries": []
-                      }
-                    }
-                  },
-                  {
-                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
-                    "typeToConfig": "Eco.Gameplay.GameActions.LaborWorkOrderAction",
-                    "propNameBacker": "WorldObjectItem",
-                    "propDisplayName": "Crafting Table",
-                    "properties": {
-                      "List": {
-                        "type": "GamePickerList",
-                        "mustDeriveType": {
-                          "type": "Type",
-                          "value": "Eco.Gameplay.Items.Item"
-                        },
-                        "requiredTag": "Crafting Table",
-                        "internalDescription": "Any",
-                        "entries": []
-                      }
-                    }
-                  }
-                ]
-              }
-            }
-          ],
-          "IfThenBlocks": [
-            {
-              "type": "Eco.Gameplay.Civics.IfThenBlock",
-              "reference": false,
-              "properties": {
-                "If": {
-                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
-                  "properties": {
-                    "List": [
-                      {
-                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
-                        "properties": {
-                          "Left": {
-                            "type": "Eco.Mods.LawExtensions.SkillRate",
-                            "properties": {
-                              "Citizen": {
-                                "type": "GameValueContext",
-                                "_name": "Citizen",
-                                "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                                "contextDescription": "The citizen who performed the interaction."
-                              },
-                              "ConsiderFood": {
-                                "type": "Eco.Gameplay.Civics.GameValues.No",
-                                "properties": {}
-                              },
-                              "ConsiderHousing": {
-                                "type": "Eco.Gameplay.Civics.GameValues.Yes",
-                                "properties": {}
-                              }
-                            }
-                          },
-                          "Comparison": "LessThan",
-                          "Right": {
-                            "type": "GameValueWrapper",
-                            "value": 5.0
-                          }
-                        }
-                      }
-                    ],
-                    "Comparison": "All"
-                  }
-                },
-                "Then": [
-                  {
-                    "type": "Eco.Gameplay.Civics.SendNotice",
-                    "reference": false,
-                    "properties": {
-                      "Message": "you need at least 5 housing SP to do this job!",
-                      "NotificationType": "SideBarMessage",
-                      "PeopleToSendTo": {
-                        "type": "GameValueContext",
-                        "_name": "Citizen",
-                        "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                        "contextDescription": "The citizen who performed the interaction."
-                      },
-                      "ValueToDisplay": {
-                        "type": "Eco.Mods.LawExtensions.SkillRate",
-                        "properties": {
-                          "Citizen": {
-                            "type": "GameValueContext",
-                            "_name": "Citizen",
-                            "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                            "contextDescription": "The citizen who performed the interaction."
-                          },
-                          "ConsiderFood": {
-                            "type": "Eco.Gameplay.Civics.GameValues.No",
-                            "properties": {}
-                          },
-                          "ConsiderHousing": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Yes",
-                            "properties": {}
-                          }
-                        }
-                      },
-                      "LocationToDisplay": null,
-                      "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
-                        "properties": {}
-                      }
-                    }
-                  },
-                  {
-                    "type": "Eco.Gameplay.Civics.Prevent_LegalAction",
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
                       "InfoboxOnSuccess": {
@@ -1036,11 +788,7 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.MechanicsSkill"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdvancedBakingSkill"
+                            "value": "Eco.Mods.TechTree.AdvancedCookingSkill"
                           },
                           {
                             "type": "Type",
@@ -1048,11 +796,15 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdvancedCookingSkill"
+                            "value": "Eco.Mods.TechTree.AdvancedSmeltingSkill"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.AdvancedSmeltingSkill"
+                            "value": "Eco.Mods.TechTree.MechanicsSkill"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdvancedBakingSkill"
                           }
                         ]
                       }
@@ -1160,7 +912,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.SendNotice",
+                    "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
                     "reference": false,
                     "properties": {
                       "Message": "you need at least 30 housing SP to do this job!",
@@ -1198,7 +950,7 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.Prevent_LegalAction",
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
                       "InfoboxOnSuccess": {
@@ -1388,7 +1140,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.SendNotice",
+                    "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
                     "reference": false,
                     "properties": {
                       "Message": "you need at least 55 housing SP to do this job!",
@@ -1426,7 +1178,7 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.Prevent_LegalAction",
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
                       "InfoboxOnSuccess": {
@@ -1441,6 +1193,7 @@
           ]
         }
       }
-    ]
+    ],
+    "State": "Draft"
   }
 }

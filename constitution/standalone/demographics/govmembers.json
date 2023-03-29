@@ -1,0 +1,78 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+  "name": "Government Members",
+  "reference": false,
+  "description": null,
+  "properties": {
+    "BackupOwner": {
+      "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+      "name": "Everyone",
+      "reference": true
+    },
+    "Conditions": [
+      {
+        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+        "properties": {
+          "Titles": {
+            "type": "GamePickerList",
+            "mustDeriveType": {
+              "type": "Type",
+              "value": "Eco.Gameplay.Civics.Titles.Title"
+            },
+            "requiredTag": null,
+            "internalDescription": "<foldout><linktext><u>5 Titles</u></linktext><title>5 Titles</title><link=\"view:1666:105056\"><icon name=\"AppointedTitle\"><style=\"Government\">Federal Civil Servant</style></icon></link>\r\n<link=\"view:4198:105155\"><icon name=\"ElectedTitle\"><style=\"Government\">Federal President</style> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:1666:105071\"><icon name=\"AppointedTitle\"><style=\"Government\">Federal Secretary</style></icon></link>\r\n<link=\"view:4198:105153\"><icon name=\"ElectedTitle\"><style=\"Government\">Mayor of Unica</style> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:4198:105147\"><icon name=\"ElectedTitle\"><style=\"Government\">Members of Parliament</style> <style=\"InfoLight\">(draft)</style></icon></link></foldout>",
+            "entries": [
+              {
+                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                "name": "Federal Secretary",
+                "reference": true
+              },
+              {
+                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                "name": "Mayor of Unica",
+                "reference": true
+              },
+              {
+                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                "name": "Federal President",
+                "reference": true
+              },
+              {
+                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                "name": "Members of Parliament",
+                "reference": true
+              },
+              {
+                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                "name": "Federal Civil Servant",
+                "reference": true
+              }
+            ]
+          },
+          "Citizen": {
+            "type": "GameValueContext",
+            "_name": "Citizen",
+            "markedUpName": "<icon name=\"User\">Citizen</icon>",
+            "contextDescription": "The citizen being checked for this demographic."
+          },
+          "Requirements": "HasAll"
+        }
+      }
+    ],
+    "Wages": {
+      "type": "Eco.Gameplay.Economy.Jobs.RecurringTransferDefinition",
+      "reference": false,
+      "properties": {
+        "Currency": null,
+        "AmountPerHour": null,
+        "PaymentType": "OnlineAndOfflineHours"
+      }
+    },
+    "WagesSourceBankAccount": null,
+    "State": "Draft"
+  }
+}

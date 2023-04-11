@@ -4,13 +4,13 @@
     0
   ],
   "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-  "name": "Minister of Education",
+  "name": "Prime Minister",
   "reference": false,
-  "description": "TODO",
+  "description": null,
   "properties": {
     "ElectionProcess": {
       "type": "Eco.Gameplay.Civics.ElectionProcess",
-      "name": "Appointment by Prime Minister",
+      "name": "Parliament Vote",
       "reference": true
     },
     "EligibleCandidates": {
@@ -30,43 +30,15 @@
     "TotalTermsAllowed": 0,
     "ConsecutiveTermsAllowed": 0,
     "CanElectionsBeProposedDuringTerm": true,
-    "CanSetGlobalMarkers": false,
-    "CanSetGlobalObjective": false,
-    "CanSetTreasuryTaxes": false,
-    "CanUseTreasuryBankAccount": false,
-    "HasGovernmentBankingPrivileges": false,
+    "CanSetGlobalMarkers": true,
+    "CanSetGlobalObjective": true,
+    "CanSetTreasuryTaxes": true,
+    "CanUseTreasuryBankAccount": true,
+    "HasGovernmentBankingPrivileges": true,
     "RequiredOfOfficeHolders": {
       "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
       "properties": {
         "List": [
-          {
-            "type": "Eco.Gameplay.Civics.GameValues.Values.DemographicRequirements",
-            "properties": {
-              "Demographics": {
-                "type": "GamePickerList",
-                "mustDeriveType": {
-                  "type": "Type",
-                  "value": "Eco.Gameplay.Civics.Demographics.Demographic"
-                },
-                "requiredTag": null,
-                "internalDescription": "<link=\"view:1841:73700\"><ecoicon item=\"Demographic\"><style=\"Government\">Federal Judges</style></ecoicon></link>",
-                "entries": [
-                  {
-                    "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-                    "name": "Federal Judges",
-                    "reference": true
-                  }
-                ]
-              },
-              "Citizen": {
-                "type": "GameValueContext",
-                "_name": "Citizen",
-                "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The candidate or office holder.\r\n"
-              },
-              "Requirements": "HasNone"
-            }
-          },
           {
             "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
             "properties": {
@@ -77,36 +49,11 @@
                   "value": "Eco.Gameplay.Civics.Titles.Title"
                 },
                 "requiredTag": null,
-                "internalDescription": "<foldout><linktext><u>10 Titles</u></linktext><title>10 Titles</title><link=\"view:2604:73769\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Attorney General</style></ecoicon></link>\r\n<link=\"view:2604:73781\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Federal President</style></ecoicon></link>\r\n<link=\"view:1432:73687\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Federal Secretary</style></ecoicon></link>\r\n<link=\"view:2604:73768\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Governor of Altaica</style></ecoicon></link>\r\n<link=\"view:2604:73770\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Governor of Balica</style></ecoicon></link>\r\n<link=\"view:2604:73783\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Governor of Sondaica</style></ecoicon></link>\r\n<link=\"view:2604:73785\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Governor of Virgata</style></ecoicon></link>\r\n<link=\"view:2604:73784\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Mayor of Unica</style></ecoicon></link>\r\n<link=\"view:2604:73779\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Minister of Finance</style></ecoicon></link>\r\n<link=\"view:2604:73782\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Prime Minister</style></ecoicon></link></foldout>",
+                "internalDescription": "<foldout><linktext><u>10 Titles</u></linktext><title>10 Titles</title><link=\"view:2604:73769\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Attorney General</style></ecoicon></link>\r\n<link=\"view:2604:73781\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Federal President</style></ecoicon></link>\r\n<link=\"view:1432:73687\"><ecoicon item=\"AppointedTitle\"><style=\"Government\">Federal Secretary</style></ecoicon></link>\r\n<link=\"view:2604:73768\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Governor of Altaica</style></ecoicon></link>\r\n<link=\"view:2604:73770\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Governor of Balica</style></ecoicon></link>\r\n<link=\"view:2604:73783\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Governor of Sondaica</style></ecoicon></link>\r\n<link=\"view:2604:73785\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Governor of Virgata</style></ecoicon></link>\r\n<link=\"view:2604:73784\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Mayor of Unica</style></ecoicon></link>\r\n<link=\"view:2604:73778\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Minister of Education</style></ecoicon></link>\r\n<link=\"view:2604:73779\"><ecoicon item=\"ElectedTitle\"><style=\"Government\">Minister of Finance</style></ecoicon></link></foldout>",
                 "entries": [
-                  {
-                    "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                    "name": "Attorney General",
-                    "reference": true
-                  },
-                  {
-                    "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                    "name": "Governor of Balica",
-                    "reference": true
-                  },
-                  {
-                    "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                    "name": "Governor of Sondaica",
-                    "reference": true
-                  },
-                  {
-                    "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                    "name": "Governor of Virgata",
-                    "reference": true
-                  },
                   {
                     "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
                     "name": "Federal Secretary",
-                    "reference": true
-                  },
-                  {
-                    "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                    "name": "Governor of Altaica",
                     "reference": true
                   },
                   {
@@ -126,7 +73,7 @@
                   },
                   {
                     "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                    "name": "Prime Minister",
+                    "name": "Minister of Education",
                     "reference": true
                   }
                 ]

@@ -77,7 +77,7 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<link=\"view:1972:341294\"><icon name=\"AppointedTitle\"><style=\"Government\">Game Masters</style></icon></link>",
+                            "internalDescription": "<link=\"view:751:214751\"><icon name=\"AppointedTitle\"><style=\"Government\">Game Masters</style></icon></link>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
@@ -93,6 +93,34 @@
                             "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
                           },
                           "Requirements": "HasNone"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"PlaceOrPickUpObject\">Action Location</icon>",
+                            "contextDescription": "The position where the interaction took place."
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:3647:214794\"><icon name=\"District\"><color=#BEB769FF>Offices of the Governments of the States</color></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Offices of the Governments of the States",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "OutsideAll"
                         }
                       }
                     ],
@@ -149,7 +177,11 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.GovernmentOfficeItem"
+                            "value": "Eco.Mods.TechTree.CapitolItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ExecutiveOfficeItem"
                           },
                           {
                             "type": "Type",
@@ -161,19 +193,15 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.ExecutiveOfficeItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CapitolItem"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.CensusBureauItem"
                           },
                           {
                             "type": "Type",
                             "value": "Eco.Mods.TechTree.CourtItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.GovernmentOfficeItem"
                           }
                         ]
                       }
@@ -214,18 +242,8 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<foldout><linktext><u>4 Districts</u></linktext><title>4 Districts</title><link=\"view:3319:341424\"><icon name=\"District\"><color=#AB0300FF>Office of the Federal Government</color></icon></link>\r\n<link=\"view:3319:341423\"><icon name=\"District\"><color=#B27601FF>Office of the Government of Unica</color></icon></link>\r\n<link=\"view:3319:73401780\"><icon name=\"District\"><color=#BEB769FF>Offices of the Governments of the States</color></icon></link>\r\n<link=\"view:3319:341426\"><icon name=\"District\"><color=#3A1F00FF>The Capitol</color></icon></link></foldout>",
+                            "internalDescription": "<foldout><linktext><u>4 Districts</u></linktext><title>4 Districts</title><link=\"view:3647:214877\"><icon name=\"District\"><color=#AB0300FF>Office of the Federal Government</color></icon></link>\r\n<link=\"view:3647:214878\"><icon name=\"District\"><color=#B27601FF>Office of the Government of Unica</color></icon></link>\r\n<link=\"view:3647:214794\"><icon name=\"District\"><color=#BEB769FF>Offices of the Governments of the States</color></icon></link>\r\n<link=\"view:3647:214876\"><icon name=\"District\"><color=#3A1F00FF>The Capitol</color></icon></link></foldout>",
                             "entries": [
-                              {
-                                "type": "Eco.Gameplay.LegislationSystem.District",
-                                "name": "Office of the Government of Unica",
-                                "reference": true
-                              },
-                              {
-                                "type": "Eco.Gameplay.LegislationSystem.District",
-                                "name": "The Capitol",
-                                "reference": true
-                              },
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
                                 "name": "Offices of the Governments of the States",
@@ -233,7 +251,17 @@
                               },
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Office of the Government of Unica",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
                                 "name": "Office of the Federal Government",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "The Capitol",
                                 "reference": true
                               }
                             ]
@@ -251,7 +279,7 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<link=\"view:1972:341294\"><icon name=\"AppointedTitle\"><style=\"Government\">Game Masters</style></icon></link>",
+                            "internalDescription": "<link=\"view:751:214751\"><icon name=\"AppointedTitle\"><style=\"Government\">Game Masters</style></icon></link>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
@@ -327,11 +355,11 @@
                           },
                           {
                             "type": "Type",
-                            "value": "GarbageItem"
+                            "value": "Eco.Mods.TechTree.TailingsItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.TailingsItem"
+                            "value": "GarbageItem"
                           }
                         ]
                       }
@@ -396,7 +424,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<link=\"view:3319:12315789\"><icon name=\"District\"><color=#003CFFFF>Unica</color></icon></link>",
+                            "internalDescription": "<link=\"view:3647:214863\"><icon name=\"District\"><color=#003CFFFF>Unica</color></icon></link>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -519,11 +547,11 @@
                           },
                           {
                             "type": "Type",
-                            "value": "GarbageItem"
+                            "value": "Eco.Mods.TechTree.TailingsItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.TailingsItem"
+                            "value": "GarbageItem"
                           }
                         ]
                       }
@@ -546,19 +574,19 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.LumberStockpileItem"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.TinyStockpileItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.StockpileItem"
+                            "value": "Eco.Mods.TechTree.LargeLumberStockpileItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeLumberStockpileItem"
+                            "value": "Eco.Mods.TechTree.LumberStockpileItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.StockpileItem"
                           },
                           {
                             "type": "Type",
@@ -617,7 +645,7 @@
         "reference": false,
         "properties": {
           "Title": "Government Crafting Restrictions",
-          "UserDescription": "nobody may craft additional Capitols or Amendments.",
+          "UserDescription": "Nobody may craft Capitols.",
           "Triggers": [
             {
               "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
@@ -659,15 +687,11 @@
                           "value": "Eco.Gameplay.Items.Item"
                         },
                         "requiredTag": "Product",
-                        "internalDescription": "<b><link=\"TypeTooltip:1861\"><b><link=\"Item:CapitolItem\"><style=\"Item\"><ecoicon item=\"Capitol\">Capitol</ecoicon></style></link></b></link></b>, <b><link=\"TypeTooltip:359\"><b><link=\"Item:AmendmentsItem\"><style=\"Item\"><ecoicon item=\"Amendments\">Amendments</ecoicon></style></link></b></link></b>",
+                        "internalDescription": "<link=\"Item:CapitolItem\"><style=\"Item\"><icon name=\"CapitolItem\">Capitol</icon></style></link>",
                         "entries": [
                           {
                             "type": "Type",
                             "value": "Eco.Mods.TechTree.CapitolItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AmendmentsItem"
                           }
                         ]
                       }
@@ -732,7 +756,7 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<link=\"view:1972:341294\"><icon name=\"AppointedTitle\"><style=\"Government\">Game Masters</style></icon></link>",
+                            "internalDescription": "<link=\"view:751:214751\"><icon name=\"AppointedTitle\"><style=\"Government\">Game Masters</style></icon></link>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
@@ -771,6 +795,7 @@
           ]
         }
       }
-    ]
+    ],
+    "State": "Active"
   }
 }

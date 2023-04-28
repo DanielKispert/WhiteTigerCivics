@@ -172,20 +172,12 @@
                           "type": "Type",
                           "value": "Eco.Gameplay.Items.WorldObjectItem"
                         },
-                        "requiredTag": "Object",
-                        "internalDescription": "7 Product World Object Items",
+                        "requiredTag": null,
+                        "internalDescription": "<foldout><linktext><u>21 World Objects</u></linktext><title>21 World Objects</title><link=\"Item:AmendmentsItem\"><style=\"Item\"><icon name=\"AmendmentsItem\">Amendments</icon></style></link>\r\n<link=\"Item:BallotBoxItem\"><style=\"Item\"><icon name=\"BallotBoxItem\">Ballot Box</icon></style></link>\r\n<link=\"Item:BoardOfElectionsItem\"><style=\"Item\"><icon name=\"BoardOfElectionsItem\">Board Of Elections</icon></style></link>\r\n<link=\"Item:CapitolItem\"><style=\"Item\"><icon name=\"CapitolItem\">Capitol</icon></style></link>\r\n<link=\"Item:CensusBureauItem\"><style=\"Item\"><icon name=\"CensusBureauItem\">Census Bureau</icon></style></link>\r\n<link=\"Item:CountryFoundationItem\"><style=\"Item\"><icon name=\"CountryFoundationItem\">Country Foundation</icon></style></link>\r\n<link=\"Item:CourtItem\"><style=\"Item\"><icon name=\"CourtItem\">Court</icon></style></link>\r\n<link=\"Item:CourtTableItem\"><style=\"Item\"><icon name=\"CourtTableItem\">Court Table</icon></style></link>\r\n<link=\"Item:EmbassyDeskItem\"><style=\"Item\"><icon name=\"EmbassyDeskItem\">Embassy Desk</icon></style></link>\r\n<link=\"Item:ExecutiveOfficeItem\"><style=\"Item\"><icon name=\"ExecutiveOfficeItem\">Executive Office</icon></style></link>\r\n<link=\"Item:FederationFoundationItem\"><style=\"Item\"><icon name=\"FederationFoundationItem\">Federation Foundation</icon></style></link>\r\n<link=\"Item:GovernmentOfficeItem\"><style=\"Item\"><icon name=\"GovernmentOfficeItem\">Government Office</icon></style></link>\r\n<link=\"Item:ImmigrationDeskItem\"><style=\"Item\"><icon name=\"ImmigrationDeskItem\">Immigration Desk</icon></style></link>\r\n<link=\"Item:LargeCourtItem\"><style=\"Item\"><icon name=\"LargeCourtItem\">Large Court</icon></style></link>\r\n<link=\"Item:OutpostTableItem\"><style=\"Item\"><icon name=\"OutpostTableItem\">Outpost Table</icon></style></link>\r\n<link=\"Item:RealEstateDeskItem\"><style=\"Item\"><icon name=\"RealEstateDeskItem\">Real Estate Desk</icon></style></link>\r\n<link=\"Item:RegistrarItem\"><style=\"Item\"><icon name=\"RegistrarItem\">Registrar</icon></style></link>\r\n<link=\"Item:SmallCourtItem\"><style=\"Item\"><icon name=\"SmallCourtItem\">Small Court</icon></style></link>\r\n<link=\"Item:StenographersTableItem\"><style=\"Item\"><icon name=\"StenographersTableItem\">Stenographers Table</icon></style></link>\r\n<link=\"Item:TownFoundationItem\"><style=\"Item\"><icon name=\"TownFoundationItem\">Town Foundation</icon></style></link>\r\n<link=\"Item:ZoningOfficeItem\"><style=\"Item\"><icon name=\"ZoningOfficeItem\">Zoning Office</icon></style></link></foldout>",
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.CapitolItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.ExecutiveOfficeItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.BoardOfElectionsItem"
+                            "value": "Eco.Mods.TechTree.TownFoundationItem"
                           },
                           {
                             "type": "Type",
@@ -193,7 +185,59 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.CensusBureauItem"
+                            "value": "Eco.Mods.TechTree.GovernmentOfficeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AmendmentsItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallCourtItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BoardOfElectionsItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.OutpostTableItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.RegistrarItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.StenographersTableItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CountryFoundationItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ImmigrationDeskItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.EmbassyDeskItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ZoningOfficeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CapitolItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeCourtItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.RealEstateDeskItem"
                           },
                           {
                             "type": "Type",
@@ -201,7 +245,19 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.GovernmentOfficeItem"
+                            "value": "Eco.Mods.TechTree.CourtTableItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CensusBureauItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ExecutiveOfficeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.FederationFoundationItem"
                           }
                         ]
                       }
@@ -246,22 +302,22 @@
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
-                                "name": "Offices of the Governments of the States",
-                                "reference": true
-                              },
-                              {
-                                "type": "Eco.Gameplay.LegislationSystem.District",
-                                "name": "Office of the Government of Unica",
-                                "reference": true
-                              },
-                              {
-                                "type": "Eco.Gameplay.LegislationSystem.District",
                                 "name": "Office of the Federal Government",
                                 "reference": true
                               },
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
                                 "name": "The Capitol",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Offices of the Governments of the States",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Office of the Government of Unica",
                                 "reference": true
                               }
                             ]
@@ -351,15 +407,15 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.WetTailingsItem"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.TailingsItem"
                           },
                           {
                             "type": "Type",
                             "value": "GarbageItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WetTailingsItem"
                           }
                         ]
                       }
@@ -543,15 +599,15 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.WetTailingsItem"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.TailingsItem"
                           },
                           {
                             "type": "Type",
                             "value": "GarbageItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WetTailingsItem"
                           }
                         ]
                       }
@@ -574,11 +630,7 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.TinyStockpileItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeLumberStockpileItem"
+                            "value": "Eco.Mods.TechTree.StockpileItem"
                           },
                           {
                             "type": "Type",
@@ -586,7 +638,11 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.StockpileItem"
+                            "value": "Eco.Mods.TechTree.TinyStockpileItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeLumberStockpileItem"
                           },
                           {
                             "type": "Type",

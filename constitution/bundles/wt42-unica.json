@@ -17,7 +17,7 @@
       "managers": [
         {
           "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-          "name": "Unica Governor",
+          "name": "Governing Mayor for Unica",
           "reference": true
         },
         {
@@ -96,7 +96,7 @@
       "users": [
         {
           "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-          "name": "Unica Governor",
+          "name": "Governing Mayor for Unica",
           "reference": true
         }
       ],
@@ -7723,7 +7723,7 @@
       "type": "Eco.Gameplay.Civics.Laws.Law",
       "name": "[C] Unica Salary Legislation",
       "reference": false,
-      "description": "Every hour, every the unica governor gets a wage according to the index wage. The index wage is automatically adjusted based on inflation. Wages are paid out of the unica wages account so the Governor has to make sure to keep this account stocked up. Owed wages are tracked.\nThe governor also receive a pension that is based on the index wage as well. The longer they serve, the more pension they receive. Pension payments are capped at 70% of the index wage.",
+      "description": "Every hour, every the Governing Mayor for Unica gets a wage according to the index wage. The index wage is automatically adjusted based on inflation. Wages are paid out of the unica wages account so the Governor has to make sure to keep this account stocked up. Owed wages are tracked.\nThe governor also receive a pension that is based on the index wage as well. The longer they serve, the more pension they receive. Pension payments are capped at 70% of the index wage.",
       "properties": {
         "Sections": [
           {
@@ -7781,7 +7781,7 @@
                         "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
                         "reference": false,
                         "properties": {
-                          "Message": "The Unica Governor owes you this much wage:",
+                          "Message": "The Governing Mayor for Unica owes you this much wage:",
                           "NotificationType": "SideBarMessage",
                           "PeopleToSendTo": {
                             "type": "GameValueContext",
@@ -7833,7 +7833,7 @@
             "type": "Eco.Gameplay.Civics.Laws.LawSection",
             "reference": false,
             "properties": {
-              "Title": "Unica Governor Wage",
+              "Title": "Governing Mayor for Unica Wage",
               "UserDescription": "The Governor of Unica receives 55% of the Index Wage and 1.75% of that as pension.",
               "Triggers": [
                 {

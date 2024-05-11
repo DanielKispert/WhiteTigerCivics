@@ -613,875 +613,6 @@
         0
       ],
       "type": "Eco.Gameplay.Civics.Laws.Law",
-      "name": "[C] Unica Salary Legislation",
-      "reference": false,
-      "description": "Every hour, every the unica governor gets a wage according to the index wage. The index wage is automatically adjusted based on inflation. Wages are paid out of the unica wages account so the Governor has to make sure to keep this account stocked up. Owed wages are tracked.\nThe governor also receive a pension that is based on the index wage as well. The longer they serve, the more pension they receive. Pension payments are capped at 70% of the index wage.",
-      "properties": {
-        "Sections": [
-          {
-            "type": "Eco.Gameplay.Civics.Laws.LawSection",
-            "reference": false,
-            "properties": {
-              "Title": "Unica Owed Wages Check",
-              "UserDescription": "Wages that are not paid out are remembered and citizens can check how much wages the governor owes them with the !unicawagesowed chat command.",
-              "Triggers": [
-                {
-                  "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
-                  "reference": false,
-                  "properties": {
-                    "Trigger": {
-                      "type": "Type",
-                      "value": "Eco.Gameplay.GameActions.ChatSent"
-                    },
-                    "Configs": [
-                      {
-                        "type": "Eco.Gameplay.GameActions.SelectString",
-                        "typeToConfig": "Eco.Gameplay.GameActions.ChatSent",
-                        "propNameBacker": "Tag",
-                        "propDisplayName": "Tag",
-                        "properties": {
-                          "String": null
-                        }
-                      },
-                      {
-                        "type": "Eco.Gameplay.GameActions.SelectString",
-                        "typeToConfig": "Eco.Gameplay.GameActions.ChatSent",
-                        "propNameBacker": "Message",
-                        "propDisplayName": "Message",
-                        "properties": {
-                          "String": "!unicawagesowed"
-                        }
-                      }
-                    ]
-                  }
-                }
-              ],
-              "IfThenBlocks": [
-                {
-                  "type": "Eco.Gameplay.Civics.IfThenBlock",
-                  "reference": false,
-                  "properties": {
-                    "If": {
-                      "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
-                      "properties": {
-                        "List": [],
-                        "Comparison": "All"
-                      }
-                    },
-                    "Then": [
-                      {
-                        "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
-                        "reference": false,
-                        "properties": {
-                          "Message": "The Unica Governor owes you this much wage:",
-                          "NotificationType": "SideBarMessage",
-                          "PeopleToSendTo": {
-                            "type": "GameValueContext",
-                            "_name": "Citizen",
-                            "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                            "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
-                          },
-                          "ValueToDisplay": {
-                            "type": "Eco.Mods.SmartTax.OwedPayments",
-                            "properties": {
-                              "Currency": {
-                                "type": "GameValueWrapper",
-                                "value": {
-                                  "type": "Eco.Gameplay.Economy.Currency",
-                                  "name": "Euro",
-                                  "reference": true
-                                }
-                              },
-                              "Citizen": {
-                                "type": "GameValueContext",
-                                "_name": "Citizen",
-                                "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                                "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
-                              },
-                              "SourceAccount": {
-                                "type": "GameValueWrapper",
-                                "value": {
-                                  "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                                  "name": "# Unica Government Wages Fund",
-                                  "reference": true
-                                }
-                              }
-                            }
-                          },
-                          "LocationToDisplay": null,
-                          "InfoboxOnSuccess": {
-                            "type": "Eco.Gameplay.Civics.GameValues.No",
-                            "properties": {}
-                          }
-                        }
-                      }
-                    ]
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "type": "Eco.Gameplay.Civics.Laws.LawSection",
-            "reference": false,
-            "properties": {
-              "Title": "Unica Governor Wage",
-              "UserDescription": "The Governor of Unica receives 55% of the Index Wage and 1.75% of that as pension.",
-              "Triggers": [
-                {
-                  "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
-                  "reference": false,
-                  "properties": {
-                    "Trigger": {
-                      "type": "Type",
-                      "value": "Eco.Gameplay.GameActions.CitizenTimer"
-                    },
-                    "Configs": [
-                      {
-                        "type": "Eco.Gameplay.GameActions.CitizenTimerTriggerConfig",
-                        "typeToConfig": null,
-                        "propNameBacker": null,
-                        "propDisplayName": null,
-                        "properties": {
-                          "RepeatForEachCitizen": {
-                            "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                            "name": "Unica Governor",
-                            "reference": true
-                          },
-                          "HoursBetweenExecutions": 1.0
-                        }
-                      }
-                    ]
-                  }
-                }
-              ],
-              "IfThenBlocks": [
-                {
-                  "type": "Eco.Gameplay.Civics.IfThenBlock",
-                  "reference": false,
-                  "properties": {
-                    "If": {
-                      "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
-                      "properties": {
-                        "List": [],
-                        "Comparison": "All"
-                      }
-                    },
-                    "Then": [
-                      {
-                        "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
-                        "reference": false,
-                        "properties": {
-                          "SourceBankAccount": {
-                            "type": "GameValueWrapper",
-                            "value": {
-                              "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                              "name": "# Unica Government Wages Fund",
-                              "reference": true
-                            }
-                          },
-                          "Currency": {
-                            "type": "GameValueWrapper",
-                            "value": {
-                              "type": "Eco.Gameplay.Economy.Currency",
-                              "name": "Euro",
-                              "reference": true
-                            }
-                          },
-                          "Amount": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
-                            "properties": {
-                              "Number": {
-                                "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
-                                "properties": {
-                                  "CustomStatName": "indexWage",
-                                  "Settlement": {
-                                    "type": "GameValueWrapper",
-                                    "value": {
-                                      "type": "Eco.Gameplay.Settlements.Settlement",
-                                      "name": "The Federation of White Tiger",
-                                      "reference": true
-                                    }
-                                  },
-                                  "TimeRangeInHours": {
-                                    "type": "GameValueWrapper",
-                                    "value": 0.0
-                                  },
-                                  "TimeRangeType": "CountBackFromPresentTime",
-                                  "User": {
-                                    "type": "GameValueWrapper",
-                                    "value": {
-                                      "type": "Eco.Gameplay.Players.User",
-                                      "name": "White Tiger",
-                                      "reference": true
-                                    }
-                                  }
-                                }
-                              },
-                              "Percent": {
-                                "type": "GameValueWrapper",
-                                "value": 55.0
-                              }
-                            }
-                          },
-                          "Target": {
-                            "type": "GameValueContext",
-                            "_name": "Citizen",
-                            "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                            "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
-                          },
-                          "PaymentCode": "Federal Wage",
-                          "Silent": {
-                            "type": "Eco.Gameplay.Civics.GameValues.No",
-                            "properties": {}
-                          },
-                          "InfoboxOnSuccess": {
-                            "type": "Eco.Gameplay.Civics.GameValues.No",
-                            "properties": {}
-                          }
-                        }
-                      },
-                      {
-                        "type": "Eco.Gameplay.Civics.Laws.LegalActions.RecordCustomStat",
-                        "reference": false,
-                        "properties": {
-                          "StatName": "unicamiliPensionPerHour",
-                          "Person": {
-                            "type": "GameValueContext",
-                            "_name": "Citizen",
-                            "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                            "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
-                          },
-                          "Count": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
-                            "properties": {
-                              "LeftNumber": {
-                                "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
-                                "properties": {
-                                  "Number": {
-                                    "type": "GameValueWrapper",
-                                    "value": 17.5
-                                  },
-                                  "Percent": {
-                                    "type": "GameValueWrapper",
-                                    "value": 55.0
-                                  }
-                                }
-                              },
-                              "Operation": "Divide",
-                              "RightNumber": {
-                                "type": "GameValueWrapper",
-                                "value": 24.0
-                              }
-                            }
-                          },
-                          "DisplayResultToCitizen": false,
-                          "InfoboxOnSuccess": {
-                            "type": "Eco.Gameplay.Civics.GameValues.No",
-                            "properties": {}
-                          }
-                        }
-                      }
-                    ]
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "type": "Eco.Gameplay.Civics.Laws.LawSection",
-            "reference": false,
-            "properties": {
-              "Title": "Unica Retired Officials Wage",
-              "UserDescription": "Retired Unica Officials receive their pension. The pension is based on their wages and saved times 1000 to avoid rounding issues.",
-              "Triggers": [
-                {
-                  "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
-                  "reference": false,
-                  "properties": {
-                    "Trigger": {
-                      "type": "Type",
-                      "value": "Eco.Gameplay.GameActions.CitizenTimer"
-                    },
-                    "Configs": [
-                      {
-                        "type": "Eco.Gameplay.GameActions.CitizenTimerTriggerConfig",
-                        "typeToConfig": null,
-                        "propNameBacker": null,
-                        "propDisplayName": null,
-                        "properties": {
-                          "RepeatForEachCitizen": {
-                            "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-                            "name": "Everyone",
-                            "reference": true
-                          },
-                          "HoursBetweenExecutions": 1.0
-                        }
-                      }
-                    ]
-                  }
-                }
-              ],
-              "IfThenBlocks": [
-                {
-                  "type": "Eco.Gameplay.Civics.IfThenBlock",
-                  "reference": false,
-                  "properties": {
-                    "If": {
-                      "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
-                      "properties": {
-                        "List": [
-                          {
-                            "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
-                            "properties": {
-                              "Titles": {
-                                "type": "GamePickerList",
-                                "mustDeriveType": {
-                                  "type": "Type",
-                                  "value": "Eco.Gameplay.Civics.Titles.Title"
-                                },
-                                "requiredTag": null,
-                                "internalDescription": "<link=\"view:2592:336040\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Unica Governor</style></icon></link>",
-                                "entries": [
-                                  {
-                                    "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                                    "name": "Unica Governor",
-                                    "reference": true
-                                  }
-                                ]
-                              },
-                              "Citizen": {
-                                "type": "GameValueContext",
-                                "_name": "Citizen",
-                                "markedUpName": "<icon name=\"User\">Citizen</icon>",
-                                "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
-                              },
-                              "Requirements": "HasNone"
-                            }
-                          }
-                        ],
-                        "Comparison": "All"
-                      }
-                    },
-                    "Then": [
-                      {
-                        "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
-                        "reference": false,
-                        "properties": {
-                          "SourceBankAccount": {
-                            "type": "GameValueWrapper",
-                            "value": {
-                              "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                              "name": "# Unica Government Wages Fund",
-                              "reference": true
-                            }
-                          },
-                          "Currency": {
-                            "type": "GameValueWrapper",
-                            "value": {
-                              "type": "Eco.Gameplay.Economy.Currency",
-                              "name": "Euro",
-                              "reference": true
-                            }
-                          },
-                          "Amount": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
-                            "properties": {
-                              "LeftNumber": {
-                                "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
-                                "properties": {
-                                  "LeftNumber": {
-                                    "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
-                                    "properties": {
-                                      "LeftNumber": {
-                                        "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
-                                        "properties": {
-                                          "CustomStatName": "unicamiliPensionPerHour",
-                                          "Settlement": {
-                                            "type": "GameValueWrapper",
-                                            "value": {
-                                              "type": "Eco.Gameplay.Settlements.Settlement",
-                                              "name": "The State of Unica",
-                                              "reference": true
-                                            }
-                                          },
-                                          "TimeRangeInHours": {
-                                            "type": "GameValueWrapper",
-                                            "value": 0.0
-                                          },
-                                          "TimeRangeType": "CountBackFromPresentTime",
-                                          "User": {
-                                            "type": "GameValueContext",
-                                            "_name": "Citizen",
-                                            "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                                            "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
-                                          }
-                                        }
-                                      },
-                                      "Operation": "Multiply",
-                                      "RightNumber": {
-                                        "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
-                                        "properties": {
-                                          "CustomStatName": "indexWage",
-                                          "Settlement": {
-                                            "type": "GameValueWrapper",
-                                            "value": {
-                                              "type": "Eco.Gameplay.Settlements.Settlement",
-                                              "name": "The Federation of White Tiger",
-                                              "reference": true
-                                            }
-                                          },
-                                          "TimeRangeInHours": {
-                                            "type": "GameValueWrapper",
-                                            "value": 0.0
-                                          },
-                                          "TimeRangeType": "CountBackFromPresentTime",
-                                          "User": {
-                                            "type": "GameValueWrapper",
-                                            "value": {
-                                              "type": "Eco.Gameplay.Players.User",
-                                              "name": "White Tiger",
-                                              "reference": true
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "Operation": "Divide",
-                                  "RightNumber": {
-                                    "type": "GameValueWrapper",
-                                    "value": 1000.0
-                                  }
-                                }
-                              },
-                              "Operation": "AtMost",
-                              "RightNumber": {
-                                "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
-                                "properties": {
-                                  "Number": {
-                                    "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
-                                    "properties": {
-                                      "CustomStatName": "indexWage",
-                                      "Settlement": {
-                                        "type": "GameValueWrapper",
-                                        "value": {
-                                          "type": "Eco.Gameplay.Settlements.Settlement",
-                                          "name": "The Federation of White Tiger",
-                                          "reference": true
-                                        }
-                                      },
-                                      "TimeRangeInHours": {
-                                        "type": "GameValueWrapper",
-                                        "value": 0.0
-                                      },
-                                      "TimeRangeType": "CountBackFromPresentTime",
-                                      "User": {
-                                        "type": "GameValueWrapper",
-                                        "value": {
-                                          "type": "Eco.Gameplay.Players.User",
-                                          "name": "White Tiger",
-                                          "reference": true
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "Percent": {
-                                    "type": "GameValueWrapper",
-                                    "value": 75.0
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "Target": {
-                            "type": "GameValueContext",
-                            "_name": "Citizen",
-                            "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                            "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
-                          },
-                          "PaymentCode": "Unica Pension",
-                          "Silent": {
-                            "type": "Eco.Gameplay.Civics.GameValues.No",
-                            "properties": {}
-                          },
-                          "InfoboxOnSuccess": {
-                            "type": "Eco.Gameplay.Civics.GameValues.No",
-                            "properties": {}
-                          }
-                        }
-                      }
-                    ]
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "type": "Eco.Gameplay.Civics.Laws.LawSection",
-            "reference": false,
-            "properties": {
-              "Title": "Unica Pension Amount Check",
-              "UserDescription": "Citizens can enter !unicapension to see how much pension they accrued already.",
-              "Triggers": [
-                {
-                  "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
-                  "reference": false,
-                  "properties": {
-                    "Trigger": {
-                      "type": "Type",
-                      "value": "Eco.Gameplay.GameActions.ChatSent"
-                    },
-                    "Configs": [
-                      {
-                        "type": "Eco.Gameplay.GameActions.SelectString",
-                        "typeToConfig": "Eco.Gameplay.GameActions.ChatSent",
-                        "propNameBacker": "Tag",
-                        "propDisplayName": "Tag",
-                        "properties": {
-                          "String": null
-                        }
-                      },
-                      {
-                        "type": "Eco.Gameplay.GameActions.SelectString",
-                        "typeToConfig": "Eco.Gameplay.GameActions.ChatSent",
-                        "propNameBacker": "Message",
-                        "propDisplayName": "Message",
-                        "properties": {
-                          "String": "!unicapension"
-                        }
-                      }
-                    ]
-                  }
-                }
-              ],
-              "IfThenBlocks": [
-                {
-                  "type": "Eco.Gameplay.Civics.IfThenBlock",
-                  "reference": false,
-                  "properties": {
-                    "If": {
-                      "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
-                      "properties": {
-                        "List": [],
-                        "Comparison": "All"
-                      }
-                    },
-                    "Then": [
-                      {
-                        "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
-                        "reference": false,
-                        "properties": {
-                          "Message": "unica pension (% of index wage):",
-                          "NotificationType": "SideBarMessage",
-                          "PeopleToSendTo": {
-                            "type": "GameValueContext",
-                            "_name": "Citizen",
-                            "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                            "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
-                          },
-                          "ValueToDisplay": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
-                            "properties": {
-                              "LeftNumber": {
-                                "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
-                                "properties": {
-                                  "LeftNumber": {
-                                    "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
-                                    "properties": {
-                                      "CustomStatName": "unicamiliPensionPerHour",
-                                      "Settlement": {
-                                        "type": "GameValueWrapper",
-                                        "value": {
-                                          "type": "Eco.Gameplay.Settlements.Settlement",
-                                          "name": "The State of Unica",
-                                          "reference": true
-                                        }
-                                      },
-                                      "TimeRangeInHours": {
-                                        "type": "GameValueWrapper",
-                                        "value": 0.0
-                                      },
-                                      "TimeRangeType": "CountBackFromPresentTime",
-                                      "User": {
-                                        "type": "GameValueContext",
-                                        "_name": "Citizen",
-                                        "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                                        "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
-                                      }
-                                    }
-                                  },
-                                  "Operation": "Divide",
-                                  "RightNumber": {
-                                    "type": "GameValueWrapper",
-                                    "value": 1000.0
-                                  }
-                                }
-                              },
-                              "Operation": "AtMost",
-                              "RightNumber": {
-                                "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
-                                "properties": {
-                                  "Number": {
-                                    "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
-                                    "properties": {
-                                      "CustomStatName": "indexWage",
-                                      "Settlement": {
-                                        "type": "GameValueWrapper",
-                                        "value": {
-                                          "type": "Eco.Gameplay.Settlements.Settlement",
-                                          "name": "The Federation of White Tiger",
-                                          "reference": true
-                                        }
-                                      },
-                                      "TimeRangeInHours": {
-                                        "type": "GameValueWrapper",
-                                        "value": 0.0
-                                      },
-                                      "TimeRangeType": "CountBackFromPresentTime",
-                                      "User": {
-                                        "type": "GameValueWrapper",
-                                        "value": {
-                                          "type": "Eco.Gameplay.Players.User",
-                                          "name": "White Tiger",
-                                          "reference": true
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "Percent": {
-                                    "type": "GameValueWrapper",
-                                    "value": 75.0
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "LocationToDisplay": null,
-                          "InfoboxOnSuccess": {
-                            "type": "Eco.Gameplay.Civics.GameValues.No",
-                            "properties": {}
-                          }
-                        }
-                      }
-                    ]
-                  }
-                }
-              ]
-            }
-          }
-        ],
-        "State": "Active"
-      }
-    },
-    {
-      "version": [
-        1,
-        0
-      ],
-      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-      "name": "Governing Mayor for Unica",
-      "reference": false,
-      "description": null,
-      "properties": {
-        "ElectionProcess": {
-          "type": "Eco.Gameplay.Civics.ElectionProcess",
-          "name": "Unica State Election Process",
-          "reference": true
-        },
-        "EligibleCandidates": {
-          "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-          "name": "Citizens of The State of Unica",
-          "reference": true
-        },
-        "RequiredOfCandidates": {
-          "type": "Eco.Gameplay.Settlements.Civics.IsCitizenOfSettlement",
-          "properties": {
-            "CitizenshipType": "CommonCitizenship",
-            "Settlement": {
-              "type": "GameValueWrapper",
-              "value": {
-                "type": "Eco.Gameplay.Settlements.Settlement",
-                "name": "The State of Unica",
-                "reference": true
-              }
-            },
-            "Citizen": {
-              "type": "GameValueContext",
-              "_name": "Citizen",
-              "markedUpName": "<icon name=\"User\">Citizen</icon>",
-              "contextDescription": "<i>The citizen being checked for this demographic.</i>"
-            }
-          }
-        },
-        "MaxOccupants": 1,
-        "Successor": null,
-        "WhoCanRemoveFromOffice": {
-          "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-          "name": "Game Masters",
-          "reference": true
-        },
-        "TermLimitDays": 7.0,
-        "TotalTermsAllowed": 0,
-        "ConsecutiveTermsAllowed": 0,
-        "CanElectionsBeProposedDuringTerm": true,
-        "CanSetSettlementMarkers": true,
-        "CanSetGlobalObjective": false,
-        "CanSetTreasuryTaxes": true,
-        "CanUseTreasuryBankAccount": true,
-        "HasGovernmentBankingPrivileges": true,
-        "HasDiplomaticPrivileges": true,
-        "HasPropertyPrivileges": true,
-        "RequiredOfOfficeHolders": {
-          "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
-          "properties": {
-            "List": [
-              {
-                "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
-                "properties": {
-                  "Titles": {
-                    "type": "GamePickerList",
-                    "mustDeriveType": {
-                      "type": "Type",
-                      "value": "Eco.Gameplay.Civics.Titles.Title"
-                    },
-                    "requiredTag": null,
-                    "internalDescription": "<foldout><linktext><u>8 Titles</u></linktext><title>8 Titles</title><link=\"view:1237:107478\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">In Jail</style></icon></link>\r\n<link=\"view:2592:107578\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Members of Parliament</style></icon></link>\r\n<link=\"view:2592:107572\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Minister of Education</style></icon></link>\r\n<link=\"view:2592:107576\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Minister of Finance</style></icon></link>\r\n<link=\"view:2592:107568\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Minister of Infrastructure</style></icon></link>\r\n<link=\"view:2592:107574\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Prime Minister</style></icon></link>\r\n<link=\"view:2592:107570\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Secretary of Culture</style></icon></link>\r\n<link=\"view:1237:107502\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">State Official</style></icon></link></foldout>",
-                    "entries": [
-                      {
-                        "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                        "name": "Minister of Infrastructure",
-                        "reference": true
-                      },
-                      {
-                        "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                        "name": "Minister of Education",
-                        "reference": true
-                      },
-                      {
-                        "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                        "name": "Members of Parliament",
-                        "reference": true
-                      },
-                      {
-                        "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                        "name": "Minister of Finance",
-                        "reference": true
-                      },
-                      {
-                        "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                        "name": "Secretary of Culture",
-                        "reference": true
-                      },
-                      {
-                        "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                        "name": "In Jail",
-                        "reference": true
-                      },
-                      {
-                        "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                        "name": "State Official",
-                        "reference": true
-                      },
-                      {
-                        "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                        "name": "Prime Minister",
-                        "reference": true
-                      }
-                    ]
-                  },
-                  "Citizen": {
-                    "type": "GameValueContext",
-                    "_name": "Citizen",
-                    "markedUpName": "<icon name=\"User\">Citizen</icon>",
-                    "contextDescription": "<i>The candidate or office holder.</i>"
-                  },
-                  "Requirements": "HasNone"
-                }
-              },
-              {
-                "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
-                "properties": {
-                  "List": [
-                    {
-                      "type": "Eco.Gameplay.Civics.GameValues.Values.MatchesDemographic",
-                      "properties": {
-                        "Demographics": {
-                          "type": "GamePickerList",
-                          "mustDeriveType": {
-                            "type": "Type",
-                            "value": "Eco.Gameplay.Civics.Demographics.Demographic"
-                          },
-                          "requiredTag": null,
-                          "internalDescription": "<link=\"view:144:84952\"><icon name=\"Demographic\" type=\"\"><style=\"Government\">Active</style></icon></link>",
-                          "entries": [
-                            {
-                              "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-                              "name": "Active",
-                              "reference": true
-                            }
-                          ]
-                        },
-                        "Citizen": {
-                          "type": "GameValueContext",
-                          "_name": "Citizen",
-                          "markedUpName": "<icon name=\"User\">Citizen</icon>",
-                          "contextDescription": "<i>The candidate or office holder.</i>"
-                        },
-                        "Requirements": "HasAll"
-                      }
-                    },
-                    {
-                      "type": "Eco.Gameplay.Settlements.Civics.IsCitizenOfSettlement",
-                      "properties": {
-                        "CitizenshipType": "CommonCitizenship",
-                        "Settlement": {
-                          "type": "GameValueWrapper",
-                          "value": {
-                            "type": "Eco.Gameplay.Settlements.Settlement",
-                            "name": "The State of Unica",
-                            "reference": true
-                          }
-                        },
-                        "Citizen": {
-                          "type": "GameValueContext",
-                          "_name": "Citizen",
-                          "markedUpName": "<icon name=\"User\">Citizen</icon>",
-                          "contextDescription": "<i>The candidate or office holder.</i>"
-                        }
-                      }
-                    }
-                  ],
-                  "Comparison": "All"
-                }
-              }
-            ],
-            "Comparison": "All"
-          }
-        },
-        "BackupOwner": {
-          "type": "Eco.Gameplay.Civics.Demographics.Demographic",
-          "name": "Citizens of The State of Unica",
-          "reference": true
-        },
-        "Wages": {
-          "type": "Eco.Gameplay.Economy.Jobs.RecurringTransferDefinition",
-          "reference": false,
-          "properties": {
-            "Currency": null,
-            "AmountPerHour": null,
-            "PaymentType": "OnlineAndOfflineHours"
-          }
-        },
-        "WagesSourceBankAccount": null
-      }
-    },
-    {
-      "version": [
-        1,
-        0
-      ],
-      "type": "Eco.Gameplay.Civics.Laws.Law",
       "name": "[C] Unica Legislation",
       "reference": false,
       "description": null,
@@ -8368,6 +7499,875 @@
                         "properties": {
                           "InfoboxOnSuccess": {
                             "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                            "properties": {}
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "State": "Active"
+      }
+    },
+    {
+      "version": [
+        1,
+        0
+      ],
+      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+      "name": "Governing Mayor for Unica",
+      "reference": false,
+      "description": null,
+      "properties": {
+        "ElectionProcess": {
+          "type": "Eco.Gameplay.Civics.ElectionProcess",
+          "name": "Unica State Election Process",
+          "reference": true
+        },
+        "EligibleCandidates": {
+          "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+          "name": "Citizens of The State of Unica",
+          "reference": true
+        },
+        "RequiredOfCandidates": {
+          "type": "Eco.Gameplay.Settlements.Civics.IsCitizenOfSettlement",
+          "properties": {
+            "CitizenshipType": "CommonCitizenship",
+            "Settlement": {
+              "type": "GameValueWrapper",
+              "value": {
+                "type": "Eco.Gameplay.Settlements.Settlement",
+                "name": "The State of Unica",
+                "reference": true
+              }
+            },
+            "Citizen": {
+              "type": "GameValueContext",
+              "_name": "Citizen",
+              "markedUpName": "<icon name=\"User\">Citizen</icon>",
+              "contextDescription": "<i>The citizen being checked for this demographic.</i>"
+            }
+          }
+        },
+        "MaxOccupants": 1,
+        "Successor": null,
+        "WhoCanRemoveFromOffice": {
+          "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+          "name": "Game Masters",
+          "reference": true
+        },
+        "TermLimitDays": 7.0,
+        "TotalTermsAllowed": 0,
+        "ConsecutiveTermsAllowed": 0,
+        "CanElectionsBeProposedDuringTerm": true,
+        "CanSetSettlementMarkers": true,
+        "CanSetGlobalObjective": false,
+        "CanSetTreasuryTaxes": true,
+        "CanUseTreasuryBankAccount": true,
+        "HasGovernmentBankingPrivileges": true,
+        "HasDiplomaticPrivileges": true,
+        "HasPropertyPrivileges": true,
+        "RequiredOfOfficeHolders": {
+          "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+          "properties": {
+            "List": [
+              {
+                "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                "properties": {
+                  "Titles": {
+                    "type": "GamePickerList",
+                    "mustDeriveType": {
+                      "type": "Type",
+                      "value": "Eco.Gameplay.Civics.Titles.Title"
+                    },
+                    "requiredTag": null,
+                    "internalDescription": "<foldout><linktext><u>8 Titles</u></linktext><title>8 Titles</title><link=\"view:1237:107478\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">In Jail</style></icon></link>\r\n<link=\"view:2592:107578\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Members of Parliament</style></icon></link>\r\n<link=\"view:2592:107572\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Minister of Education</style></icon></link>\r\n<link=\"view:2592:107576\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Minister of Finance</style></icon></link>\r\n<link=\"view:2592:107568\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Minister of Infrastructure</style></icon></link>\r\n<link=\"view:2592:107574\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Prime Minister</style></icon></link>\r\n<link=\"view:2592:107570\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Secretary of Culture</style></icon></link>\r\n<link=\"view:1237:107502\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">State Official</style></icon></link></foldout>",
+                    "entries": [
+                      {
+                        "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                        "name": "Minister of Infrastructure",
+                        "reference": true
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                        "name": "Minister of Education",
+                        "reference": true
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                        "name": "Members of Parliament",
+                        "reference": true
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                        "name": "Minister of Finance",
+                        "reference": true
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                        "name": "Secretary of Culture",
+                        "reference": true
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                        "name": "In Jail",
+                        "reference": true
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                        "name": "State Official",
+                        "reference": true
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                        "name": "Prime Minister",
+                        "reference": true
+                      }
+                    ]
+                  },
+                  "Citizen": {
+                    "type": "GameValueContext",
+                    "_name": "Citizen",
+                    "markedUpName": "<icon name=\"User\">Citizen</icon>",
+                    "contextDescription": "<i>The candidate or office holder.</i>"
+                  },
+                  "Requirements": "HasNone"
+                }
+              },
+              {
+                "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                "properties": {
+                  "List": [
+                    {
+                      "type": "Eco.Gameplay.Civics.GameValues.Values.MatchesDemographic",
+                      "properties": {
+                        "Demographics": {
+                          "type": "GamePickerList",
+                          "mustDeriveType": {
+                            "type": "Type",
+                            "value": "Eco.Gameplay.Civics.Demographics.Demographic"
+                          },
+                          "requiredTag": null,
+                          "internalDescription": "<link=\"view:144:84952\"><icon name=\"Demographic\" type=\"\"><style=\"Government\">Active</style></icon></link>",
+                          "entries": [
+                            {
+                              "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                              "name": "Active",
+                              "reference": true
+                            }
+                          ]
+                        },
+                        "Citizen": {
+                          "type": "GameValueContext",
+                          "_name": "Citizen",
+                          "markedUpName": "<icon name=\"User\">Citizen</icon>",
+                          "contextDescription": "<i>The candidate or office holder.</i>"
+                        },
+                        "Requirements": "HasAll"
+                      }
+                    },
+                    {
+                      "type": "Eco.Gameplay.Settlements.Civics.IsCitizenOfSettlement",
+                      "properties": {
+                        "CitizenshipType": "CommonCitizenship",
+                        "Settlement": {
+                          "type": "GameValueWrapper",
+                          "value": {
+                            "type": "Eco.Gameplay.Settlements.Settlement",
+                            "name": "The State of Unica",
+                            "reference": true
+                          }
+                        },
+                        "Citizen": {
+                          "type": "GameValueContext",
+                          "_name": "Citizen",
+                          "markedUpName": "<icon name=\"User\">Citizen</icon>",
+                          "contextDescription": "<i>The candidate or office holder.</i>"
+                        }
+                      }
+                    }
+                  ],
+                  "Comparison": "All"
+                }
+              }
+            ],
+            "Comparison": "All"
+          }
+        },
+        "BackupOwner": {
+          "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+          "name": "Citizens of The State of Unica",
+          "reference": true
+        },
+        "Wages": {
+          "type": "Eco.Gameplay.Economy.Jobs.RecurringTransferDefinition",
+          "reference": false,
+          "properties": {
+            "Currency": null,
+            "AmountPerHour": null,
+            "PaymentType": "OnlineAndOfflineHours"
+          }
+        },
+        "WagesSourceBankAccount": null
+      }
+    },
+    {
+      "version": [
+        1,
+        0
+      ],
+      "type": "Eco.Gameplay.Civics.Laws.Law",
+      "name": "[C] Unica Salary Legislation",
+      "reference": false,
+      "description": "Every hour, every the unica governor gets a wage according to the index wage. The index wage is automatically adjusted based on inflation. Wages are paid out of the unica wages account so the Governor has to make sure to keep this account stocked up. Owed wages are tracked.\nThe governor also receive a pension that is based on the index wage as well. The longer they serve, the more pension they receive. Pension payments are capped at 70% of the index wage.",
+      "properties": {
+        "Sections": [
+          {
+            "type": "Eco.Gameplay.Civics.Laws.LawSection",
+            "reference": false,
+            "properties": {
+              "Title": "Unica Owed Wages Check",
+              "UserDescription": "Wages that are not paid out are remembered and citizens can check how much wages the governor owes them with the !unicawagesowed chat command.",
+              "Triggers": [
+                {
+                  "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+                  "reference": false,
+                  "properties": {
+                    "Trigger": {
+                      "type": "Type",
+                      "value": "Eco.Gameplay.GameActions.ChatSent"
+                    },
+                    "Configs": [
+                      {
+                        "type": "Eco.Gameplay.GameActions.SelectString",
+                        "typeToConfig": "Eco.Gameplay.GameActions.ChatSent",
+                        "propNameBacker": "Tag",
+                        "propDisplayName": "Tag",
+                        "properties": {
+                          "String": null
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.GameActions.SelectString",
+                        "typeToConfig": "Eco.Gameplay.GameActions.ChatSent",
+                        "propNameBacker": "Message",
+                        "propDisplayName": "Message",
+                        "properties": {
+                          "String": "!unicawagesowed"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "IfThenBlocks": [
+                {
+                  "type": "Eco.Gameplay.Civics.IfThenBlock",
+                  "reference": false,
+                  "properties": {
+                    "If": {
+                      "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                      "properties": {
+                        "List": [],
+                        "Comparison": "All"
+                      }
+                    },
+                    "Then": [
+                      {
+                        "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
+                        "reference": false,
+                        "properties": {
+                          "Message": "The Unica Governor owes you this much wage:",
+                          "NotificationType": "SideBarMessage",
+                          "PeopleToSendTo": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                            "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                          },
+                          "ValueToDisplay": {
+                            "type": "Eco.Mods.SmartTax.OwedPayments",
+                            "properties": {
+                              "Currency": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.Currency",
+                                  "name": "Euro",
+                                  "reference": true
+                                }
+                              },
+                              "Citizen": {
+                                "type": "GameValueContext",
+                                "_name": "Citizen",
+                                "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                              },
+                              "SourceAccount": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                  "name": "# Unica Government Wages Fund",
+                                  "reference": true
+                                }
+                              }
+                            }
+                          },
+                          "LocationToDisplay": null,
+                          "InfoboxOnSuccess": {
+                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                            "properties": {}
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "Eco.Gameplay.Civics.Laws.LawSection",
+            "reference": false,
+            "properties": {
+              "Title": "Unica Governor Wage",
+              "UserDescription": "The Governor of Unica receives 55% of the Index Wage and 1.75% of that as pension.",
+              "Triggers": [
+                {
+                  "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+                  "reference": false,
+                  "properties": {
+                    "Trigger": {
+                      "type": "Type",
+                      "value": "Eco.Gameplay.GameActions.CitizenTimer"
+                    },
+                    "Configs": [
+                      {
+                        "type": "Eco.Gameplay.GameActions.CitizenTimerTriggerConfig",
+                        "typeToConfig": null,
+                        "propNameBacker": null,
+                        "propDisplayName": null,
+                        "properties": {
+                          "RepeatForEachCitizen": {
+                            "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                            "name": "Governing Mayor for Unica",
+                            "reference": true
+                          },
+                          "HoursBetweenExecutions": 1.0
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "IfThenBlocks": [
+                {
+                  "type": "Eco.Gameplay.Civics.IfThenBlock",
+                  "reference": false,
+                  "properties": {
+                    "If": {
+                      "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                      "properties": {
+                        "List": [],
+                        "Comparison": "All"
+                      }
+                    },
+                    "Then": [
+                      {
+                        "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                        "reference": false,
+                        "properties": {
+                          "SourceBankAccount": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                              "name": "# Unica Government Wages Fund",
+                              "reference": true
+                            }
+                          },
+                          "Currency": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Economy.Currency",
+                              "name": "Euro",
+                              "reference": true
+                            }
+                          },
+                          "Amount": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                            "properties": {
+                              "Number": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                "properties": {
+                                  "CustomStatName": "indexWage",
+                                  "Settlement": {
+                                    "type": "GameValueWrapper",
+                                    "value": {
+                                      "type": "Eco.Gameplay.Settlements.Settlement",
+                                      "name": "The Federation of White Tiger",
+                                      "reference": true
+                                    }
+                                  },
+                                  "TimeRangeInHours": {
+                                    "type": "GameValueWrapper",
+                                    "value": 0.0
+                                  },
+                                  "TimeRangeType": "CountBackFromPresentTime",
+                                  "User": {
+                                    "type": "GameValueWrapper",
+                                    "value": {
+                                      "type": "Eco.Gameplay.Players.User",
+                                      "name": "White Tiger",
+                                      "reference": true
+                                    }
+                                  }
+                                }
+                              },
+                              "Percent": {
+                                "type": "GameValueWrapper",
+                                "value": 55.0
+                              }
+                            }
+                          },
+                          "Target": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                            "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                          },
+                          "PaymentCode": "Federal Wage",
+                          "Silent": {
+                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                            "properties": {}
+                          },
+                          "InfoboxOnSuccess": {
+                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                            "properties": {}
+                          }
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.Laws.LegalActions.RecordCustomStat",
+                        "reference": false,
+                        "properties": {
+                          "StatName": "unicamiliPensionPerHour",
+                          "Person": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                            "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                          },
+                          "Count": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                            "properties": {
+                              "LeftNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                "properties": {
+                                  "Number": {
+                                    "type": "GameValueWrapper",
+                                    "value": 17.5
+                                  },
+                                  "Percent": {
+                                    "type": "GameValueWrapper",
+                                    "value": 55.0
+                                  }
+                                }
+                              },
+                              "Operation": "Divide",
+                              "RightNumber": {
+                                "type": "GameValueWrapper",
+                                "value": 24.0
+                              }
+                            }
+                          },
+                          "DisplayResultToCitizen": false,
+                          "InfoboxOnSuccess": {
+                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                            "properties": {}
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "Eco.Gameplay.Civics.Laws.LawSection",
+            "reference": false,
+            "properties": {
+              "Title": "Unica Retired Officials Wage",
+              "UserDescription": "Retired Unica Officials receive their pension. The pension is based on their wages and saved times 1000 to avoid rounding issues.",
+              "Triggers": [
+                {
+                  "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+                  "reference": false,
+                  "properties": {
+                    "Trigger": {
+                      "type": "Type",
+                      "value": "Eco.Gameplay.GameActions.CitizenTimer"
+                    },
+                    "Configs": [
+                      {
+                        "type": "Eco.Gameplay.GameActions.CitizenTimerTriggerConfig",
+                        "typeToConfig": null,
+                        "propNameBacker": null,
+                        "propDisplayName": null,
+                        "properties": {
+                          "RepeatForEachCitizen": {
+                            "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                            "name": "Everyone",
+                            "reference": true
+                          },
+                          "HoursBetweenExecutions": 1.0
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "IfThenBlocks": [
+                {
+                  "type": "Eco.Gameplay.Civics.IfThenBlock",
+                  "reference": false,
+                  "properties": {
+                    "If": {
+                      "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                      "properties": {
+                        "List": [
+                          {
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                            "properties": {
+                              "Titles": {
+                                "type": "GamePickerList",
+                                "mustDeriveType": {
+                                  "type": "Type",
+                                  "value": "Eco.Gameplay.Civics.Titles.Title"
+                                },
+                                "requiredTag": null,
+                                "internalDescription": "<link=\"view:2623:208274\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Governing Mayor for Unica</style></icon></link>",
+                                "entries": [
+                                  {
+                                    "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                                    "name": "Governing Mayor for Unica",
+                                    "reference": true
+                                  }
+                                ]
+                              },
+                              "Citizen": {
+                                "type": "GameValueContext",
+                                "_name": "Citizen",
+                                "markedUpName": "<icon name=\"User\">Citizen</icon>",
+                                "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                              },
+                              "Requirements": "HasNone"
+                            }
+                          }
+                        ],
+                        "Comparison": "All"
+                      }
+                    },
+                    "Then": [
+                      {
+                        "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                        "reference": false,
+                        "properties": {
+                          "SourceBankAccount": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                              "name": "# Unica Government Wages Fund",
+                              "reference": true
+                            }
+                          },
+                          "Currency": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Economy.Currency",
+                              "name": "Euro",
+                              "reference": true
+                            }
+                          },
+                          "Amount": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                            "properties": {
+                              "LeftNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                "properties": {
+                                  "LeftNumber": {
+                                    "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                    "properties": {
+                                      "LeftNumber": {
+                                        "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                        "properties": {
+                                          "CustomStatName": "unicamiliPensionPerHour",
+                                          "Settlement": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Settlements.Settlement",
+                                              "name": "The State of Unica",
+                                              "reference": true
+                                            }
+                                          },
+                                          "TimeRangeInHours": {
+                                            "type": "GameValueWrapper",
+                                            "value": 0.0
+                                          },
+                                          "TimeRangeType": "CountBackFromPresentTime",
+                                          "User": {
+                                            "type": "GameValueContext",
+                                            "_name": "Citizen",
+                                            "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                            "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                                          }
+                                        }
+                                      },
+                                      "Operation": "Multiply",
+                                      "RightNumber": {
+                                        "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                        "properties": {
+                                          "CustomStatName": "indexWage",
+                                          "Settlement": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Settlements.Settlement",
+                                              "name": "The Federation of White Tiger",
+                                              "reference": true
+                                            }
+                                          },
+                                          "TimeRangeInHours": {
+                                            "type": "GameValueWrapper",
+                                            "value": 0.0
+                                          },
+                                          "TimeRangeType": "CountBackFromPresentTime",
+                                          "User": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Players.User",
+                                              "name": "White Tiger",
+                                              "reference": true
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "Operation": "Divide",
+                                  "RightNumber": {
+                                    "type": "GameValueWrapper",
+                                    "value": 1000.0
+                                  }
+                                }
+                              },
+                              "Operation": "AtMost",
+                              "RightNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                "properties": {
+                                  "Number": {
+                                    "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                    "properties": {
+                                      "CustomStatName": "indexWage",
+                                      "Settlement": {
+                                        "type": "GameValueWrapper",
+                                        "value": {
+                                          "type": "Eco.Gameplay.Settlements.Settlement",
+                                          "name": "The Federation of White Tiger",
+                                          "reference": true
+                                        }
+                                      },
+                                      "TimeRangeInHours": {
+                                        "type": "GameValueWrapper",
+                                        "value": 0.0
+                                      },
+                                      "TimeRangeType": "CountBackFromPresentTime",
+                                      "User": {
+                                        "type": "GameValueWrapper",
+                                        "value": {
+                                          "type": "Eco.Gameplay.Players.User",
+                                          "name": "White Tiger",
+                                          "reference": true
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "Percent": {
+                                    "type": "GameValueWrapper",
+                                    "value": 75.0
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "Target": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                            "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen currently being processed for the timer event.\r\n"
+                          },
+                          "PaymentCode": "Unica Pension",
+                          "Silent": {
+                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                            "properties": {}
+                          },
+                          "InfoboxOnSuccess": {
+                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                            "properties": {}
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "Eco.Gameplay.Civics.Laws.LawSection",
+            "reference": false,
+            "properties": {
+              "Title": "Unica Pension Amount Check",
+              "UserDescription": "Citizens can enter !unicapension to see how much pension they accrued already.",
+              "Triggers": [
+                {
+                  "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+                  "reference": false,
+                  "properties": {
+                    "Trigger": {
+                      "type": "Type",
+                      "value": "Eco.Gameplay.GameActions.ChatSent"
+                    },
+                    "Configs": [
+                      {
+                        "type": "Eco.Gameplay.GameActions.SelectString",
+                        "typeToConfig": "Eco.Gameplay.GameActions.ChatSent",
+                        "propNameBacker": "Tag",
+                        "propDisplayName": "Tag",
+                        "properties": {
+                          "String": null
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.GameActions.SelectString",
+                        "typeToConfig": "Eco.Gameplay.GameActions.ChatSent",
+                        "propNameBacker": "Message",
+                        "propDisplayName": "Message",
+                        "properties": {
+                          "String": "!unicapension"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "IfThenBlocks": [
+                {
+                  "type": "Eco.Gameplay.Civics.IfThenBlock",
+                  "reference": false,
+                  "properties": {
+                    "If": {
+                      "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                      "properties": {
+                        "List": [],
+                        "Comparison": "All"
+                      }
+                    },
+                    "Then": [
+                      {
+                        "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
+                        "reference": false,
+                        "properties": {
+                          "Message": "unica pension (% of index wage):",
+                          "NotificationType": "SideBarMessage",
+                          "PeopleToSendTo": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                            "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                          },
+                          "ValueToDisplay": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                            "properties": {
+                              "LeftNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                "properties": {
+                                  "LeftNumber": {
+                                    "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                    "properties": {
+                                      "CustomStatName": "unicamiliPensionPerHour",
+                                      "Settlement": {
+                                        "type": "GameValueWrapper",
+                                        "value": {
+                                          "type": "Eco.Gameplay.Settlements.Settlement",
+                                          "name": "The State of Unica",
+                                          "reference": true
+                                        }
+                                      },
+                                      "TimeRangeInHours": {
+                                        "type": "GameValueWrapper",
+                                        "value": 0.0
+                                      },
+                                      "TimeRangeType": "CountBackFromPresentTime",
+                                      "User": {
+                                        "type": "GameValueContext",
+                                        "_name": "Citizen",
+                                        "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
+                                        "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
+                                      }
+                                    }
+                                  },
+                                  "Operation": "Divide",
+                                  "RightNumber": {
+                                    "type": "GameValueWrapper",
+                                    "value": 1000.0
+                                  }
+                                }
+                              },
+                              "Operation": "AtMost",
+                              "RightNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                "properties": {
+                                  "Number": {
+                                    "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                    "properties": {
+                                      "CustomStatName": "indexWage",
+                                      "Settlement": {
+                                        "type": "GameValueWrapper",
+                                        "value": {
+                                          "type": "Eco.Gameplay.Settlements.Settlement",
+                                          "name": "The Federation of White Tiger",
+                                          "reference": true
+                                        }
+                                      },
+                                      "TimeRangeInHours": {
+                                        "type": "GameValueWrapper",
+                                        "value": 0.0
+                                      },
+                                      "TimeRangeType": "CountBackFromPresentTime",
+                                      "User": {
+                                        "type": "GameValueWrapper",
+                                        "value": {
+                                          "type": "Eco.Gameplay.Players.User",
+                                          "name": "White Tiger",
+                                          "reference": true
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "Percent": {
+                                    "type": "GameValueWrapper",
+                                    "value": 75.0
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "LocationToDisplay": null,
+                          "InfoboxOnSuccess": {
+                            "type": "Eco.Gameplay.Civics.GameValues.No",
                             "properties": {}
                           }
                         }
